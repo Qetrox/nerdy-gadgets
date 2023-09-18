@@ -15,6 +15,6 @@ jobs:
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
         server: web0156.zxcs.nl
-        username: u127250p176374
+        username: git@nerdy-gadgets.nl
         password: ${{ secrets.ftp_password }}
         server-dir: /domains/nerdy-gadgets.nl/public_html/
