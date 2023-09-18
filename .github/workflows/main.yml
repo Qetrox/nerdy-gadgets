@@ -16,5 +16,5 @@ jobs:
       with:
         server: web0156.zxcs.nl
         username: git@nerdy-gadgets.nl
-        password: ${{ secrets.ftp_password }}
+        password: nerdygadgetsiscool
         server-dir: /domains/nerdy-gadgets.nl/public_html/
