@@ -14,7 +14,7 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
-        server: web0156.zxcs.nl
+        server: web0157.zxcs.nl
         username: git@nerdy-gadgets.nl
         password: nerdygadgetsiscool
         server-dir: /domains/nerdy-gadgets.nl/public_html/
