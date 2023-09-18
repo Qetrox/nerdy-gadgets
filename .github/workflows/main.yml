@@ -17,4 +17,4 @@ jobs:
         server: web0157.zxcs.nl
         username: git@nerdy-gadgets.nl
         password: nerdygadgetsiscool
-        server-dir: /domains/nerdy-gadgets.nl/public_html/
+        server-dir: /
