@@ -41,7 +41,7 @@ footer {
     height: calc(10vh + 10px);
     text-align: center;
     align-items: center;
-    transition: 200ms ease-in-out;
+    transition: 100ms ease-in-out;
 }
 
 .mobile-nav-item {
@@ -54,10 +54,15 @@ footer {
     left: 0;
 }
 
+.mobile-show {
+    visibility: hidden;
+    position: absolute;
+}
+
 .nav-item {
     font-size: 3vh;
     height: 100%;
-    transition: 500ms ease-in-out;
+    transition: 100ms ease-in-out;
 }
 
 .nav-searchbar input{
@@ -86,11 +91,11 @@ footer {
 }
 
 .navbar a:hover {
-    background-color: rgba(0, 0, 0, 0.2);
-    border-radius: 30px;
+    border-bottom: 5px solid #EEEEEE;
+    transition: 100ms ease-in-out;
     .nav-item {
         transform: translate(0px, -5px);
-        transition: 500ms ease-in-out;
+        transition: 100ms ease-in-out;
     }
 }
 
@@ -111,6 +116,56 @@ footer {
     border-top: 5px solid #21212F;
 }
 
+.best-sellers {
+    text-align: center;
+    font-size: 1.5vw;
+}
+
+.bs-list {
+    font-size: 1vw;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.bs img {
+    width: inherit;
+}
+
+.bs {
+    margin: 4vh 1vw;
+    width: 25vw;
+    height: 30vw;
+    overflow: hidden;
+    background-color: #EEEEEE;
+    text-align: center;
+    border-radius: 10%;
+    color: #212121;
+    box-shadow: 10px 10px 15px rgba(12, 12, 12, 0.7);
+    transition: 200ms ease-in-out;
+}
+
+.bs:hover {
+    box-shadow: 15px 15px 20px rgba(12, 12, 12, 0.7);
+    transition: 200ms ease-in-out;
+}
+
+.bs h1 {
+    text-align: left;
+    margin-left: 2vw;
+}
+
+.bs p {
+    text-align: left;
+    margin: 10px 10px;
+}
+
+.bs .euro-text {
+    color: rgba(0, 0, 0, 0.7);
+    float: right;
+    margin-right: 2vw;
+}
 
 .main-menu-display h1{
     font-size: 5vw;
@@ -122,8 +177,56 @@ footer {
         visibility: hidden;
     }
 
+    .mobile-show {
+        visibility: visible;
+        position: absolute;
+        top: 0.5vh;
+        margin: 0;
+    }
+
     .navbar .nav-logo a {
         visibility: hidden;
+    }
+
+    .best-sellers {
+        text-align: center;
+        font-size: 5vw;
+    }
+
+    .bs-list {
+        font-size: 1vw;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .bs img {
+        width: inherit;
+    }
+
+    .bs {
+        margin: 1vh 0vw;
+        width: 90vw;
+        height: 105vw;
+    }
+
+    .bs h1 {
+        font-size: 5vw;
+        text-align: left;
+        margin-left: 10vw;
+    }
+
+    .bs p {
+        text-align: left;
+        margin: 10px 10px;
+        font-size: 4vw;
+    }
+
+    .bs .euro-text {
+        color: rgba(0, 0, 0, 0.7);
+        float: right;
+        margin-right: 10vw;
     }
 
     .main-menu-display {
@@ -153,7 +256,7 @@ footer {
         display: flex;
         flex-direction: column;
         align-items: center;
-        height: 10vh;
+        height: 15vh;
         padding: 0;
         margin: 0;
     }
@@ -207,6 +310,7 @@ footer {
         border: 0px;
         box-sizing: border-box;
         text-align: center;
+        border-radius: 100px 20px;
     }
 
     .material-symbols-sharp {

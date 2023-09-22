@@ -37,6 +37,7 @@
                 <form action="./search/" method="get">
                     <input type="text" name="query" id="query" placeholder="Zoek een product">
                 </form>
+                <h1 class="mobile-show">Nerdy Gadgets</h1>
             </div>
             <a href="./">
                 <div class="nav-item">
@@ -56,7 +57,47 @@
             <div class="background"></div>
         </div>
         <div class="best-sellers">
-            <h1>Nerdy-Gadgets.nl Best Sellers</h1>
+            <h1>Best Sellers - Aanraders!</h1>
+            <p>Dit zijn onze best verkochte producten.<br>Bekijk ze eens, misschien zit er wel iets tussen voor jou!</p>
+            <div class="bs-list">
+
+                <div class="bs">
+                    <h1>Dit ene product <span class="euro-text">€10</span> </h1>
+                    <img src="./images/mainFrame.png" alt="foto">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet dictum sit amet. Nisl purus in mollis nunc sed id semper. Sit amet mattis vulputate enim nulla. </p>
+                </div>
+
+                <div class="bs">
+                    <h1>Dit ene product <span class="euro-text">€10</span> </h1>
+                    <img src="./images/mainFrame.png" alt="foto">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet dictum sit amet. Nisl purus in mollis nunc sed id semper. Sit amet mattis vulputate enim nulla. </p>
+                </div>
+
+                <div class="bs">
+                    <h1>Dit ene product <span class="euro-text">€10</span> </h1>
+                    <img src="./images/mainFrame.png" alt="foto">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet dictum sit amet. Nisl purus in mollis nunc sed id semper. Sit amet mattis vulputate enim nulla. </p>
+                </div>
+
+                <div class="bs">
+                    <h1>Dit ene product <span class="euro-text">€10</span> </h1>
+                    <img src="./images/mainFrame.png" alt="foto">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet dictum sit amet. Nisl purus in mollis nunc sed id semper. Sit amet mattis vulputate enim nulla. </p>
+                </div>
+
+                <div class="bs">
+                    <h1>Dit ene product <span class="euro-text">€10</span> </h1>
+                    <img src="./images/mainFrame.png" alt="foto">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet dictum sit amet. Nisl purus in mollis nunc sed id semper. Sit amet mattis vulputate enim nulla. </p>
+                </div>
+
+                <div class="bs">
+                    <h1>Dit ene product <span class="euro-text">€10</span> </h1>
+                    <img src="./images/mainFrame.png" alt="foto">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet dictum sit amet. Nisl purus in mollis nunc sed id semper. Sit amet mattis vulputate enim nulla. </p>
+                </div>
+
+            </div>
         </div>
 
     </main>
@@ -86,31 +127,6 @@
         </div>
     </footer>
 </body>
-<script>
-    let i = 0;
-    const options = [
-        'Gadgets Voor de Echte Nerds.', //1
-        'Nerd Certified.', //2
-        'Voor de Tech-Lovers.', //3
-        'Voor Nerds, Door Nerds.', //4
-        'Wat heeft een Nerd niet Nodig?', //5
-        'De Beste Winkel voor Nerds.', //6
-        'Wordt ook een Nerd!', //7
-        'De Beste Kwaliteit Gadgets.', //8
-        'Nerds zijn cool, Gadgets nog cooler.', //9
-        'Geen Boeken, Maar Gadgets.', //10
-    ];
-    const number = Math.floor(Math.random() * 10);
-    const string = options[number];
-
-    function typeWriter() {
-        if (i < string.length) {
-            document.getElementById("typewriter").innerHTML += string.charAt(i);
-            i++;
-            setTimeout(typeWriter, 50);
-        }
-    }
-    typeWriter()
-</script>
+<script src="typewriter.js"></script>
 
 </html>
