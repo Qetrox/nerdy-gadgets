@@ -26,31 +26,38 @@
     <header>
         <div class="navbar">
             <div class="nav-logo">
-                <img src="images/logo_small.png" alt="logo" height="100%">
+                <img src="images/logo_small_white.png" alt="logo" height="100%">
             </div>
             <a href="./">
                 <div class="nav-item">
-                    <p>NERDY-GADGETS</p>
+                    <p><span class="material-symbols-sharp">home</span>NERDY-GADGETS</p>
                 </div>
             </a>
             <div class="nav-searchbar">
-                <form action="./search" method="get">
+                <form action="./search/" method="get">
                     <input type="text" name="query" id="query" placeholder="Zoek een product">
                 </form>
             </div>
             <a href="./">
                 <div class="nav-item">
-                    <p>WINKELWAGEN</p>
+                    <p><span class="material-symbols-sharp">shopping_cart</span>WINKELWAGEN</p>
                 </div>
             </a>
             <a href="./">
                 <div class="nav-item">
-                    <p>ACCOUNT</p>
+                    <p><span class="material-symbols-sharp">account_circle</span>ACCOUNT</p>
                 </div>
             </a>
         </div>
     </header>
     <main> <!-- Hier de content van de pagina in doen :) -->
+        <div class="main-menu-display">
+            <h1 id="typewriter"></h1>
+            <div class="background"></div>
+        </div>
+        <div class="best-sellers">
+            <h1>Nerdy-Gadgets.nl Best Sellers</h1>
+        </div>
 
     </main>
     <footer>
@@ -79,5 +86,31 @@
         </div>
     </footer>
 </body>
+<script>
+    let i = 0;
+    const options = [
+        'Gadgets Voor de Echte Nerds.', //1
+        'Nerd Certified.', //2
+        'Voor de Tech-Lovers.', //3
+        'Voor Nerds, Door Nerds.', //4
+        'Wat heeft een Nerd niet Nodig?', //5
+        'De Beste Winkel voor Nerds.', //6
+        'Wordt ook een Nerd!', //7
+        'De Beste Kwaliteit Gadgets.', //8
+        'Nerds zijn cool, Gadgets nog cooler.', //9
+        'Geen Boeken, Maar Gadgets.', //10
+    ];
+    const number = Math.floor(Math.random() * 10);
+    const string = options[number];
+
+    function typeWriter() {
+        if (i < string.length) {
+            document.getElementById("typewriter").innerHTML += string.charAt(i);
+            i++;
+            setTimeout(typeWriter, 50);
+        }
+    }
+    typeWriter()
+</script>
 
 </html>

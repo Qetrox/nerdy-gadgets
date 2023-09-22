@@ -2,7 +2,8 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: 'Bree Serif';
-    overflow: hidden;
+    color: #EEEEEE;
+    background-color: #21212F ;
 }
 
 .mobile-navbar {
@@ -18,8 +19,16 @@ a {
     color: inherit;
 }
 
+header {
+    overflow: hidden;
+}
+
+footer {
+    overflow: hidden;
+}
+
 .navbar {
-    background-color: #016d70;
+    background-color: #21212F;
     width: 100%;
     padding: 5px;
     height: 10vh;
@@ -28,8 +37,11 @@ a {
     align-items: center;
 }
 
-.navbar a{
+.navbar a {
     height: calc(10vh + 10px);
+    text-align: center;
+    align-items: center;
+    transition: 200ms ease-in-out;
 }
 
 .mobile-nav-item {
@@ -48,15 +60,12 @@ a {
     transition: 500ms ease-in-out;
 }
 
-.nav-searchbar {
-    width: 30vw;
-}
-
 .nav-searchbar input{
-    width: 100%;
+    transition: 200ms ease-in-out;
+    width: 30vw;
     height: 6vh;
     font-size: 3vh;
-    border-radius: 50px 20px;
+    border-radius: 100px 20px;
     padding: 0px 10px;
     border: 0px;
     text-align: center;
@@ -64,31 +73,47 @@ a {
 
 .nav-searchbar input:focus {
     transition: 200ms ease-in-out;
-    background-color: blue;
+    border-radius: 20px 100px;
     width: 50vw;
     .nav-searchbar {
         width: 50vw;
     }
 }
 
-.nav-searchbar:hover {
-    width: 50vw;
-}
-
-.nav-searchbar input:focus .nav-item p {
-    visibility: hidden;
+.nav-item .material-symbols-sharp {
+    font-size: 4vh;
+    transform: translate(0, 20%);
 }
 
 .navbar a:hover {
     background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 30px;
     .nav-item {
         transform: translate(0px, -5px);
         transition: 500ms ease-in-out;
     }
-    .nav-item p {
-        border-bottom: 2px solid black;
-        transition: 100ms ease-in-out;
-    }
+}
+
+.main-menu-display {
+    background-image: url("./images/mainFrame.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    text-align: center;
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    border-bottom: 5px solid #21212F;
+    border-top: 5px solid #21212F;
+}
+
+
+.main-menu-display h1{
+    font-size: 5vw;
 }
 
 /* Voor kleine schermen zoals telefoons */
@@ -99,6 +124,23 @@ a {
 
     .navbar .nav-logo a {
         visibility: hidden;
+    }
+
+    .main-menu-display {
+        height: 30vh;
+        width: 100%;
+    }
+
+    .nav-searchbar input:focus {
+        width: 90vw;
+        max-width: 90vw;
+        height: 6vh;
+        font-size: 3vh;
+        border-radius: 20px;
+        padding: 0px 10px;
+        border: 0px;
+        box-sizing: border-box;
+        text-align: center;
     }
 
     html, body {
@@ -126,7 +168,7 @@ a {
 
     .mobile-navbar {
         visibility: visible;
-        background-color: #016d70;
+        background-color: #21212F;
         width: 100%;
         padding-top: 5px;
         height: 5vh;
