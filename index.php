@@ -26,13 +26,11 @@
     <header>
         <div class="navbar">
             <div class="nav-logo">
-                <a href="./">
-                    <img src="images/logo_small.png" alt="logo" height="100%">
-                </a>
+                <img src="images/logo_small.png" alt="logo" height="100%">
             </div>
             <a href="./">
                 <div class="nav-item">
-                    <p>NERDY-GADGETS.NL</p>
+                    <p>NERDY-GADGETS</p>
                 </div>
             </a>
             <div class="nav-searchbar">
