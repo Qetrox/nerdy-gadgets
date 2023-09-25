@@ -64,7 +64,7 @@
                 <div class="bs">
                     <h1>PlayStation 5 <span class="euro-text">€550</span> </h1>
                     <img src="./images/playstation_5.jpg" alt="foto">
-                    <p>Ervaar console gamen realistischer dan ooit tevoren met de PlayStation 5 Digital Edition. Deze PlayStation 5 Digital Edition heeft geen cd lade, waardoor je geen gebruik maakt van fysieke games en Blu-ray films. Door de krachtige grafische processor in deze console game je met 4K resolutie met een maximale verversingssnelheid van 120 hertz. Bovendien laden games door de SSD schijf tot wel 20 keer sneller dan op voorgaande generaties van de PlayStation. Ook het geluid is erop vooruit gegaan, door de 3D audio ondersteuning. Zo hoor je precies waar het geluid vandaan komt en hoe ver de bron van het geluid is. In-game bestuur jij jouw character met de meegeleverde DualSense controller. Deze is door Sony voorzien van voelbare feedback en triggereffecten, waardoor je niet alleen ziet en hoort, maar ook voelt wat er in je game gebeurt.</p>
+                    <p>Ervaar console gamen realistischer dan ooit tevoren met de PlayStation 5 Digital Edition. Deze PlayStation 5 Digital Edition heeft geen cd lade, waardoor je geen gebruik maakt van fysieke games en Blu-ray films.</p>
                 </div>
 
                 <div class="bs">
