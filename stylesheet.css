@@ -25,6 +25,33 @@ header {
 
 footer {
     overflow: hidden;
+    position: static;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #25252e;
+    height: 10px;
+    padding: 40px;
+    width: auto;
+    color: white;
+}
+
+.footer-content {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.footer-content h3{
+
+line-height: 0rem;
+text-transform: capitalize;
+font-size: x-large;
+ 
+
 }
 
 .navbar {
@@ -315,5 +342,7 @@ footer {
 
     .material-symbols-sharp {
         font-size: 4vh;
-      }    
+      }
+      
+    
 }
