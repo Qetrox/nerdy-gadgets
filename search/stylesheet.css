@@ -1,0 +1,80 @@
+.resultaten h1 {
+    text-align: center;
+    font-size: 3vw;
+}
+
+.resultaten-lijst {
+    color: #212121;
+}
+
+.resultaat-item {
+    margin: 3vh 10vw;
+    background-color: #EEEEEE;
+    padding: 15px;
+    border-radius: 25px;
+    box-shadow: 10px 10px 15px rgba(12, 12, 12, 0.7);
+    transition: 200ms ease-in-out;
+}
+.resultaat-item:hover {
+    box-shadow: 15px 15px 20px rgba(12, 12, 12, 0.7);
+    transition: 200ms ease-in-out;
+}
+
+.resultaat-item-flexbox {
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.resultaat-item-flexbox img{
+    width: 40%;
+    float: left;
+    text-align: left;
+}
+
+.resultaat-item h1 {
+    text-align: left;
+    font-size: 2vw;
+    padding: 3px;
+    border-bottom: 2px solid #898989;
+}
+
+.resultaat-item h1 span{
+    float: right;
+    padding-right: 5px;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.description {
+    width: 50%;
+}
+
+/* Voor kleine schermen zoals telefoons */
+@media only screen and (max-width: 900px) {
+
+    .resultaten h1 {
+        text-align: center;
+        font-size: 6vw;
+    }
+
+    .resultaat-item-flexbox {
+        justify-content: space-between;
+        overflow: hidden;
+        flex-wrap: wrap;
+    }
+
+    .description {
+        width: 100%;
+    }
+
+    .resultaat-item-flexbox img{
+        width: 100%;
+        float: left;
+        text-align: left;
+    }
+
+    .resultaat-item h1 {
+        font-size: 5vw;
+    }
+
+}
