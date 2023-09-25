@@ -112,6 +112,15 @@ font-size: x-large;
     }
 }
 
+.nav-searchbar input:hover {
+    transition: 200ms ease-in-out;
+    border-radius: 20px 100px;
+    width: 50vw;
+    .nav-searchbar {
+        width: 50vw;
+    }
+}
+
 .nav-item .material-symbols-sharp {
     font-size: 4vh;
     transform: translate(0, 20%);
