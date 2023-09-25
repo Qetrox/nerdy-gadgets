@@ -29,7 +29,7 @@ footer {
     bottom: 0;
     left: 0;
     right: 0;
-    background: #25252e;
+    background: #21212F;
     height: 10px;
     padding: 40px;
     width: auto;
@@ -42,6 +42,7 @@ footer {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    background-color: #21212F;
 
 }
 
@@ -157,6 +158,17 @@ font-size: x-large;
     font-size: 1.5vw;
 }
 
+.over-ons {
+    text-align: center;
+    font-size: 1.5vw;
+}
+
+.over-ons p {
+    margin-left: 10vw;
+    margin-right: 10vw;
+    text-align: left;
+}
+
 .bs-list {
     font-size: 1vw;
     display: flex;
@@ -211,6 +223,11 @@ font-size: x-large;
 @media only screen and (max-width: 900px) {
     .navbar a {
         visibility: hidden;
+    }
+
+    .over-ons p {
+        margin-left: 0;
+        margin-right: 0;
     }
 
     .mobile-show {

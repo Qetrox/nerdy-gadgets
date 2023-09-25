@@ -79,35 +79,19 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet dictum sit amet. Nisl purus in mollis nunc sed id semper. Sit amet mattis vulputate enim nulla. </p>
                 </div>
 
-                <div class="bs">
-                    <h1>Dit ene product <span class="euro-text">€10</span> </h1>
-                    <img src="./images/mainFrame.png" alt="foto">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet dictum sit amet. Nisl purus in mollis nunc sed id semper. Sit amet mattis vulputate enim nulla. </p>
-                </div>
-
-                <div class="bs">
-                    <h1>Dit ene product <span class="euro-text">€10</span> </h1>
-                    <img src="./images/mainFrame.png" alt="foto">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet dictum sit amet. Nisl purus in mollis nunc sed id semper. Sit amet mattis vulputate enim nulla. </p>
-                </div>
-
-                <div class="bs">
-                    <h1>Dit ene product <span class="euro-text">€10</span> </h1>
-                    <img src="./images/mainFrame.png" alt="foto">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet dictum sit amet. Nisl purus in mollis nunc sed id semper. Sit amet mattis vulputate enim nulla. </p>
-                </div>
-
             </div>
         </div>
-        <!--..tarik was hier!.-->
+        <div class="over-ons">
+            <h1>Wie is Nerdy-Gadgets?</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet dictum sit amet. Nisl purus in mollis nunc sed id semper. Sit amet mattis vulputate enim nulla.</p>
+        </div>
+
         
 
         
 
     </main>
     <footer>
-
-
         <div class="footer-content">
 
             <h3>ik weet dat de kleur niet klopt</h3>
