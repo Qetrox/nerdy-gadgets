@@ -1,4 +1,16 @@
 <?php
+$servername = "web0157.zxcs.nl"; //"web0157.zxcs.nl"
+$username = "u127250p176374_nerdygadgets";
+$password = "NerdyGadgets2023#";
+$dbname = "u127250p176374_nerdygadgets";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
 $query = "";
 if(isset($_GET["query"]) && $_GET["query"] !== "") {
     $query = "\"" . $_GET["query"] . "\"";
@@ -68,34 +80,16 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
             } else {
                 echo "Complete Catalogus";
             }
-
-
             ?>
         </h1>
         <div class="resultaten-lijst">
             <?php
 $query = "";
 if(isset($_GET["query"]) && $_GET["query"] !== "") {
-    $query = "\"" . $_GET["query"] . "\"";
-
-    $servername = "localhost";
-    $username = "u127250p176374_nerdygadgets";
-    $password = "NerdyGadgets2023#";
-    $dbname = "u127250p176374_nerdygadgets";
-
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
     $query_sql = '%' . $_GET["query"] . '%';
 
     $stmt = $conn->prepare("SELECT * FROM products WHERE productName LIKE ? OR productDescription LIKE ?");
     $stmt->bind_param("ss", $query_sql, $query_sql);
-
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -112,24 +106,9 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
             echo '</div>';
         }
     } else {
-        echo "0 results";
+        echo '<div class="noppes"><h1>Niks gevonden :(</h1><p>Misschien ben je een te grote nerd voor ons...</p></div>';
     }
 } else {
-    $servername = "localhost";
-    $username = "u127250p176374_nerdygadgets";
-    $password = "NerdyGadgets2023#";
-    $dbname = "u127250p176374_nerdygadgets";
-
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    $query_sql = '%' . $_GET["query"] . '%';
-
     $stmt = $conn->prepare("SELECT * FROM products");
 
     $stmt->execute();
@@ -147,8 +126,6 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
             echo '</div>';
             echo '</div>';
         }
-    } else {
-        echo "0 results";
     }
 }
 ?>

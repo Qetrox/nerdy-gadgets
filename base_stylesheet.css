@@ -25,13 +25,14 @@ header {
 
 footer {
     overflow: hidden;
-    position: static;
+    position: relative;
     bottom: 0;
     left: 0;
     right: 0;
     background: #21212F;
     height: 10px;
-    padding: 40px;
+    padding-top: 40px;
+    padding-bottom: 40px;
     width: auto;
     color: white;
 }

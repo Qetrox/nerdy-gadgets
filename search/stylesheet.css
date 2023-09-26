@@ -49,12 +49,40 @@
     width: 50%;
 }
 
+.noppes {
+    color: #EEEEEE;
+    text-align: center;
+    height: 60vh;
+}
+
+.noppes h1 {
+    font-size: 2vw
+}
+
+.noppes p {
+    font-size: 1vw;
+}
+
 /* Voor kleine schermen zoals telefoons */
 @media only screen and (max-width: 900px) {
 
     .resultaten h1 {
         text-align: center;
         font-size: 6vw;
+    }
+
+    .noppes {
+        color: #EEEEEE;
+        text-align: center;
+        height: unset;
+    }
+
+    .noppes h1 {
+        font-size: 2vh;
+    }
+
+    .noppes p {
+        font-size: 2vh;
     }
 
     .resultaat-item-flexbox {
