@@ -18,14 +18,14 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
     <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
     <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-    <link rel="manifest" href="favicon/site.webmanifest">
-    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+    <link rel="manifest" href="../favicon/site.webmanifest">
+    <link rel="mask-icon" href="../favicon/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
-    <script src="index.js"></script>
+    <script src="./index.js"></script>
     <link rel="stylesheet" href="../base_stylesheet.css">
     <link rel="stylesheet" href="./stylesheet.css">
 </head>
@@ -73,56 +73,87 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
             ?>
         </h1>
         <div class="resultaten-lijst">
-            <div class="resultaat-item">
-                <div class="resultaat-item-flexbox">
-                    <div class="description">
-                        <h1>Playstation 5<span>€550</span></h1>
-                        <p>Ervaar console gamen realistischer dan ooit tevoren met de PlayStation 5 Digital Edition. Deze PlayStation 5 Digital Edition heeft geen cd lade, waardoor je geen gebruik maakt van fysieke games en Blu-ray films. Door de krachtige grafische processor in deze console game je met 4K resolutie met een maximale verversingssnelheid van 120hz.</p>
-                    </div>
-                    <img src="../images/playstation_5.jpg" alt="resultaat">
-                </div>
+            <?php
+$query = "";
+if(isset($_GET["query"]) && $_GET["query"] !== "") {
+    $query = "\"" . $_GET["query"] . "\"";
 
-            </div>
-            <div class="resultaat-item">
-                <div class="resultaat-item-flexbox">
-                    <div class="description">
-                        <h1>Super cool item<span>€10</span></h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    </div>
-                    <img src="../images/mainFrame.png" alt="resultaat">
-                </div>
+    $servername = "web0157.zxcs.nl";
+    $username = "u127250p176374_nerdygadgets";
+    $password = "NerdyGadgets2023#";
+    $dbname = "u127250p176374_nerdygadgets";
 
-            </div>
-            <div class="resultaat-item">
-                <div class="resultaat-item-flexbox">
-                    <div class="description">
-                        <h1>Super cool item<span>€10</span></h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    </div>
-                    <img src="../images/mainFrame.png" alt="resultaat">
-                </div>
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
 
-            </div>
-            <div class="resultaat-item">
-                <div class="resultaat-item-flexbox">
-                    <div class="description">
-                        <h1>Super cool item<span>€10</span></h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    </div>
-                    <img src="../images/mainFrame.png" alt="resultaat">
-                </div>
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
 
-            </div>
-            <div class="resultaat-item">
-                <div class="resultaat-item-flexbox">
-                    <div class="description">
-                        <h1>Super cool item<span>€10</span></h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    </div>
-                    <img src="../images/mainFrame.png" alt="resultaat">
-                </div>
+    $query_sql = '%' . $_GET["query"] . '%';
 
-            </div>
+    $stmt = $conn->prepare("SELECT * FROM products WHERE productName LIKE ? OR productDescription LIKE ?");
+    $stmt->bind_param("ss", $query_sql, $query_sql);
+
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            echo "id: " . $row["productId"]. " - Name: " . $row["productName"]. " " . $row["productDescription"]. "";
+            echo '<div class="resultaat-item">';
+            echo '<div class="resultaat-item-flexbox">';
+            echo '<div class="description">';
+            echo '<h1>' . $row["productName"] . '<span>' . $row["productPrice"] . '</span></h1>';
+            echo '<p>'. $row["productDescription"] .'</p>';
+            echo '</div>';
+            echo '<img src="' . $row["productImageUrl"] . '" alt="resultaat">';
+            echo '</div>';
+            echo '</div>';
+        }
+    } else {
+        echo "0 results";
+    }
+} else {
+    $servername = "web0157.zxcs.nl";
+    $username = "u127250p176374_nerdygadgets";
+    $password = "NerdyGadgets2023#";
+    $dbname = "u127250p176374_nerdygadgets";
+
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $query_sql = '%' . $_GET["query"] . '%';
+
+    $stmt = $conn->prepare("SELECT * FROM products");
+
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            echo "id: " . $row["productId"] . " - Name: " . $row["productName"] . " " . $row["productDescription"] . "";
+            echo '<div class="resultaat-item">';
+            echo '<div class="resultaat-item-flexbox">';
+            echo '<div class="description">';
+            echo '<h1>' . $row["productName"] . '<span>' . $row["productPrice"] . '</span></h1>';
+            echo '<p>'. $row["productDescription"] .'</p>';
+            echo '</div>';
+            echo '<img src="' . $row["productImageUrl"] . '" alt="resultaat">';
+            echo '</div>';
+            echo '</div>';
+        }
+    } else {
+        echo "0 results";
+    }
+}
+?>
         </div>
     </div>
 
