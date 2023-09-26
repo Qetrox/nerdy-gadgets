@@ -83,7 +83,7 @@ $query = "";
 if(isset($_GET["query"]) && $_GET["query"] !== "") {
     $query = "\"" . $_GET["query"] . "\"";
 
-    $servername = "web0157.zxcs.nl";
+    $servername = "localhost";
     $username = "u127250p176374_nerdygadgets";
     $password = "NerdyGadgets2023#";
     $dbname = "u127250p176374_nerdygadgets";
@@ -121,7 +121,7 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
         echo "0 results";
     }
 } else {
-    $servername = "web0157.zxcs.nl";
+    $servername = "localhost";
     $username = "u127250p176374_nerdygadgets";
     $password = "NerdyGadgets2023#";
     $dbname = "u127250p176374_nerdygadgets";
