@@ -6,7 +6,7 @@ const options = [
     'Voor Nerds, Door Nerds.', //4
     'Wat heeft een Nerd niet Nodig?', //5
     'De Beste Winkel voor Nerds.', //6
-    'Wordt ook een Nerd!', //7
+    'Word ook een Nerd!', //7
     'De Beste Kwaliteit Gadgets.', //8
     'Nerds zijn Cool, Gadgets nog Cooler.', //9
     'Geen Boeken, Maar Gadgets.', //10
