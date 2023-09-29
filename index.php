@@ -74,7 +74,7 @@
                 </div>
 
                 <div class="bs">
-                    <h1>Discord Moderator Starter Pack <span class="euro-text">€68.99</span> </h1>
+                    <h1>Mod Starter Pack<span class="euro-text">€68.99</span> </h1>
                     <img src="https://nerdy-gadgets.nl/images/discord_moderator_pack.png" alt="foto">
                     <p>Van plan om een Discord moderator te worden? Koop dan NU onze Discord Moderator Starter Pack. Dit geweldige pakketje bevat een Ban-Hammer, Anime Muismat, Koptelefoon & Deodorant en zorgt ervoor dat je enorm veel Discord Kittens krijgt. <span style="color: #DD0000;">(Nu met gratis zak Dorito's en Mountain Dew)</span></p>
                 </div>
