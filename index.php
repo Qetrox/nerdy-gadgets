@@ -115,7 +115,7 @@
                 </a>
             </div>
             <div class="mobile-nav-item">
-                <a href="./">
+                <a href="./account.php">
                     <span class="material-symbols-sharp">
                         account_circle
                     </span>
