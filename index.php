@@ -62,21 +62,21 @@
             <div class="bs-list">
 
                 <div class="bs">
-                    <h1>PlayStation 5 <span class="euro-text">€550</span> </h1>
+                    <h1>PlayStation 5 <span class="euro-text">€440</span> </h1>
                     <img src="./images/playstation_5.jpg" alt="foto">
                     <p>Ervaar console gamen realistischer dan ooit tevoren met de PlayStation 5 Digital Edition. Deze PlayStation 5 Digital Edition heeft geen cd lade, waardoor je geen gebruik maakt van fysieke games en Blu-ray films.</p>
                 </div>
 
                 <div class="bs">
-                    <h1>Dit ene product <span class="euro-text">€10</span> </h1>
-                    <img src="./images/mainFrame.png" alt="foto">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet dictum sit amet. Nisl purus in mollis nunc sed id semper. Sit amet mattis vulputate enim nulla. </p>
+                    <h1>GRATIS 16GB RAM<span class="euro-text">€0</span> </h1>
+                    <img src="https://nerdy-gadgets.nl/images/free_ram.png" alt="foto">
+                    <p>Krijg nu 16 Gigabyte aan gratis random access memory (RAM)! Deze is vervolgens via onze website te downloaden. Gelimiteerd tot 4 stuks per klant.</p>
                 </div>
 
                 <div class="bs">
-                    <h1>Dit ene product <span class="euro-text">€10</span> </h1>
-                    <img src="./images/mainFrame.png" alt="foto">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet dictum sit amet. Nisl purus in mollis nunc sed id semper. Sit amet mattis vulputate enim nulla. </p>
+                    <h1>Discord Moderator Starter Pack <span class="euro-text">€68.99</span> </h1>
+                    <img src="https://nerdy-gadgets.nl/images/discord_moderator_pack.png" alt="foto">
+                    <p>Van plan om een Discord moderator te worden? Koop dan NU onze Discord Moderator Starter Pack. Dit geweldige pakketje bevat een Ban-Hammer, Anime Muismat, Koptelefoon & Deodorant en zorgt ervoor dat je enorm veel Discord Kittens krijgt.</p>
                 </div>
 
             </div>
@@ -94,7 +94,7 @@
     <footer>
         <div class="footer-content">
 
-            <h3>ik weet dat de kleur niet klopt</h3>
+          <h3>caca</h3>
 
         </div>
 
