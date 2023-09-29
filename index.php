@@ -94,7 +94,24 @@
     <footer>
         <div class="footer-content">
 
-            <h3>ik weet dat de kleur niet klopt</h3>
+            <footer style="background-color: #212121; bottom: 0; padding: 10px; display: flex; justify-content: space-between; text-decoration: none; color: white;">
+<div style="flex: 1; display: flex; align-items: center; margin-right: 20px;">
+<img src="https://qlient.net/capes/title.png" alt="Qlient Logo" style="width: 172px; height: 40px; margin: auto;">
+</div>
+<section style="flex: 1; margin-right: 20px;">
+<p>© 2023 qlient.net | All rights reserved. <br>Unauthorized reproduction, modification, or distribution is strictly prohibited and may be a violation of applicable laws.</p>
+</section>
+<section style="flex: 1; margin-right: 20px;">
+<p>We are not affiliated with Mojang in any way. This is not an official Mojang or Minecraft product. Mojang is not responsible for any mod you may use.</p>
+</section>
+<section style="flex: 1; margin-right: 20px;">
+<p>For any inquiries, please contact us at <a style="text-decoration: none; color: white;" href="/cdn-cgi/l/email-protection#85ecebe3eac5f4e9ece0ebf1abebe0f1"><span class="__cf_email__" data-cfemail="6a03040c052a1b06030f041e44040f1e">[email&#160;protected]</span></a></p>
+</section>
+<section style="flex: 1;">
+<p>Please review our <a style="text-decoration: underline; color: white;" href="https://qlient.net/terms-of-service">Terms of Service</a> for more information.</p>
+<p>Your IP: <span style="text-decoration: underline">145.44.124.201</span> is being logged.</p>
+</section>
+</footer>
 
         </div>
 
