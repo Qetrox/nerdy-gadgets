@@ -153,15 +153,28 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
 
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            echo '<div class="resultaat-item">';
-            echo '<div class="resultaat-item-flexbox">';
-            echo '<div class="description">';
-            echo '<h1>' . $row["productName"] . '<span>€' . $row["productPrice"] . '</span></h1>';
-            echo '<p>'. $row["productDescription"] .'</p>';
-            echo '</div>';
-            echo '<img src="' . $row["productImageUrl"] . '" alt="resultaat">';
-            echo '</div>';
-            echo '</div>';
+            if($row["productDiscountPercentage"] === 0) {
+                echo '<div class="resultaat-item">';
+                echo '<div class="resultaat-item-flexbox">';
+                echo '<div class="description">';
+                echo '<h1>' . $row["productName"] . '<span class="price">€' . $row["productPrice"] . '</span></h1>';
+                echo '<p>' . $row["productDescription"] . '</p>';
+                echo '</div>';
+                echo '<img src="' . $row["productImageUrl"] . '" alt="resultaat">';
+                echo '</div>';
+                echo '</div>';
+            } else { //als er korting is
+                $newPrice = $row["productPrice"] * (1 - $row["productDiscountPercentage"] / 100); //bereken prijs met discount
+                echo '<div class="resultaat-item">';
+                echo '<div class="resultaat-item-flexbox">';
+                echo '<div class="description">';
+                echo '<h1>' . $row["productName"] . '<span class="price"><span class="kortingsprijs">€' . $row["productPrice"] . '</span> €' . $newPrice . ' </p></h1>';
+                echo '<p>' . $row["productDescription"] . '</p>';
+                echo '</div>';
+                echo '<img src="' . $row["productImageUrl"] . '" alt="resultaat">';
+                echo '</div>';
+                echo '</div>';
+            }
         }
     }
 }
