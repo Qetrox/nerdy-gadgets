@@ -20,8 +20,10 @@
     <meta name="theme-color" content="#ffffff">
     <script src="index.js"></script>
     <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="load.css">
 </head>
 
+<div class="loaderscreen"></div>
 <body>
     <header>
         <div class="navbar">

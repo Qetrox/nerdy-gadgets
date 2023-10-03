@@ -1,10 +1,12 @@
 <?php
-$servername = "localhost"; //"web0157.zxcs.nl"
-$username = "u127250p176374_nerdygadgets";
-$password = "NerdyGadgets2023#";
-$dbname = "u127250p176374_nerdygadgets";
+require_once '../includes/dbh.php';
 
 $conn = new mysqli($servername, $username, $password, $dbname);
+/*
+
+ Error is niet echt! PHPstorm leest niet goed. NIET FIXEN!!
+
+ */
 
 // Check connection
 if ($conn->connect_error) {
@@ -46,12 +48,14 @@ if(isset($_GET["sortOption"])) {
     <link rel="mask-icon" href="../favicon/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
-    <script src="./index.js"></script>
+    <script src="../index.js"></script>
     <link rel="stylesheet" href="../base_stylesheet.css">
     <link rel="stylesheet" href="./stylesheet.css">
+    <link rel="stylesheet" href="../load.css">
 </head>
 
 <body>
+<div class="loaderscreen"></div>
 <header>
     <div class="navbar">
         <div class="nav-logo">
@@ -73,7 +77,7 @@ if(isset($_GET["sortOption"])) {
                 <p><span class="material-symbols-sharp">shopping_cart</span>WINKELWAGEN</p>
             </div>
         </a>
-        <a href="./">
+        <a href="../account/">
             <div class="nav-item">
                 <p><span class="material-symbols-sharp">account_circle</span>ACCOUNT</p>
             </div>
@@ -94,23 +98,22 @@ if(isset($_GET["sortOption"])) {
         <div class="resultaten-lijst">
             <?php
 $query = "";
+$sortStatement = "";
+if($sort != null) {
+    switch($sort) { //priceascending, pricedescending, datepublished
+        case 'priceascending':
+            $sortStatement = " ORDER BY productPrice asc";
+            break;
+        case 'pricedescending':
+            $sortStatement = " ORDER BY productPrice desc";
+            break;
+        case 'datepublished':
+            $sortStatement = " ORDER BY productId asc";
+            break;
+    }
+}
 if(isset($_GET["query"]) && $_GET["query"] !== "") {
     $query_sql = '%' . $_GET["query"] . '%';
-
-    $sortStatement = "";
-    if($sort != null) {
-        switch($sort) { //priceascending, pricedescending, datepublished
-            case 'priceascending':
-                $sortStatement = " ORDER BY productPrice asc";
-                break;
-            case 'pricedescending':
-                $sortStatement = " ORDER BY productPrice desc";
-                break;
-            case 'datepublished':
-                $sortStatement = " ORDER BY productId asc";
-                break;
-        }
-    }
 
     $stmt = $conn->prepare("SELECT * FROM products WHERE productName LIKE ? OR productDescription LIKE ?" . $sortStatement);
     $stmt->bind_param("ss", $query_sql, $query_sql);
@@ -146,7 +149,7 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
         echo '<div class="noppes"><h1>Niks gevonden :(</h1><p>Misschien ben je een te grote nerd voor ons...</p></div>';
     }
 } else {
-    $stmt = $conn->prepare("SELECT * FROM products");
+    $stmt = $conn->prepare("SELECT * FROM products" . $sortStatement);
 
     $stmt->execute();
     $result = $stmt->get_result();
