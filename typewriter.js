@@ -10,8 +10,9 @@ const options = [
     'De Beste Kwaliteit Gadgets.', //8
     'Nerds zijn Cool, Gadgets nog Cooler.', //9
     'Geen Boeken, Maar Gadgets.', //10
+    'NERD ACTIVATED', //11
 ];
-const number = Math.floor(Math.random() * 10);
+const number = Math.floor(Math.random() * 11);
 const string = options[number];
 
 function typeWriter() {
