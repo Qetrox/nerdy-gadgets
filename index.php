@@ -46,9 +46,9 @@
                     <p><span class="material-symbols-sharp">shopping_cart</span>WINKELWAGEN</p>
                 </div>
             </a>
-            <a href="./">
+            <a href="./account/">
                 <div class="nav-item">
-                    <p><span class="material-symbols-sharp">account_circle</span><a href="/account.html">ACCOUNT</a></p>
+                    <p><span class="material-symbols-sharp">account_circle</span>ACCOUNT</p>
                 </div>
             </a>
         </div>
