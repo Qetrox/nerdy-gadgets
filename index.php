@@ -46,9 +46,9 @@
                     <p><span class="material-symbols-sharp">shopping_cart</span>WINKELWAGEN</p>
                 </div>
             </a>
-            <a href="./">
+            <a href="./account/">
                 <div class="nav-item">
-                    <p><span class="material-symbols-sharp">account_circle</span><a href="/account.html">ACCOUNT</a></p>
+                    <p><span class="material-symbols-sharp">account_circle</span>ACCOUNT</p>
                 </div>
             </a>
         </div>
@@ -84,16 +84,9 @@
             </div>
         </div>
         <div class="over-ons">
-<<<<<<< HEAD
             <h1>Wie zijn wij?</h1>
             <p>Wij zjn Nerdy Gadgets. Wij bieden een fantastische selectie van gadgets aan. Onze asortiment van producten zijn bedoeld om jou de best nerd experience in Nederland te geven!  </p>
-=======
-            <h1>Wie is Nerdy-Gadgets?</h1>
             <p>Footer real shid</p>
-<<<<<<< Updated upstream
-=======
->>>>>>> 3a05f0fd101b569825680411cda83c683cb23bae
->>>>>>> Stashed changes
         </div>
 
         
