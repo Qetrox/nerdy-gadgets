@@ -15,6 +15,15 @@ $query = "";
 if(isset($_GET["query"]) && $_GET["query"] !== "") {
     $query = "\"" . $_GET["query"] . "\"";
 }
+
+$sort = null;
+
+if(isset($_GET["sortOption"])) {
+    $sort = $_GET["sortOption"]; //price asc, price desc, verschijndatum
+    if(!in_array($sort, ['priceascending', 'pricedescending', 'datepublished'])) {
+        $sort = null;
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -88,22 +97,50 @@ $query = "";
 if(isset($_GET["query"]) && $_GET["query"] !== "") {
     $query_sql = '%' . $_GET["query"] . '%';
 
-    $stmt = $conn->prepare("SELECT * FROM products WHERE productName LIKE ? OR productDescription LIKE ?");
+    $sortStatement = "";
+    if($sort != null) {
+        switch($sort) { //priceascending, pricedescending, datepublished
+            case 'priceascending':
+                $sortStatement = " ORDER BY productPrice asc";
+                break;
+            case 'pricedescending':
+                $sortStatement = " ORDER BY productPrice desc";
+                break;
+            case 'datepublished':
+                $sortStatement = " ORDER BY productId asc";
+                break;
+        }
+    }
+
+    $stmt = $conn->prepare("SELECT * FROM products WHERE productName LIKE ? OR productDescription LIKE ?" . $sortStatement);
     $stmt->bind_param("ss", $query_sql, $query_sql);
     $stmt->execute();
     $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
-            echo '<div class="resultaat-item">';
-            echo '<div class="resultaat-item-flexbox">';
-            echo '<div class="description">';
-            echo '<h1>' . $row["productName"] . '<span>€' . $row["productPrice"] . '</span></h1>';
-            echo '<p>'. $row["productDescription"] .'</p>';
-            echo '</div>';
-            echo '<img src="' . $row["productImageUrl"] . '" alt="resultaat">';
-            echo '</div>';
-            echo '</div>';
+            if($row["productDiscountPercentage"] === 0) {
+                echo '<div class="resultaat-item">';
+                echo '<div class="resultaat-item-flexbox">';
+                echo '<div class="description">';
+                echo '<h1>' . $row["productName"] . '<span class="price">€' . $row["productPrice"] . '</span></h1>';
+                echo '<p>' . $row["productDescription"] . '</p>';
+                echo '</div>';
+                echo '<img src="' . $row["productImageUrl"] . '" alt="resultaat">';
+                echo '</div>';
+                echo '</div>';
+            } else { //als er korting is
+                $newPrice = $row["productPrice"] * (1 - $row["productDiscountPercentage"] / 100); //bereken prijs met discount
+                echo '<div class="resultaat-item">';
+                echo '<div class="resultaat-item-flexbox">';
+                echo '<div class="description">';
+                echo '<h1>' . $row["productName"] . '<span class="price"><span class="kortingsprijs">€' . $row["productPrice"] . '</span> €' . $newPrice . ' </p></h1>';
+                echo '<p>' . $row["productDescription"] . '</p>';
+                echo '</div>';
+                echo '<img src="' . $row["productImageUrl"] . '" alt="resultaat">';
+                echo '</div>';
+                echo '</div>';
+            }
         }
     } else {
         echo '<div class="noppes"><h1>Niks gevonden :(</h1><p>Misschien ben je een te grote nerd voor ons...</p></div>';
@@ -116,15 +153,28 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
 
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            echo '<div class="resultaat-item">';
-            echo '<div class="resultaat-item-flexbox">';
-            echo '<div class="description">';
-            echo '<h1>' . $row["productName"] . '<span>€' . $row["productPrice"] . '</span></h1>';
-            echo '<p>'. $row["productDescription"] .'</p>';
-            echo '</div>';
-            echo '<img src="' . $row["productImageUrl"] . '" alt="resultaat">';
-            echo '</div>';
-            echo '</div>';
+            if($row["productDiscountPercentage"] === 0) {
+                echo '<div class="resultaat-item">';
+                echo '<div class="resultaat-item-flexbox">';
+                echo '<div class="description">';
+                echo '<h1>' . $row["productName"] . '<span class="price">€' . $row["productPrice"] . '</span></h1>';
+                echo '<p>' . $row["productDescription"] . '</p>';
+                echo '</div>';
+                echo '<img src="' . $row["productImageUrl"] . '" alt="resultaat">';
+                echo '</div>';
+                echo '</div>';
+            } else { //als er korting is
+                $newPrice = $row["productPrice"] * (1 - $row["productDiscountPercentage"] / 100); //bereken prijs met discount
+                echo '<div class="resultaat-item">';
+                echo '<div class="resultaat-item-flexbox">';
+                echo '<div class="description">';
+                echo '<h1>' . $row["productName"] . '<span class="price"><span class="kortingsprijs">€' . $row["productPrice"] . '</span> €' . $newPrice . ' </p></h1>';
+                echo '<p>' . $row["productDescription"] . '</p>';
+                echo '</div>';
+                echo '<img src="' . $row["productImageUrl"] . '" alt="resultaat">';
+                echo '</div>';
+                echo '</div>';
+            }
         }
     }
 }
