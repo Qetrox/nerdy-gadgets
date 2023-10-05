@@ -103,7 +103,7 @@ Klaar om je passie naar een hoger niveau te tillen? Begin je ontdekkingstocht bi
             <!--dit maakt de tekst in de footer -Daan -->
             <div class="col1">
                 <h3>Handige Links</h3>
-                <a href="about/"><span class="underline-on-hover"</span>Over ons</a>
+                <a href="about/">Over ons</a>
                 <a href="legal/">Legaal</a>
                 <a href="search/">Producten</a>
                 <a href="account/">Account</a>

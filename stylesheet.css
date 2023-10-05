@@ -47,10 +47,10 @@ footer {
 
 .col1{
     width: 100%;
-    padding: 200px 15%;
-    text-align: start;
+    padding: 1px;
+    text-align: left;
     display: flex;
-    align-items: center;
+    align-items: left;
     justify-content: center;
     flex-direction: column;
     background-color: #21212F;
@@ -58,6 +58,26 @@ footer {
         text-decoration: underline;
     }
 }
+.col2{
+    width: 100%;
+    padding: 1px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #21212F;
+
+}
+.col3 {
+    width: 100%;
+    text-align: right;
+    display: flex;
+    align-items: left;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #21212F;
+
 }
 
 .footer-content h3{
