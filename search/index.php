@@ -1,5 +1,6 @@
 <?php
 require_once '../includes/dbh.php';
+/* import de Database variabelen */
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 /*
@@ -13,13 +14,14 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+/* kijk wat je hebt opgezocht */
 $query = "";
 if(isset($_GET["query"]) && $_GET["query"] !== "") {
     $query = "\"" . $_GET["query"] . "\"";
 }
 
 $sort = null;
-
+/* kijk of er sorteer opties zijn aangegeven */
 if(isset($_GET["sortOption"])) {
     $sort = $_GET["sortOption"]; //price asc, price desc, verschijndatum
     if(!in_array($sort, ['priceascending', 'pricedescending', 'datepublished'])) {
@@ -115,11 +117,13 @@ if($sort != null) {
 if(isset($_GET["query"]) && $_GET["query"] !== "") {
     $query_sql = '%' . $_GET["query"] . '%';
 
+    /* zoek voor producten in de database die je zoekopdracht matchen */
     $stmt = $conn->prepare("SELECT * FROM products WHERE productName LIKE ? OR productDescription LIKE ?" . $sortStatement);
     $stmt->bind_param("ss", $query_sql, $query_sql);
     $stmt->execute();
     $result = $stmt->get_result();
 
+    /* laat resultaten zien (als die er zijn) */
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
             if($row["productDiscountPercentage"] === 0) {
@@ -146,9 +150,11 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
             }
         }
     } else {
+        /* Als er geen resultaten zijn */
         echo '<div class="noppes"><h1>Niks gevonden :(</h1><p>Misschien ben je een te grote nerd voor ons...</p></div>';
     }
 } else {
+    /* laat alle producten zien */
     $stmt = $conn->prepare("SELECT * FROM products" . $sortStatement);
 
     $stmt->execute();

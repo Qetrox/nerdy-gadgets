@@ -85,8 +85,12 @@
         </div>
         <div class="over-ons">
             <h1>Wie zijn wij?</h1>
-            <p>Wij zjn Nerdy Gadgets. Wij bieden een fantastische selectie van gadgets aan. Onze asortiment van producten zijn bedoeld om jou de best nerd experience in Nederland te geven!  </p>
-            <p>Footer real shid</p>
+            <p> Welkom bij Nerdy Gadgets!
+
+Stap binnen in de geeky hemel, waar tech en nerd-cultuur samenkomen om je zintuigen te prikkelen. Nerdy Gadgets is dé plek voor gadgetliefhebbers en popcultuur aficionado's. Hier vind je een onweerstaanbare mix van futuristische technologie en nostalgie uit je favoriete films, strips en games.
+Bij Nerdy Gadgets geloven we dat nerds de wereld veranderen, en we zijn er trots op deel uit te maken van deze revolutie. Duik in onze virtuele schappen en ontdek de nieuwste en meest onverwachte gadgets die je nerd-zintuigen zullen laten tintelen.
+
+Klaar om je passie naar een hoger niveau te tillen? Begin je ontdekkingstocht bij Nerdy Gadgets en laat je innerlijke geek stralen! </p>
         </div>
 
         
@@ -96,8 +100,24 @@
     </main>
     <footer>
         <div class="footer-content">
+            <!--dit maakt de tekst in de footer -Daan -->
+            <div class="col1">
+                <h3 style="color:#21212F"; >Handige Links</h3>
+                <a style="color:#21212F"; href="about/">Over ons</a>
+                <a style="color:#21212F"; href="legal/privacy/">Legaal</a>
+                <a style="color:#21212F"; href="search/">Producten</a>
+                <a style="color:#21212F"; href="account/">Account</a>
+                <a style="color:#21212F"; href="#">Home</a>
 
-          <h3>caca</h3>
+            </div>
+            <div class="col2">
+                <h6 style="color:#21212F"; >@Copyright Groep 1 2023- All Right Reserved.</h6>
+
+            </div>
+            <div class="col3">
+                <h3 style="color:#21212F"; >CONTACT</h3>
+                <p style="color:#21212F"; >Hospitaaldreef 5,<br> 1315 RC Almere<br>Tel: +088 469 6600</p>
+            </div>
 
         </div>
 
