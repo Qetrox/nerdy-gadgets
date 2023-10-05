@@ -107,6 +107,7 @@ Klaar om je passie naar een hoger niveau te tillen? Begin je ontdekkingstocht bi
                 <a href="legal/">Legaal</a>
                 <a href="search/">Producten</a>
                 <a href="account/">Account</a>
+
             </div>
             <div class="col2">
                 <h6>@Copyright Groep 1 2023- All Right Reserved.</h6>
@@ -114,7 +115,7 @@ Klaar om je passie naar een hoger niveau te tillen? Begin je ontdekkingstocht bi
             </div>
             <div class="col3">
                 <h3>CONTACT</h3>
-                <p>Hospitaaldreef 5, 1315 RC Almere,<br>Tel: +088 469 6600</p>
+                <p>Hospitaaldreef 5,<br> 1315 RC Almere<br>Tel: +088 469 6600</p>
             </div>
 
         </div>
