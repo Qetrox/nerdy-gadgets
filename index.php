@@ -111,7 +111,7 @@
             </div>
             <div class="col3">
                 <h3>CONTACT</h3>
-                <p>Hospitaaldreef 5, 1315 RC Almere,<br>Nederland</p>
+                <p>Hospitaaldreef 5, 1315 RC Almere,<br>Tel: +088 469 6600</p>
             </div>
 
         </div>
