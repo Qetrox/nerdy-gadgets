@@ -104,7 +104,7 @@ Klaar om je passie naar een hoger niveau te tillen? Begin je ontdekkingstocht bi
             <div class="col1">
                 <h3 style="color:#21212F"; >Handige Links</h3>
                 <a style="color:#21212F"; href="about/">Over ons</a>
-                <a style="color:#21212F"; href="legal/">Legaal</a>
+                <a style="color:#21212F"; href="legal/privacy/">Legaal</a>
                 <a style="color:#21212F"; href="search/">Producten</a>
                 <a style="color:#21212F"; href="account/">Account</a>
                 <a style="color:#21212F"; href="#">Home</a>
