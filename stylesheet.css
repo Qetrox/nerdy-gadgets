@@ -24,7 +24,6 @@ header {
 }
 
 footer {
-    overflow: hidden;
     position: static;
     bottom: 0;
     left: 0;
