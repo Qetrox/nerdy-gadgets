@@ -49,15 +49,12 @@ footer {
 .col1{
     width 100%;
     padding 200 px 15%;
-    text-align: left;
+    text-align: start;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     background-color: #21212F;
-    .txt:hover {
-        text-decoration: underline;
-    }
 }
 
 .footer-content h3{
