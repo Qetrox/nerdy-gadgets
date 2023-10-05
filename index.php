@@ -86,7 +86,6 @@
         <div class="over-ons">
             <h1>Wie zijn wij?</h1>
             <p>Wij zjn Nerdy Gadgets. Wij bieden een fantastische selectie van gadgets aan. Onze asortiment van producten zijn bedoeld om jou de best nerd experience in Nederland te geven!  </p>
-            <p>Footer real shid</p>
         </div>
 
         
@@ -99,7 +98,7 @@
             <!--dit maakt de tekst in de footer -Daan -->
             <div class="col1">
                 <h3>Handige Links</h3>
-                <a href="about/"><class="underline-on-hover">Over ons</a>
+                <a href="about/"><span><class="underline-on-hover">Over ons</span></a>
                 <a href="legal/">Legaal</a>
                 <a href="search/">Producten</a>
                 <a href="account/">Account</a>
