@@ -37,6 +37,7 @@ footer {
 .footer-content {
     width: 100%;
     padding: 100px 15%;
+    margin-top: 150px;
     text-align: center;
     display: flex;
     align-items: center;
