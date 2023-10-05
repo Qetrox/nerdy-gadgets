@@ -105,9 +105,12 @@
                 <a href="#">Shop</a>
                 <a href="#">Blog</a>
             </div>
-            <div class="col2"></div>
+            <div class="col2">
+                <h6>@Copyright Groep 1 2023- All Right Reserved.</h6>
+                
+            </div>
             <div class="col3"></div>
-            <h6>@Copyright Groep 1 2023- All Right Reserved.</h6>
+
         </div>
 
 
