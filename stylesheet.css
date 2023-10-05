@@ -46,6 +46,18 @@ footer {
 
 }
 
+.col1{
+    width 100%;
+    padding 200 px 15%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #21212F;
+
+}
+
 .footer-content h3{
 
 line-height: 0rem;
