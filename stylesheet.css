@@ -46,16 +46,17 @@ footer {
 }
 
 .col1{
-    width 100%;
-    padding 200 px 15%;
+    width: 100%;
+    padding: 200px 15%;
     text-align: start;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     background-color: #21212F;
-.txt:hover {
-    text-decoration: underline;
+    & a:hover {
+        text-decoration: underline;
+    }
 }
 }
 
