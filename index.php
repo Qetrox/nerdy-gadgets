@@ -96,10 +96,10 @@
     </main>
     <footer>
         <div class="footer-content">
-
+            <!--dit maakt de tekst in de footer -Daan -->
           <h3>Footer</h3>
             <h2>Footer2</h2>
-            <h1>Footer2</h1>
+            <h6>@Copyright Groep 1 2023- All Right Reserved.</h6>
         </div>
 
 
