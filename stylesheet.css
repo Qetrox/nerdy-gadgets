@@ -46,6 +46,7 @@ footer {
 }
 
 .col1{
+    margin-right: 145px;
     width: 100%;
     padding: 1px;
     text-align: left;
@@ -59,6 +60,7 @@ footer {
     }
 }
 .col2{
+    margin-right: 145px;
     width: 100%;
     padding: 1px;
     text-align: left;
@@ -70,7 +72,7 @@ footer {
 
 }
 .col3 {
-    margin-top: -220px;
+    margin-top: -210px;
     margin-right: -200px;
     width: 80%;
     text-align: right;
