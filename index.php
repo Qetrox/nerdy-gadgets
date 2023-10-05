@@ -98,7 +98,7 @@
             <!--dit maakt de tekst in de footer -Daan -->
             <div class="col1">
                 <h3>Handige Links</h3>
-                <span> <a><href="about/"></a><class="underline-on-hover">Over ons</a>
+                <span> <a><href="about/"></a><class="underline-on-hover">Over ons</span>
                 <span class="txt">Some Text</span>
                 <a href="legal/">Legaal</a>
                 <a href="search/">Producten</a>
