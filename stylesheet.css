@@ -41,7 +41,7 @@ footer {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: #21212F;
+    background-color: #39ff14;
 
 }
 
@@ -54,7 +54,7 @@ footer {
     align-items: left;
     justify-content: center;
     flex-direction: column;
-    background-color: #21212F;
+    background-color: #39ff14;
     & a:hover {
         text-decoration: underline;
     }
@@ -68,7 +68,7 @@ footer {
     align-items: Right;
     justify-content: left;
     flex-direction: column;
-    background-color: #21212F;
+    background-color: #39ff14;
 
 }
 .col3 {
@@ -80,7 +80,7 @@ footer {
     align-items: left;
     justify-content: normal;
     flex-direction: column;
-    background-color: #21212F;
+    background-color: #39ff14;
 
 }
 

@@ -102,20 +102,21 @@ Klaar om je passie naar een hoger niveau te tillen? Begin je ontdekkingstocht bi
         <div class="footer-content">
             <!--dit maakt de tekst in de footer -Daan -->
             <div class="col1">
-                <h3>Handige Links</h3>
-                <a href="about/">Over ons</a>
-                <a href="legal/">Legaal</a>
-                <a href="search/">Producten</a>
-                <a href="account/">Account</a>
+                <h3 style="color:#21212F"; >Handige Links</h3>
+                <a style="color:#21212F"; href="about/">Over ons</a>
+                <a style="color:#21212F"; href="legal/">Legaal</a>
+                <a style="color:#21212F"; href="search/">Producten</a>
+                <a style="color:#21212F"; href="account/">Account</a>
+                <a style="color:#21212F"; href="#">Home</a>
 
             </div>
             <div class="col2">
-                <h6>@Copyright Groep 1 2023- All Right Reserved.</h6>
+                <h6 style="color:#21212F"; >@Copyright Groep 1 2023- All Right Reserved.</h6>
 
             </div>
             <div class="col3">
-                <h3>CONTACT</h3>
-                <p>Hospitaaldreef 5,<br> 1315 RC Almere<br>Tel: +088 469 6600</p>
+                <h3 style="color:#21212F"; >CONTACT</h3>
+                <p style="color:#21212F"; >Hospitaaldreef 5,<br> 1315 RC Almere<br>Tel: +088 469 6600</p>
             </div>
 
         </div>
