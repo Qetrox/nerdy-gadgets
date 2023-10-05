@@ -37,7 +37,6 @@ footer {
 .footer-content {
     width: 100%;
     padding: 100px 15%;
-    margin-top: 150px;
     text-align: center;
     display: flex;
     align-items: center;
@@ -52,7 +51,7 @@ footer {
 line-height: 0rem;
 text-transform: capitalize;
 font-size: x-large;
- 
+
 
 }
 
