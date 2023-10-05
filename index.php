@@ -99,6 +99,7 @@
             <div class="col1">
                 <h3>Handige Links</h3>
                 <a href="about/"><span><class="underline-on-hover">Over ons</span></a>
+                <span class="txt">Some Text</span>
                 <a href="legal/">Legaal</a>
                 <a href="search/">Producten</a>
                 <a href="account/">Account</a>
