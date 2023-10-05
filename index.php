@@ -97,8 +97,16 @@
     <footer>
         <div class="footer-content">
             <!--dit maakt de tekst in de footer -Daan -->
-          <h3>Footer</h3>
-            <h2>Footer2</h2>
+            <div class="col1">
+                <h3>USEFUL LINKS</h3>
+                <a href="#">Contact</a>
+                <a href="#">About</a>
+                <a href="#">Services</a>
+                <a href="#">Shop</a>
+                <a href="#">Blog</a>
+            </div>
+            <div class="col2"></div>
+            <div class="col3"></div>
             <h6>@Copyright Groep 1 2023- All Right Reserved.</h6>
         </div>
 
