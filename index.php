@@ -97,7 +97,7 @@
     <footer>
         <div class="footer-content">
 
-          <h3>caca</h3>
+          <h3>Footer</h3>
 
         </div>
 
