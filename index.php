@@ -99,9 +99,8 @@
             <!--dit maakt de tekst in de footer -Daan -->
             <div class="col1">
                 <h3>Handige Links</h3>
-                <a href="#">Contact</a>
-                <a href="#">Over ons</a>
-                <a href="#">Legaal</a>
+                <a href="about">Over ons</a>
+                <a href="legal">Legaal</a>
                 <a href="search/">Producten</a>
                 <a href="account/">Account</a>
             </div>
