@@ -109,7 +109,10 @@
                 <h6>@Copyright Groep 1 2023- All Right Reserved.</h6>
 
             </div>
-            <div class="col3"></div>
+            <div class="col3">
+                <h3>CONTACT</h3>
+                <p>Hospitaaldreef 5, 1315 RC Almere,<br>Nederland</p>
+            </div>
 
         </div>
 
