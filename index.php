@@ -98,7 +98,8 @@
         <div class="footer-content">
 
           <h3>Footer</h3>
-
+            <h2>Footer2</h2>
+            <h1>Footer2</h1>
         </div>
 
 
