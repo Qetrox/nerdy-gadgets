@@ -99,7 +99,7 @@
             <!--dit maakt de tekst in de footer -Daan -->
             <div class="col1">
                 <h3>Handige Links</h3>
-                <a href="about/">Over ons</a>
+                <a href="about/"><class="underline-on-hover">Over ons</a>
                 <a href="legal/">Legaal</a>
                 <a href="search/">Producten</a>
                 <a href="account/">Account</a>
