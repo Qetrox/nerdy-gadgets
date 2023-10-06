@@ -76,14 +76,15 @@
                 </div>
 
                 <div class="bs">
-                    <h1>Discord Moderator Starter Pack <span class="euro-text">€68.99</span> </h1>
+                    <h1>Moderator Pack <span class="euro-text">€68.99</span> </h1>
                     <img src="https://nerdy-gadgets.nl/images/discord_moderator_pack.png" alt="foto">
                     <p>Van plan om een Discord moderator te worden? Koop dan NU onze Discord Moderator Starter Pack. Dit geweldige pakketje bevat een Ban-Hammer, Anime Muismat, Koptelefoon & Deodorant en zorgt ervoor dat je enorm veel Discord Kittens krijgt.</p>
                 </div>
 
+
             </div>
         </div>
-        <div class="over-ons">
+        <div class="over-ons" id="about">
             <h1>Wie zijn wij?</h1>
             <p> Welkom bij Nerdy Gadgets!
 
@@ -103,11 +104,11 @@ Klaar om je passie naar een hoger niveau te tillen? Begin je ontdekkingstocht bi
             <!--dit maakt de tekst in de footer -Daan -->
             <div class="col1">
                 <h3 style="color:#21212F"; >Handige Links</h3>
-                <a style="color:#21212F"; href="about/">Over ons</a>
-                <a style="color:#21212F"; href="legal/privacy/">Legaal</a>
-                <a style="color:#21212F"; href="search/">Producten</a>
-                <a style="color:#21212F"; href="account/">Account</a>
-                <a style="color:#21212F"; href="#">Home</a>
+                <a style="color:#21212F"; href="./#about">Over ons</a>
+                <a style="color:#21212F"; href="./legal/privacy/">Legaal</a>
+                <a style="color:#21212F"; href="./search/">Producten</a>
+                <a style="color:#21212F"; href="./account/">Account</a>
+                <a style="color:#21212F"; href="./">Home</a>
 
             </div>
             <div class="col2">
