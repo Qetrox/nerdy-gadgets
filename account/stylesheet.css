@@ -1,17 +1,19 @@
+.flex-container {
+  display: flex;
+}
+
+
+
 .account_logo {
-    padding: 5px;
-    width: 400px;
-    height: 200px;
-  }
+  padding: 5px;
+  width: 400px;
+  height: 200px;
+}
 
 .account{
-    position: absolute;
-    top:120px;
-    right: 1100px;
-    width: 200px;
-    height: 100px;
-  
-     
+
+
+   
 }
 input[type=text], input[type=password] {
     width: 100%;
