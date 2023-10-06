@@ -111,7 +111,7 @@ Klaar om je passie naar een hoger niveau te tillen? Begin je ontdekkingstocht bi
 
             </div>
             <div class="col2">
-                <h6 style="color:#21212F"; >@Copyright Groep 1 2023- All Right Reserved.</h6>
+                <h6 style="color:#21212F"; >@Copyright nerdy-gadgets.nl (Groep 1) 2023 - All Right Reserved.<br><span style="text-decoration: underline">DISCLAIMER: Dit is geen echte webshop, dit is een school project.</span></h6>
 
             </div>
             <div class="col3">
