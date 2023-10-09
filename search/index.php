@@ -118,7 +118,7 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
     $query_sql = '%' . $_GET["query"] . '%';
 
     /* zoek voor producten in de database die je zoekopdracht matchen */
-    $stmt = $conn->prepare("SELECT * FROM products WHERE productName LIKE ? OR productDescription LIKE ?" . $sortStatement);
+    $stmt = $conn->prepare("SELECT * FROM product WHERE productName LIKE ? OR productDescription LIKE ?" . $sortStatement);
     $stmt->bind_param("ss", $query_sql, $query_sql);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -133,7 +133,7 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
                 echo '<h1>' . $row["productName"] . '<span class="price">€' . $row["productPrice"] . '</span></h1>';
                 echo '<p>' . $row["productDescription"] . '</p>';
                 echo '</div>';
-                echo '<img src="' . $row["productImageUrl"] . '" alt="resultaat">';
+                echo '<img src="' . $row["productImage"] . '" alt="resultaat">';
                 echo '</div>';
                 echo '</div>';
             } else { //als er korting is
@@ -144,7 +144,7 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
                 echo '<h1>' . $row["productName"] . '<span class="price"><span class="kortingsprijs">€' . $row["productPrice"] . '</span> €' . $newPrice . ' </p></h1>';
                 echo '<p>' . $row["productDescription"] . '</p>';
                 echo '</div>';
-                echo '<img src="' . $row["productImageUrl"] . '" alt="resultaat">';
+                echo '<img src="' . $row["productImage"] . '" alt="resultaat">';
                 echo '</div>';
                 echo '</div>';
             }
@@ -155,7 +155,7 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
     }
 } else {
     /* laat alle producten zien */
-    $stmt = $conn->prepare("SELECT * FROM products" . $sortStatement);
+    $stmt = $conn->prepare("SELECT * FROM product" . $sortStatement);
 
     $stmt->execute();
     $result = $stmt->get_result();
@@ -169,7 +169,7 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
                 echo '<h1>' . $row["productName"] . '<span class="price">€' . $row["productPrice"] . '</span></h1>';
                 echo '<p>' . $row["productDescription"] . '</p>';
                 echo '</div>';
-                echo '<img src="' . $row["productImageUrl"] . '" alt="resultaat">';
+                echo '<img src="' . $row["productImage"] . '" alt="resultaat">';
                 echo '</div>';
                 echo '</div>';
             } else { //als er korting is
@@ -180,7 +180,7 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
                 echo '<h1>' . $row["productName"] . '<span class="price"><span class="kortingsprijs">€' . $row["productPrice"] . '</span> €' . $newPrice . ' </p></h1>';
                 echo '<p>' . $row["productDescription"] . '</p>';
                 echo '</div>';
-                echo '<img src="' . $row["productImageUrl"] . '" alt="resultaat">';
+                echo '<img src="' . $row["productImage"] . '" alt="resultaat">';
                 echo '</div>';
                 echo '</div>';
             }
