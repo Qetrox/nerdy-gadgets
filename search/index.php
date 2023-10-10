@@ -60,34 +60,7 @@ if(isset($_GET["sortOption"])) {
 
 <body>
 <div class="loaderscreen"></div>
-<header>
-    <div class="navbar">
-        <div class="nav-logo">
-            <img src="../images/logo_small_white.png" alt="logo" height="100%">
-        </div>
-        <a href="../">
-            <div class="nav-item">
-                <p><span class="material-symbols-sharp">home</span>NERDY-GADGETS</p>
-            </div>
-        </a>
-        <div class="nav-searchbar">
-            <form action="./" method="get">
-                <input type="text" name="query" id="query" placeholder="Zoek een product" value=<?php echo $query ?> >
-            </form>
-            <h1 class="mobile-show">Nerdy Gadgets</h1>
-        </div>
-        <a href="./">
-            <div class="nav-item">
-                <p><span class="material-symbols-sharp">shopping_cart</span>WINKELWAGEN</p>
-            </div>
-        </a>
-        <a href="../account/">
-            <div class="nav-item">
-                <p><span class="material-symbols-sharp">account_circle</span>ACCOUNT</p>
-            </div>
-        </a>
-    </div>
-</header>
+<?php include_once '../header.php'?>
 <main> <!-- Hier de content van de pagina in doen :) -->
     <div class="resultaten">
         <h1>

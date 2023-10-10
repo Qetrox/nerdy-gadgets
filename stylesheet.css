@@ -1,28 +1,3 @@
-html, body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Bree Serif';
-    color: #EEEEEE;
-    background-color: #21212F ;
-}
-
-.mobile-navbar {
-    visibility: hidden;
-}
-
-.mobile-nav-item {
-    visibility: hidden;
-}
-
-a {
-    text-decoration: inherit;
-    color: inherit;
-}
-
-header {
-    overflow: hidden;
-}
-
 footer {
     position: static;
     bottom: 0;
@@ -92,87 +67,6 @@ text-transform: capitalize;
 font-size: x-large;
 
 
-}
-
-.navbar {
-    background-color: #21212F;
-    width: 100%;
-    padding: 5px;
-    height: 10vh;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-.navbar a {
-    height: calc(10vh + 10px);
-    text-align: center;
-    align-items: center;
-    transition: 100ms ease-in-out;
-}
-
-.mobile-nav-item {
-    font-size: 3vh;
-    visibility: hidden;
-}
-
-.nav-logo {
-    height: inherit;
-    left: 0;
-}
-
-.mobile-show {
-    visibility: hidden;
-    position: absolute;
-}
-
-.nav-item {
-    font-size: 3vh;
-    height: 100%;
-    transition: 100ms ease-in-out;
-}
-
-.nav-searchbar input{
-    transition: 200ms ease-in-out;
-    width: 30vw;
-    height: 6vh;
-    font-size: 3vh;
-    border-radius: 100px 20px;
-    padding: 0px 10px;
-    border: 0px;
-    text-align: center;
-}
-
-.nav-searchbar input:focus {
-    transition: 200ms ease-in-out;
-    border-radius: 20px 100px;
-    width: 50vw;
-    .nav-searchbar {
-        width: 50vw;
-    }
-}
-
-.nav-searchbar input:hover {
-    transition: 200ms ease-in-out;
-    border-radius: 20px 100px;
-    width: 50vw;
-    .nav-searchbar {
-        width: 50vw;
-    }
-}
-
-.nav-item .material-symbols-sharp {
-    font-size: 4vh;
-    transform: translate(0, 20%);
-}
-
-.navbar a:hover {
-    border-bottom: 5px solid #EEEEEE;
-    transition: 100ms ease-in-out;
-    .nav-item {
-        transform: translate(0px, -5px);
-        transition: 100ms ease-in-out;
-    }
 }
 
 .main-menu-display {
@@ -276,10 +170,6 @@ font-size: x-large;
         margin: 0;
     }
 
-    .navbar .nav-logo a {
-        visibility: hidden;
-    }
-
     .best-sellers {
         text-align: center;
         font-size: 5vw;
@@ -324,98 +214,5 @@ font-size: x-large;
     .main-menu-display {
         height: 30vh;
         width: 100%;
-    }
-
-    .nav-searchbar input:focus {
-        width: 90vw;
-        max-width: 90vw;
-        height: 6vh;
-        font-size: 3vh;
-        border-radius: 20px;
-        padding: 0px 10px;
-        border: 0px;
-        box-sizing: border-box;
-        text-align: center;
-    }
-
-    html, body {
-        margin: 0;
-        padding: 0;
-        font-family: 'Bree Serif';
-    }
-
-    .navbar {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        height: 15vh;
-        padding: 0;
-        margin: 0;
-    }
-    
-    .nav-logo {
-        visibility: hidden;
-    }
-    
-    .nav-item {
-        visibility: hidden;
-    }
-
-    .mobile-navbar {
-        visibility: visible;
-        background-color: #21212F;
-        width: 100%;
-        padding-top: 5px;
-        height: 5vh;
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        bottom: 0;
-        position: fixed;
-    }
-
-    .mobile-nav-item {
-        align-items: center;
-        align-content: center;
-        text-align: center;
-        font-size: 5vh;
-        visibility: visible;
-        padding: 0 10%;
-    }
-
-    .nav-searchbar {
-        width: 95%;
-        max-width: 95%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0 auto;
-    }
-
-    .nav-searchbar input {
-        width: 90vw;
-        max-width: 90vw; 
-        height: 6vh;
-        font-size: 3vh;
-        border-radius: 20px;
-        padding: 0px 10px;
-        border: 0px;
-        box-sizing: border-box;
-        text-align: center;
-        border-radius: 100px 20px;
-    }
-
-    .material-symbols-sharp {
-        font-size: 4vh;
-      }
-      
-
-    /* vanaf hier account page css */
-    
-
-    .account{
-
-
-
     }
 }
