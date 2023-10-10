@@ -99,6 +99,38 @@ if(isset($_GET["sortOption"])) {
             }
             ?>
         </h1>
+        <form class="sort" action="./" method="get">
+            <input type="text" name="query" id="query" placeholder="Zoek een product" hidden value=<?php echo $query ?> >
+            <label>Sorteer op
+                <select name="sortOption" id="sortOption" onchange="submitForm()">
+                    <?php
+                    if($sort != null) {
+                        switch($sort) { //priceascending, pricedescending, datepublished
+                            case 'priceascending':
+                                echo '<option value="datepublished">Datum</option>';
+                                echo '<option value="priceascending" selected>Prijs oplopend</option>';
+                                echo '<option value="pricedescending">Prijs aflopend</option>';
+                                break;
+                            case 'pricedescending':
+                                echo '<option value="datepublished">Datum</option>';
+                                echo '<option value="priceascending">Prijs oplopend</option>';
+                                echo '<option value="pricedescending" selected>Prijs aflopend</option>';
+                                break;
+                            case 'datepublished':
+                                echo '<option value="datepublished" selected>Datum</option>';
+                                echo '<option value="priceascending">Prijs oplopend</option>';
+                                echo '<option value="pricedescending">Prijs aflopend</option>';
+                                break;
+                        }
+                    } else {
+                        echo '<option value="datepublished" selected>Datum</option>';
+                        echo '<option value="priceascending">Prijs oplopend</option>';
+                        echo '<option value="pricedescending">Prijs aflopend</option>';
+                    }
+                    ?>
+                </select>
+            </label>
+        </form>
         <div class="resultaten-lijst">
             <?php
 $query = "";
@@ -120,7 +152,7 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
     $query_sql = '%' . $_GET["query"] . '%';
 
     /* zoek voor producten in de database die je zoekopdracht matchen */
-    $stmt = $conn->prepare("SELECT * FROM product WHERE productName LIKE ? OR productDescription LIKE ?" . $sortStatement);
+    $stmt = $conn->prepare("SELECT * FROM product WHERE UPPER(productName) LIKE UPPER(?) OR UPPER(productTags) LIKE UPPER(?)" . $sortStatement);
     $stmt->bind_param("ss", $query_sql, $query_sql);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -132,7 +164,8 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
                 echo '<div class="resultaat-item">';
                 echo '<div class="resultaat-item-flexbox">';
                 echo '<div class="description">';
-                echo '<h1>' . $row["productName"] . '<span class="price">€' . $row["productPrice"] . '</span></h1>';
+                echo '<h1>' . $row["productName"] . '</h1>';
+                echo '<h2 class="price">€' . $row["productPrice"] . '</h2>';
                 echo '<p>' . substr($row["productDescription"], 0, 400) . '...</p>';
                 echo '</div>';
                 echo '<img src="https://nerdy-gadgets.com/images/' . $row["productImage"] . '" alt="resultaat">';
@@ -143,7 +176,8 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
                 echo '<div class="resultaat-item">';
                 echo '<div class="resultaat-item-flexbox">';
                 echo '<div class="description">';
-                echo '<h1>' . $row["productName"] . '<span class="price"><span class="kortingsprijs">€' . $row["productPrice"] . '</span> €' . $newPrice . ' </p></h1>';
+                echo '<h1>' . $row["productName"] . '</h1>';
+                echo '<h2 class="price"><span class="kortingsprijs">€' . number_format((float)$row["productPrice"], 2, '.', '') . '</span> €' .number_format((float)$newPrice, 2, '.', '') . ' </h2>';
                 echo '<p>' . substr($row["productDescription"], 0, 400) . '...</p>';
                 echo '</div>';
                 echo '<img src="https://nerdy-gadgets.com/images/' . $row["productImage"] . '" alt="resultaat">';
@@ -168,7 +202,8 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
                 echo '<div class="resultaat-item">';
                 echo '<div class="resultaat-item-flexbox">';
                 echo '<div class="description">';
-                echo '<h1>' . $row["productName"] . '<span class="price">€' . $row["productPrice"] . '</span></h1>';
+                echo '<h1>' . $row["productName"] . '</h1>';
+                echo '<h2 class="price">€' . $row["productPrice"] . '</h2>';
                 echo '<p>' . substr($row["productDescription"], 0, 400) . '...</p>';
                 echo '</div>';
                 echo '<img src="https://nerdy-gadgets.com/images/' . $row["productImage"] . '" alt="resultaat">';
@@ -179,7 +214,8 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
                 echo '<div class="resultaat-item">';
                 echo '<div class="resultaat-item-flexbox">';
                 echo '<div class="description">';
-                echo '<h1>' . $row["productName"] . '<span class="price"><span class="kortingsprijs">€' . $row["productPrice"] . '</span> €' . $newPrice . ' </p></h1>';
+                echo '<h1>' . $row["productName"] . '</h1>';
+                echo '<h2 class="price"><span class="kortingsprijs">€' . number_format((float)$row["productPrice"], 2, '.', '') . '</span> €' .number_format((float)$newPrice, 2, '.', '') . ' </h2>';
                 echo '<p>' . substr($row["productDescription"], 0, 400) . '...</p>';
                 echo '</div>';
                 echo '<img src="https://nerdy-gadgets.com/images/' . $row["productImage"] . '" alt="resultaat">';
@@ -229,5 +265,10 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
 </footer>
 </body>
 <script src="typewriter.js"></script>
+<script>
+    function submitForm() {
+        document.querySelector('.sort').submit();
+    }
+</script>
 
 </html>
