@@ -14,6 +14,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+$conn->set_charset("utf8");
+
 /* kijk wat je hebt opgezocht */
 $query = "";
 if(isset($_GET["query"]) && $_GET["query"] !== "") {
@@ -34,7 +36,7 @@ if(isset($_GET["sortOption"])) {
 <html lang="nl-nl">
 
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nerdy Gadgets</title>
 
@@ -131,9 +133,9 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
                 echo '<div class="resultaat-item-flexbox">';
                 echo '<div class="description">';
                 echo '<h1>' . $row["productName"] . '<span class="price">€' . $row["productPrice"] . '</span></h1>';
-                echo '<p>' . $row["productDescription"] . '</p>';
+                echo '<p>' . substr($row["productDescription"], 0, 400) . '...</p>';
                 echo '</div>';
-                echo '<img src="' . $row["productImage"] . '" alt="resultaat">';
+                echo '<img src="https://nerdy-gadgets.com/images/' . $row["productImage"] . '" alt="resultaat">';
                 echo '</div>';
                 echo '</div>';
             } else { //als er korting is
@@ -142,9 +144,9 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
                 echo '<div class="resultaat-item-flexbox">';
                 echo '<div class="description">';
                 echo '<h1>' . $row["productName"] . '<span class="price"><span class="kortingsprijs">€' . $row["productPrice"] . '</span> €' . $newPrice . ' </p></h1>';
-                echo '<p>' . $row["productDescription"] . '</p>';
+                echo '<p>' . substr($row["productDescription"], 0, 400) . '...</p>';
                 echo '</div>';
-                echo '<img src="' . $row["productImage"] . '" alt="resultaat">';
+                echo '<img src="https://nerdy-gadgets.com/images/' . $row["productImage"] . '" alt="resultaat">';
                 echo '</div>';
                 echo '</div>';
             }
@@ -167,9 +169,9 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
                 echo '<div class="resultaat-item-flexbox">';
                 echo '<div class="description">';
                 echo '<h1>' . $row["productName"] . '<span class="price">€' . $row["productPrice"] . '</span></h1>';
-                echo '<p>' . $row["productDescription"] . '</p>';
+                echo '<p>' . substr($row["productDescription"], 0, 400) . '...</p>';
                 echo '</div>';
-                echo '<img src="' . $row["productImage"] . '" alt="resultaat">';
+                echo '<img src="https://nerdy-gadgets.com/images/' . $row["productImage"] . '" alt="resultaat">';
                 echo '</div>';
                 echo '</div>';
             } else { //als er korting is
@@ -178,9 +180,9 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
                 echo '<div class="resultaat-item-flexbox">';
                 echo '<div class="description">';
                 echo '<h1>' . $row["productName"] . '<span class="price"><span class="kortingsprijs">€' . $row["productPrice"] . '</span> €' . $newPrice . ' </p></h1>';
-                echo '<p>' . $row["productDescription"] . '</p>';
+                echo '<p>' . substr($row["productDescription"], 0, 400) . '...</p>';
                 echo '</div>';
-                echo '<img src="' . $row["productImage"] . '" alt="resultaat">';
+                echo '<img src="https://nerdy-gadgets.com/images/' . $row["productImage"] . '" alt="resultaat">';
                 echo '</div>';
                 echo '</div>';
             }
