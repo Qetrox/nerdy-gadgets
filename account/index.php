@@ -48,7 +48,7 @@ $_SESSION;
             <input type="Password" placeholder="Enter Password" name="psw" required>
         
             <button type="submit">Login</button>
-            <a href="signup.html">Account aanmaken</a>
+            <a href="signup.php"> naar Account aanmaken</a>
           </form>
              
           </div>
