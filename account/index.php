@@ -1,3 +1,13 @@
+<?php
+session_start();
+include("../includes/dbh.php");
+include("../includes/functions.php");
+include("./connection.php");
+
+$user_data = check_login($con);
+
+?>
+
 <!DOCTYPE html>
 <html lang="nl-nl">
  
@@ -24,11 +34,7 @@
 </head>
 
 
-<?php
-session_start();
-$_SESSION;
 
-?>
 
 
 <body>
