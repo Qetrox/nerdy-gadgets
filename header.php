@@ -1,3 +1,17 @@
+<?php
+session_start();
+
+if (isset($_SESSION["user_id"])) {
+    $mysqli = require __DIR__ . '/account/connection.php';
+    $sql = "SELECT * FROM user
+            WHERE id = {$_SESSION["user_id"]}";
+    $result = $mysqli->query($sql);
+    $user = $result->fetch_assoc();
+
+}
+
+?>
+
 <header>
     <div class="navbar">
         <div class="nav-logo">
@@ -25,11 +39,18 @@
                     <p><span class="material-symbols-sharp">shopping_cart</span></p>
                 </div>
             </a>
-            <a href="https://nerdy-gadgets.nl/account/">
-                <div class="nav-item">
+            <?php
+            if (isset($user)):?>
+            <p> Welkom <?= htmlspecialchars($user["first_name"]) ?> </p>
+            <p><a href="./account/logout.php"> Log uit</a> </p>
+            <?php else: ?>
+
+                <a href="https://nerdy-gadgets.nl/account/login.php">
+                    <div class="nav-item">
                     <p><span class="material-symbols-sharp">account_circle</span></p>
-                </div>
-            </a>
-        </div>
+                    </div>
+                </a>
+            <?php endif;?>
+           </div>
     </div>
 </header>

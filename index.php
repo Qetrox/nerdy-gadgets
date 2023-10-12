@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="nl-nl">
 
@@ -113,7 +114,7 @@ Klaar om je passie naar een hoger niveau te tillen? Begin je ontdekkingstocht bi
                 </a>
             </div>
             <div class="mobile-nav-item">
-                <a href="./account.php">
+                <a href="./account/login.php">
                     <span class="material-symbols-sharp">
                         account_circle
                     </span>

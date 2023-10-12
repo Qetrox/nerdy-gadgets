@@ -1,7 +1,36 @@
 <?php
+$is_invalid = false;
 
-/* signup werkt nog niet
-    is nu een kopie van login */
+if($_SERVER["REQUEST_METHOD"] === "POST"){
+
+    $mysqli = require __DIR__ . "/connection.php";
+
+    /* account username en wachtwoord ophalen van database */
+    $sqla = sprintf("SELECT * FROM user
+                           WHERE email ='%s'",
+                           $mysqli->real_escape_string($_POST["gebruikersnaam"]));
+    $result = $mysqli->query($sqla);
+    $user = $result->fetch_assoc();
+
+    $password = $_POST['password'];
+    /*  wachtwoord checken daarna inloggen  */
+    if(trim($user["password"]) == trim($password)){
+        session_start();
+        session_regenerate_id();
+        $_SESSION["user_id"] = $user["id"];
+
+        header("Location: ../index.php");
+        exit;
+
+    }
+    /* als inlog gegevens niet kloppen*/
+
+    else {
+        $is_invalid = true;
+    }
+
+ }
+
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +39,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registratie</title>
+    <title>Accountpage</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,28 +61,37 @@
 
 
 
-
 <body>
 <?php include_once '../header.php'?>
 <main> <!-- Hier de content van de pagina in doen :) -->
 
+
+    <?php
+    if($is_invalid == true){
+        print("gegevens incorrect");
+
+    }
+
+    ?>
+
     <div class = "flex-container">
 
- 
-     
+        <!--login form-->
+
         <div class="account">
             <form method="post"?> 
             <label for="gebruikersnaam"><b>gebruikersnaam</b></label>
             <input type="text" placeholder="Enter Username" name="gebruikersnaam" required>
         
             <label for="psw"><b>wachtwoord</b></label>
-            <input type="Password" placeholder="Enter Password" name="psw" required>
+            <input type="Password" placeholder="Enter Password" name="password" required>
         
-            <button type="submit">registreren</button>
-            <a href="login.php"> naar Inloggen</a>
+            <button type="submit">Login</button>
+            <a href="signup.php"> naar Account aanmaken</a>
           </form>
              
           </div>
+
     </div>  
 
 
