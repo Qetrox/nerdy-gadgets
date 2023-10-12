@@ -3,7 +3,6 @@ session_start();
 include("../includes/dbh.php");
 include("../includes/functions.php");
 include("./connection.php");
-
 $user_data = check_login($con);
 
 ?>
