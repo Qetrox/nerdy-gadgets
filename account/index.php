@@ -1,9 +1,25 @@
 <?php
-session_start();
-include("../includes/dbh.php");
-include("../includes/functions.php");
-include("./connection.php");
-$user_data = check_login($con);
+if($_SERVER["REQUEST_METHOD"] === "POST"){
+
+    $mysqli = require __DIR__ . "/connection.php";
+
+    /* email naam checken */
+    $sqla = sprintf("SELECT * FROM user
+                           WHERE email ='%s'",
+                           $mysqli->real_escape_string($_POST["gebruikersnaam"]));
+    $result = $mysqli->query($sqla);
+    $user = $result->fetch_assoc();
+
+    $password = $_POST['password'];
+    $password = $password." ";
+    if(trim($user["password"]) == trim($password)){
+        print("login succes");
+
+    }
+    else{  print("login failure");}
+
+
+ }
 
 ?>
 
@@ -35,7 +51,6 @@ $user_data = check_login($con);
 
 
 
-
 <body>
 <?php include_once '../header.php'?>
 <main> <!-- Hier de content van de pagina in doen :) -->
@@ -50,7 +65,7 @@ $user_data = check_login($con);
             <input type="text" placeholder="Enter Username" name="gebruikersnaam" required>
         
             <label for="psw"><b>wachtwoord</b></label>
-            <input type="Password" placeholder="Enter Password" name="psw" required>
+            <input type="Password" placeholder="Enter Password" name="password" required>
         
             <button type="submit">Login</button>
             <a href="signup.php"> naar Account aanmaken</a>

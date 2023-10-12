@@ -1,5 +1,15 @@
 <?php
 include("../includes/dbh.php");
 include("../includes/functions.php");
-if(!$conn = new mysqli($servername, $username, $password, $dbname))
-{die("connection is catastrophisch gestorven");}
+$mysqli = new mysqli($servername, $username, $password, $dbname);
+/*
+
+
+
+ */
+
+// Check connection
+if ($mysqli->connect_error) {
+    die("rampzalig: " . $mysqli->connect_error);
+}
+return $mysqli;
