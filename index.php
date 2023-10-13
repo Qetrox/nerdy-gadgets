@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="nl-nl">
 
@@ -19,40 +20,14 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <script src="index.js"></script>
+    <link rel="stylesheet" href="base_stylesheet.css">
     <link rel="stylesheet" href="stylesheet.css">
     <link rel="stylesheet" href="load.css">
 </head>
 
 <div class="loaderscreen"></div>
 <body>
-    <header>
-        <div class="navbar">
-            <div class="nav-logo">
-                <img src="images/logo_small_white.png" alt="logo" height="100%">
-            </div>
-            <a href="./">
-                <div class="nav-item">
-                    <p><span class="material-symbols-sharp">home</span>NERDY-GADGETS</p>
-                </div>
-            </a>
-            <div class="nav-searchbar">
-                <form action="./search/" method="get">
-                    <input type="text" name="query" id="query" placeholder="Zoek een product">
-                </form>
-                <h1 class="mobile-show">Nerdy Gadgets</h1>
-            </div>
-            <a href="./">
-                <div class="nav-item">
-                    <p><span class="material-symbols-sharp">shopping_cart</span>WINKELWAGEN</p>
-                </div>
-            </a>
-            <a href="./account/">
-                <div class="nav-item">
-                    <p><span class="material-symbols-sharp">account_circle</span>ACCOUNT</p>
-                </div>
-            </a>
-        </div>
-    </header>
+    <?php include_once './header.php'?>
     <main> <!-- Hier de content van de pagina in doen :) -->
         <div class="main-menu-display">
             <h1 id="typewriter"></h1>
@@ -139,7 +114,7 @@ Klaar om je passie naar een hoger niveau te tillen? Begin je ontdekkingstocht bi
                 </a>
             </div>
             <div class="mobile-nav-item">
-                <a href="./account.php">
+                <a href="./account/login.php">
                     <span class="material-symbols-sharp">
                         account_circle
                     </span>

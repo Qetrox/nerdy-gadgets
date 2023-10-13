@@ -3,7 +3,24 @@ html, body {
     padding: 0;
     font-family: 'Bree Serif';
     color: #EEEEEE;
-    background-color: #212121 ;
+    background-color: #212121;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    transform: translateX(100%);
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #EEEEEE;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 
 .mobile-navbar {
@@ -72,6 +89,32 @@ footer {
     transition: 100ms ease-in-out;
 }
 
+.small-head-icons {
+    background-color: #21212F;
+    padding: 5px;
+    height: 10vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.small-head-icons a {
+    height: calc(10vh + 10px);
+    text-align: center;
+    align-items: center;
+    transition: 100ms ease-in-out;
+    padding:0 10px;
+}
+
+.small-head-icons a:hover {
+    border-bottom: 5px solid #EEEEEE;
+    transition: 100ms ease-in-out;
+    .nav-item {
+        transform: translate(0px, -5px);
+        transition: 100ms ease-in-out;
+    }
+}
+
 .mobile-nav-item {
     font-size: 3vh;
     visibility: hidden;
@@ -98,7 +141,7 @@ footer {
     width: 30vw;
     height: 6vh;
     font-size: 3vh;
-    border-radius: 100px 20px;
+    border-radius: 100px;
     padding: 0px 10px;
     border: 0px;
     text-align: center;
@@ -106,7 +149,7 @@ footer {
 
 .nav-searchbar input:focus {
     transition: 200ms ease-in-out;
-    border-radius: 20px 100px;
+    border-radius: 100px;
     width: 50vw;
     .nav-searchbar {
         width: 50vw;
@@ -115,7 +158,7 @@ footer {
 
 .nav-searchbar input:hover {
     transition: 200ms ease-in-out;
-    border-radius: 20px 100px;
+    border-radius: 100px;
     width: 50vw;
     .nav-searchbar {
         width: 50vw;

@@ -14,6 +14,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+$conn->set_charset("utf8");
+
 /* kijk wat je hebt opgezocht */
 $query = "";
 if(isset($_GET["query"]) && $_GET["query"] !== "") {
@@ -34,7 +36,7 @@ if(isset($_GET["sortOption"])) {
 <html lang="nl-nl">
 
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nerdy Gadgets</title>
 
@@ -58,34 +60,7 @@ if(isset($_GET["sortOption"])) {
 
 <body>
 <div class="loaderscreen"></div>
-<header>
-    <div class="navbar">
-        <div class="nav-logo">
-            <img src="../images/logo_small_white.png" alt="logo" height="100%">
-        </div>
-        <a href="../">
-            <div class="nav-item">
-                <p><span class="material-symbols-sharp">home</span>NERDY-GADGETS</p>
-            </div>
-        </a>
-        <div class="nav-searchbar">
-            <form action="./" method="get">
-                <input type="text" name="query" id="query" placeholder="Zoek een product" value=<?php echo $query ?> >
-            </form>
-            <h1 class="mobile-show">Nerdy Gadgets</h1>
-        </div>
-        <a href="./">
-            <div class="nav-item">
-                <p><span class="material-symbols-sharp">shopping_cart</span>WINKELWAGEN</p>
-            </div>
-        </a>
-        <a href="../account/">
-            <div class="nav-item">
-                <p><span class="material-symbols-sharp">account_circle</span>ACCOUNT</p>
-            </div>
-        </a>
-    </div>
-</header>
+<?php include_once '../header.php'?>
 <main> <!-- Hier de content van de pagina in doen :) -->
     <div class="resultaten">
         <h1>
@@ -97,6 +72,38 @@ if(isset($_GET["sortOption"])) {
             }
             ?>
         </h1>
+        <form class="sort" action="./" method="get">
+            <input type="text" name="query" id="query" placeholder="Zoek een product" hidden value=<?php echo $query ?> >
+            <label>Sorteer op
+                <select name="sortOption" id="sortOption" onchange="submitForm()">
+                    <?php
+                    if($sort != null) {
+                        switch($sort) { //priceascending, pricedescending, datepublished
+                            case 'priceascending':
+                                echo '<option value="datepublished">Datum</option>';
+                                echo '<option value="priceascending" selected>Prijs oplopend</option>';
+                                echo '<option value="pricedescending">Prijs aflopend</option>';
+                                break;
+                            case 'pricedescending':
+                                echo '<option value="datepublished">Datum</option>';
+                                echo '<option value="priceascending">Prijs oplopend</option>';
+                                echo '<option value="pricedescending" selected>Prijs aflopend</option>';
+                                break;
+                            case 'datepublished':
+                                echo '<option value="datepublished" selected>Datum</option>';
+                                echo '<option value="priceascending">Prijs oplopend</option>';
+                                echo '<option value="pricedescending">Prijs aflopend</option>';
+                                break;
+                        }
+                    } else {
+                        echo '<option value="datepublished" selected>Datum</option>';
+                        echo '<option value="priceascending">Prijs oplopend</option>';
+                        echo '<option value="pricedescending">Prijs aflopend</option>';
+                    }
+                    ?>
+                </select>
+            </label>
+        </form>
         <div class="resultaten-lijst">
             <?php
 $query = "";
@@ -118,7 +125,7 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
     $query_sql = '%' . $_GET["query"] . '%';
 
     /* zoek voor producten in de database die je zoekopdracht matchen */
-    $stmt = $conn->prepare("SELECT * FROM product WHERE productName LIKE ? OR productDescription LIKE ?" . $sortStatement);
+    $stmt = $conn->prepare("SELECT * FROM product WHERE UPPER(productName) LIKE UPPER(?) OR UPPER(productTags) LIKE UPPER(?)" . $sortStatement);
     $stmt->bind_param("ss", $query_sql, $query_sql);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -130,10 +137,11 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
                 echo '<div class="resultaat-item">';
                 echo '<div class="resultaat-item-flexbox">';
                 echo '<div class="description">';
-                echo '<h1>' . $row["productName"] . '<span class="price">€' . $row["productPrice"] . '</span></h1>';
-                echo '<p>' . $row["productDescription"] . '</p>';
+                echo '<h1>' . $row["productName"] . '</h1>';
+                echo '<h2 class="price">€' . $row["productPrice"] . '</h2>';
+                echo '<p>' . substr($row["productDescription"], 0, 400) . '...</p>';
                 echo '</div>';
-                echo '<img src="' . $row["productImage"] . '" alt="resultaat">';
+                echo '<img src="https://nerdy-gadgets.com/images/' . $row["productImage"] . '" alt="resultaat">';
                 echo '</div>';
                 echo '</div>';
             } else { //als er korting is
@@ -141,10 +149,11 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
                 echo '<div class="resultaat-item">';
                 echo '<div class="resultaat-item-flexbox">';
                 echo '<div class="description">';
-                echo '<h1>' . $row["productName"] . '<span class="price"><span class="kortingsprijs">€' . $row["productPrice"] . '</span> €' . $newPrice . ' </p></h1>';
-                echo '<p>' . $row["productDescription"] . '</p>';
+                echo '<h1>' . $row["productName"] . '</h1>';
+                echo '<h2 class="price"><span class="kortingsprijs">€' . number_format((float)$row["productPrice"], 2, '.', '') . '</span> €' .number_format((float)$newPrice, 2, '.', '') . ' </h2>';
+                echo '<p>' . substr($row["productDescription"], 0, 400) . '...</p>';
                 echo '</div>';
-                echo '<img src="' . $row["productImage"] . '" alt="resultaat">';
+                echo '<img src="https://nerdy-gadgets.com/images/' . $row["productImage"] . '" alt="resultaat">';
                 echo '</div>';
                 echo '</div>';
             }
@@ -166,10 +175,11 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
                 echo '<div class="resultaat-item">';
                 echo '<div class="resultaat-item-flexbox">';
                 echo '<div class="description">';
-                echo '<h1>' . $row["productName"] . '<span class="price">€' . $row["productPrice"] . '</span></h1>';
-                echo '<p>' . $row["productDescription"] . '</p>';
+                echo '<h1>' . $row["productName"] . '</h1>';
+                echo '<h2 class="price">€' . $row["productPrice"] . '</h2>';
+                echo '<p>' . substr($row["productDescription"], 0, 400) . '...</p>';
                 echo '</div>';
-                echo '<img src="' . $row["productImage"] . '" alt="resultaat">';
+                echo '<img src="https://nerdy-gadgets.com/images/' . $row["productImage"] . '" alt="resultaat">';
                 echo '</div>';
                 echo '</div>';
             } else { //als er korting is
@@ -177,10 +187,11 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
                 echo '<div class="resultaat-item">';
                 echo '<div class="resultaat-item-flexbox">';
                 echo '<div class="description">';
-                echo '<h1>' . $row["productName"] . '<span class="price"><span class="kortingsprijs">€' . $row["productPrice"] . '</span> €' . $newPrice . ' </p></h1>';
-                echo '<p>' . $row["productDescription"] . '</p>';
+                echo '<h1>' . $row["productName"] . '</h1>';
+                echo '<h2 class="price"><span class="kortingsprijs">€' . number_format((float)$row["productPrice"], 2, '.', '') . '</span> €' .number_format((float)$newPrice, 2, '.', '') . ' </h2>';
+                echo '<p>' . substr($row["productDescription"], 0, 400) . '...</p>';
                 echo '</div>';
-                echo '<img src="' . $row["productImage"] . '" alt="resultaat">';
+                echo '<img src="https://nerdy-gadgets.com/images/' . $row["productImage"] . '" alt="resultaat">';
                 echo '</div>';
                 echo '</div>';
             }
@@ -227,5 +238,10 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
 </footer>
 </body>
 <script src="typewriter.js"></script>
+<script>
+    function submitForm() {
+        document.querySelector('.sort').submit();
+    }
+</script>
 
 </html>
