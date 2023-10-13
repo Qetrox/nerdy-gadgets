@@ -27,7 +27,6 @@ footer {
     padding: 1px;
     text-align: left;
     display: flex;
-    align-items: left;
     justify-content: center;
     flex-direction: column;
     background-color: #5152bb;
@@ -41,7 +40,6 @@ footer {
     padding: 1px;
     text-align: left;
     display: flex;
-    align-items: Right;
     justify-content: left;
     flex-direction: column;
     background-color: #5152bb;
@@ -53,7 +51,6 @@ footer {
     width: 80%;
     text-align: right;
     display: flex;
-    align-items: left;
     justify-content: normal;
     flex-direction: column;
     background-color: #5152bb;
@@ -76,7 +73,7 @@ font-size: x-large;
     background-attachment: fixed;
     background-size: cover;
     text-align: center;
-    height: 80vh;
+    height: 40vh;
     width: 100%;
     display: flex;
     justify-content: center;

@@ -115,6 +115,11 @@ footer {
     }
 }
 
+.user-text-header {
+    transform: translateY(-3vh);
+    font-size: 1vw;
+}
+
 .mobile-nav-item {
     font-size: 3vh;
     visibility: hidden;
