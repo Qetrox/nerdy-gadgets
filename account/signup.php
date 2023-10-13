@@ -37,7 +37,7 @@
 <?php include_once '../header.php'?>
 <main> <!-- Hier de content van de pagina in doen :) -->
 
-    <div class = "flex-container">
+    
 
  
      
