@@ -33,7 +33,7 @@
             <h1 id="typewriter"></h1>
             <div class="background"></div>
         </div>
-        <div class="best-sellers">
+        <div class="best-sellers" id="bestsellers">
             <h1>Best Sellers - Aanraders!</h1>
             <p>Dit zijn onze best verkochte producten.<br>Bekijk ze eens, misschien zit er wel iets tussen voor jou!</p>
             <div class="bs-list">

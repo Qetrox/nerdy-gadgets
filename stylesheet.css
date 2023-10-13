@@ -67,20 +67,21 @@ font-size: x-large;
 }
 
 .main-menu-display {
-    background-image: url("./images/mainFrame.png");
+    background-color: #212121;
     background-repeat: no-repeat;
     background-position: center;
-    background-attachment: fixed;
     background-size: cover;
     text-align: center;
-    height: 40vh;
+    height: 60vh;
     width: 100%;
     display: flex;
     justify-content: center;
     align-content: center;
     align-items: center;
-    border-bottom: 5px solid #21212F;
     border-top: 5px solid #21212F;
+    background-image: linear-gradient(
+            to bottom, transparent, #212121
+    ), url("./images/mainFrame.png");
 }
 
 .best-sellers {
