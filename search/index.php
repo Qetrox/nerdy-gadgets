@@ -142,7 +142,7 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
                 echo '<h2 class="price">€' . $row["productPrice"] . '</h2>';
                 echo '<p>' . substr($row["productDescription"], 0, 400) . '...</p>';
                 echo '</div>';
-                echo '<img src="https://nerdy-gadgets.nl/images/' . $row["productImage"] . '" alt="resultaat">';
+                echo '<div class="ah"><img src="https://nerdy-gadgets.nl/images/' . $row["productImage"] . '" alt="resultaat"></div>';
                 echo '</div>';
                 echo '</div>';
                 echo '</a>';
@@ -156,7 +156,7 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
                 echo '<h2 class="price"><span class="kortingsprijs">€' . number_format((float)$row["productPrice"], 2, '.', '') . '</span> €' .number_format((float)$newPrice, 2, '.', '') . ' </h2>';
                 echo '<p>' . substr($row["productDescription"], 0, 400) . '...</p>';
                 echo '</div>';
-                echo '<img src="https://nerdy-gadgets.nl/images/' . $row["productImage"] . '" alt="resultaat">';
+                echo '<div class="ah"><img src="https://nerdy-gadgets.nl/images/' . $row["productImage"] . '" alt="resultaat"></div>';
                 echo '</div>';
                 echo '</div>';
                 echo '</a>';
@@ -184,7 +184,7 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
                 echo '<h2 class="price">€' . $row["productPrice"] . '</h2>';
                 echo '<p>' . substr($row["productDescription"], 0, 400) . '...</p>';
                 echo '</div>';
-                echo '<img src="https://nerdy-gadgets.nl/images/' . $row["productImage"] . '" alt="resultaat">';
+                echo '<div class="ah"><img src="https://nerdy-gadgets.nl/images/' . $row["productImage"] . '" alt="resultaat"></div>';
                 echo '</div>';
                 echo '</div>';
                 echo '</a>';
@@ -198,7 +198,7 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
                 echo '<h2 class="price"><span class="kortingsprijs">€' . number_format((float)$row["productPrice"], 2, '.', '') . '</span> €' .number_format((float)$newPrice, 2, '.', '') . ' </h2>';
                 echo '<p>' . substr($row["productDescription"], 0, 400) . '...</p>';
                 echo '</div>';
-                echo '<img src="https://nerdy-gadgets.nl/images/' . $row["productImage"] . '" alt="resultaat">';
+                echo '<div class="ah"><img src="https://nerdy-gadgets.nl/images/' . $row["productImage"] . '" alt="resultaat"></div>';
                 echo '</div>';
                 echo '</div>';
                 echo '</a>';

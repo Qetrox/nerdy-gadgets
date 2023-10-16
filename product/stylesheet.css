@@ -10,17 +10,25 @@
     align-items: center;
 }
 
-.product .naastDeImage img{
-    width: 65%;
+.product .naastDeImage .aaaaah img{
+    max-height: 50vh;
     height: auto;
     border-radius: 20px;
 }
+
+.aaaaah {
+    width: 65%;
+    display: flex;
+    justify-content: center;
+}
+
 .product .naastDeImage .info{
     width: 30%;
     text-align: left;
-    justify-content: unset;
+    justify-content: center;
     left: 0;
     position: relative;
+    align-: center;
 }
 
 .levertijd {
@@ -51,7 +59,9 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-items: center;
 }
+
 
 .tags {
     transform: translateY(-50%);

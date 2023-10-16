@@ -34,12 +34,16 @@
     overflow: hidden;
 }
 
-.resultaat-item-flexbox img{
-    width: 40%;
-    height: 40%;
-    float: left;
-    text-align: left;
+.resultaat-item-flexbox .ah img {
+    max-height: 30vh;
+    align-self: center;
     border-radius: 20px;
+}
+
+.ah {
+    width: 35vw;
+    display: flex;
+    justify-content: center;
 }
 
 .resultaat-item h1 {
@@ -139,10 +143,18 @@ select * {
         width: 100%;
     }
 
-    .resultaat-item-flexbox img{
-        width: 100%;
+    .ah img{
+        height: auto;
+        max-width: 100%;
         float: left;
-        text-align: left;
+        text-align: center;
+        align-self: center;
+    }
+
+    .ah {
+        width: 90vw;
+        display: flex;
+        justify-content: center;
     }
 
     .resultaat-item h1 {
