@@ -66,14 +66,14 @@ if(isset($_GET["sortOption"])) {
         <h1>
             <?php
             if(isset($_GET["query"]) && $_GET["query"] !== "") {
-                echo "Resultaten Voor: " . $_GET["query"];
+                echo "Resultaten Voor: " . htmlspecialchars($_GET["query"]);
             } else {
                 echo "Complete Catalogus";
             }
             ?>
         </h1>
         <form class="sort" action="./" method="get">
-            <input type="text" name="query" id="query" placeholder="Zoek een product" hidden value=<?php echo $query ?> >
+            <input type="text" name="query" id="query" placeholder="Zoek een product" hidden value=<?php echo htmlspecialchars($query) ?> >
             <label>Sorteer op
                 <select name="sortOption" id="sortOption" onchange="submitForm()">
                     <?php
@@ -134,6 +134,7 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
             if($row["productDiscountPercentage"] === 0) {
+                echo '<a href="../product/?productId=' . $row["productId"] . '">';
                 echo '<div class="resultaat-item">';
                 echo '<div class="resultaat-item-flexbox">';
                 echo '<div class="description">';
@@ -144,8 +145,10 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
                 echo '<img src="https://nerdy-gadgets.com/images/' . $row["productImage"] . '" alt="resultaat">';
                 echo '</div>';
                 echo '</div>';
+                echo '</a>';
             } else { //als er korting is
                 $newPrice = $row["productPrice"] * (1 - $row["productDiscountPercentage"] / 100); //bereken prijs met discount
+                echo '<a href="../product/?productId=' . $row["productId"] . '">';
                 echo '<div class="resultaat-item">';
                 echo '<div class="resultaat-item-flexbox">';
                 echo '<div class="description">';
@@ -156,6 +159,7 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
                 echo '<img src="https://nerdy-gadgets.com/images/' . $row["productImage"] . '" alt="resultaat">';
                 echo '</div>';
                 echo '</div>';
+                echo '</a>';
             }
         }
     } else {
@@ -172,6 +176,7 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             if($row["productDiscountPercentage"] === 0) {
+                echo '<a href="../product/?productId=' . $row["productId"] . '">';
                 echo '<div class="resultaat-item">';
                 echo '<div class="resultaat-item-flexbox">';
                 echo '<div class="description">';
@@ -182,8 +187,10 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
                 echo '<img src="https://nerdy-gadgets.com/images/' . $row["productImage"] . '" alt="resultaat">';
                 echo '</div>';
                 echo '</div>';
+                echo '</a>';
             } else { //als er korting is
                 $newPrice = $row["productPrice"] * (1 - $row["productDiscountPercentage"] / 100); //bereken prijs met discount
+                echo '<a href="../product/?productId=' . $row["productId"] . '">';
                 echo '<div class="resultaat-item">';
                 echo '<div class="resultaat-item-flexbox">';
                 echo '<div class="description">';
@@ -194,6 +201,7 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
                 echo '<img src="https://nerdy-gadgets.com/images/' . $row["productImage"] . '" alt="resultaat">';
                 echo '</div>';
                 echo '</div>';
+                echo '</a>';
             }
         }
     }
@@ -201,8 +209,6 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
 ?>
         </div>
     </div>
-
-
 </main>
 <footer>
     <div class="footer-content">

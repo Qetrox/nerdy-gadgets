@@ -1,0 +1,80 @@
+.product {
+    overflow: hidden;
+    background-color: #EEEEEE;
+    color: #212121;
+    border-radius: 25px;
+    margin: 2vw;
+    padding: 2vw;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.product .naastDeImage img{
+    width: 65%;
+    height: auto;
+    border-radius: 20px;
+}
+.product .naastDeImage .info{
+    width: 30%;
+    text-align: left;
+    justify-content: unset;
+    left: 0;
+    position: relative;
+}
+
+.levertijd {
+    transform: translateY(-50%);
+}
+.tijddisclaimer {
+    transform: translateY(-100%);
+}
+
+.addToCart {
+    background-color: DodgerBlue;
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    cursor: pointer;
+    font-size: 20px;
+    margin-right: 20px;
+    position: relative;
+    bottom: 0;
+    font-family: 'Bree Serif';
+}
+
+.addToCart:hover {
+    background-color: RoyalBlue;
+}
+
+.naastDeImage {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.tags {
+    transform: translateY(-50%);
+}
+
+.kortingsprijs {
+    color: #FF0000;
+    text-decoration: line-through;
+    text-decoration-thickness: 2px
+}
+
+.product h1 {
+    text-align: center;
+    font-size: 2vw;
+    padding: 3px;
+    border-bottom: 2px solid #898989;
+    width: 100%;
+}
+
+.product .price{
+    font-family: 'Bree Serif';
+    padding-right: 5px;
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 3vw;
+    margin: 0;
+}
