@@ -82,7 +82,7 @@ if(!isset($_GET["productId"])) {
 
         <h3 class="tags">Merk: <span style="text-decoration: underline"><?php echo htmlspecialchars($brand) ?></span> - Categorie: <span style="text-decoration: underline"><?php echo htmlspecialchars($category) ?></span></h3>
         <div class="naastDeImage">
-            <img src="../images/ <?php echo $image; ?>" alt="resultaat">
+            <img src="../images/<?php echo $image; ?>" alt="resultaat">
             <div class="info">
                 <h2 class="price"><?php echo $priceHtml ?></h2>
                 <p class="voorraad">Op Voorraad: 232<br>Leverancier: 25.342</p>
