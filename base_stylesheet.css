@@ -264,8 +264,8 @@ footer {
     }
 
     .nav-searchbar {
-        width: 95%;
-        max-width: 95%;
+        width: 90vw;
+        max-width: 90vw;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -282,7 +282,6 @@ footer {
         border: 0px;
         box-sizing: border-box;
         text-align: center;
-        border-radius: 100px 20px;
     }
 
     .material-symbols-sharp {

@@ -33,12 +33,29 @@ if(!isset($_GET["productId"])) {
             $discount = $row["productDiscountPercentage"];
             $brand = $row["brandName"];
             $category = $row["productCategory"];
+            $stars = $row["productStars"];
         }
         if($discount > 0) {
             $newPrice = $price * (1 - $discount / 100); //bereken prijs met discount
             $priceHtml = '<span class="kortingsprijs">€' . number_format((float)$price, 2, '.', '') . '</span> €' .number_format((float)$newPrice, 2, '.', '');
         } else {
             $priceHtml = '€' . $price;
+        }
+        switch($stars) {
+            case 1:
+                $starHtml = "star_rate";
+                break;
+            case 2:
+                $starHtml = "star_ratestar_rate";
+                break;
+            case 3:
+                $starHtml = "star_ratestar_ratestar_rate";
+            case 4:
+                $starHtml = "star_ratestar_ratestar_ratestar_rate";
+                break;
+            case 5:
+                $starHtml = "star_ratestar_ratestar_ratestar_ratestar_rate";
+                break;
         }
     } else {
         header('location: ../search/');
@@ -86,11 +103,17 @@ if(!isset($_GET["productId"])) {
                 <img src="../images/<?php echo $image; ?>" alt="resultaat">
             </div>
             <div class="info">
-                <h2 class="price"><?php echo $priceHtml ?></h2>
-                <p class="voorraad">Op Voorraad: 232<br>Leverancier: 25.342</p>
-                <button class="addToCart" onclick=""><span class="material-symbols-sharp" style="transform: translateY(20%)">shopping_cart</span> In winkelwagen</button>
-                <p class="levertijd">Bestel voor 16:00, overmorgen in huis*</p>
-                <h6 class="tijddisclaimer">*Wij doen ons best om uw bestelling op tijd te leveren, maar door drukte kan dit soms wat langer duren. Onze excuses hiervoor.</h6>
+                <div class="mobile-extend">
+                    <h2 class="price"><?php echo $priceHtml ?></h2>
+                    <p class="voorraad">Op Voorraad: 232<br>Leverancier: 25.342</p>
+                </div>
+                <div class="mobile-extend">
+                    <button class="addToCart" onclick=""><p class="winkelwagentekst"><span class="material-symbols-sharp" style="transform: translateY(20%)">shopping_cart</span> In winkelwagen</p></button>
+                    <p class="stars"><span class="material-symbols-sharp"><?php echo $starHtml ?></span></p>
+                    <p class="levertijd">Bestel voor 16:00, overmorgen in huis*</p>
+                </div>
+                    <h6 class="tijddisclaimer">*Wij doen ons best om uw bestelling op tijd te leveren, maar door drukte kan dit soms wat langer duren. Onze excuses hiervoor.</h6>
+
             </div>
         </div>
         <p><?php echo htmlspecialchars($description) ?></p>

@@ -42,13 +42,17 @@
     background-color: DodgerBlue;
     border: none;
     color: white;
-    padding: 12px 30px;
+    padding: 5px 30px;
     cursor: pointer;
     font-size: 20px;
     margin-right: 20px;
     position: relative;
     bottom: 0;
     font-family: 'Bree Serif';
+    border-radius: 5px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
 }
 
 .addToCart:hover {
@@ -60,6 +64,8 @@
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #898989;
 }
 
 
@@ -87,4 +93,50 @@
     color: rgba(0, 0, 0, 0.7);
     font-size: 3vw;
     margin: 0;
+}
+
+@media only screen and (max-width: 900px) {
+
+    .product {
+        border-radius: 0;
+        margin: 0;
+    }
+
+    .product h1 {
+        font-size: 40px;
+        text-align: left;
+    }
+    .product .tags {
+        text-align: center;
+    }
+    .product .levertijd, .tijddisclaimer {
+        transform: unset;
+    }
+    .product .price {
+        font-size: 40px;
+        text-align: center;
+    }
+    .product .naastDeImage{
+        flex-wrap: wrap;
+    }
+    .aaaaah {
+        width: 100%;
+    }
+    .product .naastDeImage img {
+        width: 90vw;
+    }
+    .product .naastDeImage .info {
+        display: flex;
+        flex-wrap: wrap;
+        width: 90vw;
+        text-align: center;
+        align-items: center;
+    }
+    .product .naastDeImage .addToCart {
+        margin: 0;
+    }
+    .mobile-extend {
+        width: 100%;
+    }
+
 }

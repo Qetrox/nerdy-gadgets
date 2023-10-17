@@ -43,6 +43,7 @@ if(isset($_GET["sortOption"])) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
     <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
     <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
@@ -66,14 +67,14 @@ if(isset($_GET["sortOption"])) {
         <h1>
             <?php
             if(isset($_GET["query"]) && $_GET["query"] !== "") {
-                echo "Resultaten Voor: " . htmlspecialchars($_GET["query"]);
+                echo "Resultaten Voor: " . $_GET["query"];
             } else {
                 echo "Complete Catalogus";
             }
             ?>
         </h1>
         <form class="sort" action="./" method="get">
-            <input type="text" name="query" id="query" placeholder="Zoek een product" hidden value=<?php echo htmlspecialchars($query) ?> >
+            <input type="text" name="query" id="query" placeholder="Zoek een product" hidden value=<?php echo $query ?> >
             <label>Sorteer op
                 <select name="sortOption" id="sortOption" onchange="submitForm()">
                     <?php
