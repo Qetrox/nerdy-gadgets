@@ -20,6 +20,7 @@
     width: 65%;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .product .naastDeImage .info{
@@ -73,6 +74,37 @@
     transform: translateY(-50%);
 }
 
+.aaaaah .imageSwitch {
+    width: 100%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.aaaaah .imageSwitch > div {
+    width: 50%;
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    & p {
+        font-size: 40px;
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none; /* Non-prefixed version, currently
+                              supported by Chrome and Opera */
+    }
+}
+.hoverme:hover {
+    cursor: pointer;
+}
+
+.active {
+    border-bottom: 2px solid;
+}
+
 .kortingsprijs {
     color: #FF0000;
     text-decoration: line-through;
@@ -123,7 +155,7 @@
         width: 100%;
     }
     .product .naastDeImage img {
-        width: 90vw;
+        max-width: 90vw;
     }
     .product .naastDeImage .info {
         display: flex;

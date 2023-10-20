@@ -28,6 +28,9 @@ if(!isset($_GET["productId"])) {
         while($row = $result->fetch_assoc()) {
             $title = $row["productName"];
             $image = $row["productImage"];
+            $image2 = $row["productImage2"];
+            $image3 = $row["productImage3"];
+            $image4 = $row["productImage4"];
             $description = $row["productDescription"];
             $price = $row["productPrice"];
             $discount = $row["productDiscountPercentage"];
@@ -61,6 +64,20 @@ if(!isset($_GET["productId"])) {
         header('location: ../search/');
     }
 
+    $imageSwitchHtml = '';
+
+    if ($image2 != '' &&  $image2 != null) {
+        $imageSwitchHtml = '<div><p id="b1" class="hoverme" onclick="switchToImage(1)">1</p><p id="b2" class="hoverme" onclick="switchToImage(2)">2</p></div>';
+
+        if ($image3 != '' &&  $image3 != null) {
+            $imageSwitchHtml = '<div><p id="b1" class="hoverme" onclick="switchToImage(1)">1</p><p id="b2" class="hoverme" onclick="switchToImage(2)">2</p><p id="b3" class="hoverme" onclick="switchToImage(3)">3</p></div>';
+
+            if ($image4 != '' &&  $image4 != null) {
+                $imageSwitchHtml = '<div><p id="b1" class="hoverme" onclick="switchToImage(1)">1</p><p id="b2" class="hoverme" onclick="switchToImage(2)">2</p><p class="hoverme" id="b3" onclick="switchToImage(3)">3</p><p id="b4" class="hoverme" onclick="switchToImage(4)">4</p></div>';
+            }
+        }
+    }
+
 }
 
 ?>
@@ -88,6 +105,66 @@ if(!isset($_GET["productId"])) {
     <link rel="stylesheet" href="stylesheet.css">
     <link rel="stylesheet" href="../load.css">
     <script src="../index.js"></script>
+    <script>
+
+
+
+        function switchToImage(imagenumber) {
+            const productImage = document.getElementById('product-image');
+            const b1 = document.getElementById('b1');
+            const b2 = document.getElementById('b2');
+            const b3 = document.getElementById('b3');
+            const b4 = document.getElementById('b4');
+            if(imagenumber > 4) return;
+            switch (imagenumber) {
+                case 1:
+                    try {
+                        productImage.src = '../images/<?php echo $image; ?>';
+                        b1.style.borderBottom = '1px solid'
+                        b2.style.borderBottom = 'none'
+                        b3.style.borderBottom = 'none'
+                        b4.style.borderBottom = 'none'
+                    } catch (e) {
+                        //sssh..
+                    }
+                    break;
+                case 2:
+                    try {
+                        productImage.src = '../images/<?php echo $image2; ?>';
+                        b1.style.borderBottom = 'none'
+                        b2.style.borderBottom = '1px solid'
+                        b3.style.borderBottom = 'none'
+                        b4.style.borderBottom = 'none'
+                    } catch (e) {
+                        //sssh..
+                    }
+                    break;
+                case 3:
+                    try {
+                        productImage.src = '../images/<?php echo $image3; ?>';
+                        b1.style.borderBottom = 'none'
+                        b2.style.borderBottom = 'none'
+                        b3.style.borderBottom = '1px solid'
+                        b4.style.borderBottom = 'none'
+                    } catch (e) {
+                        //sssh..
+                    }
+                    break;
+                case 4:
+                    try {
+                        productImage.src = '../images/<?php echo $image4; ?>';
+                        b1.style.borderBottom = 'none'
+                        b2.style.borderBottom = 'none'
+                        b3.style.borderBottom = 'none'
+                        b4.style.borderBottom = '1px solid'
+                    } catch (e) {
+                        //sssh..
+                    }
+                    break;
+            }
+        }
+
+    </script>
 </head>
 
 <div class="loaderscreen"></div>
@@ -100,7 +177,10 @@ if(!isset($_GET["productId"])) {
         <h3 class="tags">Merk: <span style="text-decoration: underline"><?php echo htmlspecialchars($brand) ?></span> - Categorie: <span style="text-decoration: underline"><?php echo htmlspecialchars($category) ?></span></h3>
         <div class="naastDeImage">
             <div class="aaaaah">
-                <img src="../images/<?php echo $image; ?>" alt="resultaat">
+                <img id="product-image" src="../images/<?php echo $image; ?>" alt="resultaat">
+                <div class="imageSwitch">
+                    <?php echo $imageSwitchHtml; ?>
+                </div>
             </div>
             <div class="info">
                 <div class="mobile-extend">
@@ -145,4 +225,12 @@ if(!isset($_GET["productId"])) {
     </div>
 </footer>
 </body>
+<script>
+    try {
+        const b1 = document.getElementById('b1');
+        b1.style.borderBottom = '1px solid'
+    } catch(e) {
+        //ssssh
+    }
+</script>
 </html>
