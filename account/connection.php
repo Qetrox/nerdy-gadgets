@@ -1,5 +1,5 @@
 <?php
-include __DIR__ . '/../includes/dbh.php';
+include_once '../includes/dbh.php';
 $mysqli = new mysqli($servername, $username, $password, $dbname);
 /*
 
