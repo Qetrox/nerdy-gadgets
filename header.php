@@ -1,5 +1,13 @@
 <?php
+
 session_start();
+if(isset($_COOKIE["cartList"])) {
+    $cartListItems = json_decode($_COOKIE["cartList"]);
+} else {
+    $cartListItems = array();
+}
+$cartCount = count($cartListItems);
+
 ?>
 
 <header>
@@ -27,6 +35,7 @@ session_start();
             <a href="https://nerdy-gadgets.nl/cart">
                 <div class="nav-item">
                     <p><span class="material-symbols-sharp">shopping_cart</span></p>
+                    <p class="user-text-header"> <?php echo $cartCount ?> </p>
                 </div>
             </a>
             <?php
