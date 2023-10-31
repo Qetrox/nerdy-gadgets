@@ -1,0 +1,177 @@
+.resultaten h1 {
+    text-align: center;
+    font-size: 3vw;
+}
+
+.loader {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #21212F;
+    z-index: 99999;
+}
+
+.resultaten-lijst {
+    color: #212121;
+}
+
+.resultaat-item {
+    margin: 3vh 10vw;
+    background-color: #FFFFFF;
+    padding: 15px;
+    border-radius: 25px;
+    box-shadow: 10px 10px 15px rgba(12, 12, 12, 0.7);
+    transition: 200ms ease-in-out;
+}
+.resultaat-item:hover {
+    box-shadow: 15px 15px 20px rgba(12, 12, 12, 0.7);
+    transition: 200ms ease-in-out;
+}
+
+.resultaat-item-flexbox {
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.resultaat-item-flexbox .ah img {
+    max-height: 30vh;
+    align-self: center;
+    border-radius: 20px;
+}
+
+.ah {
+    width: 35vw;
+    display: flex;
+    justify-content: center;
+}
+
+.resultaat-item h1 {
+    text-align: left;
+    font-size: 2vw;
+    padding: 3px;
+    border-bottom: 2px solid #898989;
+}
+
+.resultaat-item .price{
+    font-family: 'Bree Serif';
+    float: right;
+    padding-right: 5px;
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 2vw;
+    margin: 0;
+    transform: translateY(-50%);
+}
+
+.sort {
+    text-align: right;
+    padding-right: 10vw;
+
+}
+
+select {
+    outline: none;
+    border: none;
+    background-color: inherit;
+    color: white;
+    font-family: 'Bree Serif';
+    border-bottom: 2px solid #EEEEEE;
+}
+
+select * {
+    outline: none;
+    border: none;
+    background-color: #212121;
+    color: white;
+    font-family: 'Bree Serif';
+    border-bottom: 2px solid #EEEEEE;
+}
+
+.kortingsprijs {
+    color: #FF0000;
+    text-decoration: line-through;
+    text-decoration-thickness: 2px
+}
+
+.description {
+    width: 50%;
+}
+
+.noppes {
+    color: #EEEEEE;
+    text-align: center;
+    height: 60vh;
+}
+
+.noppes h1 {
+    font-size: 2vw
+}
+
+.noppes p {
+    font-size: 1vw;
+}
+
+/* Voor kleine schermen zoals telefoons */
+@media only screen and (max-width: 900px) {
+
+    .resultaten h1 {
+        text-align: center;
+        font-size: 6vw;
+    }
+
+    .noppes {
+        color: #EEEEEE;
+        text-align: center;
+        height: unset;
+    }
+
+    .noppes h1 {
+        font-size: 2vh;
+    }
+
+    .noppes p {
+        font-size: 2vh;
+    }
+
+    .resultaat-item-flexbox {
+        justify-content: space-between;
+        overflow: hidden;
+        flex-wrap: wrap;
+    }
+
+    .description {
+        width: 100%;
+    }
+
+    .ah img{
+        height: auto;
+        max-width: 100%;
+        float: left;
+        text-align: center;
+        align-self: center;
+    }
+
+    .ah {
+        width: 90vw;
+        display: flex;
+        justify-content: center;
+    }
+
+    .resultaat-item h1 {
+        font-size: 5vw;
+    }
+
+    .sort {
+        text-align: center;
+        padding-right: 0;
+    }
+
+    .resultaat-item .price{
+        padding-right: 5px;
+        float: unset;
+        text-align: center;
+        font-size: 5vw;
+        transform: unset;
+    }
+
+}

@@ -1,8 +1,23 @@
 <?php
-
 if(!isset($_GET["productId"])) {
     header('location: ../search/');
 } else {
+
+    if(isset($_COOKIE["cartList"])) {
+        $cartListItems = json_decode($_COOKIE["cartList"]);
+    } else {
+        $cartListItems = array();
+    }
+
+    if(isset($_GET["addProduct"]) && $_GET["addProduct"] == "true") {
+        array_push($cartListItems, $_GET["productId"]);
+        setcookie("cartList", json_encode($cartListItems), time() + (86400 * 30), "/"); // 86400 = 1 day
+        header('location: ./?productId=' . $_GET["productId"]);
+    }
+
+    $cartCount = count($cartListItems);
+
+
     require_once '../includes/dbh.php';
     /* import de Database variabelen */
 
@@ -188,7 +203,7 @@ if(!isset($_GET["productId"])) {
                     <p class="voorraad">Op Voorraad: 232<br>Leverancier: 25.342</p>
                 </div>
                 <div class="mobile-extend">
-                    <button class="addToCart" onclick=""><p class="winkelwagentekst"><span class="material-symbols-sharp" style="transform: translateY(20%)">shopping_cart</span> In winkelwagen</p></button>
+                    <button class="addToCart" onclick="IWANTTHISITEM()"><p class="winkelwagentekst"><span class="material-symbols-sharp" style="transform: translateY(20%)">shopping_cart</span> In winkelwagen</p></button>
                     <p class="stars"><span class="material-symbols-sharp"><?php echo $starHtml ?></span></p>
                     <p class="levertijd">Bestel voor 16:00, overmorgen in huis*</p>
                 </div>
@@ -226,6 +241,11 @@ if(!isset($_GET["productId"])) {
 </footer>
 </body>
 <script>
+
+    function IWANTTHISITEM() {
+        window.location.replace('./?productId=<?php echo $_GET["productId"] ?>&addProduct=true')
+    }
+
     try {
         const b1 = document.getElementById('b1');
         b1.style.borderBottom = '1px solid'
