@@ -196,7 +196,7 @@ if(!isset($_GET["productId"])) {
 
             </div>
         </div>
-        <p><?php echo htmlspecialchars($description) ?></p>
+        <p><?php echo $description ?></p>
     </div>
 </main>
 <footer>
