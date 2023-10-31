@@ -3,17 +3,18 @@ footer {
     bottom: 0;
     left: 0;
     right: 0;
-    background: #21212F;
+    background: #5152bb;
     height: 10px;
     width: auto;
     color: white;
 }
 
 .footer-content {
-    padding: 100px 15%;
+    padding: 75px 10%;
     text-align: center;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
     flex-direction: column;
     background-color: #5152bb;
@@ -212,5 +213,26 @@ font-size: x-large;
     .main-menu-display {
         height: 30vh;
         width: 100%;
+    }
+    .over-ons{
+        font-size: 3.5vw;
+    }
+    .footer-content{
+        padding: 10%;
+    }
+    .col1{
+        align-items: center;
+        margin-top: unset;
+        margin-right: unset;
+    }
+    .col2{
+        align-items: center;
+        margin-top: unset;
+        margin-right: unset;
+    }
+    .col3{
+        align-items: center;
+        margin-top: unset;
+        margin-right: unset;
     }
 }
