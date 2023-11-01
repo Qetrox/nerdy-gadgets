@@ -40,7 +40,7 @@ $cartCount = count($cartListItems);
             </a>
             <?php
             if (isset($_SESSION["first_name"])):?>
-            <a href="https://nerdy-gadgets.nl/account/login.php">
+            <a href="https://nerdy-gadgets.nl/account/accountscreen.php">
                 <div class="nav-item">
                     <p><span class="material-symbols-sharp">account_circle</span></p>
                     <p class="user-text-header"> <?= htmlspecialchars($_SESSION["first_name"]) ?> </p>

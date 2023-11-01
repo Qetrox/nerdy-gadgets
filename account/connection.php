@@ -3,8 +3,6 @@ include_once '../includes/dbh.php';
 $mysqli = new mysqli($servername, $username, $password, $dbname);
 /*
 
-
-
  */
 
 // Check connection
