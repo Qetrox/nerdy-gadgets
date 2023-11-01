@@ -44,6 +44,72 @@ $conn->set_charset("utf8");
     <link rel="stylesheet" href="../base_stylesheet.css">
     <link rel="stylesheet" href="./stylesheet.css">
     <link rel="stylesheet" href="../load.css">
+    <script>
+        function getCookie(cname) {
+            let name = cname + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for(let i = 0; i <ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        function setCookie(cname, cvalue, exdays) {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays*24*60*60*1000));
+            let expires = "expires="+ d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+
+        arr = JSON.parse(getCookie('cartList'));
+
+        let productCounter = {};
+
+        arr.forEach(ele => {
+            if (productCounter[ele]) {
+                productCounter[ele] += 1;
+            } else {
+                productCounter[ele] = 1;
+            }
+        });
+
+        function changeItemCount(productId, change) {
+            cartList = JSON.parse(getCookie('cartList'));
+            if(change === -1) {
+                const index = cartList.indexOf(`${productId}`);
+                if (index > -1) { // only splice array when item is found
+                    cartList.splice(index, 1); // 2nd parameter means remove one item only
+                }
+            } else if (change === 1) {
+                cartList.push(`${productId}`);
+            }
+            setCookie('cartList', JSON.stringify(cartList), 30);
+            document.getElementById('cartcount').innerHTML = cartList.length;
+
+            productCounter = {};
+
+            cartList.forEach(ele => {
+                if (productCounter[ele]) {
+                    productCounter[ele] += 1;
+                } else {
+                    productCounter[ele] = 1;
+                }
+            });
+            document.getElementById(`productCount${productId}`).innerHTML = productCounter[`${productId}`];
+            if(productCounter[`${productId}`] === undefined || productCounter[`${productId}`] === 0) {
+                UUOEOEWUU = document.getElementById(`productDiv${productId}`);
+                UUOEOEWUU.remove();
+            }
+        }
+
+    </script>
 </head>
 
 <body>
@@ -98,21 +164,22 @@ $conn->set_charset("utf8");
                 if ($result->num_rows > 0) {
                     while($row = $result->fetch_assoc()) {
                         if($row["productDiscountPercentage"] === 0) {
-                            echo '<a href="../product/?productId=' . $row["productId"] . '">';
+                            echo '<div id="productDiv' . $row["productId"] . '">';
                             echo '<div class="resultaat-item">';
                             echo '<div class="resultaat-item-flexbox">';
                             echo '<div class="description">';
                             echo '<h1>' . $row["productName"] . '</h1>';
                             echo '<h2 class="price">€' . $row["productPrice"] . '</h2>';
-                            echo '<p>' . $counts[$row["productId"]] . '</p>';
+                            echo '<p id="productCount' . $row["productId"] . '">' . $counts[$row["productId"]] . '</p>';
+                            echo '<p onclick="changeItemCount(' . $row["productId"] . ', 1)">plus</p><p onclick="changeItemCount(' . $row["productId"] . ', -1)">min</p>';
                             echo '</div>';
                             echo '<div class="ah"><img src="https://nerdy-gadgets.nl/images/' . $row["productImage"] . '" alt="resultaat"></div>';
                             echo '</div>';
                             echo '</div>';
-                            echo '</a>';
+                            echo '</div>';
                         } else { //als er korting is
                             $newPrice = $row["productPrice"] * (1 - $row["productDiscountPercentage"] / 100); //bereken prijs met discount
-                            echo '<a href="../product/?productId=' . $row["productId"] . '">';
+                            echo '<div>';
                             echo '<div class="resultaat-item">';
                             echo '<div class="resultaat-item-flexbox">';
                             echo '<div class="description">';
@@ -123,7 +190,7 @@ $conn->set_charset("utf8");
                             echo '<div class="ah"><img src="https://nerdy-gadgets.nl/images/' . $row["productImage"] . '" alt="resultaat"></div>';
                             echo '</div>';
                             echo '</div>';
-                            echo '</a>';
+                            echo '</div>';
                         }
                     }
                 } else {
@@ -135,30 +202,23 @@ $conn->set_charset("utf8");
     </div>
 </main>
 <footer>
-    <div class="footer-content">
-
-        <h3>ik weet dat de kleur niet klopt</h3>
-
-    </div>
-
-
     <div class="mobile-navbar">
         <div class="mobile-nav-item">
-            <a href="../">
+            <a href="https://nerdy-gadgets.nl">
                     <span class="material-symbols-sharp">
                         home
                     </span>
             </a>
         </div>
         <div class="mobile-nav-item">
-            <a href="./">
+            <a href="https://nerdy-gadgets.nl/cart">
                     <span class="material-symbols-sharp">
                         shopping_cart
                     </span>
             </a>
         </div>
         <div class="mobile-nav-item">
-            <a href="./">
+            <a href="https://nerdy-gadgets.nl/account">
                     <span class="material-symbols-sharp">
                         account_circle
                     </span>

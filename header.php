@@ -35,7 +35,7 @@ $cartCount = count($cartListItems);
             <a href="https://nerdy-gadgets.nl/cart">
                 <div class="nav-item">
                     <p><span class="material-symbols-sharp">shopping_cart</span></p>
-                    <p class="user-text-header"> <?php echo $cartCount ?> </p>
+                    <p class="user-text-header" id="cartcount"> <?php echo $cartCount ?> </p>
                 </div>
             </a>
             <?php
