@@ -216,6 +216,7 @@ font-size: x-large;
     }
     .over-ons{
         font-size: 3.5vw;
+        padding: 13px;
     }
     .footer-content{
         padding: 10%;
@@ -234,5 +235,6 @@ font-size: x-large;
         align-items: center;
         margin-top: unset;
         margin-right: unset;
+        text-allign: unset;
     }
 }
