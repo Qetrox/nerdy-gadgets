@@ -160,6 +160,7 @@ $conn->set_charset("utf8");
 <div class="loaderscreen"></div>
 <?php include_once '../header.php'?>
 <h1 id="totalPrice"></h1><p> totalprice</p>
+<button><span> Verder met Afrekenen!</span></button>
 <main> <!-- Hier de content van de pagina in doen :) -->
     <div class="resultaten">
         <h1>
