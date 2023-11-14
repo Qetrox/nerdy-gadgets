@@ -32,6 +32,7 @@
     display: flex;
     justify-content: space-between;
     overflow: hidden;
+    color: #101010;
 }
 
 .resultaat-item-flexbox .ah img {
@@ -109,6 +110,45 @@ select * {
 
 .noppes p {
     font-size: 1vw;
+}
+
+.up-and-down {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+
+.ud1, .ud2, .ud3 {
+    width: 30%;
+    margin: 0;
+    text-align: center;
+    border: 2px solid #FFC300;
+    border-radius: 5px;
+    vertical-align: middle;
+    font-size: 2vw;
+    margin: 0;
+    padding: 0;
+}
+.ud1, .ud3:hover {
+    cursor: pointer;
+}
+
+.ud1 {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.ud2 {
+    border-right: 0;
+    border-radius: 0;
+    background-color: #FFC300;
+}
+
+.ud3 {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
 }
 
 /* Voor kleine schermen zoals telefoons */

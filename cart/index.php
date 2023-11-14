@@ -45,6 +45,36 @@ $conn->set_charset("utf8");
     <link rel="stylesheet" href="./stylesheet.css">
     <link rel="stylesheet" href="../load.css">
     <script>
+
+        let moneyz = 0;
+        let moneyz_arr = {};
+
+        /**
+         * Verander de totaal prijs van een product, en bereken de nieuwe totale prijs
+         * @param {float} productId - Het ID van het product
+         * @param {number} newTotalPrice - De nieuwe totale prijs van het product (prijs * aantal)
+         * @returns {void} - Returnt niks
+         */
+        function changePrice(productId, newTotalPrice) {
+            newTotalPrice = parseFloat(newTotalPrice.toFixed(2));
+            moneyz = 0;
+            moneyz_arr[productId] = newTotalPrice;
+
+
+
+            for(let key in moneyz_arr) {
+                moneyz += moneyz_arr[key];
+            }
+
+            const e2 = document.getElementById('totalPrice');
+            e2.innerHTML = "€" + moneyz;
+        }
+
+        /**
+         * Pak cookie uit browser en return de cookie
+         * @param cname - Naam van de cookie
+         * @returns {string} - Returnt de cookie als string
+         */
         function getCookie(cname) {
             let name = cname + "=";
             let decodedCookie = decodeURIComponent(document.cookie);
@@ -61,6 +91,13 @@ $conn->set_charset("utf8");
             return "";
         }
 
+        /**
+         * Verander een cookie in de browser
+         * @param cname - Naam van de cookie
+         * @param cvalue - Waarde van de cookie
+         * @param exdays - Na hoeveel dagen de cookie verloopt
+         * @returns {void} - Returnt niks
+         */
         function setCookie(cname, cvalue, exdays) {
             const d = new Date();
             d.setTime(d.getTime() + (exdays*24*60*60*1000));
@@ -80,6 +117,12 @@ $conn->set_charset("utf8");
             }
         });
 
+        /**
+         * Verander de hoeveelheid van een product in de winkelwagen
+         * @param productId - De ID van het product
+         * @param change - Met hoeveel het aantal veranderd
+         * @returns {void} - Returnt niks
+         */
         function changeItemCount(productId, change) {
             cartList = JSON.parse(getCookie('cartList'));
             if(change === -1) {
@@ -107,6 +150,7 @@ $conn->set_charset("utf8");
                 UUOEOEWUU = document.getElementById(`productDiv${productId}`);
                 UUOEOEWUU.remove();
             }
+            changePrice(productId, productCounter[`${productId}`] * parseFloat(document.getElementById(`price2${productId}`).innerHTML.split('€')[1]));
         }
 
     </script>
@@ -115,6 +159,7 @@ $conn->set_charset("utf8");
 <body>
 <div class="loaderscreen"></div>
 <?php include_once '../header.php'?>
+<h1 id="totalPrice"></h1><p> totalprice</p>
 <main> <!-- Hier de content van de pagina in doen :) -->
     <div class="resultaten">
         <h1>
@@ -126,10 +171,8 @@ $conn->set_charset("utf8");
             }
             ?>
         </h1>
-
-        <div class="resultaten-lijst">
             <?php
-            if($cartListItems > 0) {
+            if(count($cartListItems) > 0) {
 
                 $counts = array();
 
@@ -146,6 +189,7 @@ $conn->set_charset("utf8");
                 $coolarray = "(";
 
                 foreach($counts as $number => $amount) {
+                    if(!is_numeric($amount)) exit("Invalid input");
                     if($number == array_key_last($counts)) {
                         $coolarray .= $number;
                     } else {
@@ -154,9 +198,6 @@ $conn->set_charset("utf8");
                 }
 
                 $coolarray .= ')';
-
-                echo "SELECT * FROM product WHERE productId IN $coolarray;";
-
                 $stmt = $conn->prepare("SELECT * FROM product WHERE productId IN $coolarray;");
                 $stmt->execute();
                 $result = $stmt->get_result();
@@ -169,33 +210,38 @@ $conn->set_charset("utf8");
                             echo '<div class="resultaat-item-flexbox">';
                             echo '<div class="description">';
                             echo '<h1>' . $row["productName"] . '</h1>';
-                            echo '<h2 class="price">€' . $row["productPrice"] . '</h2>';
-                            echo '<p id="productCount' . $row["productId"] . '">' . $counts[$row["productId"]] . '</p>';
-                            echo '<p onclick="changeItemCount(' . $row["productId"] . ', 1)">plus</p><p onclick="changeItemCount(' . $row["productId"] . ', -1)">min</p>';
+                            echo '<h2 class="price" id="price' . $row["productId"] . '">€' . $row["productPrice"] . '</h2>';
+                            echo '<h2 style="display: none" class="price" id="price2' . $row["productId"] . '">€' . $row["productPrice"] . '</h2>';
+                            echo '<div class="up-and-down"><p class="ud1" onclick="changeItemCount(' . $row["productId"] . ', 1)">+</p><p class="ud2" id="productCount' . $row["productId"] . '">' . $counts[$row["productId"]] . '</><p class="ud3" onclick="changeItemCount(' . $row["productId"] . ', -1)">-</p></div>';
                             echo '</div>';
                             echo '<div class="ah"><img src="https://nerdy-gadgets.nl/images/' . $row["productImage"] . '" alt="resultaat"></div>';
                             echo '</div>';
                             echo '</div>';
                             echo '</div>';
+                            echo '<script>changePrice('. $row["productId"] . ', ' . $row["productPrice"] * $counts[$row["productId"]] . ')</script>';
                         } else { //als er korting is
                             $newPrice = $row["productPrice"] * (1 - $row["productDiscountPercentage"] / 100); //bereken prijs met discount
-                            echo '<div>';
+                            echo '<div id="productDiv' . $row["productId"] . '">';
                             echo '<div class="resultaat-item">';
                             echo '<div class="resultaat-item-flexbox">';
                             echo '<div class="description">';
                             echo '<h1>' . $row["productName"] . '</h1>';
+                            echo '<h2 style="display: none" class="price" id="price2' . $row["productId"] . '">€' .$newPrice . '</h2>';
                             echo '<h2 class="price"><span class="kortingsprijs">€' . number_format((float)$row["productPrice"], 2, '.', '') . '</span> €' .number_format((float)$newPrice, 2, '.', '') . ' </h2>';
-                            echo '<p>' . $counts[$row["productId"]] . '</p>';
+                            echo '<div class="up-and-down"><p class="ud1" onclick="changeItemCount(' . $row["productId"] . ', 1)">+</p><p class="ud2" id="productCount' . $row["productId"] . '">' . $counts[$row["productId"]] . '</><p class="ud3" onclick="changeItemCount(' . $row["productId"] . ', -1)">-</p></div>';
                             echo '</div>';
                             echo '<div class="ah"><img src="https://nerdy-gadgets.nl/images/' . $row["productImage"] . '" alt="resultaat"></div>';
                             echo '</div>';
                             echo '</div>';
                             echo '</div>';
+                            echo '<script>changePrice('. $row["productId"] . ', ' . $row["productPrice"] * $counts[$row["productId"]] . ')</script>';
                         }
                     }
                 } else {
-                    echo '<div class="noppes"><h1>Niks gevonden :(</h1><p>Misschien ben je een te grote nerd voor ons...</p></div>';
+                    echo '<div class="noppes"><h1>Niks in je winkelwagen :(</h1><p>Misschien ben je een te grote nerd voor ons...</p></div>';
                 }
+            } else {
+                echo '<div class="noppes"><h1>Niks in je winkelwagen :(</h1><p>Misschien ben je een te grote nerd voor ons...</p></div>';
             }
             ?>
         </div>
