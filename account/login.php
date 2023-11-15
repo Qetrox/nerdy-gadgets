@@ -14,7 +14,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
 
     $password = $_POST['password'];
     /*  wachtwoord checken daarna inloggen  */
-    if(trim($user["password"]) == trim($password)){
+    if(password_verify($_POST["password"], $user["password_hash"])){
         session_start();
         session_regenerate_id();
         $_SESSION["user_id"] = $user["id"];
