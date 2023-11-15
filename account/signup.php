@@ -23,7 +23,7 @@ $stmt->bind_param("sssssssss",
     $_POST["plaats"]);
 $stmt->execute();
 
-echo "registratie succes"
+
 ?>
 
 <!DOCTYPE html>
