@@ -3,22 +3,16 @@ var div = document.getElementById('cookies');
 var display = 0;
 
 function checkCookies() {
-    if(localStorage.getItem("cookie") == 'accepted') {
-        div.style.display = 'block';
-        display = 0;
-    };
-}
-function dissapearcookies(){
-    if(display == 1){
-        localStorage.setItem("cookie", "accepted");
-        div.style.display = 'block';
-        display = 0;
-    }
-    else
-    {
+    if(localStorage.getItem("cookie") === 'accepted') {
         div.style.display = 'none';
-        display = 1;
-
+    } else {
+        div.style.display = 'block';
     }
+}
+
+checkCookies();
+function dissapearcookies(){
+    localStorage.setItem("cookie", "accepted");
+    div.style.display = 'none';
 }
 
