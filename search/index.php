@@ -122,11 +122,26 @@ if($sort != null) {
             break;
     }
 }
+
+if(isset($_GET["category"]) && $_GET["category"] !== "") {
+    $new_string = preg_replace("/[^A-Za-z0-9.!?]/",'', $_GET["category"]);
+    $categoryStatement = " AND UPPER(productCategory) = UPPER(\"" . $new_string . "\")";
+} else {
+    $categoryStatement = "";
+}
+
+if(isset($_GET["brand"]) && $_GET["brand"] !== "") {
+    $new_string = preg_replace("/[^A-Za-z0-9.!?]/",'', $_GET["brand"]);
+    $brandStatement = " AND UPPER(brandName) = UPPER(\"" . $new_string . "\")";
+} else {
+    $brandStatement = "";
+}
+
 if(isset($_GET["query"]) && $_GET["query"] !== "") {
     $query_sql = '%' . $_GET["query"] . '%';
 
     /* zoek voor producten in de database die je zoekopdracht matchen */
-    $stmt = $conn->prepare("SELECT * FROM product WHERE UPPER(productName) LIKE UPPER(?) OR UPPER(productTags) LIKE UPPER(?)" . $sortStatement);
+    $stmt = $conn->prepare("SELECT * FROM product JOIN brand ON productBrandId = brandId WHERE UPPER(productName) LIKE UPPER(?) OR UPPER(productTags) LIKE UPPER(?)" . $categoryStatement . $brandStatement . $sortStatement);
     $stmt->bind_param("ss", $query_sql, $query_sql);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -169,7 +184,8 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
     }
 } else {
     /* laat alle producten zien */
-    $stmt = $conn->prepare("SELECT * FROM product" . $sortStatement);
+    $datenesqlding = "SELECT * FROM product JOIN brand ON productBrandId = brandId WHERE productId LIKE '%' " . $categoryStatement . $brandStatement . $sortStatement;
+    $stmt = $conn->prepare($datenesqlding);
 
     $stmt->execute();
     $result = $stmt->get_result();
