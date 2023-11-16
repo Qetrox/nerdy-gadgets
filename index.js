@@ -1,4 +1,3 @@
-
 // Loading ding
 window.addEventListener("load", () => {
     const loader = document.querySelector(".loaderscreen");

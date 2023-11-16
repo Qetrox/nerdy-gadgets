@@ -33,6 +33,24 @@
             <h1 id="typewriter"></h1>
             <div class="background"></div>
         </div>
+
+
+        </div>
+        <!-- Hier de Cookie Pop-Up -->
+        <div class="Cookies" id="cookies">
+            <div class="CookiesText">
+            <h2>Cookies Toestemming</h2>
+            <h4>Wij maken gebruik van Cookies</h4>
+            <p>Door op Accepteren te drukken, gaat <br>u akkoord met <a href="/privacy">Onze Cookiebeleid</a></p>
+            </div>
+            <button onclick="dissapearcookies()" type="submit" name="CookieKnop" class="cookieacceptbtn" id="accept">Accepteer Cookies</button>
+            <button type="submit" name="CookieKnop" class="cookiedeclinebtn">Afwijzen Cookies</button>
+            <img src="cookie.png" alt="cookiespng" width="288" height="162" class="cookiepng">
+        </div>
+        <script src="cookies.js"></script>
+
+
+
         <div class="best-sellers" id="bestsellers">
             <h1>Best Sellers - Aanraders!</h1>
             <p>Dit zijn onze best verkochte producten.<br>Bekijk ze eens, misschien zit er wel iets tussen voor jou!</p>

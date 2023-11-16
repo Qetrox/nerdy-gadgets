@@ -57,7 +57,64 @@ footer {
     background-color: #5152bb;
 
 }
+.Cookies{
+    width: 25%;
+    height: 50%;
+    background: #21212F;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    border-radius: 20px;
+    margin-top: -12%;
+    margin-left: 74%;
+    border-style: solid;
+    border-color: #FFFFFF;
+    :link { color: deepskyblue; }
+    & a:hover {
+        text-decoration: underline;
+    }
 
+}
+.cookieacceptbtn{
+    position: absolute;
+    width: 45%;
+    height: 15%;
+    outline: none;
+    cursor: pointer;
+    font-size: 22px;
+    border-radius: 10px;
+    margin-top: 19vw ;
+    margin-right: 1vw;
+    background: ;
+    border-style: solid;
+    border-color: #FFFFFF;
+    margin-right: 10vw;
+}
+.cookiedeclinebtn{
+    position: absolute;
+    width: 40%;
+    height: 15%;
+    outline: none;
+    cursor: pointer;
+    font-size: 22px;
+    border-radius: 10px;
+    margin-top: 19vw ;
+    margin-right: 1vw;
+    background: ;
+    border-style: solid;
+    border-color: #FFFFFF;
+    margin-right: -12vw;
+}
+.CookiesText{
+    position: absolute;
+    margin-right: 6vw;
+   }
+
+.cookiepng{
+    position: absolute;
+    margin-right: -19vw;
+    margin-top: -1.5vw;
+}
 .footer-content h3{
 
 line-height: 0rem;
