@@ -41,7 +41,7 @@
             <div class="CookiesText">
             <h2>Cookies Toestemming</h2>
             <h4>Wij maken gebruik van Cookies</h4>
-            <p>Door op Accepteren te drukken, gaat <br>u akkoord met <a href="/privacy">Onze Cookiebeleid</a></p>
+            <p>Door op Accepteren te drukken, gaat <br>u akkoord met <a href="/privacy">Onze Cookiebeleid</a>.<br></p>
             </div>
             <button onclick="dissapearcookies()" type="submit" name="CookieKnop" class="cookieacceptbtn" id="accept">Accepteer Cookies</button>
             <button type="submit" name="CookieKnop" class="cookiedeclinebtn">Afwijzen Cookies</button>
