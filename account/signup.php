@@ -65,32 +65,23 @@ $stmt->execute();
      
         <div class="account">
             <form method="post"?> 
-            <label for="email"><b>gebruikersnaam</b></label>
-            <input type="text" placeholder="Enter Username" name="gebruikersnaam" required>
-        
-            <label for="psw"><b>wachtwoord</b></label>
-            <input type="Password" placeholder="Enter Password" name="psw" required>
-
-                <label for="voornaam"><b>voornaam</b></label>
-                <input type="text" placeholder="Enter name" name="voornaam" required>
-
-                <label for="tussenvoegsel"><b>tussenvoegsel</b></label>
-                <input type="text" placeholder="Enter prefix" name="tussenvoegsel" >
-
-                <label for="achternaam"><b>achternaam</b></label>
-                <input type="text" placeholder="Enter surname" name="achternaam" required>
-
-                <label for="straatnaam"><b>straatnaam</b></label>
-                <input type="text" placeholder="straatnaam" name="straatnaam" required>
-
-                <label for="huisnummer"><b>huisnummer</b></label>
-                <input type="text" placeholder="huisnummer" name="huisnummer" required>
-
-                <label for="postcode"><b>postcode</b></label>
-                <input type="text" placeholder="postcode" name="postcode" required>
-
-                <label for="plaats"><b>plaats</b></label>
-                <input type="text" placeholder="plaats" name="plaats" required>
+            <label for="email"><b>gebruikersnaam</b></label> <input type="text" placeholder="Enter Username" name="gebruikersnaam" required>
+<br>
+            <label for="psw"><b>wachtwoord</b></label> <input type="Password" placeholder="Enter Password" name="psw" required>
+ <br>
+                <label for="voornaam"><b>voornaam</b></label> <input type="text" placeholder="Enter name" name="voornaam" required>
+<br>
+                <label for="tussenvoegsel"><b>tussenvoegsel</b></label> <input type="text" placeholder="Enter prefix" name="tussenvoegsel" >
+<br>
+                <label for="achternaam"><b>achternaam</b></label> <input type="text" placeholder="Enter surname" name="achternaam" required>
+<br>
+                <label for="straatnaam"><b>straatnaam</b></label> <input type="text" placeholder="straatnaam" name="straatnaam" required>
+<br>
+                <label for="huisnummer"><b>huisnummer</b></label> <input type="text" placeholder="huisnummer" name="huisnummer" required>
+<br>
+                <label for="postcode"><b>postcode</b></label> <input type="text" placeholder="postcode" name="postcode" required>
+<br>
+                <label for="plaats"><b>plaats</b></label> <input type="text" placeholder="plaats" name="plaats" required>
 
 
 
