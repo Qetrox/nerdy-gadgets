@@ -6,7 +6,7 @@ function checkCookies() {
     if(localStorage.getItem("cookie") === 'accepted') {
         div.style.display = 'none';
     } else {
-        div.style.display = 'block';
+        div.style.display = 'flex';
     }
 }
 
