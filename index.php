@@ -44,7 +44,7 @@
             <p>Door op Accepteren te drukken, gaat <br>u akkoord met <a href="/legal/privacy">Onze Cookiebeleid</a>.<br></p>
             </div>
             <button onclick="dissapearcookies()" type="submit" name="CookieKnop" class="cookieacceptbtn" id="accept">Accepteer Cookies</button>
-            <button onclick="rickroll()" type="submit" name="CookieKnop" class="cookiedeclinebtn">Afwijzen Cookies</button>
+            <button onclick="rickroll()" type="submit" name="CookieKnop" class="cookiedeclinebtn" id="ugh">Afwijzen Cookies</button>
             <img src="cookie.png" alt="cookiespng" width="288" height="162" class="cookiepng">
         </div>
         <script src="cookies.js"></script>

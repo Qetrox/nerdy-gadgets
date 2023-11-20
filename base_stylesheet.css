@@ -62,6 +62,10 @@ footer {
 
 }
 
+#ugh {
+    transition: all 100ms ease;
+}
+
 .footer-content h3{
 
     line-height: 0rem;
