@@ -1,12 +1,12 @@
 <?php
 
 session_start();
-if(isset($_COOKIE["cartList"])) {
-    $cartListItems = json_decode($_COOKIE["cartList"]);
+if(isset($_COOKIE["cartList"])) { // Check of de cookie bestaat
+    $cartListItems = json_decode($_COOKIE["cartList"]); // Decode de cookie
 } else {
-    $cartListItems = array();
+    $cartListItems = array(); // Maak een lege array
 }
-$cartCount = count($cartListItems);
+$cartCount = count($cartListItems); // Tel de items in de array
 
 ?>
 

@@ -10,11 +10,11 @@ $conn = new mysqli($servername, $username, $password, $dbname);
  */
 
 // Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+if ($conn->connect_error) { // als er een error is met de connectie
+    die("Connection failed: " . $conn->connect_error); // laat de error zien
 }
 
-$conn->set_charset("utf8");
+$conn->set_charset("utf8"); // zet de charset naar utf8 zodat de data goed wordt weergegeven
 
 /* kijk wat je hebt opgezocht */
 $query = "";
@@ -66,10 +66,10 @@ if(isset($_GET["sortOption"])) {
     <div class="resultaten">
         <h1>
             <?php
-            if(isset($_GET["query"]) && $_GET["query"] !== "") {
-                echo "Resultaten Voor: " . $_GET["query"];
+            if(isset($_GET["query"]) && $_GET["query"] !== "") { // als er een zoekopdracht is
+                echo "Resultaten Voor: " . $_GET["query"]; // laat de zoekopdracht zien
             } else {
-                echo "Complete Catalogus";
+                echo "Complete Catalogus"; // anders laat de complete catalogus zien
             }
             ?>
         </h1>
@@ -78,25 +78,25 @@ if(isset($_GET["sortOption"])) {
             <label>Sorteer op
                 <select name="sortOption" id="sortOption" onchange="submitForm()">
                     <?php
-                    if($sort != null) {
+                    if($sort != null) { // als er een sorteer optie is aangegeven
                         switch($sort) { //priceascending, pricedescending, datepublished
-                            case 'priceascending':
+                            case 'priceascending': // als de sorteer optie priceascending is
                                 echo '<option value="datepublished">Datum</option>';
                                 echo '<option value="priceascending" selected>Prijs oplopend</option>';
                                 echo '<option value="pricedescending">Prijs aflopend</option>';
                                 break;
-                            case 'pricedescending':
+                            case 'pricedescending': // als de sorteer optie pricedescending is
                                 echo '<option value="datepublished">Datum</option>';
                                 echo '<option value="priceascending">Prijs oplopend</option>';
                                 echo '<option value="pricedescending" selected>Prijs aflopend</option>';
                                 break;
-                            case 'datepublished':
+                            case 'datepublished': // als de sorteer optie datepublished is
                                 echo '<option value="datepublished" selected>Datum</option>';
                                 echo '<option value="priceascending">Prijs oplopend</option>';
                                 echo '<option value="pricedescending">Prijs aflopend</option>';
                                 break;
                         }
-                    } else {
+                    } else { // als er geen sorteer optie is aangegeven
                         echo '<option value="datepublished" selected>Datum</option>';
                         echo '<option value="priceascending">Prijs oplopend</option>';
                         echo '<option value="pricedescending">Prijs aflopend</option>';
@@ -111,33 +111,33 @@ $query = "";
 $sortStatement = "";
 if($sort != null) {
     switch($sort) { //priceascending, pricedescending, datepublished
-        case 'priceascending':
-            $sortStatement = " ORDER BY productPrice asc";
+        case 'priceascending': // als de sorteer optie priceascending is
+            $sortStatement = " ORDER BY productPrice asc"; // sorteer op prijs oplopend
             break;
-        case 'pricedescending':
+        case 'pricedescending': // als de sorteer optie pricedescending is
             $sortStatement = " ORDER BY productPrice desc";
             break;
-        case 'datepublished':
+        case 'datepublished': // als de sorteer optie datepublished is
             $sortStatement = " ORDER BY productId asc";
             break;
     }
 }
 
-if(isset($_GET["category"]) && $_GET["category"] !== "") {
-    $new_string = preg_replace("/[^A-Za-z0-9.!?]/",'', $_GET["category"]);
-    $categoryStatement = " AND UPPER(productCategory) = UPPER(\"" . $new_string . "\")";
+if(isset($_GET["category"]) && $_GET["category"] !== "") { // als er een categorie is aangegeven
+    $new_string = preg_replace("/[^A-Za-z0-9.!?]/",'', $_GET["category"]); // haal alle speciale tekens weg, zodat SQL injection niet mogelijk is
+    $categoryStatement = " AND UPPER(productCategory) = UPPER(\"" . $new_string . "\")"; // zoek naar producten met de categorie
 } else {
     $categoryStatement = "";
 }
 
-if(isset($_GET["brand"]) && $_GET["brand"] !== "") {
-    $new_string = preg_replace("/[^A-Za-z0-9.!?]/",'', $_GET["brand"]);
-    $brandStatement = " AND UPPER(brandName) = UPPER(\"" . $new_string . "\")";
+if(isset($_GET["brand"]) && $_GET["brand"] !== "") { // als er een merk is aangegeven
+    $new_string = preg_replace("/[^A-Za-z0-9.!?]/",'', $_GET["brand"]); // haal alle speciale tekens weg, zodat SQL injection niet mogelijk is
+    $brandStatement = " AND UPPER(brandName) = UPPER(\"" . $new_string . "\")"; // zoek naar producten met het merk
 } else {
     $brandStatement = "";
 }
 
-if(isset($_GET["query"]) && $_GET["query"] !== "") {
+if(isset($_GET["query"]) && $_GET["query"] !== "") { // als er een zoekopdracht is
     $query_sql = '%' . $_GET["query"] . '%';
 
     /* zoek voor producten in de database die je zoekopdracht matchen */
@@ -149,7 +149,7 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
     /* laat resultaten zien (als die er zijn) */
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
-            if($row["productDiscountPercentage"] === 0) {
+            if($row["productDiscountPercentage"] === 0) { // als er geen korting is print het product in de lijst/HTML
                 echo '<a href="../product/?productId=' . $row["productId"] . '">';
                 echo '<div class="resultaat-item">';
                 echo '<div class="resultaat-item-flexbox">';
@@ -162,7 +162,7 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
                 echo '</div>';
                 echo '</div>';
                 echo '</a>';
-            } else { //als er korting is
+            } else { // Als er wel korting is print het product in de lijst/HTML
                 $newPrice = $row["productPrice"] * (1 - $row["productDiscountPercentage"] / 100); //bereken prijs met discount
                 echo '<a href="../product/?productId=' . $row["productId"] . '">';
                 echo '<div class="resultaat-item">';
@@ -184,15 +184,15 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
     }
 } else {
     /* laat alle producten zien */
-    $datenesqlding = "SELECT * FROM product JOIN brand ON productBrandId = brandId WHERE productId LIKE '%' " . $categoryStatement . $brandStatement . $sortStatement;
-    $stmt = $conn->prepare($datenesqlding);
+    $datenesqlding = "SELECT * FROM product JOIN brand ON productBrandId = brandId WHERE productId LIKE '%' " . $categoryStatement . $brandStatement . $sortStatement; // haal alle producten op
+    $stmt = $conn->prepare($datenesqlding); // bereid de SQL statement voor
 
-    $stmt->execute();
-    $result = $stmt->get_result();
+    $stmt->execute(); // voer de SQL statement uit
+    $result = $stmt->get_result(); // haal de resultaten op
 
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            if($row["productDiscountPercentage"] === 0) {
+    if ($result->num_rows > 0) { // als er resultaten zijn
+        while ($row = $result->fetch_assoc()) { // voor elk resultaat
+            if($row["productDiscountPercentage"] === 0) { // als er geen korting is print het product in de lijst/HTML
                 echo '<a href="../product/?productId=' . $row["productId"] . '">';
                 echo '<div class="resultaat-item">';
                 echo '<div class="resultaat-item-flexbox">';
@@ -205,7 +205,7 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
                 echo '</div>';
                 echo '</div>';
                 echo '</a>';
-            } else { //als er korting is
+            } else { // Als er wel korting is print het product in de lijst/HTML
                 $newPrice = $row["productPrice"] * (1 - $row["productDiscountPercentage"] / 100); //bereken prijs met discount
                 echo '<a href="../product/?productId=' . $row["productId"] . '">';
                 echo '<div class="resultaat-item">';
@@ -263,7 +263,7 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") {
 <script src="typewriter.js"></script>
 <script>
     function submitForm() {
-        document.querySelector('.sort').submit();
+        document.querySelector('.sort').submit(); // submit de form met de sorteer opties als er een nieuwe optie is aangegeven
     }
 </script>
 

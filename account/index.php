@@ -1,4 +1,4 @@
 <?php
 
-session_start();
-print_r($_SESSION);
+session_start(); // Start PHP session
+print_r($_SESSION); // Print alle variabelen in de PHP sessie
