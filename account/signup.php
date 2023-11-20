@@ -1,6 +1,10 @@
 <?php
 /* hasht wachtwoord opgehaald van form */
-$passwordhash = password_hash($_POST["psw"], PASSWORD_DEFAULT);
+if(isset($_POST["psw"])) {
+
+    $passwordhash = password_hash($_POST["psw"], PASSWORD_DEFAULT);
+}
+if($_POST){
 $mysqli = require __DIR__ . "/connection.php";
 /* insert account registratie in de database */
 $sql = "INSERT INTO user (email, password_hash, first_name, surname_prefix, surname, street_name, apartment_nr, postal_code, city)
@@ -24,6 +28,10 @@ $stmt->bind_param("sssssssss",
 $stmt->execute();
 
 
+
+    header("Location: ../index.php");
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
