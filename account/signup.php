@@ -1,21 +1,26 @@
 <?php
 /* hasht wachtwoord opgehaald van form */
+<<<<<<< HEAD
 if(isset($_POST["psw"])) {
 
     $passwordhash = password_hash($_POST["psw"], PASSWORD_DEFAULT);
 }
 if($_POST){
 $mysqli = require __DIR__ . "/connection.php";
+=======
+$passwordhash = password_hash($_POST["psw"], PASSWORD_DEFAULT); // hash het wachtwoord wat is ingevuld in het formulier
+$mysqli = require __DIR__ . "/connection.php"; // importeer de database connectie
+>>>>>>> 5427475ed578a04ba7985556554de142d677a1a8
 /* insert account registratie in de database */
 $sql = "INSERT INTO user (email, password_hash, first_name, surname_prefix, surname, street_name, apartment_nr, postal_code, city)
-values (?,?,?,?,?,?,?,?,?)";
+values (?,?,?,?,?,?,?,?,?)"; // sql statement
 
-$stmt = $mysqli->stmt_init();
-if (!$stmt->prepare($sql)){
-    die("catastrophe:". $mysqli->error);
+$stmt = $mysqli->stmt_init(); // initialiseer de statement
+if (!$stmt->prepare($sql)){ // check of de statement goed is
+    die("catastrophe:". $mysqli->error); // als de statement niet goed is, stop dan en geef een error
 };
 
-$stmt->bind_param("sssssssss",
+$stmt->bind_param("sssssssss", // bind de parameters aan de statement
     $_POST["gebruikersnaam"],
     $passwordhash,
     $_POST["voornaam"],
@@ -25,7 +30,7 @@ $stmt->bind_param("sssssssss",
     $_POST["huisnummer"],
     $_POST["postcode"],
     $_POST["plaats"]);
-$stmt->execute();
+$stmt->execute(); // voer de statement uit
 
 
 

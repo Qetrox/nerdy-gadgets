@@ -1,24 +1,24 @@
 <?php
-if(!isset($_GET["productId"])) {
-    header('location: ../search/');
+if(!isset($_GET["productId"])) { // Als er geen productId is meegegeven, redirect naar search pagina
+    header('location: ../search/'); // Redirect naar search pagina
 } else {
 
-    if(isset($_COOKIE["cartList"])) {
-        $cartListItems = json_decode($_COOKIE["cartList"]);
-    } else {
+    if(isset($_COOKIE["cartList"])) { // Als er een cartList cookie is, zet deze dan in een array
+        $cartListItems = json_decode($_COOKIE["cartList"]); // Zet cookie om naar array
+    } else { // Als er geen cartList cookie is, maak dan een lege array
         $cartListItems = array();
     }
 
-    if(isset($_GET["addProduct"]) && $_GET["addProduct"] == "true") {
-        array_push($cartListItems, $_GET["productId"]);
-        setcookie("cartList", json_encode($cartListItems), time() + (86400 * 30), "/"); // 86400 = 1 day
-        header('location: ./?productId=' . $_GET["productId"]);
+    if(isset($_GET["addProduct"]) && $_GET["addProduct"] == "true") { // Als er een productId is meegegeven, voeg deze dan toe aan de cartList cookie
+        array_push($cartListItems, $_GET["productId"]); // Voeg productId toe aan cartList array
+        setcookie("cartList", json_encode($cartListItems), time() + (86400 * 30), "/"); // Zet cookie met cartList array met 30 dagen geldigheid
+        header('location: ./?productId=' . $_GET["productId"]); // Redirect naar product pagina
     }
 
-    $cartCount = count($cartListItems);
+    $cartCount = count($cartListItems); // Tel aantal items in cartList array
 
 
-    require_once '../includes/dbh.php';
+    require_once '../includes/dbh.php'; // Importeer database connectie
     /* import de Database variabelen */
 
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -29,19 +29,19 @@ if(!isset($_GET["productId"])) {
      */
 
 // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
+    if ($conn->connect_error) { // Als er geen connectie is met de database, geef dan een error
+        die("Connection failed: " . $conn->connect_error); // Geef error
     }
-    $conn->set_charset("utf8");
+    $conn->set_charset("utf8"); // Zet charset naar UTF-8 zodat special characters goed worden weergegeven
 
 
-    $stmt = $conn->prepare("SELECT * FROM product JOIN brand ON productBrandId = brandId WHERE productId = ?");
-    $stmt->bind_param("s", $_GET["productId"]);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    if ($result->num_rows > 0) {
-        while($row = $result->fetch_assoc()) {
-            $title = $row["productName"];
+    $stmt = $conn->prepare("SELECT * FROM product JOIN brand ON productBrandId = brandId WHERE productId = ?"); // Bereid SQL statement voor
+    $stmt->bind_param("s", $_GET["productId"]); // Bind parameters aan statement
+    $stmt->execute(); // Voer statement uit
+    $result = $stmt->get_result(); // Haal resultaten op
+    if ($result->num_rows > 0) { // Als er resultaten zijn
+        while($row = $result->fetch_assoc()) { // Loop door resultaten
+            $title = $row["productName"]; // Zet product info in variabelen
             $image = $row["productImage"];
             $image2 = $row["productImage2"];
             $image3 = $row["productImage3"];
@@ -53,13 +53,13 @@ if(!isset($_GET["productId"])) {
             $category = $row["productCategory"];
             $stars = $row["productStars"];
         }
-        if($discount > 0) {
-            $newPrice = $price * (1 - $discount / 100); //bereken prijs met discount
-            $priceHtml = '<span class="kortingsprijs">€' . number_format((float)$price, 2, '.', '') . '</span> €' .number_format((float)$newPrice, 2, '.', '');
+        if($discount > 0) { // Als er korting is
+            $newPrice = $price * (1 - $discount / 100); // Bereken prijs met discount
+            $priceHtml = '<span class="kortingsprijs">€' . number_format((float)$price, 2, '.', '') . '</span> €' .number_format((float)$newPrice, 2, '.', ''); // Zet prijs in HTML
         } else {
             $priceHtml = '€' . $price;
         }
-        switch($stars) {
+        switch($stars) { // Zet sterren om in HTML
             case 1:
                 $starHtml = "star_rate";
                 break;
@@ -76,18 +76,18 @@ if(!isset($_GET["productId"])) {
                 break;
         }
     } else {
-        header('location: ../search/');
+        header('location: ../search/'); // Redirect naar search pagina
     }
 
-    $imageSwitchHtml = '';
+    $imageSwitchHtml = ''; // Zet image switch HTML op leeg
 
-    if ($image2 != '' &&  $image2 != null) {
+    if ($image2 != '' &&  $image2 != null) { // Als er een tweede image is
         $imageSwitchHtml = '<div><p id="b1" class="hoverme" onclick="switchToImage(1)">1</p><p id="b2" class="hoverme" onclick="switchToImage(2)">2</p></div>';
 
-        if ($image3 != '' &&  $image3 != null) {
+        if ($image3 != '' &&  $image3 != null) { // Als er een derde image is
             $imageSwitchHtml = '<div><p id="b1" class="hoverme" onclick="switchToImage(1)">1</p><p id="b2" class="hoverme" onclick="switchToImage(2)">2</p><p id="b3" class="hoverme" onclick="switchToImage(3)">3</p></div>';
 
-            if ($image4 != '' &&  $image4 != null) {
+            if ($image4 != '' &&  $image4 != null) { // Als er een vierde image is
                 $imageSwitchHtml = '<div><p id="b1" class="hoverme" onclick="switchToImage(1)">1</p><p id="b2" class="hoverme" onclick="switchToImage(2)">2</p><p class="hoverme" id="b3" onclick="switchToImage(3)">3</p><p id="b4" class="hoverme" onclick="switchToImage(4)">4</p></div>';
             }
         }
@@ -124,7 +124,7 @@ if(!isset($_GET["productId"])) {
 
 
 
-        function switchToImage(imagenumber) {
+        function switchToImage(imagenumber) { // Switch naar image
             const productImage = document.getElementById('product-image');
             const b1 = document.getElementById('b1');
             const b2 = document.getElementById('b2');
@@ -242,49 +242,49 @@ if(!isset($_GET["productId"])) {
 </body>
 <script>
 
-    function getCookie(cname) {
-        let name = cname + "=";
-        let decodedCookie = decodeURIComponent(document.cookie);
-        let ca = decodedCookie.split(';');
-        for(let i = 0; i <ca.length; i++) {
-            let c = ca[i];
-            while (c.charAt(0) == ' ') {
-                c = c.substring(1);
+    function getCookie(cname) { // Haal cookie op
+        let name = cname + "="; // Zet naam van cookie
+        let decodedCookie = decodeURIComponent(document.cookie); // Decode cookie
+        let ca = decodedCookie.split(';'); // Split cookie
+        for(let i = 0; i <ca.length; i++) { // Loop door cookie
+            let c = ca[i]; // Zet cookie in variabele
+            while (c.charAt(0) == ' ') { // Als er een spatie is, verwijder deze dan
+                c = c.substring(1); // Verwijder spatie
             }
-            if (c.indexOf(name) == 0) {
-                return c.substring(name.length, c.length);
+            if (c.indexOf(name) == 0) { // Als de naam van de cookie overeenkomt met de naam van de cookie die we zoeken, geef dan de waarde van de cookie terug
+                return c.substring(name.length, c.length); // Geef waarde van cookie terug
             }
         }
         return "";
     }
 
-    function setCookie(cname, cvalue, exdays) {
-        const d = new Date();
-        d.setTime(d.getTime() + (exdays*24*60*60*1000));
-        let expires = "expires="+ d.toUTCString();
-        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    function setCookie(cname, cvalue, exdays) { // Zet cookie
+        const d = new Date(); // Maak nieuwe datum
+        d.setTime(d.getTime() + (exdays*24*60*60*1000)); // Zet datum
+        let expires = "expires="+ d.toUTCString(); // Zet datum in UTC string
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/"; // Zet cookie
     }
 
-    function IWANTTHISITEM() {
+    function IWANTTHISITEM() { // Voeg product toe aan winkelwagen
         let e = [];
         try {
-            const uh = getCookie('cartList');
-            e = JSON.parse(uh);
+            const uh = getCookie('cartList'); // Haal cartList cookie op
+            e = JSON.parse(uh); // Zet cookie om naar array
         } catch (err) {
         }
-        e.push('<?php echo $_GET["productId"] ?>');
+        e.push('<?php echo $_GET["productId"] ?>'); // Voeg productId toe aan array
         //console.log(e); /* Laat de winkelwagen lijst zien als array, alleen voor testen nodig */
-        document.getElementById('cartcount').innerHTML = e.length;
+        document.getElementById('cartcount').innerHTML = e.length; // Zet aantal items in winkelwagen
 
-        setCookie('cartList', JSON.stringify(e), 30);
+        setCookie('cartList', JSON.stringify(e), 30); // Zet cookie met cartList array met 30 dagen geldigheid
 
         /* Andere manier om product toe te voegen aan winkelwagen via PHP (langzamer) */
         //window.location.replace('./?productId=<?php echo $_GET["productId"] ?>&addProduct=true')
     }
 
     try {
-        const b1 = document.getElementById('b1');
-        b1.style.borderBottom = '1px solid'
+        const b1 = document.getElementById('b1'); // Haal image switch buttons op
+        b1.style.borderBottom = '1px solid' // Zet border onder eerste button (Geen flauw idee waarom)
     } catch(e) {
         //ssssh
     }
