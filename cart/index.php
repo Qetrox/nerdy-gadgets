@@ -1,8 +1,8 @@
 <?php
-require_once '../includes/dbh.php';
+require_once '../includes/dbh.php'; // Importeer de database variabelen
 /* import de Database variabelen */
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $username, $password, $dbname); // Maak connectie met de database
 /*
 
  Error is niet echt! PHPstorm leest niet goed. NIET FIXEN!!
@@ -10,11 +10,11 @@ $conn = new mysqli($servername, $username, $password, $dbname);
  */
 
 // Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+if ($conn->connect_error) { // Als de connectie mislukt
+    die("Connection failed: " . $conn->connect_error); // Stop de connectie en geef een error
 }
 
-$conn->set_charset("utf8");
+$conn->set_charset("utf8"); // Zet de charset naar UTF-8 zodat vreemde tekens goed worden weergegeven
 
 
 ?>
@@ -56,18 +56,18 @@ $conn->set_charset("utf8");
          * @returns {void} - Returnt niks
          */
         function changePrice(productId, newTotalPrice) {
-            newTotalPrice = parseFloat(newTotalPrice.toFixed(2));
+            newTotalPrice = parseFloat(newTotalPrice.toFixed(2)); // rond af op 2 decimalen
             moneyz = 0;
-            moneyz_arr[productId] = newTotalPrice;
+            moneyz_arr[productId] = newTotalPrice; // zet de nieuwe prijs in de array
 
 
 
             for(let key in moneyz_arr) {
-                moneyz += moneyz_arr[key];
+                moneyz += moneyz_arr[key]; // tel alle prijzen bij elkaar op
             }
 
-            const e2 = document.getElementById('totalPrice');
-            e2.innerHTML = "€" + moneyz;
+            const e2 = document.getElementById('totalPrice'); // krijg HTML element van totale prijs
+            e2.innerHTML = "€" + moneyz; // verander de totale prijs
         }
 
         /**
@@ -77,18 +77,18 @@ $conn->set_charset("utf8");
          */
         function getCookie(cname) {
             let name = cname + "=";
-            let decodedCookie = decodeURIComponent(document.cookie);
-            let ca = decodedCookie.split(';');
-            for(let i = 0; i <ca.length; i++) {
-                let c = ca[i];
-                while (c.charAt(0) == ' ') {
-                    c = c.substring(1);
+            let decodedCookie = decodeURIComponent(document.cookie); // pak alle cookies uit de browser
+            let ca = decodedCookie.split(';'); // splits de cookies op de zodat we losse cookies hebben;
+            for(let i = 0; i <ca.length; i++) { // loop door alle cookies
+                let c = ca[i]; // pak de cookie
+                while (c.charAt(0) == ' ') { // haal alle spaties weg
+                    c = c.substring(1); // haal de eerste letter weg
                 }
-                if (c.indexOf(name) == 0) {
-                    return c.substring(name.length, c.length);
+                if (c.indexOf(name) == 0) { // als de naam van de cookie gelijk is aan de naam die we zoeken
+                    return c.substring(name.length, c.length); // return de cookie
                 }
             }
-            return "";
+            return ""; // return niks als de cookie niet is gevonden
         }
 
         /**
@@ -99,21 +99,21 @@ $conn->set_charset("utf8");
          * @returns {void} - Returnt niks
          */
         function setCookie(cname, cvalue, exdays) {
-            const d = new Date();
-            d.setTime(d.getTime() + (exdays*24*60*60*1000));
-            let expires = "expires="+ d.toUTCString();
-            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+            const d = new Date(); // maak een nieuwe datum object
+            d.setTime(d.getTime() + (exdays*24*60*60*1000)); // bereken wanneer de cookie verloopt
+            let expires = "expires="+ d.toUTCString(); // zet de datum om naar een string
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/"; // maak de cookie en stop hem in de browser
         }
 
-        arr = JSON.parse(getCookie('cartList'));
+        arr = JSON.parse(getCookie('cartList')); // pak de cookie met de producten in de winkelwagen
 
         let productCounter = {};
 
-        arr.forEach(ele => {
-            if (productCounter[ele]) {
-                productCounter[ele] += 1;
-            } else {
-                productCounter[ele] = 1;
+        arr.forEach(ele => { // loop door alle producten in de winkelwagen
+            if (productCounter[ele]) { // als het product al in de winkelwagen zit
+                productCounter[ele] += 1; // verhoog de product hoeveelheid met 1
+            } else { // als het product nog niet in de winkelwagen zit
+                productCounter[ele] = 1; // zet de product hoeveelheid op 1
             }
         });
 
@@ -124,33 +124,33 @@ $conn->set_charset("utf8");
          * @returns {void} - Returnt niks
          */
         function changeItemCount(productId, change) {
-            cartList = JSON.parse(getCookie('cartList'));
-            if(change === -1) {
+            cartList = JSON.parse(getCookie('cartList')); // pak de cookie met de producten in de winkelwagen
+            if(change === -1) { // als het aantal omlaag gaat
                 const index = cartList.indexOf(`${productId}`);
-                if (index > -1) { // only splice array when item is found
-                    cartList.splice(index, 1); // 2nd parameter means remove one item only
+                if (index > -1) { // als het product in de winkelwagen zit
+                    cartList.splice(index, 1); // haal het product uit de winkelwagen
                 }
-            } else if (change === 1) {
-                cartList.push(`${productId}`);
+            } else if (change === 1) { // als het aantal omhoog gaat
+                cartList.push(`${productId}`); // zet het product in de winkelwagen
             }
-            setCookie('cartList', JSON.stringify(cartList), 30);
-            document.getElementById('cartcount').innerHTML = cartList.length;
+            setCookie('cartList', JSON.stringify(cartList), 30); // zet de nieuwe winkelwagen in de browser
+            document.getElementById('cartcount').innerHTML = cartList.length; // verander het winkelwagen icoontje
 
             productCounter = {};
 
-            cartList.forEach(ele => {
-                if (productCounter[ele]) {
-                    productCounter[ele] += 1;
-                } else {
-                    productCounter[ele] = 1;
+            cartList.forEach(ele => { // loop door alle producten in de winkelwagen
+                if (productCounter[ele]) { // als het product al in de winkelwagen zit
+                    productCounter[ele] += 1; // verhoog de product hoeveelheid met 1
+                } else { // als het product nog niet in de winkelwagen zit
+                    productCounter[ele] = 1; // zet de product hoeveelheid op 1
                 }
             });
-            document.getElementById(`productCount${productId}`).innerHTML = productCounter[`${productId}`];
-            if(productCounter[`${productId}`] === undefined || productCounter[`${productId}`] === 0) {
-                UUOEOEWUU = document.getElementById(`productDiv${productId}`);
-                UUOEOEWUU.remove();
+            document.getElementById(`productCount${productId}`).innerHTML = productCounter[`${productId}`]; // verander de hoeveelheid van het product in de winkelwagen
+            if(productCounter[`${productId}`] === undefined || productCounter[`${productId}`] === 0) { // als het product niet meer in de winkelwagen zit
+                UUOEOEWUU = document.getElementById(`productDiv${productId}`); // pak het product div element
+                UUOEOEWUU.remove(); // verwijder het product div element
             }
-            changePrice(productId, productCounter[`${productId}`] * parseFloat(document.getElementById(`price2${productId}`).innerHTML.split('€')[1]));
+            changePrice(productId, productCounter[`${productId}`] * parseFloat(document.getElementById(`price2${productId}`).innerHTML.split('€')[1])); // verander de totale prijs van het product
         }
 
     </script>
@@ -165,7 +165,7 @@ $conn->set_charset("utf8");
     <div class="resultaten">
         <h1>
             <?php
-            if(isset($_GET["query"]) && $_GET["query"] !== "") {
+            if(isset($_GET["query"]) && $_GET["query"] !== "") { // Ik weet niet wat deze code hier doet, geen functionaliteit maar laat het staan voor de zekerheid
                 echo "Resultaten Voor: " . $_GET["query"];
             } else {
                 echo "Winkelwagen";
@@ -173,40 +173,38 @@ $conn->set_charset("utf8");
             ?>
         </h1>
             <?php
-            if(count($cartListItems) > 0) {
+            if(count($cartListItems) > 0) { // Als er producten in de winkelwagen zitten
 
-                $counts = array();
+                $counts = array(); // Maak een array aan voor de hoeveelheid van elk product
 
-                foreach ($cartListItems as $key => $value) {
-                    if (isset($counts[$value])) {
-                        // Increment the count for the number
-                        $counts[$value]++;
-                    } else {
-                        // Initialize the count for the number
-                        $counts[$value] = 1;
+                foreach ($cartListItems as $key => $value) { // Loop door alle producten in de winkelwagen
+                    if (isset($counts[$value])) { // Als het product al in de array zit
+                        $counts[$value]++; // Verhoog de hoeveelheid van het product met 1
+                    } else { // Als het product nog niet in de array zit
+                        $counts[$value] = 1; // Zet de hoeveelheid van het product op 1
                     }
                 }
 
-                $coolarray = "(";
+                $coolarray = "("; // Maak een string aan voor de SQL query
 
-                foreach($counts as $number => $amount) {
-                    if(!is_numeric($amount)) exit("Invalid input");
-                    if($number == array_key_last($counts)) {
-                        $coolarray .= $number;
-                    } else {
-                        $coolarray .= $number . ', ';
+                foreach($counts as $number => $amount) { // Loop door alle producten in de winkelwagen
+                    if(!is_numeric($amount)) exit("Invalid input"); // Als de hoeveelheid van een product geen nummer is, stop de code
+                    if($number == array_key_last($counts)) { // Als het de laatste product in de winkelwagen is
+                        $coolarray .= $number; // Zet het product in de string
+                    } else { // Als het niet het laatste product in de winkelwagen is
+                        $coolarray .= $number . ', '; // Zet het product in de string
                     }
                 }
 
-                $coolarray .= ')';
-                $stmt = $conn->prepare("SELECT * FROM product WHERE productId IN $coolarray;");
-                $stmt->execute();
-                $result = $stmt->get_result();
+                $coolarray .= ')'; // Sluit de string af
+                $stmt = $conn->prepare("SELECT * FROM product WHERE productId IN $coolarray;"); // Maak een SQL query
+                $stmt->execute(); // Voer de SQL query uit
+                $result = $stmt->get_result(); // Pak de resultaten van de SQL query
 
-                if ($result->num_rows > 0) {
-                    while($row = $result->fetch_assoc()) {
-                        if($row["productDiscountPercentage"] === 0) {
-                            echo '<div id="productDiv' . $row["productId"] . '">';
+                if ($result->num_rows > 0) { // Als er resultaten zijn
+                    while($row = $result->fetch_assoc()) { // Loop door alle resultaten
+                        if($row["productDiscountPercentage"] === 0) { // Als er geen korting is
+                            echo '<div id="productDiv' . $row["productId"] . '">'; // Elke echo print gedeelte van een product uit in HTML
                             echo '<div class="resultaat-item">';
                             echo '<div class="resultaat-item-flexbox">';
                             echo '<div class="description">';
@@ -220,9 +218,9 @@ $conn->set_charset("utf8");
                             echo '</div>';
                             echo '</div>';
                             echo '<script>changePrice('. $row["productId"] . ', ' . $row["productPrice"] * $counts[$row["productId"]] . ')</script>';
-                        } else { //als er korting is
-                            $newPrice = $row["productPrice"] * (1 - $row["productDiscountPercentage"] / 100); //bereken prijs met discount
-                            echo '<div id="productDiv' . $row["productId"] . '">';
+                        } else { // Als er wel korting is
+                            $newPrice = $row["productPrice"] * (1 - $row["productDiscountPercentage"] / 100); // Bereken prijs met discount
+                            echo '<div id="productDiv' . $row["productId"] . '">'; // Elke echo print gedeelte van een product uit in HTML
                             echo '<div class="resultaat-item">';
                             echo '<div class="resultaat-item-flexbox">';
                             echo '<div class="description">';
@@ -239,10 +237,10 @@ $conn->set_charset("utf8");
                         }
                     }
                 } else {
-                    echo '<div class="noppes"><h1>Niks in je winkelwagen :(</h1><p>Misschien ben je een te grote nerd voor ons...</p></div>';
+                    echo '<div class="noppes"><h1>Niks in je winkelwagen :(</h1><p>Misschien ben je een te grote nerd voor ons...</p></div>'; // Als er geen resultaten zijn (iemand heeft zelf de cookie aangepast met ongeldige product ID's)
                 }
             } else {
-                echo '<div class="noppes"><h1>Niks in je winkelwagen :(</h1><p>Misschien ben je een te grote nerd voor ons...</p></div>';
+                echo '<div class="noppes"><h1>Niks in je winkelwagen :(</h1><p>Misschien ben je een te grote nerd voor ons...</p></div>'; // Als er geen producten in de winkelwagen zitten
             }
             ?>
         </div>
@@ -277,7 +275,7 @@ $conn->set_charset("utf8");
 <script src="typewriter.js"></script>
 <script>
     function submitForm() {
-        document.querySelector('.sort').submit();
+        document.querySelector('.sort').submit(); // Submit de form automatisch als de sorteeropties veranderen
     }
 </script>
 

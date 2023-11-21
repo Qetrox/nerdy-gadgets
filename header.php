@@ -1,37 +1,37 @@
 <?php
 
 session_start();
-if(isset($_COOKIE["cartList"])) {
-    $cartListItems = json_decode($_COOKIE["cartList"]);
+if(isset($_COOKIE["cartList"])) { // Check of de cookie bestaat
+    $cartListItems = json_decode($_COOKIE["cartList"]); // Decode de cookie
 } else {
-    $cartListItems = array();
+    $cartListItems = array(); // Maak een lege array
 }
-$cartCount = count($cartListItems);
+$cartCount = count($cartListItems); // Tel de items in de array
 
 ?>
 
 <header>
     <div class="navbar">
-        <div class="nav-logo">
+        <div class="nav-logo" id="falling-element">
             <img src="https://nerdy-gadgets.nl/images/logo_small_white.png" alt="logo" height="100%">
         </div>
-        <a href="https://nerdy-gadgets.nl/">
+        <a href="https://nerdy-gadgets.nl/" id="falling-element">
             <div class="nav-item">
                 <p><span class="material-symbols-sharp">home</span>NERDY-GADGETS</p>
             </div>
         </a>
-        <div class="nav-searchbar">
+        <div class="nav-searchbar" id="falling-element">
             <form action="https://nerdy-gadgets.nl/search/" method="get">
                 <input type="text" name="query" id="query" placeholder="Zoek een product">
             </form>
             <h1 class="mobile-show">Nerdy Gadgets</h1>
         </div>
-        <a href="https://nerdy-gadgets.nl/search">
+        <a href="https://nerdy-gadgets.nl/search" id="falling-element">
             <div class="nav-item">
                 <p><span class="material-symbols-sharp">view_list</span>CATALOGUS</p>
             </div>
         </a>
-        <div class="small-head-icons">
+        <div class="small-head-icons" id="falling-element">
             <a href="https://nerdy-gadgets.nl/cart">
                 <div class="nav-item">
                     <p><span class="material-symbols-sharp">shopping_cart</span></p>

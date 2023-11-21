@@ -29,14 +29,14 @@
 <?php include_once '../header.php'?>
 <main> <!-- Hier de content van de pagina in doen :) -->
     <p> email: </p>
-    <p class="user-text-header"> <?= htmlspecialchars($_SESSION["email"]) ?> </p>
+    <p class="user-text-header"> <?= htmlspecialchars($_SESSION["email"]) ?> </p> <!-- Email wordt hier neergezet -->
 
     <br>
     <p> voornaam:</p>
-    <p class="user-text-header"> <?= htmlspecialchars($_SESSION["first_name"]) ?> </p>
+    <p class="user-text-header"> <?= htmlspecialchars($_SESSION["first_name"]) ?> </p> <!-- First name wordt hier neergezet -->
     <p/>
 <p>tussenvoegsel</p>
-    <p class="user-text-header"> <?= htmlspecialchars($_SESSION["surname_prefix"]) ?> </p>
+    <p class="user-text-header"> <?= htmlspecialchars($_SESSION["surname_prefix"]) ?> </p> <!-- Tussenvoegsel wordt hier neergezet -->
 
 
 </main>

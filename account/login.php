@@ -1,34 +1,34 @@
 <?php
 $is_invalid = false;
 
-if($_SERVER["REQUEST_METHOD"] === "POST"){
+if($_SERVER["REQUEST_METHOD"] === "POST"){ // Check of het een POST request is.
 
-    $mysqli = require __DIR__ . "/connection.php";
+    $mysqli = require __DIR__ . "/connection.php"; // Importeer de database connectie
 
     /* account username en wachtwoord ophalen van database */
     $sqla = sprintf("SELECT * FROM user
                            WHERE email ='%s'",
-                           $mysqli->real_escape_string($_POST["gebruikersnaam"]));
-    $result = $mysqli->query($sqla);
-    $user = $result->fetch_assoc();
+                           $mysqli->real_escape_string($_POST["gebruikersnaam"])); // Maak de query klaar om uit te voeren, voorkom SQL injection.
+    $result = $mysqli->query($sqla); // Voer de query uit op de database.
+    $user = $result->fetch_assoc(); // Haal de resultaten op als associatieve array.
 
-    $password = $_POST['password'];
+    $password = $_POST['password']; // Haal het wachtwoord op uit het formulier.
     /*  wachtwoord checken daarna inloggen  */
-    if(password_verify($_POST["password"], $user["password_hash"])){
-        session_start();
-        session_regenerate_id();
-        $_SESSION["user_id"] = $user["id"];
-        $_SESSION["first_name"] = $user["first_name"];
-        $_SESSION["surname"] = $user["surname"];
-        $_SESSION["email"] = $user["email"];
-        $_SESSION["surname_prefix"] = $user["surname_prefix"];
+    if(password_verify($_POST["password"], $user["password_hash"])){ // Check of het wachtwoord klopt.
+        session_start(); // Start de sessie.
+        session_regenerate_id(); // Maak een nieuw sessie ID aan.
+        $_SESSION["user_id"] = $user["id"]; // Sla de user ID op in de sessie.
+        $_SESSION["first_name"] = $user["first_name"]; // Sla de voornaam op in de sessie.
+        $_SESSION["surname"] = $user["surname"]; // Sla de achternaam op in de sessie.
+        $_SESSION["email"] = $user["email"]; // Sla de email op in de sessie.
+        $_SESSION["surname_prefix"] = $user["surname_prefix"]; // Sla de tussenvoegsel op in de sessie.
 
 
 
 
 
-        header("Location: ../index.php");
-        exit;
+        header("Location: ../index.php"); // Stuur de gebruiker door naar de account pagina.
+        exit; // Stop met het uitvoeren van PHP code, zodat er minder load is op de server.
 
     }
     /* als inlog gegevens niet kloppen*/
@@ -76,7 +76,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
 
     <?php
     if($is_invalid == true){
-        print("gegevens incorrect");
+        print("gegevens incorrect"); // Print een error als de gebruikersnaam of wachtwoord niet klopt.
 
     }
 

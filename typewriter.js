@@ -1,5 +1,5 @@
 let i = 0;
-const options = [
+const options = [ // Opties voor de typewriter
     'Gadgets Voor de Echte Nerds.', //1
     'Nerd Certified.', //2
     'Voor de Tech-Lovers.', //3
@@ -12,14 +12,14 @@ const options = [
     'Geen Boeken, Maar Gadgets.', //10
     'NERD ACTIVATED', //11
 ];
-const number = Math.floor(Math.random() * 11);
-const string = options[number];
+const number = Math.floor(Math.random() * 11); // Kiest een random nummer tussen 0 en 11
+const string = options[number]; // Kiest een random string uit de array
 
-function typeWriter() {
-    if (i < string.length) {
-        document.getElementById("typewriter").innerHTML += string.charAt(i);
+function typeWriter() { // Typewriter functie
+    if (i < string.length) { // Als i kleiner is dan de lengte van de string
+        document.getElementById("typewriter").innerHTML += string.charAt(i); // Voeg de letter toe aan de string
         i++;
-        setTimeout(typeWriter, 50);
+        setTimeout(typeWriter, 50); // Wacht 50ms en voer de volgende letter toe
     }
 }
 typeWriter()
