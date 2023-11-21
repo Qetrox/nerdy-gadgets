@@ -30,9 +30,35 @@ button {
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 100%;
+    width: 50%;
+   text-align: center;
+    box-shadow: 0 0 15px 4px rgb(0,0,0,0.06);
   }
 
 button:hover {
     opacity: 0.8;
-  }
+
+    ;
+  }div.form{
+    background: transparent;
+    width:  40%;
+    padding:  30px 40px;
+    border-radius: 30px;
+   }
+
+   label{
+       width: 40%;
+       display: inline;
+       display: inline-block;
+       margin:  0.8cm;
+       front-weight: bold;
+   }
+
+.text-center {
+    text-align: center;
+}
+
+.rounded-input {
+    padding:10px;
+    border-radius:10px;
+}

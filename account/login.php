@@ -93,9 +93,12 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
         
             <label for="psw"><b>wachtwoord</b></label>
             <input type="Password" placeholder="Enter Password" name="password" required>
-        
+             <div class="text-center">
             <button type="submit">Login</button>
+             </div>
+                <div class="text-center">
             <a href="signup.php"> naar Account aanmaken</a>
+                </div>
           </form>
              
           </div>

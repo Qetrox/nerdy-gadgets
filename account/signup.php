@@ -64,7 +64,8 @@ $stmt->execute();
  
      
         <div class="account">
-            <form method="post"?> 
+            <form method="post"?>
+                <div class="rounded-input">
             <label for="email"><b>gebruikersnaam</b></label> <input type="text" placeholder="Enter Username" name="gebruikersnaam" required>
 <br>
             <label for="psw"><b>wachtwoord</b></label> <input type="Password" placeholder="Enter Password" name="psw" required>
@@ -82,11 +83,14 @@ $stmt->execute();
                 <label for="postcode"><b>postcode</b></label> <input type="text" placeholder="postcode" name="postcode" required>
 <br>
                 <label for="plaats"><b>plaats</b></label> <input type="text" placeholder="plaats" name="plaats" required>
+                </div>
 
-
-
+                 <div class="text-center">
                 <button type="submit">registreren</button>
+            </div>
+                <div class="text-center">
             <a href="login.php"> naar Inloggen</a>
+                </div>
           </form>
              
           </div>
