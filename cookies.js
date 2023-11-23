@@ -10,7 +10,7 @@ function checkCookies() {
 }
 
 checkCookies();
-function disappearCookies() {
+function dissappearCookies() {
     localStorage.setItem("cookie", "accepted"); // Save the cookie 'accepted'
     div.style.display = 'none'; // Hide the cookie div
 }
