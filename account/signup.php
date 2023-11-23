@@ -34,10 +34,12 @@ $stmt->bind_param("sssssssss",
     } else {
 
         if ($mysqli->errno === 1062) {
-            die("email already taken");
+            header("Location: duplicate.html");
+            exit;
         } else {
-            die($mysqli->error . " " . $mysqli->errno);
-        }
+            header("Location: duplicate.html");
+            exit;
+            }
     }
 }
 ?>
