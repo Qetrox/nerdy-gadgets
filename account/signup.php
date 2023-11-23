@@ -25,12 +25,20 @@ $stmt->bind_param("sssssssss",
     $_POST["huisnummer"],
     $_POST["postcode"],
     $_POST["plaats"]);
-$stmt->execute();
 
+    if ($stmt->execute()) {
 
+        header("Location: sucess.html");
+        exit;
 
-    header("Location: ../index.php");
-    exit;
+    } else {
+
+        if ($mysqli->errno === 1062) {
+            die("email already taken");
+        } else {
+            die($mysqli->error . " " . $mysqli->errno);
+        }
+    }
 }
 ?>
 
@@ -56,6 +64,8 @@ $stmt->execute();
     <meta name="theme-color" content="#ffffff">
     <script src="../index.js"></script>
     <link rel="stylesheet" href="../base_stylesheet.css">
+    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
+
     <link rel="stylesheet" href="stylesheet.css">
 </head>
 
@@ -72,9 +82,9 @@ $stmt->execute();
  
      
         <div class="account">
-            <form method="post"?>
+            <form method="post" id="registratie">
                 <div class="rounded-input">
-            <label for="email"><b>gebruikersnaam</b></label> <input type="text" placeholder="Enter Username" name="gebruikersnaam" required>
+            <label for="email"><b>email</b></label> <input type="text" placeholder="Enter Username" name="gebruikersnaam" required>
 <br>
             <label for="psw"><b>wachtwoord</b></label> <input type="Password" placeholder="Enter Password" name="psw" required>
  <br>
