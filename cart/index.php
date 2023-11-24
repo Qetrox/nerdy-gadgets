@@ -153,7 +153,11 @@ $conn->set_charset("utf8"); // Zet de charset naar UTF-8 zodat vreemde tekens go
                 UUOEOEWUU = document.getElementById(`productDiv${productId}`); // pak het product div element
                 UUOEOEWUU.remove(); // verwijder het product div element
             }
-            changePrice(productId, productCounter[`${productId}`] * parseFloat(document.getElementById(`price2${productId}`).innerHTML.split('€')[1])); // verander de totale prijs van het product
+            try {
+                changePrice(productId, productCounter[`${productId}`] * parseFloat(document.getElementById(`price2${productId}`).innerHTML.split('€')[1])); // verander de totale prijs van het product
+            } catch (e) {
+                changePrice(productId, 0); // verander de totale prijs van het product naar 0 als er geen zijn
+            }
         }
 
     </script>
