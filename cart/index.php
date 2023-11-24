@@ -58,9 +58,12 @@ $conn->set_charset("utf8"); // Zet de charset naar UTF-8 zodat vreemde tekens go
         function changePrice(productId, newTotalPrice) {
             newTotalPrice = parseFloat(newTotalPrice.toFixed(2)); // rond af op 2 decimalen
             moneyz = 0;
-            moneyz_arr[productId] = newTotalPrice; // zet de nieuwe prijs in de array
 
-
+            if(moneyz_arr[productId] === undefined) { // als het product nog niet in de array zit
+                moneyz_arr[productId] = 0; // zet de prijs in de array
+            } else {
+                moneyz_arr[productId] = newTotalPrice; // zet de prijs in de array
+            }
 
             for(let key in moneyz_arr) {
                 moneyz += moneyz_arr[key]; // tel alle prijzen bij elkaar op
@@ -150,7 +153,11 @@ $conn->set_charset("utf8"); // Zet de charset naar UTF-8 zodat vreemde tekens go
                 UUOEOEWUU = document.getElementById(`productDiv${productId}`); // pak het product div element
                 UUOEOEWUU.remove(); // verwijder het product div element
             }
-            changePrice(productId, productCounter[`${productId}`] * parseFloat(document.getElementById(`price2${productId}`).innerHTML.split('€')[1])); // verander de totale prijs van het product
+            try {
+                changePrice(productId, productCounter[`${productId}`] * parseFloat(document.getElementById(`price2${productId}`).innerHTML.split('€')[1])); // verander de totale prijs van het product
+            } catch (e) {
+                changePrice(productId, 0); // verander de totale prijs van het product naar 0 als er geen zijn
+            }
         }
 
     </script>
