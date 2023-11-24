@@ -1,5 +1,5 @@
 
-<link rel="stylesheet" href="../legal.css">
+<link rel="stylesheet" href="../Legal.css">
 
 <main class="Main">
 
