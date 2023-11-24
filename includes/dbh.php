@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
 
 // Database connection settings/variables
