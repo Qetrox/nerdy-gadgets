@@ -1,6 +1,6 @@
 <<<<<<< HEAD
 <?php
- 
+
 // Database connection settings/variables
 $servername = "localhost"; //"web0157.zxcs.nl"
 
