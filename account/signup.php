@@ -1,52 +1,56 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 /* hasht wachtwoord opgehaald van form */
 if(isset($_POST["psw"])) {
 
     $passwordhash = password_hash($_POST["psw"], PASSWORD_DEFAULT);
 }
 if($_POST){
-$mysqli = require __DIR__ . "/connection.php";
-/* insert account registratie in de database */
-$sql = "INSERT INTO user (email, password_hash, first_name, surname_prefix, surname, street_name, apartment_nr, postal_code, city)
+    $mysqli = require __DIR__ . "/connection.php";
+    /* insert account registratie in de database */
+    $sql = "INSERT INTO user (email, password_hash, first_name, surname_prefix, surname, street_name, apartment_nr, postal_code, city)
 values (?,?,?,?,?,?,?,?,?)";
 
-$stmt = $mysqli->stmt_init();
-if (!$stmt->prepare($sql)){
-    die("catastrophe:". $mysqli->error);
-};
+    $stmt = $mysqli->stmt_init();
+    if (!$stmt->prepare($sql)){
+        die("catastrophe:". $mysqli->error);
+    };
 
-$stmt->bind_param("sssssssss",
-    $_POST["gebruikersnaam"],
-    $passwordhash,
-    $_POST["voornaam"],
-    $_POST["tussenvoegsel"],
-    $_POST["achternaam"],
-    $_POST["straatnaam"],
-    $_POST["huisnummer"],
-    $_POST["postcode"],
-    $_POST["plaats"]);
+    $stmt->bind_param("sssssssss",
+        $_POST["gebruikersnaam"],
+        $passwordhash,
+        $_POST["voornaam"],
+        $_POST["tussenvoegsel"],
+        $_POST["achternaam"],
+        $_POST["straatnaam"],
+        $_POST["huisnummer"],
+        $_POST["postcode"],
+        $_POST["plaats"]);
 
-    if ($stmt->execute()) {
-
-        header("Location: sucess.html");
-        exit;
-
-    } else {
-
-        if ($mysqli->errno === 1062) {
+    try {
+        if ($stmt->execute()) {
+            header("Location: sucess.html");
+            exit;
+        }
+    } catch (mysqli_sql_exception $e) {
+        if ($e->getCode() === 1062) { // Check for duplicate entry error
             header("Location: duplicate.html");
             exit;
         } else {
-            header("Location: duplicate.html");
+            // Handle other errors if needed
+            header("Location: error.html");
             exit;
-            }
+        }
     }
+
 }
 ?>
 
 <!DOCTYPE html>
 <html lang="nl-nl">
- 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -64,9 +68,11 @@ $stmt->bind_param("sssssssss",
     <link rel="mask-icon" href="../favicon/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
-    <script src="../index.js"></script>
-    <link rel="stylesheet" href="../base_stylesheet.css">
-    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
+     <link rel="stylesheet" href="../base_stylesheet.css">
+    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"  defer  ></script>
+    <script src ="./watisjavascript.js"  defer    ></script>
+    <script src="../index.js" defer ></script>
+
 
     <link rel="stylesheet" href="stylesheet.css">
 </head>
@@ -79,50 +85,75 @@ $stmt->bind_param("sssssssss",
 <?php include_once '../header.php'?>
 <main> <!-- Hier de content van de pagina in doen :) -->
 
-    
 
- 
-     
-        <div class="account">
-            <form method="post" id="registratie">
-                <div class="rounded-input">
-            <label for="email"><b>email</b></label> <input type="text" placeholder="Enter Username" name="gebruikersnaam" required>
-<br>
-            <label for="psw"><b>wachtwoord</b></label> <input type="Password" placeholder="Enter Password" name="psw" required>
- <br>
-                <label for="voornaam"><b>voornaam</b></label> <input type="text" placeholder="Enter name" name="voornaam" required>
-<br>
-                <label for="tussenvoegsel"><b>tussenvoegsel</b></label> <input type="text" placeholder="Enter prefix" name="tussenvoegsel" >
-<br>
-                <label for="achternaam"><b>achternaam</b></label> <input type="text" placeholder="Enter surname" name="achternaam" required>
-<br>
-                <label for="straatnaam"><b>straatnaam</b></label> <input type="text" placeholder="straatnaam" name="straatnaam" required>
-<br>
-                <label for="huisnummer"><b>huisnummer</b></label> <input type="text" placeholder="huisnummer" name="huisnummer" required>
-<br>
-                <label for="postcode"><b>postcode</b></label> <input type="text" placeholder="postcode" name="postcode" required>
-<br>
-                <label for="plaats"><b>plaats</b></label> <input type="text" placeholder="plaats" name="plaats" required>
+
+
+
+    <div class="account">
+        <form method="post" id="registratie"   novalidate>
+            <div class="rounded-input">
+                <div>
+                    <label for="email"><b>email</b></label> <input type="text" placeholder="Enter Username" name="gebruikersnaam" id ="email" required>
+                </div><br>
+
+
+                <div>
+                <label for="psw"><b>wachtwoord</b></label> <input type="Password" placeholder="Enter Password" name="psw" required>
+                </div> <br>
+
+
+
+                <div>
+                    <label for="voornaam"><b>voornaam</b></label> <input type="text" placeholder="Enter name" name="voornaam" required>
                 </div>
 
-                 <div class="text-center">
+                <br>
+                <div>
+
+                    <label for="tussenvoegsel"><b>tussenvoegsel</b></label> <input type="text" placeholder="Enter prefix" name="tussenvoegsel" >
+                </div> <br>
+                <div>
+
+                    <label for="achternaam"><b>achternaam</b></label> <input type="text" placeholder="Enter surname" name="achternaam" required>
+                </div> <br>
+                <div>
+
+                    <label for="straatnaam"><b>straatnaam</b></label> <input type="text" placeholder="straatnaam" name="straatnaam" required>
+                </div> <br>
+                <div>
+
+                    <label for="huisnummer"><b>huisnummer</b></label> <input type="text" placeholder="huisnummer" name="huisnummer" required>
+                </div> <br>
+                <div>
+
+                    <label for="postcode"><b>postcode</b></label> <input type="text" placeholder="postcode" name="postcode" required>
+                </div> <br>
+                <div>
+
+                    <label for="plaats"><b>plaats</b></label> <input type="text" placeholder="plaats" name="plaats" required>
+                </div>
+            </div>
+
+            <div class="text-center">
                 <button type="submit">registreren</button>
             </div>
-                <div class="text-center">
-            <a href="login.php"> naar Inloggen</a>
-                </div>
-          </form>
-             
-          </div>
-    </div>  
+            <div class="text-center">
+                <a href="login.php"> naar Inloggen</a>
+            </div>
+        </form>
+
+    </div>
+    </div>
 
 
 
 
 </main>
- 
-  
+
+
+
+
 </body>
 
- 
+
 </html>

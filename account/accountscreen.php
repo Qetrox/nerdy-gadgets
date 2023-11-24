@@ -22,6 +22,8 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <script src="../index.js"></script>
+    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js" defer></script>
+    <script src="watisjavascript.js" defer></script>
     <link rel="stylesheet" href="../base_stylesheet.css">
     <link rel="stylesheet" href="stylesheet.css">
 </head>
