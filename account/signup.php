@@ -90,52 +90,30 @@ values (?,?,?,?,?,?,?,?,?)";
 
 
     <div class="account">
-        <form method="post" id="registratie"   novalidate>
-            <div class="rounded-input">
+        <form method="post" id="registratie" novalidate>
+            <div class="rounded-input2">
+                <h1>Account Aanmaken</h1>
                 <div>
-                    <label for="email"><b>email</b></label> <input type="text" placeholder="Enter Username" name="gebruikersnaam" id ="email" required>
-                </div><br>
-
-
-                <div>
-                <label for="psw"><b>wachtwoord</b></label> <input type="Password" placeholder="Enter Password" name="psw" required>
-                </div> <br>
-
-
-
-                <div>
-                    <label for="voornaam"><b>voornaam</b></label> <input type="text" placeholder="Enter name" name="voornaam" required>
-                </div>
-
-                <br>
-                <div>
-
-                    <label for="tussenvoegsel"><b>tussenvoegsel</b></label> <input type="text" placeholder="Enter prefix" name="tussenvoegsel" >
-                </div> <br>
-                <div>
-
-                    <label for="achternaam"><b>achternaam</b></label> <input type="text" placeholder="Enter surname" name="achternaam" required>
-                </div> <br>
-                <div>
-
-                    <label for="straatnaam"><b>straatnaam</b></label> <input type="text" placeholder="straatnaam" name="straatnaam" required>
-                </div> <br>
-                <div>
-
-                    <label for="huisnummer"><b>huisnummer</b></label> <input type="text" placeholder="huisnummer" name="huisnummer" required>
-                </div> <br>
-                <div>
-
-                    <label for="postcode"><b>postcode</b></label> <input type="text" placeholder="postcode" name="postcode" required>
-                </div> <br>
-                <div>
-
-                    <label for="plaats"><b>plaats</b></label> <input type="text" placeholder="plaats" name="plaats" required>
+                    <input type="text" placeholder="Voornaam" name="voornaam" required>
+                    <div class="name-flex">
+                        <input class="first-input" type="text" placeholder="Tussenvoegsel" name="tussenvoegsel" >
+                        <input type="text" placeholder="Achternaam" name="achternaam" required>
+                    </div>
+                    <input type="text" placeholder="Email" name="gebruikersnaam" id ="email" required>
+                    <input type="Password" placeholder="Wachtwoord" id="psw" name="psw" required>
+                    <div class="house-flex">
+                        <input class="first-input" type="text" placeholder="Straatnaam" name="straatnaam" required>
+                        <input type="number" placeholder="Huisnummer" name="huisnummer" required>
+                    </div>
+                    <div class="location-flex">
+                        <input class="first-input" type="text" placeholder="Postcode" name="postcode" required>
+                        <input type="text" placeholder="Plaats" name="plaats" required>
+                    </div>
                 </div>
             </div>
 
             <div class="text-center">
-                <button type="submit">registreren</button>
+                <button type="submit">Maak account aan</button>
             </div>
             <div class="text-center">
                 <a href="login.php"> naar Inloggen</a>

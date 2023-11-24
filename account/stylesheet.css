@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    min-height: 85vh;
+    min-height: 70vh;
 }
 
 
@@ -15,11 +15,8 @@
 }
 
 .account{
-
-
-
 }
-.account input[type=text], input[type=password] {
+.account input[type=text], input[type=password], input[type=number] {
     width: 50%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -30,7 +27,7 @@
 button {
     background-color: #10;
     color: #000000	;
-    padding: 14px 20px;
+    padding: 14px 10px;
     margin: 8px 0;
     border: none;
     cursor: pointer;
@@ -65,4 +62,59 @@ button:hover {
 .rounded-input {
     padding:10px;
     border-radius:10px;
+}
+
+.rounded-input > div {
+    display: flex;
+    justify-content: space-evenly;
+    width: 50%;
+    margin: auto;
+}
+
+.rounded-input2 {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+}
+
+.rounded-input2 > h1 {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+}
+.rounded-input2 > div {
+    width: 50%;
+}
+.rounded-input2 > div > input[type=text], input[type=password] {
+    width: 100%;
+}
+.rounded-input2 > div > .name-flex {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+.rounded-input2 > div > .house-flex {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+.rounded-input2 > div > .location-flex {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+.rounded-input2 > div > .name-flex > input[type=text] {
+    width: 49%;
+}
+.rounded-input2 > div > .house-flex > input[type=text], input[type=number] {
+    width: 49%;
+}
+.rounded-input2 > div > .location-flex > input[type=text] {
+    width: 49%;
+}
+.rounded-input2 > div > div > .first-input {
+    margin-right: 2%;
 }
