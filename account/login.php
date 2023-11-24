@@ -42,7 +42,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){ // Check of het een POST request is.
 ?>
 
 <!DOCTYPE html>
-<html lang="nl-nl">
+<html lang="nl-nl" xmlns="http://www.w3.org/1999/html">
  
 <head>
     <meta charset="UTF-8">
@@ -112,5 +112,5 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){ // Check of het een POST request is.
   
 </body>
 
- 
+<footer><div class="navbar"> </div> </footer>
 </html>

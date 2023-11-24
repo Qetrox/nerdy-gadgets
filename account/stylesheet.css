@@ -126,3 +126,12 @@ button:hover {
 .rounded-input2 > div > div > .first-input {
     margin-right: 2%;
 }
+html{
+    background: url("https://media.giphy.com/media/QHLBmZ2Xmdvgc/giphy.gif"); center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+body{
+    background: unset;
+}

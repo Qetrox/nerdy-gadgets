@@ -133,5 +133,5 @@ values (?,?,?,?,?,?,?,?,?)";
 
 </body>
 
-
+<footer> <div class="navbar"></div> </footer>
 </html>
