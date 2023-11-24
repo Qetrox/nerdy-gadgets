@@ -5,9 +5,11 @@ validation
     .addField("#email", [
         {
             rule: "required",
+        },
+        {
             rule: "email"
 
-        }
+        },
     ])
 
 
