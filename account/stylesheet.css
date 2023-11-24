@@ -6,12 +6,10 @@
     min-height: 70vh;
 }
 
-
-
 .account_logo {
-  padding: 5px;
-  width: 400px;
-  height: 200px;
+    padding: 5px;
+    width: 400px;
+    height: 200px;
 }
 
 .account{
@@ -126,8 +124,9 @@ button:hover {
 .rounded-input2 > div > div > .first-input {
     margin-right: 2%;
 }
+
 html{
-    background: url("https://media.giphy.com/media/QHLBmZ2Xmdvgc/giphy.gif"); center;
+    background: url("https://media.giphy.com/media/QHLBmZ2Xmdvgc/giphy.gif");
     background-repeat: no-repeat;
     background-size: cover;
 
