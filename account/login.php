@@ -87,17 +87,16 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){ // Check of het een POST request is.
         <!--login form-->
 
         <div class="account">
-            <form method="post"?> 
-            <label for="gebruikersnaam"><b>gebruikersnaam</b></label>
-            <input type="text" placeholder="Enter Username" name="gebruikersnaam" required>
-        
-            <label for="psw"><b>wachtwoord</b></label>
-            <input type="Password" placeholder="Enter Password" name="password" required>
+            <h1>Inloggen</h1>
+            <form method="post"?>
+            <input type="text" placeholder="Email" name="gebruikersnaam" required>
+
+            <input type="Password" placeholder="Wachtwoord" name="password" required>
              <div class="text-center">
             <button type="submit">Login</button>
              </div>
                 <div class="text-center">
-            <a href="signup.php"> naar Account aanmaken</a>
+            Geen account? <a href="signup.php"> Maak een Account aan</a>
                 </div>
           </form>
              

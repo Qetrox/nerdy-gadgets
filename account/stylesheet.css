@@ -17,7 +17,7 @@
 .account{
 }
 .account input[type=text], input[type=password], input[type=number] {
-    width: 50%;
+    width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -64,6 +64,14 @@ button:hover {
     border-radius:10px;
 }
 
+.text-center > a {
+    text-decoration: underline;
+}
+.account > h1 {
+    text-align: center;
+    margin: 0;
+}
+
 .rounded-input > div {
     display: flex;
     justify-content: space-evenly;
@@ -88,7 +96,7 @@ button:hover {
 .rounded-input2 > div {
     width: 50%;
 }
-.rounded-input2 > div > input[type=text], input[type=password] {
+.rounded-input2 > div > input[type=text], .rounded-input2 > div > input[type=password] {
     width: 100%;
 }
 .rounded-input2 > div > .name-flex {
@@ -109,7 +117,7 @@ button:hover {
 .rounded-input2 > div > .name-flex > input[type=text] {
     width: 49%;
 }
-.rounded-input2 > div > .house-flex > input[type=text], input[type=number] {
+.rounded-input2 > div > .house-flex > input[type=text], .rounded-input2 > div > .house-flex > input[type=number] {
     width: 49%;
 }
 .rounded-input2 > div > .location-flex > input[type=text] {
