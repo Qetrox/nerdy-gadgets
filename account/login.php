@@ -112,5 +112,4 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){ // Check of het een POST request is.
   
 </body>
 
-<footer><div class="navbar"> </div> </footer>
 </html>
