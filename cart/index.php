@@ -49,6 +49,7 @@ $conn->set_charset("utf8"); // Zet de charset naar UTF-8 zodat vreemde tekens go
         let moneyz = 0;
         let moneyz_arr = {};
 
+
         /**
          * Verander de totaal prijs van een product, en bereken de nieuwe totale prijs
          * @param {float} productId - Het ID van het product
@@ -59,11 +60,9 @@ $conn->set_charset("utf8"); // Zet de charset naar UTF-8 zodat vreemde tekens go
             newTotalPrice = parseFloat(newTotalPrice.toFixed(2)); // rond af op 2 decimalen
             moneyz = 0;
 
-            if(moneyz_arr[productId] === undefined) { // als het product nog niet in de array zit
-                moneyz_arr[productId] = 0; // zet de prijs in de array
-            } else {
+
                 moneyz_arr[productId] = newTotalPrice; // zet de prijs in de array
-            }
+
 
             for(let key in moneyz_arr) {
                 moneyz += moneyz_arr[key]; // tel alle prijzen bij elkaar op
@@ -71,7 +70,19 @@ $conn->set_charset("utf8"); // Zet de charset naar UTF-8 zodat vreemde tekens go
 
             const e2 = document.getElementById('totalPrice'); // krijg HTML element van totale prijs
             e2.innerHTML = "€" + moneyz; // verander de totale prijs
+
+            let isWindowLoaded = false;
+            window.onload = function () {
+                if (!isWindowLoaded) {
+                    changePrice(productId, newTotalPrice);
+                    isWindowLoaded = true;
+                }
+            };
         }
+
+
+
+
 
         /**
          * Pak cookie uit browser en return de cookie
@@ -158,6 +169,7 @@ $conn->set_charset("utf8"); // Zet de charset naar UTF-8 zodat vreemde tekens go
             } catch (e) {
                 changePrice(productId, 0); // verander de totale prijs van het product naar 0 als er geen zijn
             }
+
         }
 
     </script>
@@ -240,7 +252,7 @@ $conn->set_charset("utf8"); // Zet de charset naar UTF-8 zodat vreemde tekens go
                             echo '</div>';
                             echo '</div>';
                             echo '</div>';
-                            echo '<script>changePrice('. $row["productId"] . ', ' . $row["productPrice"] * $counts[$row["productId"]] . ')</script>';
+                            echo '<script>changePrice('. $row["productId"] . ', ' . $newPrice * $counts[$row["productId"]] . ')</script>';
                         }
                     }
                 } else {
