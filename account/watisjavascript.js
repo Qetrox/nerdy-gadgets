@@ -10,6 +10,19 @@ validation
             rule: "email"
 
         },
+        {
+            validator: (value) => () => {
+                return fetch("emailcheck.php?email=" + encodeURIComponent(value))
+                    .then(function(response) {
+                        return response.json();
+                    })
+                    .then(function(json) {
+                        return json.available;
+                    });
+            },
+            errorMessage: "email already taken"
+        }
+
     ])
 
 
