@@ -94,20 +94,41 @@ values (?,?,?,?,?,?,?,?,?)";
             <div class="rounded-input2">
                 <h1>Account Aanmaken</h1>
                 <div>
-                    <input type="text" placeholder="Voornaam" name="voornaam" required>
-                    <div class="name-flex">
-                        <input class="first-input" type="text" placeholder="Tussenvoegsel" name="tussenvoegsel" >
-                        <input type="text" placeholder="Achternaam" name="achternaam" required>
+                    <div>
+                        <input type="text" placeholder="Voornaam" name="voornaam"  id = "voornaam" class = "bruh" required>
                     </div>
-                    <input type="text" placeholder="Email" name="gebruikersnaam" id ="email" required>
-                    <input type="Password" placeholder="Wachtwoord" id="psw" name="psw" required>
+                    <div class="name-flex">
+                    <div>
+                        <input class="first-input" type="text" placeholder="Tussenvoegsel" name="tussenvoegsel" id = "tussenvoegsel" >
+                    </div>
+                        <div>
+
+                        <input type="text" placeholder="Achternaam" name="achternaam" id = "achternaam" required>
+                        </div>
+                    </div>
+                        <div>
+                            <input type="text" placeholder="Email" name="gebruikersnaam" id ="email" required>
+                        </div>
+                        <div>
+                            <input type="Password" placeholder="Wachtwoord" id="psw" name="psw" required>
+                        </div>
+
                     <div class="house-flex">
-                        <input class="first-input" type="text" placeholder="Straatnaam" name="straatnaam" required>
-                        <input type="number" placeholder="Huisnummer" name="huisnummer" required>
+                        <div>
+                            <input class="first-input" type="text" placeholder="Straatnaam" name="straatnaam" id = "straatnaam" required>
+                        </div>
+                        <div>
+                            <input type="number" placeholder="Huisnummer" name="huisnummer" id = "huisnummer" required>
+                        </div>
                     </div>
                     <div class="location-flex">
-                        <input class="first-input" type="text" placeholder="Postcode" name="postcode" required>
-                        <input type="text" placeholder="Plaats" name="plaats" required>
+                        <div>
+                        <input class="first-input" type="text" placeholder="Postcode" name="postcode" id = "postcode" required>
+                        </div>
+                        <div>
+                        <input type="text" placeholder="Plaats" name="plaats" id = "plaats" required>
+                        </div>
+
                     </div>
                 </div>
             </div>

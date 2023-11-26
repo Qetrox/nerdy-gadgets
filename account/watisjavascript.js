@@ -13,23 +13,19 @@ validation
     ])
 
 
-    .addField("#voornaam", [
-        {
-            rule: "required",
-        },
-    ])
-
     .addField("#achternaam", [
         {
             rule: "required",
         },
     ])
 
-    .addField("#voornaam", [
+    .addField("#tussenvoegsel", [
         {
             rule: "required",
         },
     ])
+
+
     .addField("#postcode", [
         {
             rule: "required",
