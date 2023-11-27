@@ -1,11 +1,13 @@
 .Main{
     background: #21212F;
     display: flex;
+    margin: -0.5em;
 
 
 }
 .CookiebeleidText{
-
+    font-family: sans-serif;
     color:white;
+    padding-left: 4vw;
 
 }
