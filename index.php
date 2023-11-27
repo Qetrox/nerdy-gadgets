@@ -83,12 +83,12 @@
                         while ($row = $result->fetch_assoc()) { // voor elk resultaat
                             if ($row["productDiscountPercentage"] === 0) { // als er geen korting is print het product in de lijst/HTML
                                 echo '<a href="./product/?productId=' . $row["productId"] . '">';
-                                echo '<div class="bs"><h1>' . $row["productName"] . ' <span class="euro-text">€' . number_format((float)$row["productPrice"], 2, '.', '') . '</span> </h1><img src="https://nerdy-gadgets.nl/images/' . $row["productImage"] . '" alt="foto"><p>' . substr($row["productDescription"], 0, 400) . '...</p></div>';
+                                echo '<div class="bs"><h1>' . $row["productName"] . '<br><span class="euro-text">€' . number_format((float)$row["productPrice"], 2, '.', '') . '</span> </h1><img src="https://nerdy-gadgets.nl/images/' . $row["productImage"] . '" alt="foto"><p>' . substr($row["productDescription"], 0, 400) . '...</p></div>';
                                 echo '</a>';
                             } else { // Als er wel korting is print het product in de lijst/HTML
                                 $newPrice = $row["productPrice"] * (1 - $row["productDiscountPercentage"] / 100); //bereken prijs met discount
                                 echo '<a href="./product/?productId=' . $row["productId"] . '">';
-                                echo '<div class="bs"><h1>' . $row["productName"] . ' <span class="euro-text"><span class="kortingsprijs">€' . number_format((float)$row["productPrice"], 2, '.', '') . '</span> €' . number_format((float)$newPrice, 2, '.', '') . ' </span></h1><img src="https://nerdy-gadgets.nl/images/' . $row["productImage"] . '" alt="foto"><p>' . substr($row["productDescription"], 0, 400) . '...</p></div>';
+                                echo '<div class="bs"><h1>' . $row["productName"] . '<br><span class="euro-text"><span class="kortingsprijs">€' . number_format((float)$row["productPrice"], 2, '.', '') . '</span> €' . number_format((float)$newPrice, 2, '.', '') . ' </span></h1><img src="https://nerdy-gadgets.nl/images/' . $row["productImage"] . '" alt="foto"><p>' . substr($row["productDescription"], 0, 400) . '...</p></div>';
                                 echo '</a>';
                             }
                         }
