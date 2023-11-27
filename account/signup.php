@@ -98,8 +98,8 @@ values (?,?,?,?,?,?,?,?,?)";
                         <input type="text" placeholder="Voornaam" name="voornaam"  id = "voornaam" class = "bruh" required>
                     </div>
                     <div class="name-flex">
-                    <div>
-                        <input class="first-input" type="text" placeholder="Tussenvoegsel" name="tussenvoegsel" id = "tussenvoegsel" >
+                    <div class="first-input">
+                        <input type="text" placeholder="Tussenvoegsel" name="tussenvoegsel" id = "tussenvoegsel" >
                     </div>
                         <div>
 
@@ -114,16 +114,16 @@ values (?,?,?,?,?,?,?,?,?)";
                         </div>
 
                     <div class="house-flex">
-                        <div>
-                            <input class="first-input" type="text" placeholder="Straatnaam" name="straatnaam" id = "straatnaam" required>
+                        <div class="first-input">
+                            <input type="text" placeholder="Straatnaam" name="straatnaam" id = "straatnaam" required>
                         </div>
                         <div>
                             <input type="number" placeholder="Huisnummer" name="huisnummer" id = "huisnummer" required>
                         </div>
                     </div>
                     <div class="location-flex">
-                        <div>
-                        <input class="first-input" type="text" placeholder="Postcode" name="postcode" id = "postcode" required>
+                        <div class="first-input">
+                        <input type="text" placeholder="Postcode" name="postcode" id = "postcode" required>
                         </div>
                         <div>
                         <input type="text" placeholder="Plaats" name="plaats" id = "plaats" required>

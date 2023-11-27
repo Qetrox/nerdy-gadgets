@@ -112,14 +112,23 @@ button:hover {
     justify-content: space-evenly;
     width: 100%;
 }
-.rounded-input2 > div > .name-flex > input[type=text] {
+.rounded-input2 > div > .name-flex > div {
     width: 49%;
+}
+.rounded-input2 > div > .house-flex > div {
+    width: 49%;
+}
+.rounded-input2 > div > .location-flex > div {
+    width: 49%;
+}
+.rounded-input2 > div > .name-flex > div > input[type=text] {
+    width: 100%;
 }
 .rounded-input2 > div > .house-flex > input[type=text], .rounded-input2 > div > .house-flex > input[type=number] {
-    width: 49%;
+    width: 100%;
 }
 .rounded-input2 > div > .location-flex > input[type=text] {
-    width: 49%;
+    width: 100%;
 }
 .rounded-input2 > div > div > .first-input {
     margin-right: 2%;
