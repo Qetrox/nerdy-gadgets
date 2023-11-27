@@ -249,7 +249,8 @@ font-size: x-large;
     }
 
     .bs img {
-        width: inherit;
+        width: 100%;
+        height: unset;
     }
 
     .bs {
