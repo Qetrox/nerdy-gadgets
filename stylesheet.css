@@ -167,16 +167,20 @@ font-size: x-large;
 }
 
 .bs img {
-    width: inherit;
+    height: 20vw;
 }
 
 .bs {
     margin: 4vh 1vw;
-    width: 25vw;
-    height: 30vw;
+    width: 40vw;
+    height: fit-content;
+    padding-bottom: 20px;
     overflow: hidden;
     background-color: #EEEEEE;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     border-radius: 10%;
     color: #212121;
     box-shadow: 10px 10px 15px rgba(12, 12, 12, 0.7);
@@ -198,10 +202,15 @@ font-size: x-large;
     margin: 10px 10px;
 }
 
-.bs .euro-text {
+.euro-text {
     color: rgba(0, 0, 0, 0.7);
     float: right;
     margin-right: 2vw;
+}
+.kortingsprijs {
+    color: red;
+    font-weight: bold;
+    text-decoration: line-through;
 }
 
 .main-menu-display h1{

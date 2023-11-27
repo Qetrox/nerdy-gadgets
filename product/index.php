@@ -2,6 +2,20 @@
 if(!isset($_GET["productId"])) { // Als er geen productId is meegegeven, redirect naar search pagina
     header('location: ../search/'); // Redirect naar search pagina
 } else {
+    // Opslaan van bekeken producten
+    if(isset($_COOKIE["viewedProducts"])) { // Als er een viewedProducts cookie is, zet deze dan in een array
+        $viewedProducts = json_decode($_COOKIE["viewedProducts"]); // Zet cookie om naar array
+        array_push($viewedProducts, $_GET["productId"]); // Voeg productId toe aan viewedProducts array
+    } else { // Als er geen viewedProducts cookie is, maak dan een lege array
+        $viewedProducts = array(); // Maak array
+        $viewedProducts[] = $_GET["productId"]; // Voeg productId toe aan viewedProducts array
+    }
+    // Als er meer dan 3 producten in de array zitten haal de oudste eruit
+    if(isset($viewedProducts[3])) {
+        array_splice($viewedProducts, 0, count($viewedProducts) - 3);
+    }
+    // Zet cookie met viewedProducts array met 30 dagen geldigheid
+    setcookie("viewedProducts", json_encode($viewedProducts), time() + (86400 * 30), "/");
 
     if(isset($_COOKIE["cartList"])) { // Als er een cartList cookie is, zet deze dan in een array
         $cartListItems = json_decode($_COOKIE["cartList"]); // Zet cookie om naar array

@@ -52,10 +52,49 @@
 
 
         <div class="best-sellers" id="bestsellers">
-            <h1>Best Sellers - Aanraders!</h1>
-            <p>Dit zijn onze best verkochte producten.<br>Bekijk ze eens, misschien zit er wel iets tussen voor jou!</p>
+            <h1><?php if(isset($_COOKIE["viewedProducts"])) { echo 'Laatst bekeken producten'; } else echo 'Best Sellers - Aanraders!'; ?></h1>
+            <p><?php if(isset($_COOKIE["viewedProducts"])) { echo 'Je hebt deze producten voor het laatst bekeken <br> KOOP ZE!!'; } else echo 'Dit zijn onze best verkochte producten.<br>Bekijk ze eens, misschien zit er wel iets tussen voor jou!'; ?></p>
             <div class="bs-list">
+                <?php
+                include_once './includes/dbh.php';
+                if(isset($_COOKIE["viewedProducts"])) { // Als er een viewedProducts cookie is, zet deze dan in een array
+                    $viewedProducts = json_decode($_COOKIE["viewedProducts"]); // Zet cookie om naar array
+                    $viewedProducts = array_reverse($viewedProducts); // Keer de array om zodat de laatst bekeken producten vooraan staan
 
+                    $conn = new mysqli($servername, $username, $password, $dbname);
+                    /*
+
+                     Error is niet echt! PHPstorm leest niet goed. NIET FIXEN!!
+
+                     */
+
+                    // Check connection
+                    if ($conn->connect_error) { // Als er geen connectie is met de database, geef dan een error
+                        die("Connection failed: " . $conn->connect_error); // Geef error
+                    }
+                    $conn->set_charset("utf8"); // Zet charset naar UTF-8 zodat special characters goed worden weergegeven
+
+                    $stmt = $conn->prepare("SELECT * FROM product JOIN brand ON productBrandId = brandId WHERE productId IN (?, ?, ?)");
+                    $stmt->bind_param("sss", $viewedProducts[0], $viewedProducts[1], $viewedProducts[2]); // Bind parameters aan statement
+                    $stmt->execute();
+                    $result = $stmt->get_result(); // haal de resultaten op
+
+                    if ($result->num_rows > 0) { // als er resultaten zijn
+                        while ($row = $result->fetch_assoc()) { // voor elk resultaat
+                            if ($row["productDiscountPercentage"] === 0) { // als er geen korting is print het product in de lijst/HTML
+                                echo '<a href="./product/?productId=' . $row["productId"] . '">';
+                                echo '<div class="bs"><h1>' . $row["productName"] . '<span class="euro-text">€' . number_format((float)$row["productPrice"], 2, '.', '') . '</span> </h1><img src="https://nerdy-gadgets.nl/images/' . $row["productImage"] . '" alt="foto"><p>' . substr($row["productDescription"], 0, 400) . '...</p></div>';
+                                echo '</a>';
+                            } else { // Als er wel korting is print het product in de lijst/HTML
+                                $newPrice = $row["productPrice"] * (1 - $row["productDiscountPercentage"] / 100); //bereken prijs met discount
+                                echo '<a href="./product/?productId=' . $row["productId"] . '">';
+                                echo '<div class="bs"><h1>' . $row["productName"] . '<span class="euro-text"><span class="kortingsprijs">€' . number_format((float)$row["productPrice"], 2, '.', '') . '</span> €' . number_format((float)$newPrice, 2, '.', '') . ' </span></h1><img src="https://nerdy-gadgets.nl/images/' . $row["productImage"] . '" alt="foto"><p>' . substr($row["productDescription"], 0, 400) . '...</p></div>';
+                                echo '</a>';
+                            }
+                        }
+                    }
+                } else {
+                    ?>
                 <div class="bs">
                     <h1>PlayStation 5 <span class="euro-text">€440</span> </h1>
                     <img src="./images/playstation_5.jpg" alt="foto">
@@ -73,8 +112,9 @@
                     <img src="https://nerdy-gadgets.nl/images/discord_moderator_pack.png" alt="foto">
                     <p>Van plan om een Discord moderator te worden? Koop dan NU onze Discord Moderator Starter Pack. Dit geweldige pakketje bevat een Ban-Hammer, Anime Muismat, Koptelefoon & Deodorant en zorgt ervoor dat je enorm veel Discord Kittens krijgt.</p>
                 </div>
-
-
+                <?php
+                }
+                ?>
             </div>
         </div>
         <div class="over-ons" id="about">
