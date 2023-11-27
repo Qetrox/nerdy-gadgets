@@ -265,31 +265,7 @@ $conn->set_charset("utf8"); // Zet de charset naar UTF-8 zodat vreemde tekens go
         </div>
     </div>
 </main>
-<footer>
-    <div class="mobile-navbar">
-        <div class="mobile-nav-item">
-            <a href="https://nerdy-gadgets.nl">
-                    <span class="material-symbols-sharp">
-                        home
-                    </span>
-            </a>
-        </div>
-        <div class="mobile-nav-item">
-            <a href="https://nerdy-gadgets.nl/cart">
-                    <span class="material-symbols-sharp">
-                        shopping_cart
-                    </span>
-            </a>
-        </div>
-        <div class="mobile-nav-item">
-            <a href="https://nerdy-gadgets.nl/account">
-                    <span class="material-symbols-sharp">
-                        account_circle
-                    </span>
-            </a>
-        </div>
-    </div>
-</footer>
+<?php include_once '../footer.php'?>
 </body>
 <script src="typewriter.js"></script>
 <script>
