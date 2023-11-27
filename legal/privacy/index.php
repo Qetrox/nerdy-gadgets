@@ -59,11 +59,7 @@
         <h4 style="margin-left: -1em;">Wijzigingen in dit cookiebeleid</h4>
 
         --Geen wijzigingen--<br><br>
-
-        <h4 style="margin-left: -1em;"> We behouden ons het recht voor om dit cookiebeleid op elk moment bij te werken.</h4><br>
-
-               --Geen wijzigingen--<br><br>
-
+        
        <h4 style="margin-left: -1em;"> We behouden ons het recht voor om dit cookiebeleid op elk moment bij te werken.</h4><br>
 
         Eventuele wijzigingen zullen onmiddellijk van kracht zijn zodra ze op de website zijn geplaatst.<br><br>
