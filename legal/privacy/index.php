@@ -7,7 +7,7 @@
 <p>
     <h1 style="text-align: center; color: #FFFF00">Cookiebeleid voor Nerdy-Gadgets.nl</h1><br>
 
-    <h2>Welkom bij Nerdy Gadgets!</h2><br>
+    <h2 style="text-align: center; >Welkom bij Nerdy Gadgets!</h2><br>
 
     <h4>Laatst bijgewerkt op: 24 nov 2023</h4><br>
 
