@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="../../load.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
 
+<<<<<<< Updated upstream
 <link rel="stylesheet" href="../Legal.css">
 
 <main class="Main">
@@ -15,6 +16,19 @@
         <h2 style="margin-left: -1em;">Cookiesbeleid</h2><br>
 
         <h4 style="margin-top: -1em">Laatst bijgewerkt op: 24 nov 2023</h4><br>
+=======
+    <link rel="stylesheet" href="../Legal.css">
+
+    <main class="Main">
+<body>
+    <div class="CookiebeleidText">
+<p>
+    <h1 style="text-align: center; color: #FFFF00">Cookiebeleid voor Nerdy Gadgets</h1><br>
+
+    <h2 style="margin-left: -1em;">Cookiesbeleid</h2><br>
+
+    <h4 style="margin-top: -1em">Laatst bijgewerkt op: 24 nov 2023</h4><br>
+>>>>>>> Stashed changes
 
         Deze website maakt gebruik van cookies om de gebruikerservaring te verbeteren. In dit cookiebeleid leggen we uit wat cookies zijn,<br>
         hoe we ze gebruiken op onze website en welke keuzes u hebt met betrekking tot deze cookies.<br><br><br>
@@ -50,9 +64,15 @@
         Houd er rekening mee dat het uitschakelen van cookies de functionaliteit van sommige delen van de website kan beïnvloeden.<br><br>
 
         <h4 style="margin-left: -1em;">Wijzigingen in dit cookiebeleid</h4>
+<<<<<<< Updated upstream
         --Geen wijzigingen--<br><br>
 
         <h4 style="margin-left: -1em;"> We behouden ons het recht voor om dit cookiebeleid op elk moment bij te werken.</h4><br>
+=======
+               --Geen wijzigingen--<br><br>
+
+       <h4 style="margin-left: -1em;"> We behouden ons het recht voor om dit cookiebeleid op elk moment bij te werken.</h4><br>
+>>>>>>> Stashed changes
         Eventuele wijzigingen zullen onmiddellijk van kracht zijn zodra ze op de website zijn geplaatst.<br><br>
 
         Bedankt voor uw bezoek aan Nerdy Gadgets!<br><br>
@@ -61,7 +81,11 @@
         Laatst bijgewerkt op 24 november 2023
         </p>
     </div>
+<<<<<<< Updated upstream
     </body>
+=======
+</body>
+>>>>>>> Stashed changes
 
 
     </div>
