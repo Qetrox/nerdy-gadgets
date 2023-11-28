@@ -9,11 +9,10 @@ if(isset($_COOKIE["cartList"])) { // Check of de cookie bestaat
 $cartCount = count($cartListItems); // Tel de items in de array
 
 ?>
-
 <header>
     <div class="navbar">
         <div class="nav-logo" id="falling-element">
-            <img src="https://nerdy-gadgets.nl/images/logo_small_white.png" alt="logo" height="100%">
+            <img onclick="javascript:window.location.href= 'https://Nerdy-gadgets.nl'"  id="NerdyGadgetsLogo" src="https://nerdy-gadgets.nl/images/logo_small_white.png" alt="logo" height="100%">
         </div>
         <a href="https://nerdy-gadgets.nl/" id="falling-element">
             <div class="nav-item">

@@ -6,6 +6,8 @@
 
 <link rel="stylesheet" href="../Legal.css">
 
+
+
 <main class="Main">
     <body>
     <div class="CookiebeleidText">
@@ -27,7 +29,7 @@
         hoe we ze gebruiken op onze website en welke keuzes u hebt met betrekking tot deze cookies.<br><br><br>
 
 
-        <h2 style="margin-left: em;">Wat zijn cookies?</h2><br>
+        <h2 style="margin-left: -1em;">Wat zijn cookies?</h2><br>
         Cookies zijn kleine tekstbestanden die op uw apparaat worden geplaatst wanneer u een website bezoekt.<br>
         Ze worden veelal gebruikt om websites efficiënter te laten werken,<br>
         evenals om informatie te verstrekken aan de eigenaars van de website.<br><br><br><br>
@@ -59,7 +61,7 @@
         <h4 style="margin-left: -1em;">Wijzigingen in dit cookiebeleid</h4>
 
         --Geen wijzigingen--<br><br>
-        
+
        <h4 style="margin-left: -1em;"> We behouden ons het recht voor om dit cookiebeleid op elk moment bij te werken.</h4><br>
 
         Eventuele wijzigingen zullen onmiddellijk van kracht zijn zodra ze op de website zijn geplaatst.<br><br>
