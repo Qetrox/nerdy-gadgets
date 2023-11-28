@@ -249,7 +249,8 @@ font-size: x-large;
     }
 
     .bs img {
-        width: inherit;
+        width: 100%;
+        height: unset;
     }
 
     .bs {
@@ -283,24 +284,5 @@ font-size: x-large;
     .over-ons{
         font-size: 3.5vw;
         padding: 13px;
-    }
-    .footer-content{
-        padding: 10%;
-    }
-    .col1{
-        align-items: center;
-        margin-top: unset;
-        margin-right: unset;
-    }
-    .col2{
-        align-items: center;
-        margin-top: unset;
-        margin-right: unset;
-    }
-    .col3{
-        align-items: center;
-        margin-top: unset;
-        margin-right: unset;
-        text-allign: unset;
     }
 }

@@ -228,37 +228,7 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") { // als er een zoekopdracht 
     </div>
 </main>
 <footer>
-    <div class="footer-content">
-
-        <h3>ik weet dat de kleur niet klopt</h3>
-
-    </div>
-
-
-    <div class="mobile-navbar">
-        <div class="mobile-nav-item">
-            <a href="../">
-                    <span class="material-symbols-sharp">
-                        home
-                    </span>
-            </a>
-        </div>
-        <div class="mobile-nav-item">
-            <a href="./">
-                    <span class="material-symbols-sharp">
-                        shopping_cart
-                    </span>
-            </a>
-        </div>
-        <div class="mobile-nav-item">
-            <a href="./">
-                    <span class="material-symbols-sharp">
-                        account_circle
-                    </span>
-            </a>
-        </div>
-    </div>
-</footer>
+    <?php include_once '../footer.php'?>
 </body>
 <script src="typewriter.js"></script>
 <script>

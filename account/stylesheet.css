@@ -23,7 +23,6 @@
     box-sizing: border-box;
   }
 button {
-    background-color: #10;
     color: #000000	;
     padding: 14px 10px;
     margin: 8px 0;
@@ -134,13 +133,21 @@ button:hover {
     margin-right: 2%;
 }
 
-html{
+html {
     background: url("https://media.giphy.com/media/W5UoBN0YMdT1QP8Yfr/giphy.gif");
     background-repeat: no-repeat;
     background-size: cover;
-
 }
 body{
     background: unset;
+}
+
+@media only screen and (max-width: 900px) {
+    .rounded-input > div {
+        width: 900%;
+    }
+    .rounded-input2 > div {
+        width: 90%;
+    }
 }
 

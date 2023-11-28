@@ -108,7 +108,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){ // Check of het een POST request is.
 
 
 </main>
- 
+<?php include_once '../footer.php'?>
   
 </body>
 

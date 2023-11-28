@@ -228,31 +228,7 @@ if(!isset($_GET["productId"])) { // Als er geen productId is meegegeven, redirec
         <p><?php echo $description ?></p>
     </div>
 </main>
-<footer>
-    <div class="mobile-navbar">
-        <div class="mobile-nav-item">
-            <a href="./">
-                    <span class="material-symbols-sharp">
-                        home
-                    </span>
-            </a>
-        </div>
-        <div class="mobile-nav-item">
-            <a href="./">
-                    <span class="material-symbols-sharp">
-                        shopping_cart
-                    </span>
-            </a>
-        </div>
-        <div class="mobile-nav-item">
-            <a href="./account/login.php">
-                    <span class="material-symbols-sharp">
-                        account_circle
-                    </span>
-            </a>
-        </div>
-    </div>
-</footer>
+<?php include_once '../footer.php'?>
 </body>
 <script>
 
