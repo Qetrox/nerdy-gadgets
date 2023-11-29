@@ -253,6 +253,9 @@ footer {
     background-color: #5152bb;
 
 }
+.totalPrice1 {
+    font-size: 30px;
+}
 
 /* Voor kleine schermen zoals telefoons */
 @media only screen and (max-width: 900px) {
