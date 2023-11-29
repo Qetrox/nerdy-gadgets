@@ -177,7 +177,7 @@ $conn->set_charset("utf8"); // Zet de charset naar UTF-8 zodat vreemde tekens go
 <body>
 <div class="loaderscreen"></div>
 <?php include_once '../header.php'?>
-<h1 id="totalPrice"></h1><div class="totalPrice1"> <p> Totaal:</p></div>
+<div class="totalPrice1"> <p> Totaal:</p></div><h1 id="totalPrice"></h1>
 <button><span> Verder met Afrekenen!</span></button>
 <main> <!-- Hier de content van de pagina in doen :) -->
     <div class="resultaten">
