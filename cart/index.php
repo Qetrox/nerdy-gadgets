@@ -174,7 +174,6 @@ $conn->set_charset("utf8"); // Zet de charset naar UTF-8 zodat vreemde tekens go
 
     </script>
 </head>
-
 <body>
 <div class="loaderscreen"></div>
 <?php include_once '../header.php'?>
@@ -187,7 +186,7 @@ $conn->set_charset("utf8"); // Zet de charset naar UTF-8 zodat vreemde tekens go
             if(isset($_GET["query"]) && $_GET["query"] !== "") { // Ik weet niet wat deze code hier doet, geen functionaliteit maar laat het staan voor de zekerheid
                 echo "Resultaten Voor: " . $_GET["query"];
             } else {
-                echo "Winkelwagen";
+                echo "<br>". "Winkelwagen";
             }
             ?>
         </h1>
