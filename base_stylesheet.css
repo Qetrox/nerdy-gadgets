@@ -132,6 +132,14 @@ footer {
     height: inherit;
     left: 0;
 }
+.nav-logo:hover{
+    margin-top: -16px;
+    transition: 100ms ease-in-out;
+    border-bottom-color: #cccccc;
+    border-bottom: 30px;
+    transform: translate(0px, -5px);
+
+}
 
 .mobile-show {
     visibility: hidden;
@@ -186,6 +194,7 @@ footer {
         transition: 100ms ease-in-out;
     }
 }
+
 .footer-content h3{
 
     line-height: 0rem;
