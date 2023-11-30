@@ -57,7 +57,7 @@ $conn->set_charset("utf8"); // Zet de charset naar UTF-8 zodat vreemde tekens go
          * @returns {void} - Returnt niks
          */
         function changePrice(productId, newTotalPrice) {
-            newTotalPrice = parseFloat(newTotalPrice.toFixed(2)); // rond af op 2 decimalen
+            newTotalPrice = parseFloat(newTotalPrice.toFixed(3)); // rond af op 2 decimalen
             moneyz = 0;
 
 
