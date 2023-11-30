@@ -3,11 +3,11 @@
         <!--dit maakt de tekst in de footer -Daan -->
         <div class="col1">
             <h3 style="color:#21212F"; >Handige Links</h3>
-            <a style="color:#21212F"; href="./#about">Over ons</a>
-            <a style="color:#21212F"; href="./legal/privacy/">Legaal</a>
-            <a style="color:#21212F"; href="./search/">Producten</a>
-            <a style="color:#21212F"; href="./account/">Account</a>
-            <a style="color:#21212F"; href="./">Home</a>
+            <a style="color:#21212F"; href="https://www.Nerdy-Gadgets.nl/#about">Over ons</a>
+            <a style="color:#21212F"; href="https://www.Nerdy-Gadgets.nl/legal/privacy/">Legaal</a>
+            <a style="color:#21212F"; href="https://www.Nerdy-Gadgets.nl/search/">Producten</a>
+            <a style="color:#21212F"; href="https://www.Nerdy-Gadgets.nl/account/">Account</a>
+            <a style="color:#21212F"; href="https://www.Nerdy-Gadgets.nl/">Home</a>
 
         </div>
         <div class="col2">
