@@ -4,11 +4,9 @@ footer {
     left: 0;
     right: 0;
     background: #5152bb;
-    height: 3vw;
+    height: 10px;
     width: auto;
     color: white;
-    text-align: center;
-    margin-top: 3vw;
 }
 
 .footer-content {
@@ -19,33 +17,44 @@ footer {
     flex-wrap: wrap;
     justify-content: center;
     flex-direction: column;
-    background-color: #212121;
+    background-color: #5152bb;
 
 }
 
 .col1{
-    width: auto;
+    margin-top: -50px;
+    margin-right: 145px;
+    width: 100%;
     padding: 1px;
-    margin-left: 15%;
     text-align: left;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    background-color: #212121;
+    background-color: #5152bb;
     & a:hover {
         text-decoration: underline;
     }
 }
+.col2{
+    margin-right: 145px;
+    width: 100%;
+    padding: 1px;
+    text-align: left;
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+    background-color: #5152bb;
 
-.col2 {
-    width: 20%;
-    margin-top: -10%;
-    margin-left: 65%;
+}
+.col3 {
+    margin-top: -210px;
+    margin-right: -200px;
+    width: 80%;
     text-align: right;
     display: flex;
     justify-content: normal;
     flex-direction: column;
-    background-color: #212121;
+    background-color: #5152bb;
 
 }
 .Cookies{
