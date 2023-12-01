@@ -148,7 +148,7 @@ values (?,?,?,?,?,?,?,?,?)";
 
 
 </main>
-<?php include_once '../Footer/footer.php' ?>
+<?php include_once '../footer/footer.php' ?>
 
 
 

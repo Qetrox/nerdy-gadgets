@@ -264,7 +264,7 @@ $conn->set_charset("utf8"); // Zet de charset naar UTF-8 zodat vreemde tekens go
         </div>
     </div>
 </main>
-<?php include_once '../Footer/footer.php' ?>
+<?php include_once '../footer/footer.php' ?>
 </body>
 <script src="typewriter.js"></script>
 <script>

@@ -228,7 +228,7 @@ if(!isset($_GET["productId"])) { // Als er geen productId is meegegeven, redirec
         <p><?php echo $description ?></p>
     </div>
 </main>
-<?php include_once '../../Footer/footer.php' ?>
+<?php include_once '../../footer/footer.php' ?>
 </body>
 <script>
 

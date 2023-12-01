@@ -90,4 +90,4 @@
 </main>
 <!-- voegt footer toe-->
 
-<?php include_once '../../Footer/footer.php' ?>
+<?php include_once '../../footer/footer.php' ?>
