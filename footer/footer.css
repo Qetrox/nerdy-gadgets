@@ -16,30 +16,22 @@
     text-align: center;
     margin-top: 5vw;
 }
+.rij{
+    display: flex;
 
-.col1{
+
+}
+.col{
+    flex: 1;
     margin-top: 5%;
     width: auto;
     padding: 1px;
     margin-left: 15%;
     text-align: left;
-    display: flex;
     justify-content: center;
     flex-direction: column;
     background-color: #212121;
     & a:hover {
         text-decoration: underline;
     }
-}
-
-.col2 {
-    width: 20%;
-    margin-top: -11%;
-    margin-left: 65%;
-    text-align: right;
-    display: flex;
-    justify-content: normal;
-    flex-direction: column;
-    background-color: #212121;
-
 }
