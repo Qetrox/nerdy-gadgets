@@ -15,13 +15,16 @@
     color: white;
     text-align: center;
     margin-top: 5vw;
+    font-size: 1vw;
 }
+/* rij maakt het zodat de y-as van de collumnen het zelfde zijn door display flex te gebruiken*/
 .rij{
     display: flex;
 
 
 }
 .col{
+    font-size: 1vw;
     flex: 1;
     margin-top: 2%;
     width: auto;
