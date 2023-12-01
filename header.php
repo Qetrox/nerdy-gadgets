@@ -61,3 +61,4 @@ $cartCount = count($cartListItems); // Tel de items in de array
            </div>
     </div>
 </header>
+<br><br><br><br><br>
