@@ -15,14 +15,21 @@
         <a href="https://www.Nerdy-Gadgets.nl/#about">Over ons</a><br>
         <a href="https://www.Nerdy-Gadgets.nl/legal/privacy/">Legaal</a><br>
         <a href="https://www.Nerdy-Gadgets.nl/search/">Producten</a><br>
-        <a href="https://www.Nerdy-Gadgets.nl/account/">Account</a><br>
         <a href="https://www.Nerdy-Gadgets.nl/">Home</a>
         <br><br>
 
     </div>
+        <div class="col" style="margin-left: 10%">
+            <h4>Account</h4>
+            <a href="https://www.Nerdy-Gadgets.nl/account">Account</a><br>
+            <a href="https://www.Nerdy-Gadgets.nl/cart">Winkelwagen</a><br>
+            <a href="https://nerdy-gadgets.nl/account/login.php">login</a><br>
+            <a href="https://www.Nerdy-Gadgets.nl/account/signup.php">Sign up</a><br>
+        </div>
     <div style="margin-left: 20%" class="col">
         <h4>CONTACT</h4>
         <p>Hospitaaldreef 5,<br> 1315 RC Almere<br>Tel: +088 469 6600</p>
     </div>
+
     </div>
 </footer>
