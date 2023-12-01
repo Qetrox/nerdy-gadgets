@@ -18,7 +18,6 @@
     <body>
     <div class="CookiebeleidText">
         <p>
-        <h1 style="text-align: center; color: #FFFF00">Cookiebeleid voor Nerdy Gadgets</h1><br>
         <main class="Main">
             <body>
             <div class="CookiebeleidText">
@@ -40,28 +39,30 @@
 
                 <h4>Nerdy Gadgets maakt gebruik van de volgende soorten cookies:</h4><br>
 
-                <h5 style="margin-left: -0.5em; margin-top: -0.5em;">Strikt noodzakelijke cookies:</h5> *
-                Deze cookies zijn essentieel om u in staat te stellen door de website te navigeren en de functies ervan
-                te gebruiken.
+                <h5 style="margin-left: -0.5em; margin-top: -0.5em;">Strikt noodzakelijke cookies:</h5>
+                > Deze cookies zijn essentieel om u in staat te stellen door de website te navigeren en de functies ervan
+                te gebruiken.<br>
                 Zonder deze cookies zouden bepaalde diensten niet beschikbaar zijn.<br><br>
 
                 <h5 style="margin-left: -0.5em;">Prestatiecookies:</h5>
-                * Deze cookies verzamelen informatie over hoe bezoekers de website gebruiken, zoals welke pagina's ze
-                het vaakst bezoeken en of ze foutmeldingen van webpagina's ontvangen.<br>
+                > Deze cookies verzamelen informatie over hoe bezoekers de website gebruiken,
+                <br>zoals welke pagina's ze
+                het vaakst bezoeken en of ze foutmeldingen van webpagina's ontvangen.<br><br>
                 Deze cookies worden gebruikt om de prestaties van de website te verbeteren<br><br>
 
-                <h5 style="margin-left: -0.5em;">Functionele cookies:</h5> * Deze cookies onthouden keuzes die u maakt
+                <h5 style="margin-left: -0.5em;">Functionele cookies:</h5>
+                > Deze cookies onthouden keuzes die u maakt
                 en verbeteren zo uw gebruikservaring.
                 Ze kunnen bijvoorbeeld uw voorkeurstaal onthouden.<br><br>
 
-                <h4 style="margin-left: -0.5em;">Analytische cookies:</h4> * We gebruiken tools van derden, zoals Google
-                Analytics, om informatie te verzamelen over het gebruik van de website.
+                <h5 style="margin-left: -0.5em;">Analytische cookies:</h5>
+                > We gebruiken tools van derden, om informatie te verzamelen over het gebruik van de website.<br>
                 Deze gegevens helpen ons de website te analyseren en te verbeteren.<br><br>
 
 
                 <h4 style="margin-left: -1em;">Uw keuzes</h4>
 
-                * Als u niet wilt dat wij cookies op uw apparaat plaatsen, kunt u uw browserinstellingen aanpassen om
+                > Als u niet wilt dat wij cookies op uw apparaat plaatsen, kunt u uw browserinstellingen aanpassen om
                 cookies te weigeren.<br>
                 Houd er rekening mee dat het uitschakelen van cookies de functionaliteit van sommige delen van de
                 website kan beïnvloeden.<br><br>
@@ -73,7 +74,7 @@
                 <h4 style="margin-left: -1em;"> We behouden ons het recht voor om dit cookiebeleid op elk moment bij te
                     werken.</h4><br>
 
-                Eventuele wijzigingen zullen onmiddellijk van kracht zijn zodra ze op de website zijn geplaatst.<br><br>
+                Eventuele wijzigingen zullen onmiddellijk van kracht zijn zodra ze op de website zijn geplaatst.<br><br><br>
 
                 Bedankt voor uw bezoek aan Nerdy Gadgets!<br><br>
                 Als u vragen hebt over ons cookiebeleid, neem dan gerust contact met ons op via
