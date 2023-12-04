@@ -25,6 +25,7 @@ html, body {
 
 .mobile-navbar {
     visibility: hidden;
+    display: none;
 }
 
 .mobile-nav-item {
@@ -177,6 +178,15 @@ header {
     font-size: 30px;
 }
 
+.col1 {
+    height: 5%;
+}
+.col2 {
+    margin-left: 10%;
+}
+.col3 {
+    margin-left: 20%;
+}
 /* Voor kleine schermen zoals telefoons */
 @media only screen and (max-width: 900px) {
     .navbar a {
@@ -300,6 +310,16 @@ header {
     .material-symbols-sharp {
         font-size: 4vh;
     }
-
+    .rij {
+        flex-wrap: wrap;
+    }
+    footer > .rij > .col {
+        width: 100%;
+        flex: unset;
+    }
+    .col1, .col2, .col3 {
+        margin-left: unset;
+        height: unset;
+    }
 
 }

@@ -33,8 +33,6 @@
             <h1 id="typewriter"></h1>
             <div class="background"></div>
         </div>
-
-
         </div>
         <!-- Hier de Cookie Pop-Up -->
         <div class="Cookies" id="cookies">
