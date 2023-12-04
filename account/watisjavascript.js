@@ -34,7 +34,6 @@ validation
 
     .addField("#tussenvoegsel", [
         {
-            rule: "required",
         },
     ])
 
