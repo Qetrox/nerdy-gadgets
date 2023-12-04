@@ -32,11 +32,7 @@ validation
         },
     ])
 
-    .addField("#tussenvoegsel", [
-        {
-            rule: "required",
-        },
-    ])
+    
 
 
     .addField("#postcode", [
