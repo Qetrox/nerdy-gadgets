@@ -56,8 +56,8 @@
 
         <h4 style="margin-left: -1em;">Uw keuzes</h4>
 
-        <li>Als u niet wilt dat wij cookies op uw apparaat plaatsen, kunt u uw browserinstellingen aanpassen om cookies te weigeren.<br>
-        <li>Houd er rekening mee dat het uitschakelen van cookies de functionaliteit van sommige delen van de website kan beïnvloeden.<br><br>
+        <li>Als u niet wilt dat wij cookies op uw apparaat plaatsen, kunt u uw browserinstellingen aanpassen om cookies te weigeren.</li><br>
+        <li>Houd er rekening mee dat het uitschakelen van cookies de functionaliteit van sommige delen van de website kan beïnvloeden.</li><br><br>
 
         <h4 style="margin-left: -1em;">Wijzigingen in dit cookiebeleid</h4>
 
