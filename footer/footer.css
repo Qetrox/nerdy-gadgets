@@ -26,6 +26,7 @@
 .rij{
     display: flex;
 
+
 }
 .col{
     font-size: 1vw;
@@ -40,16 +41,5 @@
     background-color: #212121;
     & a:hover {
         text-decoration: underline;
-    }
-
-/* dit maakt het zodat alleen op mobile deze veranderingen plaats vinden */
-@media (max-width: 1000px) {
-    .rij{
-        margin-left: 50%;
-        display: table-row;
-    }
-
-    .footer
-        font-size: 4.5vw;
     }
 }
