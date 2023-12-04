@@ -33,8 +33,6 @@
             <h1 id="typewriter"></h1>
             <div class="background"></div>
         </div>
-
-
         </div>
         <!-- Hier de Cookie Pop-Up -->
         <div class="Cookies" id="cookies">
@@ -44,10 +42,11 @@
             <p>Door op Accepteren te drukken, gaat <br>u akkoord met <a href="/legal/privacy">Onze Cookiebeleid</a>.<br></p>
             </div>
             <button onclick="dissapearCookies()" type="submit" name="CookieKnop" class="cookieacceptbtn" id="accept">Accepteer Cookies</button>
-            <button onclick="rickroll()" type="submit" name="CookieKnop" class="cookiedeclinebtn" id="ugh">Afwijzen Cookies</button>
-            <img src="cookie.png" alt="cookiespng" width="288" height="162" class="cookiepng">
+            <button onclick="rickroll()" type="submit" name="CookieKnop" class="cookiedeclinebtn" id="ugh">Afwijzen niet-essentiële Cookies</button>
+            <img src="cookies/cookie.png" alt="cookiespng" width="288" height="162" class="cookiepng">
         </div>
-        <script src="cookies.js"></script>
+        <!-- javascript van cookies -->
+        <script src="cookies/cookies.js"></script>
 
 
 
@@ -127,7 +126,7 @@ Bij Nerdy Gadgets geloven we dat nerds de wereld veranderen, en we zijn er trots
 Klaar om je passie naar een hoger niveau te tillen? Begin je ontdekkingstocht bij Nerdy Gadgets en laat je innerlijke geek stralen! </p>
         </div>
     </main>
-    <?php include_once './footer.php'?>
+    <?php include_once './footer/footer.php' ?>
 </body>
 <script src="typewriter.js"></script>
 

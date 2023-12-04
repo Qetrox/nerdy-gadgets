@@ -264,7 +264,7 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") { // als er een zoekopdracht 
     </div>
 </main>
 <footer>
-    <?php include_once '../footer.php'?>
+    <?php include_once '../footer/footer.php' ?>
 </body>
 <script src="typewriter.js"></script>
 <script>
