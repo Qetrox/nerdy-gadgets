@@ -178,8 +178,56 @@ $conn->set_charset("utf8"); // Zet de charset naar UTF-8 zodat vreemde tekens go
 <main> <!-- Hier de content van de pagina in doen :) -->
     <div class="bon-container" id="bon-container">
         <div class="bon">
-            <div class="totalPrice1"><p> Totaal:</p></div>
-            <h1 id="totalPrice"></h1>
+            <table>
+                <thead>
+                <tr>
+                    <th>Aantal</th>
+                    <th>Product</th>
+                    <th>Prijs</th>
+                </thead>
+                <tr>
+                    <td>6x</td>
+                    <td>Item 1</td>
+                    <td>€1200</td>
+                </tr>
+                <tr>
+                    <td>6x</td>
+                    <td>Item 1</td>
+                    <td>€1200</td>
+                </tr>
+                <tr>
+                    <td>6x</td>
+                    <td>Item 1</td>
+                    <td>€1200</td>
+                </tr>
+                <tr>
+                    <td>6x</td>
+                    <td>Item 1</td>
+                    <td>€1200</td>
+                </tr>
+                <tr>
+                    <td>6x</td>
+                    <td>Item 1</td>
+                    <td>€1200</td>
+                </tr>
+                <tr>
+                    <td>6x</td>
+                    <td>Item 1</td>
+                    <td>€1200</td>
+                </tr>
+                <tr>
+                    <td>6x</td>
+                    <td>Item 1</td>
+                    <td>€1200</td>
+                </tr>
+
+                <tr>
+                    <td class="verzendkosten">1x</td>
+                    <td class="verzendkosten">Verzending</td>
+                    <td class="verzendkosten">€4.99</td>
+                </tr>
+            </table>
+            <h1>Totaal: <span id="totalPrice"></span></h1>
             <button><span> Verder met Afrekenen!</span></button>
         </div>
     </div>
