@@ -1,18 +1,17 @@
 <link rel="stylesheet" href="../../base_stylesheet.css">
 <link rel="stylesheet" href="../../stylesheet.css">
 <link rel="stylesheet" href="../../load.css">
-<link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
 <link rel="stylesheet" href="../Legal.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
-<link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
 <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
 <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
-
+<!-- stylesheet van deze pagina-->
+<link rel="stylesheet" type="text/css" href="reviewstyle.css">
 
 <!DOCTYPE html>
 <html lang="nl">
@@ -20,7 +19,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Review Formulier</title>
-    <link rel="stylesheet" type="text/css" href="reviewstyle.css">
+
     <!-- Andere stylesheet links hier -->
 </head>
 <body>
@@ -46,13 +45,17 @@
         $beoordeling = $_POST['beoordeling'];
         $opmerkingen = $_POST['opmerkingen'];
 
-        $sql = "INSERT INTO reviews (naam, beoordeling, opmerkingen) VALUES ('$naam', $beoordeling, '$opmerkingen')";
+        // Voeg gegevens toe aan de database
+        $stmt = $conn->prepare("INSERT INTO reviews (naam, beoordeling, opmerkingen) VALUES (?, ?, ?)");
+        $stmt->bind_param("sis", $naam, $beoordeling, $opmerkingen);
 
-        if ($conn->query($sql) === TRUE) {
+        if ($stmt->execute()) {
             echo "Review succesvol toegevoegd";
         } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
+            echo "Error: " . $stmt->error;
         }
+
+        $stmt->close();
     } else {
         echo "Formulier is niet correct ingediend.";
     }
@@ -60,25 +63,31 @@
     $conn->close();
     ?>
 
-<body>
-    <?php
-    include('connection.php');
+    <footer>
 
-    $result = $conn->query("SELECT * FROM reviews");
+        <?php
+        include('connection.php');
 
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            echo "Naam: " . $row['naam'] . "<br>";
-            echo "Beoordeling: " . $row['beoordeling'] . "<br>";
-            echo "Opmerkingen: " . $row['opmerkingen'] . "<br><br>";
+        $result = $conn->query("SELECT * FROM reviews");
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                echo '<div class="review">';
+                echo "<h3>Naam: " . $row['naam'] . "</h3>";
+                echo "<p>Beoordeling: <span class='star-rating'>" . str_repeat("★", $row['beoordeling']) . "</span></p>";
+                echo "<p>Opmerkingen: " . $row['opmerkingen'] . "</p>";
+                echo '</div>';
+            }
+        } else {
+            echo '<div class="no-reviews">Geen reviews gevonden.</div>';
         }
-    } else {
-        echo "Geen reviews gevonden.";
-    }
 
-    $conn->close();
-    ?>
-</body>
+        $conn->close();
+        ?>
+
+
+
+    </footer>
 </main>
 </body>
 </html>
