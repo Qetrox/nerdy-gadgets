@@ -1,12 +1,20 @@
 <?php
-include_once '../includes/dbh.php'; // Importeer database informatie
-$mysqli = new mysqli($servername, $username, $password, $dbname); // maak een nieuwe connectie met de database
+require_once '../includes/dbh.php'; // Importeer de database variabelen
+/* import de Database variabelen */
+
+$conn = new mysqli($servername, $username, $password, $dbname); // Maak connectie met de database
 /*
+
+ Error is niet echt! PHPstorm leest niet goed. NIET FIXEN!!
 
  */
 
 // Check connection
-if ($mysqli->connect_error) { // check of er een error is
-    die("rampzalig: " . $mysqli->connect_error); // als er een error is, stop dan de connectie en geef de error weer
+if ($conn->connect_error) { // Als de connectie mislukt
+    die("Connection failed: " . $conn->connect_error); // Stop de connectie en geef een error
 }
-return $mysqli;
+
+$conn->set_charset("utf8"); // Zet de charset naar UTF-8 zodat vreemde tekens goed worden weergegeven
+
+
+?>
