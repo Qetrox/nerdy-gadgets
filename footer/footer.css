@@ -21,7 +21,7 @@
 
 }
 
-/* rij maakt het zodat de y-as van de collumnen het zelfde zijn door display flex te gebruiken*/
+/* rij maakt het zodat de y-as van de kollomen het zelfde zijn door display flex te gebruiken*/
 .rij{
     display: flex;
 
