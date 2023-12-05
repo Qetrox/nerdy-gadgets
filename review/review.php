@@ -30,7 +30,7 @@
     <br>
     <h1>Voeg een review toe</h1>
 
-    <form action="verwerk_review.php" method="post">
+    <form action="review.php" method="post">
         <input type="text" name='naam' placeholder="naam" required><br>
         <input type="number" name="beoordeling" placeholder="Beoordeling" min="1" max="5" required><br>
         <textarea name="opmerkingen" placeholder="Opmerking"></textarea><br>
