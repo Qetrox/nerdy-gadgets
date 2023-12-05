@@ -46,13 +46,39 @@
         $beoordeling = $_POST['beoordeling'];
         $opmerkingen = $_POST['opmerkingen'];
 
-        // Rest van je code om de review toe te voegen aan de database
+        $sql = "INSERT INTO reviews (naam, beoordeling, opmerkingen) VALUES ('$naam', $beoordeling, '$opmerkingen')";
+
+        if ($conn->query($sql) === TRUE) {
+            echo "Review succesvol toegevoegd";
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
     } else {
         echo "Formulier is niet correct ingediend.";
     }
 
     $conn->close();
     ?>
+
+<body>
+    <?php
+    include('connection.php');
+
+    $result = $conn->query("SELECT * FROM reviews");
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            echo "Naam: " . $row['naam'] . "<br>";
+            echo "Beoordeling: " . $row['beoordeling'] . "<br>";
+            echo "Opmerkingen: " . $row['opmerkingen'] . "<br><br>";
+        }
+    } else {
+        echo "Geen reviews gevonden.";
+    }
+
+    $conn->close();
+    ?>
+</body>
 </main>
 </body>
 </html>
