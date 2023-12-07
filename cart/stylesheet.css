@@ -1,3 +1,45 @@
+main {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.resultaten {
+    width: 60%;
+}
+
+.bon-container {
+    min-height: 80vh;
+    width: 30%;
+    position: relative;
+}
+
+.bon {
+    min-height: 40vh;
+    width: 100%;
+    position: sticky;
+    border-radius: 20px;
+    background-color: #898989;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.bon > table {
+    width: 300px;
+    text-align: center;
+}
+.bon h1 {
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.verzendkosten {
+    border-top: 2px solid #eee;
+}
+
 .resultaten h1 {
     text-align: center;
     font-size: 3vw;
@@ -16,7 +58,7 @@
 }
 
 .resultaat-item {
-    margin: 3vh 10vw;
+    margin-bottom: 20px;
     background-color: #FFFFFF;
     padding: 15px;
     border-radius: 25px;
@@ -162,6 +204,7 @@ button {
     box-shadow: 0px 6px 24px 0px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     border: none;
+    z-index: 0;
 }
 
 button:after {

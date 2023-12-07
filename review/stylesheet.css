@@ -1,0 +1,160 @@
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 70vh;
+}
+
+.account_logo {
+    padding: 5px;
+    width: 400px;
+    height: 200px;
+}
+
+.account{
+
+}
+.account input[type=text], input[type=password], input[type=number] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+button {
+    color: #000000	;
+    padding: 14px 10px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+   text-align: center;
+    box-shadow: 0 0 15px 4px rgb(0,0,0,0.06);
+  }
+
+button:hover {
+    opacity: 0.8;
+
+    ;
+  }div.form{
+    background: transparent;
+    width:  40%;
+    padding:  30px 40px;
+    border-radius: 30px;
+   }
+
+   label{
+       width: 40%;
+       display: inline;
+       display: inline-block;
+       margin:  0.8cm;
+       front-weight: bold;
+   }
+
+.text-center {
+    text-align: center;
+}
+
+.rounded-input {
+    padding:10px;
+    border-radius:10px;
+}
+
+.text-center > a {
+    text-decoration: underline;
+}
+.account > h1 {
+    text-align: center;
+    margin: 0;
+}
+
+.rounded-input > div {
+    display: flex;
+    justify-content: space-evenly;
+    width: 50%;
+    margin: auto;
+}
+
+.rounded-input2 {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+}
+
+.rounded-input2 > h1 {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+}
+.rounded-input2 > div {
+    width: 50%;
+}
+.rounded-input2 > div > input[type=text], .rounded-input2 > div > input[type=password] {
+    width: 100%;
+}
+.rounded-input2 > div > .name-flex {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+.rounded-input2 > div > .house-flex {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+.rounded-input2 > div > .location-flex {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+.rounded-input2 > div > .name-flex > div {
+    width: 49%;
+}
+.rounded-input2 > div > .house-flex > div {
+    width: 49%;
+}
+.rounded-input2 > div > .location-flex > div {
+    width: 49%;
+}
+.rounded-input2 > div > .name-flex > div > input[type=text] {
+    width: 100%;
+}
+.rounded-input2 > div > .house-flex > input[type=text], .rounded-input2 > div > .house-flex > input[type=number] {
+    width: 100%;
+}
+.rounded-input2 > div > .location-flex > input[type=text] {
+    width: 100%;
+}
+.rounded-input2 > div > div > .first-input {
+    margin-right: 2%;
+}
+
+html {
+    background: url("https://media.giphy.com/media/W5UoBN0YMdT1QP8Yfr/giphy.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+body{
+    background: unset;
+}
+
+@media only screen and (max-width: 900px) {
+    .rounded-input > div {
+        width: 900%;
+    }
+    .rounded-input2 > div {
+        width: 90%;
+    }
+}
+
+.input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
