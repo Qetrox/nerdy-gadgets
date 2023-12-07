@@ -1,8 +1,6 @@
-<link rel="stylesheet" href="../../base_stylesheet.css">
-<link rel="stylesheet" href="../../stylesheet.css">
-<link rel="stylesheet" href="../../load.css">
+<link rel="stylesheet" href="../base_stylesheet.css">
+<link rel="stylesheet" href="../load.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
-<link rel="stylesheet" href="../Legal.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">

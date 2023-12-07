@@ -1,29 +1,31 @@
 
-body {
+main body {
     font-family: 'Arial', sans-serif;
 
 }
-
-h1 {
+* {
+    margin-block-end: 0;
+}
+main h1 {
     color: white;
 }
 
 /* Formulier stijl */
-form {
+main form {
     margin-bottom: 20px;
     max-width: 600px; /* Optioneel: beperk de maximale breedte van het formulier */
     margin-right: auto;
 }
 
-input,
-textarea {
+main input,
+main textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
     box-sizing: border-box;
 }
 
-input[type="submit"] {
+main input[type="submit"] {
     background-color: #007BFF;
     color: #fff;
     cursor: pointer;
@@ -31,11 +33,9 @@ input[type="submit"] {
 
 /* Eventueel aanvullende stijlen hier toevoegen */
 
-}
-
-input[type="text"],
-input[type="number"],
-textarea {
+main input[type="text"],
+main input[type="number"],
+main textarea {
     width: 100%;
     padding: 10px;
     margin: 8px 0;
@@ -44,7 +44,7 @@ textarea {
     box-sizing: border-box;
 }
 
-input[type="submit"] {
+main input[type="submit"] {
     background-color: #4CAF50;
     color: white;
     padding: 10px 15px;
@@ -54,23 +54,23 @@ input[type="submit"] {
     font-size: 16px;
 }
 
-input[type="submit"]:hover {
+main input[type="submit"]:hover {
     background-color: #45a049;
 }
 
-.review-container {
+main .review-container {
     max-width: 600px;
     margin: 20px auto;
 }
 
-.review {
+main .review {
     border: 1px solid #ddd;
     padding: 10px;
     margin: 10px 0;
     border-radius: 4px;
 }
 
-.reacties {
+main .reacties {
     float: right;
 }
 
@@ -80,60 +80,56 @@ input[type="submit"]:hover {
 
 
 /* Header stijl */
-h
 
 /* Main content container */
 main {
-    max-width: 800px;
-    margin: 20px auto;
     padding: 20px;
-    background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Formulier stijl */
-form {
+main form {
     margin-bottom: 20px;
 }
 
-input,
-textarea {
+main input,
+main textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
     box-sizing: border-box;
 }
 
-input[type="submit"] {
+main input[type="submit"] {
     background-color: #007BFF;
     color: #fff;
     cursor: pointer;
 }
 
 /* Review weergave stijl */
-.review {
+main .review {
     border: 1px solid #ddd;
     padding: 15px;
     margin-bottom: 20px;
     background-color: #fff;
 }
 
-.review h3 {
+main .review h3 {
     margin-bottom: 10px;
 }
 
-.error {
-    ;
+main .error {
+;
 }
 
 
 /* Stijl voor individuele reviews */
-.review-container {
+main .review-container {
     max-width: 800px;
     margin: 20px auto;
 }
 
-.review {
+main .review {
     border: 1px solid #ddd;
     padding: 15px;
     margin-bottom: 20px;
@@ -147,24 +143,24 @@ input[type="submit"] {
     clear: both;
 }
 
-.review h3 {
+main .review h3 {
     color: #333;
     margin-bottom: 10px;
 }
 
-.review p {
+main .review p {
     margin: 0;
     color: #666;
 }
 
 /* Sterrenbeoordeling */
-.star-rating {
+main .star-rating {
     font-size: 24px;
     color: #FFD700;
 }
 
 /* Stijl voor geen reviews gevonden */
-.no-reviews {
+main .no-reviews {
     color: #888;
     text-align: center;
     margin-top: 20px;

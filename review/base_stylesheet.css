@@ -150,6 +150,9 @@ header {
         width: 50vw;
     }
 }
+form {
+    margin-block-end: 0;
+}
 
 .nav-item .material-symbols-sharp {
     font-size: 4vh;
