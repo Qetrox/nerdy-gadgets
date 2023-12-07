@@ -12,6 +12,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
 <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<script src="index.js"></script>
 
 <!-- CookieBeleid tekst-->
 <main class="Main">
@@ -39,33 +42,42 @@
 
                 <h4>Nerdy Gadgets maakt gebruik van de volgende soorten cookies:</h4><br>
 
-                <h5 style="margin-left: -0.5em; margin-top: -0.5em;">Strikt noodzakelijke cookies:</h5>
-                > Deze cookies zijn essentieel om u in staat te stellen door de website te navigeren en de functies ervan
-                te gebruiken.<br>
-                Zonder deze cookies zouden bepaalde diensten niet beschikbaar zijn.<br><br>
+                <h5 >Strikt noodzakelijke cookies</h5>
+                <h5 class="material-symbols-outlined"><span onclick="shownoodzakelijk()" > arrow_drop_up </span></h5>
+                <div class="noodzakelijk" id="noodzakelijk">
+                    Deze cookies zijn essentieel om u in staat te stellen door de website te navigeren en de functies ervan
+                    te gebruiken.<br>
+                        Zonder deze cookies zouden bepaalde diensten niet beschikbaar zijn.<br><br></div>
 
-                <h5 style="margin-left: -0.5em;">Prestatiecookies:</h5>
-                > Deze cookies verzamelen informatie over hoe bezoekers de website gebruiken,
-                <br>zoals welke pagina's ze
-                het vaakst bezoeken en of ze foutmeldingen van webpagina's ontvangen.<br><br>
-                Deze cookies worden gebruikt om de prestaties van de website te verbeteren<br><br>
+                <h5 >Prestatiecookies:</h5>
+                <h5 class="material-symbols-outlined"><span onclick="showprestatie()" > arrow_drop_up </span></h5>
+                    <div class="prestatie" id="prestatie">
+                        Deze cookies verzamelen informatie over hoe bezoekers de website gebruiken,
+                            <br>zoals welke pagina's ze
+                            het vaakst bezoeken en of ze foutmeldingen van webpagina's ontvangen.<br><br>
+                           Deze cookies worden gebruikt om de prestaties van de website te verbeteren.<br><br></div>
 
-                <h5 style="margin-left: -0.5em;">Functionele cookies:</h5>
-                > Deze cookies onthouden keuzes die u maakt
-                en verbeteren zo uw gebruikservaring.
-                Ze kunnen bijvoorbeeld uw voorkeurstaal onthouden.<br><br>
+                <h5 >Functionele cookies:</h5>
+                <h5 class="material-symbols-outlined"><span onclick="showfunctioneel()" > arrow_drop_up </span></h5>
+                    <div class="functioneel" id="functioneel">
+                        Deze cookies onthouden keuzes die u maakt
+                        en verbeteren zo uw gebruikservaring.
+                        Ze kunnen bijvoorbeeld uw voorkeurstaal onthouden.<br><br></div>
 
-                <h5 style="margin-left: -0.5em;">Analytische cookies:</h5>
-                > We gebruiken tools van derden, om informatie te verzamelen over het gebruik van de website.<br>
-                Deze gegevens helpen ons de website te analyseren en te verbeteren.<br><br>
+                <h5 >Analytische cookies:</h5>
+                <h5 class="material-symbols-outlined"><span onclick="showanalytisch()" > arrow_drop_up </span></h5>
+                    <div class="analytisch" id="analytisch">
+                        We gebruiken cookies om informatie te verzamelen over het gebruik van de site<br>
+                        dit gebruiken uitsluitelijk om de website te analyseren en te verbeteren.<br><br></div>
 
 
-                <h4 style="margin-left: -1em;">Uw keuzes</h4>
-
-                > Als u niet wilt dat wij cookies op uw apparaat plaatsen, kunt u uw browserinstellingen aanpassen om
+                <h4 >Uw keuzes</h4>
+                <h5 class="material-symbols-outlined"><span onclick="showuwkeuzes()" > arrow_drop_up </span></h5>
+                <div class="uwkeuzes" id="uwkeuzes">
+                Als u niet wilt dat wij cookies op uw apparaat plaatsen, kunt u uw browserinstellingen aanpassen om
                 cookies te weigeren.<br>
                 Houd er rekening mee dat het uitschakelen van cookies de functionaliteit van sommige delen van de
-                website kan beïnvloeden.<br><br>
+                    website kan beïnvloeden.<br><br></div>
 
                 <h4 style="margin-left: -1em;">Wijzigingen in dit cookiebeleid</h4>
 

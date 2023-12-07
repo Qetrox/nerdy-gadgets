@@ -9,7 +9,29 @@
     font-family: "Bree Serif";
     color: white;
     padding-left: 4vw;
+}
+.material-symbols-outlined:hover{
+        background: #666666;
+        opacity: 99%;
+    }
+.material-symbols-outlined{
+    scale: 150%;
+    margin-top: -1%;
+    user-select: none; /*maakt de pijl niet copy-able en dus als je er op dubbel klikt wordt het niet geselecteerd */
+}
 
-
-
+.noodzakelijk{
+    display: none;
+}
+.functioneel{
+    display: none;
+}
+.analytisch{
+    display: none;
+}
+.prestatie{
+    display: none;
+}
+.uwkeuzes{
+    display: none;
 }
