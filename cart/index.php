@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once '../includes/dbh.php'; // Importeer de database variabelen
 /* import de Database variabelen */
 

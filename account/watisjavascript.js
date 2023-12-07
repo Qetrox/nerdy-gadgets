@@ -1,5 +1,6 @@
 
-const validation = new JustValidate("#registratie");
+const validation = new JustValidate("#registratie",);
+
 
 validation
     .addField("#email", [
@@ -31,8 +32,6 @@ validation
             rule: "required",
         },
     ])
-
-    
 
 
     .addField("#postcode", [
