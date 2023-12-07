@@ -43,7 +43,11 @@
 
     function reCaptcha($recaptcha){
         $secret = "6Lf8iSkpAAAAAFbFEA0R-aO4cKzD8fzEvf2Ui6xE";
-        $ip = $_SERVER['REMOTE_ADDR'];
+        if(isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        } else {
+            $ip = $_SERVER['REMOTE_ADDR'];
+        }
 
         $postvars = array("secret"=>$secret, "response"=>$recaptcha, "remoteip"=>$ip);
         $url = "https://www.google.com/recaptcha/api/siteverify";
