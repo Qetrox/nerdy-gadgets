@@ -10,6 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
 <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+<script src="https://www.google.com/recaptcha/api.js"></script>
 <!-- stylesheet van deze pagina-->
 <link rel="stylesheet" type="text/css" href="reviewstyle.css">
 
@@ -33,14 +34,35 @@
         <input type="text" name='naam' placeholder="naam" required><br>
         <input type="number" name="beoordeling" placeholder="Beoordeling" min="1" max="5" required><br>
         <textarea name="opmerkingen" placeholder="Opmerking"></textarea><br>
+        <div class="g-recaptcha" data-sitekey="6Lf8iSkpAAAAAJdHgMIZb4RhtMcSXm4skdxLGqIW"></div>
         <input type="submit" value="Verstuur review">
     </form>
 
     <?php
     include('connection.php');
 
+    function reCaptcha($recaptcha){
+        $secret = "6Lf8iSkpAAAAAFbFEA0R-aO4cKzD8fzEvf2Ui6xE";
+        $ip = $_SERVER['REMOTE_ADDR'];
+
+        $postvars = array("secret"=>$secret, "response"=>$recaptcha, "remoteip"=>$ip);
+        $url = "https://www.google.com/recaptcha/api/siteverify";
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $postvars);
+        $data = curl_exec($ch);
+        curl_close($ch);
+
+        return json_decode($data, true);
+    }
+
+    $recaptcha = $_POST['g-recaptcha-response'];
+    $res = reCaptcha($recaptcha);
+
     // Controleer of het formulier is ingediend
-    if (isset($_POST['naam'], $_POST['beoordeling'], $_POST['opmerkingen'])) {
+    if (isset($_POST['naam'], $_POST['beoordeling'], $_POST['opmerkingen'], $res['success'])) {
         $naam = $_POST['naam'];
         $beoordeling = $_POST['beoordeling'];
         $opmerkingen = $_POST['opmerkingen'];
