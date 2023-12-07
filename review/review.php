@@ -64,7 +64,7 @@
     $res = reCaptcha($recaptcha);
 
     // Controleer of het formulier is ingediend
-    if (isset($_POST['naam'], $_POST['beoordeling'], $_POST['opmerkingen']) && $res['success'] == 1) {
+    if (isset($_POST['naam'], $_POST['beoordeling'], $_POST['opmerkingen'], $_SESSION["first_name"]) && $res['success'] == 1) {
         $naam = $_POST['naam'];
         $beoordeling = $_POST['beoordeling'];
         $opmerkingen = $_POST['opmerkingen'];
