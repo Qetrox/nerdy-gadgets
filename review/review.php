@@ -12,12 +12,13 @@
 <!-- stylesheet van deze pagina-->
 <link rel="stylesheet" type="text/css" href="reviewstyle.css">
 
+
 <!DOCTYPE html>
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Review Formulier</title>
+    <title>Nerdy Gadgets - Review</title>
 
     <!-- Andere stylesheet links hier -->
 </head>
