@@ -35,12 +35,11 @@ values (?,?,?,?,?,?,?,?,?)";
             exit;
         }
     } catch (mysqli_sql_exception $e) {
-        if ($e->getCode() === 1062) { // Check for duplicate entry error
+        if ($e->getCode() === 1062) {
             header("Location: duplicate.html");
             exit;
         } else {
-            // Handle other errors if needed
-            header("Location: error.html");
+             header("Location: error.html");
             exit;
         }
     }
@@ -90,7 +89,7 @@ values (?,?,?,?,?,?,?,?,?)";
 
 
     <div class="account">
-        <form method="post" id="registratie" novalidate>
+        <form method="post" id="registratie" novalidate="novalidate">
             <div class="rounded-input2">
                 <h1>Account Aanmaken</h1>
                 <div>

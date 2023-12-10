@@ -1,8 +1,23 @@
 
-const validation = new JustValidate("#registratie",);
+const validator = new JustValidate('#registratie', {
 
 
-validation
+
+            errorLabelStyle: {
+            color: 'white',
+        },
+
+
+
+
+
+
+
+}
+);
+
+
+validator
     .addField("#email", [
         {
             rule: "required",
@@ -73,7 +88,13 @@ validation
     ])
 
 
-.onSuccess((event) => {
+
+
+
+    .onSuccess((event) => {
     document.getElementById("registratie").submit();
 
 });
+
+
+
