@@ -43,37 +43,37 @@
                 <h4>Nerdy Gadgets maakt gebruik van de volgende soorten cookies:</h4><br>
 
                 <h5 >Strikt noodzakelijke cookies</h5>
-                <h5 class="material-symbols-outlined"><span onclick="shownoodzakelijk()" > arrow_drop_up </span></h5>
-                <div class="noodzakelijk" id="noodzakelijk">
+                <h5 class="material-symbols-outlined" id="noodzakelijkarrow"><span onclick="shownoodzakelijk()" > arrow_drop_up </span></h5>
+                <div style="opacity: 0" class="noodzakelijk" id="noodzakelijk">
                     Deze cookies zijn essentieel om u in staat te stellen door de website te navigeren en de functies ervan
                     te gebruiken.<br>
                         Zonder deze cookies zouden bepaalde diensten niet beschikbaar zijn.<br><br></div>
 
                 <h5 >Prestatiecookies:</h5>
-                <h5 class="material-symbols-outlined"><span onclick="showprestatie()" > arrow_drop_up </span></h5>
-                    <div class="prestatie" id="prestatie">
+                <h5 class="material-symbols-outlined" id="prestatiearrow"><span onclick="showprestatie()" > arrow_drop_up </span></h5>
+                    <div style="opacity: 0" class="prestatie" id="prestatie">
                         Deze cookies verzamelen informatie over hoe bezoekers de website gebruiken,
                             <br>zoals welke pagina's ze
                             het vaakst bezoeken en of ze foutmeldingen van webpagina's ontvangen.<br><br>
                            Deze cookies worden gebruikt om de prestaties van de website te verbeteren.<br><br></div>
 
                 <h5 >Functionele cookies:</h5>
-                <h5 class="material-symbols-outlined"><span onclick="showfunctioneel()" > arrow_drop_up </span></h5>
-                    <div class="functioneel" id="functioneel">
+                <h5 class="material-symbols-outlined" id="functioneelarrow"><span onclick="showfunctioneel()" > arrow_drop_up </span></h5>
+                    <div style="opacity: 0" class="functioneel" id="functioneel">
                         Deze cookies onthouden keuzes die u maakt
                         en verbeteren zo uw gebruikservaring.
                         Ze kunnen bijvoorbeeld uw voorkeurstaal onthouden.<br><br></div>
 
                 <h5 >Analytische cookies:</h5>
-                <h5 class="material-symbols-outlined"><span onclick="showanalytisch()" > arrow_drop_up </span></h5>
-                    <div class="analytisch" id="analytisch">
+                <h5 class="material-symbols-outlined" id="analytischarrow"><span onclick="showanalytisch()" > arrow_drop_up </span></h5>
+                    <div style="opacity: 0" class="analytisch" id="analytisch">
                         We gebruiken cookies om informatie te verzamelen over het gebruik van de site<br>
                         dit gebruiken uitsluitelijk om de website te analyseren en te verbeteren.<br><br></div>
 
 
                 <h4 >Uw keuzes</h4>
-                <h5 class="material-symbols-outlined"><span onclick="showuwkeuzes()" > arrow_drop_up </span></h5>
-                <div class="uwkeuzes" id="uwkeuzes">
+                <h5 class="material-symbols-outlined" id="keuzes"><span onclick="showuwkeuzes()" > arrow_drop_up </span></h5>
+                <div style="opacity: 0" class="uwkeuzes" id="uwkeuzes">
                 Als u niet wilt dat wij cookies op uw apparaat plaatsen, kunt u uw browserinstellingen aanpassen om
                 cookies te weigeren.<br>
                 Houd er rekening mee dat het uitschakelen van cookies de functionaliteit van sommige delen van de

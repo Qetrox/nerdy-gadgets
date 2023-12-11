@@ -2,8 +2,6 @@
     background: #212121;
     display: flex;
     margin: -0.5em;
-
-
 }
 .CookiebeleidText{
     font-family: "Bree Serif";
@@ -18,20 +16,76 @@
     scale: 150%;
     margin-top: -1%;
     user-select: none; /*maakt de pijl niet copy-able en dus als je er op dubbel klikt wordt het niet geselecteerd */
+    transition: all 250ms ease;
 }
 
 .noodzakelijk{
-    display: none;
+    margin-left: 1px;
+    display: grid;
+    border-style: solid;
+    border-right: #FFFFFF;
+    border-top: #FFFFFF;
+    border-bottom: #FFFFFF;
+    border-radius: 1px;
+    padding-left: 10px;
+    opacity: 0;
+    transition: all 200ms ease;
+    margin-top: -10.4%;
+    margin-left: 3.4%;
 }
 .functioneel{
-    display: none;
+    margin-left: 1px;
+    display: grid;
+    border-style: solid;
+    border-right: #FFFFFF;
+    border-top: #FFFFFF;
+    border-bottom: #FFFFFF;
+    border-radius: 1px;
+    padding-left: 10px;
+    opacity: 0;
+    transition: all 200ms ease;
+    margin-top: -9.4%;
+    margin-left: 3.4%;
 }
 .analytisch{
-    display: none;
+    margin-left: 1px;
+    display: grid;
+    border-style: solid;
+    border-right: #FFFFFF;
+    border-top: #FFFFFF;
+    border-bottom: #FFFFFF;
+    border-radius: 1px;
+    padding-left: 10px;
+    opacity: 0;
+    transition: all 200ms ease;
+    margin-top: -10.4%;
+    margin-left: 3.4%;
 }
 .prestatie{
-    display: none;
+    margin-left: 1px;
+    display: grid;
+    border-style: solid;
+    border-right: #FFFFFF;
+    border-top: #FFFFFF;
+    border-bottom: #FFFFFF;
+    border-radius: 1px;
+    padding-left: 10px;
+    opacity: 0;
+    transition: all 200ms ease;
+    margin-top: -12.4%;
+    margin-left: 3.4%;
 }
 .uwkeuzes{
-    display: none;
+    margin-left: 1px;
+    display: grid;
+    border-style: solid;
+    border-right: #FFFFFF;
+    border-top: #FFFFFF;
+    border-bottom: #FFFFFF;
+    border-radius: 1px;
+    padding-left: 10px;
+    opacity: 0;
+    transition: all 200ms ease;
+    margin-top: -10.4%;
+    margin-left: 3.4%;
 }
