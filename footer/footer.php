@@ -17,10 +17,10 @@
         <div class="col col2">
             <h4>Account</h4>
             <a href="https://www.Nerdy-Gadgets.nl/account">Account</a><br>
-            <a href="https://www.Nerdy-Gadgets.nl/cart">Winkelwagen</a><br>
-            <a href="https://nerdy-gadgets.nl/account/login.php">inloggen</a><br>
+            <a href="https://nerdy-gadgets.nl/account/login.php">Inloggen</a><br>
             <a href="https://www.Nerdy-Gadgets.nl/account/signup.php">Registreren</a><br>
-            <a href="https://nerdy-gadgets.nl/review/review.php">review</a><br>
+            <a href="https://www.Nerdy-Gadgets.nl/cart">Winkelwagen</a><br>
+            <a href="https://nerdy-gadgets.nl/review/review.php">Site Review</a><br>
         </div>
         <div class="col col3">
             <h4>CONTACT</h4>
