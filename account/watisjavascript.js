@@ -52,8 +52,21 @@ validator
     .addField("#postcode", [
         {
             rule: "required",
+        }, {
+            rule: 'minLength',
+            value: 6,
+            errorMessage: "postcode klopt niet"
+
         },
-    ])
+
+        {
+            rule: 'maxLength',
+            value: 6,
+            errorMessage: "postcode klopt niet"
+
+        }
+
+])
 
     .addField("#straatnaam", [
         {
@@ -91,7 +104,10 @@ validator
 
 
 
-    .onSuccess((event) => {
+
+
+
+.onSuccess((event) => {
     document.getElementById("registratie").submit();
 
 });
