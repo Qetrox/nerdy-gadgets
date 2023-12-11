@@ -7,8 +7,6 @@
         $ip = $_SERVER["REMOTE_ADDR"];
     }
 
-        $ip = '145.44.221.194';
-
     $curl = curl_init();
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($curl, CURLOPT_URL, 'http://ip-api.com/php/' . $ip);
