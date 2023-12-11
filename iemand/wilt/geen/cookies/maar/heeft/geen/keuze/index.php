@@ -1,13 +1,11 @@
 <?php
 
     // Pak het IP van persoon
-    if (isset($_SERVER["X_FORWARDED_FOR"])) {
-        $ip = $_SERVER["X_FORWARDED_FOR"];
+    if (isset($_SERVER["HTTP_X_FORWARDED_FOR"])) {
+        $ip = $_SERVER["HTTP_X_FORWARDED_FOR"];
     } else {
         $ip = $_SERVER["REMOTE_ADDR"];
     }
-
-    print_r($_SERVER);
 
     $curl = curl_init();
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
