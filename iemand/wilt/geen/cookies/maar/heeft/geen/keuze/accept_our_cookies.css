@@ -1,0 +1,39 @@
+.accept_our_cookies {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    height: 90vh;
+}
+.accept_our_cookies > .accept_our_cookies {
+    display: unset;
+    justify-content: unset;
+    align-content: unset;
+    height: fit-content;
+    flex-wrap: unset;
+}
+.accept_our_cookies > .accept_our_cookies > .accept_our_cookies {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    font-size: 50px;
+    transition: opacity 0.5s ease;
+    opacity: 1;
+}
+.accept_our_cookies > .accept_our_cookies > div.accept_our_cookies {
+    position: absolute;
+    left: 0;
+    bottom: 10%;
+    width: 0;
+    height: 20px;
+    background-color: black;
+    z-index: 99999;
+    transition: width 5s ease;
+}
+#--accept-me-cookies-- {
+    display: none;
+    opacity: 1;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+}

@@ -42,7 +42,7 @@
             <p>Door op Accepteren te drukken, gaat <br>u akkoord met <a style="color: #007BFF "href="/legal/privacy">Onze Cookiebeleid</a>.<br></p>
             </div>
             <button onclick="dissapearCookies()" type="submit" name="CookieKnop" class="cookieacceptbtn" id="accept">Accepteer Cookies</button>
-            <button onclick="rickroll()" type="submit" name="CookieKnop" class="cookiedeclinebtn" id="ugh">Afwijzen niet-essentiële Cookies</button>
+            <button onclick="iNoWantCookies()" type="submit" name="CookieKnop" class="cookiedeclinebtn" id="ugh">Afwijzen niet-essentiële Cookies</button>
             <img src="cookies/cookie.png" alt="cookiespng" width="288" height="162" class="cookiepng">
         </div>
         <!-- javascript van cookies -->
