@@ -108,8 +108,26 @@ if(!isset($_GET["productId"])) { // Als er geen productId is meegegeven, redirec
     }
 
 }
+//begin code Sterren reviews, en andere dingen.
+// $reviewstmt = $conn->prepare("SELECT * FROM reviewitem = ?"); //bereid review statement
+
+$sterren = "1";
+$sterrenaantal = "(". "11". ")";
+$starhalf = FALSE;
+$stertekst = (str_repeat("star", $sterren));
+$sterrenavg = "1.0". "/5";
+if ($starhalf == TRUE){ //als er een halve ster is
+    $stertekst = ($stertekst. " star_half". (str_repeat(" star_border", 4-$sterren )));
+} else {
+    $stertekst = ($stertekst. (str_repeat(" star_border", 5-$sterren)). "3");
+}
+
+
 
 ?>
+<script src="../product/itemreview.js"></script> <!-- include de itemreview javascript -->
+
+
 <!DOCTYPE html>
 <html lang="nl-nl">
 
@@ -123,6 +141,7 @@ if(!isset($_GET["productId"])) { // Als er geen productId is meegegeven, redirec
     <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
     <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+    <link href="https://fonts.google.com/icons?selected=Material%20Icons%20Outlined%3Astar%3A"/>
     <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
@@ -133,7 +152,11 @@ if(!isset($_GET["productId"])) { // Als er geen productId is meegegeven, redirec
     <link rel="stylesheet" href="../base_stylesheet.css">
     <link rel="stylesheet" href="stylesheet.css">
     <link rel="stylesheet" href="../load.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" /> <!-- half star icon-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="../index.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
     <script>
 
 
@@ -218,14 +241,43 @@ if(!isset($_GET["productId"])) { // Als er geen productId is meegegeven, redirec
                 </div>
                 <div class="mobile-extend">
                     <button class="addToCart" onclick="IWANTTHISITEM()"><p class="winkelwagentekst"><span class="material-symbols-sharp" style="transform: translateY(20%)">shopping_cart</span> In winkelwagen</p></button>
-                    <p class="stars"><span class="material-symbols-sharp"><?php echo $starHtml ?></span></p>
+                   <div class="stars">
+                    <p class="star"><span class="material-icons"><?php print("$stertekst"); ?></span><div class="sternummeritem"><?php print($sterrenavg. ($sterrenaantal)); ?></div></p>
+                   </div>
                     <p class="levertijd">Bestel voor 16:00, overmorgen in huis*</p>
                 </div>
                     <h6 class="tijddisclaimer">*Wij doen ons best om uw bestelling op tijd te leveren, maar door drukte kan dit soms wat langer duren. Onze excuses hiervoor.</h6>
+                <div class ="reviewlinker">
+                    <p>hallo</p>
 
+                </div>
             </div>
+
         </div>
         <p><?php echo $description ?></p>
+
+    </div>
+    <div class="reviewmain">
+        <div class="reviewschrijven" onclick="showreviewpopup()">
+            <div class="reviewbackground" onclick="showreviewpopup()">
+                <a style="margin-left: 1em; margin-top: 0.7em" >
+                    <?php //maak isset dat ingelogd moet zijn ?>
+                    Review Toevoegen</a>
+                <div class="material-symbols-outlined" style="margin-top: -0.53em; margin-left: 0.2em" ><span> <br>add_circle</span></div>
+        </div>
+             </div>
+            <div class="reviewpopup" id="reviewpopup">
+                <div class="reviewpopupbackground">
+                     <div class="reviewpopupbox">
+
+
+                  </div>
+                </div>
+             </div>
+    </div>
+    <div class="reviewbekijken">
+Geen reviews op dit product :-(
+
     </div>
 </main>
 <?php include_once '../../footer/footer.php' ?>
