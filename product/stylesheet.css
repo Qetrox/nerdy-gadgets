@@ -125,6 +125,52 @@
     font-size: 3vw;
     margin: 0;
 }
+.stars{
+
+    display: flex;
+}
+.sternummeritem{
+    margin-top: 0.75em;
+    margin-left: -0.48em;
+    display: inline-block;
+    font-size: 120%;
+}
+.star{
+    display: inline-block;
+}
+
+
+.reviewpopup{
+    margin-top: -88em;
+    position: fixed;
+    background: rgb(0,0,0, 0.3);
+    width: 110%;
+    height: 110%;
+    display: none;
+}
+
+.reviewpopupbackground{
+
+    width: 50em;
+    height: 50em;
+    background: white;
+}
+
+.reviewbackground{
+    width: 12em;
+    height: 3em;
+    background: #FF0000;
+    border: white;
+    border-style: solid;
+    border-radius: 0.7em;
+    border-width: 0.1em;
+    display: flex;
+}
+.reviewbackground:hover{
+    opacity: 85%;
+    background: #FF0000;
+
+}
 
 @media only screen and (max-width: 900px) {
 

@@ -2,7 +2,6 @@
     <!-- include footer stylesheet-->
     <link rel="stylesheet" href="/footer/footer.css">
 
-
     <!--dit maakt de tekst in de footer verschillende kolommen zodat het er netjes uit ziet -Daan -->
     <div class="rij">
         <div class="col col1">
