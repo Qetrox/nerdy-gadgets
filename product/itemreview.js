@@ -1,6 +1,9 @@
 function showreviewpopup(){
-div = document.getElementById("reviewpopup");
-if(div.style.display == "none") {
-      div.style.display = 'flex';
+      var x = document.getElementById("reviewpopup");
+      if (x.style.display === "none") {
+            x.style.display = "block";
+      } else {
+            x.style.display = "none";
+      }
 }
-}
+

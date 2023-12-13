@@ -141,20 +141,61 @@
 
 
 .reviewpopup{
-    margin-top: -88em;
+    margin-top: -126em;
     position: fixed;
     background: rgb(0,0,0, 0.3);
-    width: 110%;
-    height: 110%;
-    display: none;
+    width: 156em;
+    height: 100em;
+    transition: ease-in-out all 2000ms;
+    scale: 100%;
 }
 
 .reviewpopupbackground{
-
+    transition: ease-in-out all 2000ms;
     width: 50em;
     height: 50em;
-    background: white;
+    background: #212121;
+    margin-left: 36em;
+    margin-top: 18em;
+    border: grey;
+    border-style: solid;
+    border-radius: 1em;
+    border-width: 0.2em;
+    border-left-width: 0.26em;
 }
+
+.reviewpopuptekstbox{
+
+
+}
+
+.closebtn{
+    margin-left: 90%;
+    margin-top:6%;
+    scale: 225%;
+    width: 3.1%;
+}
+.closebtn:hover{
+    cursor: pointer;
+    background: #555555;
+    opacity: 99%;
+    border-radius: 300em;
+}
+
+.reviewpopupforms{
+    margin-left: 5%;
+    margin-top: -3%;
+
+}
+
+.opmerkingen{
+    width: 30em;
+    height: 9em;
+    border-radius: 0.2em;
+    border-style: solid;
+}
+
+
 
 .reviewbackground{
     width: 12em;
@@ -165,9 +206,10 @@
     border-radius: 0.7em;
     border-width: 0.1em;
     display: flex;
+    transition: ease-in-out all 200ms;
 }
 .reviewbackground:hover{
-    opacity: 85%;
+    opacity: 75%;
     background: #FF0000;
 
 }

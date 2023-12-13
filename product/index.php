@@ -125,7 +125,7 @@ if ($starhalf == TRUE){ //als er een halve ster is
 
 
 ?>
-<script src="../product/itemreview.js"></script> <!-- include de itemreview javascript -->
+<script src="/product/itemreview.js"></script> <!-- include de itemreview javascript -->
 
 
 <!DOCTYPE html>
@@ -219,7 +219,7 @@ if ($starhalf == TRUE){ //als er een halve ster is
     </script>
 </head>
 
-<div class="loaderscreen"></div>
+<!-- <div class="loaderscreen"></div> -->
 <body>
 <?php include_once '../header.php'?>
 <main> <!-- Hier de content van de pagina in doen :) -->
@@ -257,9 +257,10 @@ if ($starhalf == TRUE){ //als er een halve ster is
         <p><?php echo $description ?></p>
 
     </div>
-    <div class="reviewmain">
-        <div class="reviewschrijven" onclick="showreviewpopup()">
-            <div class="reviewbackground" onclick="showreviewpopup()">
+    <button  onclick="showreviewpopup()">testknop</button>
+    <div  class="reviewmain">
+        <div class="reviewschrijven" >
+            <div class="reviewbackground">
                 <a style="margin-left: 1em; margin-top: 0.7em" >
                     <?php //maak isset dat ingelogd moet zijn ?>
                     Review Toevoegen</a>
@@ -267,11 +268,22 @@ if ($starhalf == TRUE){ //als er een halve ster is
         </div>
              </div>
             <div class="reviewpopup" id="reviewpopup">
-                <div class="reviewpopupbackground">
-                     <div class="reviewpopupbox">
-
-
-                  </div>
+                <div class="reviewpopupbackground" id="reviewpopupbackground">
+                    <div class="closebtn" onclick="showreviewpopup()">
+                        <div class="material-symbols-outlined">close</div>
+                    </div>
+                    <div class="reviewpopupforms">
+                        <h3><?php echo htmlspecialchars($title) ?></h3>
+                       <p> <?= htmlspecialchars($_SESSION["first_name"]) ?> </p>
+                        <br><br>
+                    Hoeveel sterren geeft u dit product?<br>
+                        <p class="star"><span class="material-icons"><?php print("$stertekst"); ?></span><div class="sternummeritem"><?php print($sterrenavg); ?></div></p>
+                        <input class="Titel" type="text" maxlength="50" x placeholder="titel">
+                        <br><br>
+                        <textarea class="opmerkingen" type="text" maxlength="500" x placeholder="Plaats hier uw opmerking"></textarea>
+                        <br><br><br>
+                        <input type="submit" id="hallo" onclick="showreviewpopup()">
+                    </div>
                 </div>
              </div>
     </div>
