@@ -1,4 +1,5 @@
 <?php
+session_start();
 if(!isset($_GET["productId"])) { // Als er geen productId is meegegeven, redirect naar search pagina
     header('location: ../search/'); // Redirect naar search pagina
 } else {
