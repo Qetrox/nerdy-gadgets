@@ -19,7 +19,6 @@
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
-    border: 1px solid #ccc;
     box-sizing: border-box;
   }
 button {
@@ -152,8 +151,22 @@ body{
 }
 
 .just-validate-error-field{
+    border-top-style: none;
+    border-right-style: none;
+    border-bottom-style: none;
+    border-left-style: solid;
 
-}
+    border-width: 4px;
+    border-color: red; }
+
+.just-validate-sucess-field{
+    border-top-style: none;
+    border-right-style: none;
+    border-bottom-style: none;
+    border-left-style: solid;
+
+    border-width: 4px;
+    border-color: lightgreen; }
 
 
 

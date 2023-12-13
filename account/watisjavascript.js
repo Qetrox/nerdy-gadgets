@@ -1,19 +1,11 @@
 
 const validator = new JustValidate('#registratie', {
-
-
-
-            errorLabelStyle: {
+        errorFieldCssClass: "just-validate-error-field",
+        successFieldCssClass: ['just-validate-sucess-field'],
+        errorLabelStyle: {
             color: 'white',
         },
-
-
-
-
-
-
-
-}
+    }
 );
 
 
