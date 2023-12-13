@@ -152,6 +152,7 @@ if ($starhalf == TRUE){ //als er een halve ster is
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="../base_stylesheet.css">
     <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="../stylesheet.css">
     <link rel="stylesheet" href="../load.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" /> <!-- half star icon-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -258,10 +259,9 @@ if ($starhalf == TRUE){ //als er een halve ster is
         <p><?php echo $description ?></p>
 
     </div>
-    <button  onclick="showreviewpopup()">testknop</button>
     <div  class="reviewmain">
-        <div class="reviewschrijven" >
-            <div class="reviewbackground">
+        <div class="reviewschrijven " onclick="showreviewpopup()">
+            <div class="reviewbackground" >
                 <a style="margin-left: 1em; margin-top: 0.7em" >
                     <?php //maak isset dat ingelogd moet zijn ?>
                     Review Toevoegen</a>
@@ -275,15 +275,15 @@ if ($starhalf == TRUE){ //als er een halve ster is
                     </div>
                     <div class="reviewpopupforms">
                         <h3><?php echo htmlspecialchars($title) ?></h3>
-                       <p> <?= htmlspecialchars($_SESSION["first_name"]) ?> </p>
+                       <p> Naam: <?= htmlspecialchars($_SESSION["first_name"]) ?> </p>
                         <br><br>
                     Hoeveel sterren geeft u dit product?<br>
                         <p class="star"><span class="material-icons"><?php print("$stertekst"); ?></span><div class="sternummeritem"><?php print($sterrenavg); ?></div></p>
-                        <input class="Titel" type="text" maxlength="50" x placeholder="titel">
+                        <input class="Titel" type="text" maxlength="50" x placeholder="Titel">
                         <br><br>
                         <textarea class="opmerkingen" type="text" maxlength="500" x placeholder="Plaats hier uw opmerking"></textarea>
                         <br><br><br>
-                        <input type="submit" id="hallo" onclick="showreviewpopup()">
+                        <input type="submit" id="hallo" onclick="showreviewpopup()" style=" cursor: pointer;">
                     </div>
                 </div>
              </div>
