@@ -169,6 +169,11 @@
 
 }
 
+.reviewschrijven{
+    margin-left: 3em;
+    cursor: pointer;
+
+}
 .closebtn{
     margin-left: 90%;
     margin-top:6%;
