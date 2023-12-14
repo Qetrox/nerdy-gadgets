@@ -10,11 +10,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Controleer of het ingevoerde antwoord overeenkomt met het verwachte antwoord
     if ($ingevoerdAntwoord == $verwachtAntwoord) {
         // Het antwoord is correct, stuur door naar een andere pagina
-        header("https://nerdy-gadgets.nl/eastereggmo/gameroom.php");
+        header("Location: https://nerdy-gadgets.nl/eastereggmo/gameroom.php");
         exit(); // Zorg ervoor dat het script hier wordt afgesloten na doorsturen
     } else {
         // Het antwoord is onjuist, toon een foutmelding
-        echo "Helaas, het antwoord is niet correct. Probeer opnieuw.";
+        $foutmelding = "Helaas, het antwoord is niet correct. Probeer opnieuw.";
     }
 }
 ?>
