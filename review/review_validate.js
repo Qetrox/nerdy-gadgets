@@ -17,6 +17,12 @@ validate
 .addField("#beoordeling", [
     {
         rule: "required",
+        rule: 'integer',
+        rule: 'minNumber',
+        value: 1,
+        rule: 'maxNumber',
+        value: 5,
+
     },
 ])
 
