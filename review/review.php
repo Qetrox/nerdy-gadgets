@@ -45,11 +45,12 @@
         <div class="g-recaptcha" data-sitekey="6Lf8iSkpAAAAAJdHgMIZb4RhtMcSXm4skdxLGqIW"></div>
         <input type="submit" value="Verstuur review">
     </form>
+    <h1> <b>Reviews kunnen alleen met een account geplaats worden!</b></h1>
 
     <?php
     include('connection.php');
 
-    function reCaptcha($recaptcha){
+    function reCaptcha($recaptcha) {
         $secret = "6Lf8iSkpAAAAAFbFEA0R-aO4cKzD8fzEvf2Ui6xE";
         if(isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
             $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
@@ -76,7 +77,10 @@
     // Controleer of het formulier is ingediend
     if (isset($_POST['naam'], $_POST['beoordeling'], $_POST['opmerkingen'], $_SESSION["first_name"]) && $res['success'] == 1) {
         $naam = $_POST['naam'];
-        $beoordeling = $_POST['beoordeling'];
+
+        // Ensure the beoordeling is between 1 and 5
+        $beoordeling = max(5, min(1, (int)$_POST['beoordeling']));
+
         $opmerkingen = $_POST['opmerkingen'];
 
         // Voeg gegevens toe aan de database
@@ -91,8 +95,10 @@
 
         $stmt->close();
     }
+
     $conn->close();
     ?>
+
 
     <footer>
 
