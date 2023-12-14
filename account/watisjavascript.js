@@ -1,7 +1,7 @@
 
 const validator = new JustValidate('#registratie', {
-        errorFieldCssClass: "just-validate-error-field",
-        successFieldCssClass: ['just-validate-sucess-field'],
+        errorFieldCssClass: "validate-error-field",
+        successFieldCssClass: ['validate-sucess-field'],
         errorLabelStyle: {
             color: 'white',
         },
@@ -91,9 +91,6 @@ validator
             rule: "strongPassword",
         }
     ])
-
-
-
 
 
 

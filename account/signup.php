@@ -69,7 +69,7 @@ values (?,?,?,?,?,?,?,?,?)";
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
      <link rel="stylesheet" href="../base_stylesheet.css">
-    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"     ></script>
+    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"    defer ></script>
     <script src ="./watisjavascript.js"  defer    ></script>
     <script src="../index.js" defer ></script>
 
