@@ -9,7 +9,7 @@
             <a href="https://www.Nerdy-Gadgets.nl/#about">Over ons</a><br>
             <a href="https://www.Nerdy-Gadgets.nl/legal/privacy/">Legaal</a><br>
             <a href="https://www.Nerdy-Gadgets.nl/search/">Producten</a><br>
-            <a href="https://www.Nerdy-Gadgets.nl/">Home</a>
+            <a href="https://www.Nerdy-Gadgets.nl/">Home</a><br>
             <a href="https://nerdy-gadgets.nl/eastereggmo/gameroom.php">Geheime kamer</a>
             <br><br>
 
