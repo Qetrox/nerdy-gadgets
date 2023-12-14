@@ -1,4 +1,6 @@
 
+
+
 <!DOCTYPE html>
 <html lang="nl-nl" xmlns="http://www.w3.org/1999/html">
 
@@ -23,39 +25,20 @@
     <link rel="stylesheet" href="../base_stylesheet.css">
     <link rel="stylesheet" href="../stylesheet.css">
     <link rel="stylesheet" href="../load.css">
-    <link rel="stylesheet" href="easteregg%20mo.css">
 </head>
 
 <div class="loaderscreen"></div>
 <body>
 <?php include_once '../header.php'?>
+<center><h2> Versla de highscore!</h2></center>
+<center><h1> Ben jij een echte nerd!</h1></center>
 <main>
-   <div class="floatleft"> <a href="https://nerdy-gadgets.nl/eastereggmo/bubble.php">
-        <button>
-            <img src="https://play-lh.googleusercontent.com/3Zifc-6g-1GFfxy2VXT6i3mH8ZzLXN2ZbAOw8JIpXBqZujBACjzJkhSw7Cm8jY0VIA" alt="Bubbleblaster">
-        </button>
-    </a>
-   </div>
-   <center> <a href="https://nerdy-gadgets.nl/eastereggmo/tetris.php">
-        <button>
-            <img src="https://play-lh.googleusercontent.com/7Zn2QBzByBf4XyQPhuRVsOkSaKSYsty1ka-6_bh6Ub-2kQri6xqqRdK52qxEM69N6cw "" alt="Tetris">
-        </button>
-    </a>
-   </center>
-    <div class="floatright"></div> <a href="https://nerdy-gadgets.nl/eastereggmo/dark.php">
-        <button>
-            <img src="https://escaperoomers.de/wp-content/uploads/StayInTheDark1.jpg" alt="stay in the dark">
-        </button>
-    </a>
+    <center><div><script src="https://cdn.htmlgames.com/embed.js?game=CookieMonster&amp;bgcolor=white"></script></div></center>
 
-    <div class="floatleft"> <a href="https://nerdy-gadgets.nl/eastereggmo/cookie.php">
-            <button>
-                <img src="https://i.pinimg.com/originals/9e/b6/82/9eb6820ebddc50cac7ff2f68bed4e20c.jpg" alt="pacman">
-            </button>
-</div>
 </main>
 <?php include_once '../footer/footer.php' ?>
 </body>
+
 <script src="../typewriter.js"></script>
 
 </html>
