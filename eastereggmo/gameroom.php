@@ -21,38 +21,44 @@
     <meta name="theme-color" content="#ffffff">
     <script src="../index.js"></script>
     <link rel="stylesheet" href="../base_stylesheet.css">
-    <link rel="stylesheet" href="../stylesheet.css">
+    <link rel="stylesheet" href="stylesheet.css">
     <link rel="stylesheet" href="../load.css">
-    <link rel="stylesheet" href="easteregg%20mo.css">
 </head>
 
 <div class="loaderscreen"></div>
 <body>
 <?php include_once '../header.php'?>
 <main>
-   <div class="floatleft"> <a href="https://nerdy-gadgets.nl/eastereggmo/bubble.php">
+   <div>
+       <a href="https://nerdy-gadgets.nl/eastereggmo/bubble.php">
         <button>
             <img src="https://play-lh.googleusercontent.com/3Zifc-6g-1GFfxy2VXT6i3mH8ZzLXN2ZbAOw8JIpXBqZujBACjzJkhSw7Cm8jY0VIA" alt="Bubbleblaster">
         </button>
     </a>
    </div>
-   <center> <a href="https://nerdy-gadgets.nl/eastereggmo/tetris.php">
+   <div>
+       <a href="https://nerdy-gadgets.nl/eastereggmo/tetris.php">
         <button>
-            <img src="https://play-lh.googleusercontent.com/7Zn2QBzByBf4XyQPhuRVsOkSaKSYsty1ka-6_bh6Ub-2kQri6xqqRdK52qxEM69N6cw "" alt="Tetris">
+            <img src="https://play-lh.googleusercontent.com/7Zn2QBzByBf4XyQPhuRVsOkSaKSYsty1ka-6_bh6Ub-2kQri6xqqRdK52qxEM69N6cw " alt="Tetris">
         </button>
     </a>
-   </center>
-    <div class="floatright"></div> <a href="https://nerdy-gadgets.nl/eastereggmo/dark.php">
-        <button>
-            <img src="https://escaperoomers.de/wp-content/uploads/StayInTheDark1.jpg" alt="stay in the dark">
-        </button>
-    </a>
+   </div>
 
-    <div class="floatleft"> <a href="https://nerdy-gadgets.nl/eastereggmo/cookie.php">
+    <div>
+        <a href="https://nerdy-gadgets.nl/eastereggmo/dark.php">
+            <button>
+                <img src="https://escaperoomers.de/wp-content/uploads/StayInTheDark1.jpg" alt="stay in the dark">
+            </button>
+        </a>
+    </div>
+
+    <div>
+        <a href="https://nerdy-gadgets.nl/eastereggmo/cookie.php">
             <button>
                 <img src="https://i.pinimg.com/originals/9e/b6/82/9eb6820ebddc50cac7ff2f68bed4e20c.jpg" alt="pacman">
             </button>
-</div>
+        </a>
+    </div>
 </main>
 <?php include_once '../footer/footer.php' ?>
 </body>
