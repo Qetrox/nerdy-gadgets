@@ -125,10 +125,6 @@
     font-size: 3vw;
     margin: 0;
 }
-.stars{
-
-    display: flex;
-}
 .sternummeritem{
     margin-top: 0.75em;
     margin-left: -0.48em;
@@ -141,13 +137,15 @@
 
 
 .reviewpopup{
-    margin-top: -126em;
+    margin-top: -25em;
     position: fixed;
     background: rgb(0,0,0, 0.3);
     width: 156em;
     height: 100em;
     transition: ease-in-out all 2000ms;
     scale: 100%;
+    position: fixed;
+    display: block;
 }
 
 .reviewpopupbackground{
@@ -170,21 +168,24 @@
 }
 
 .reviewschrijven{
-    margin-left: 3em;
+    margin-left: 4em;
     cursor: pointer;
-
 }
 .closebtn{
     margin-left: 90%;
     margin-top:6%;
     scale: 225%;
     width: 3.1%;
+
 }
+
+
 .closebtn:hover{
     cursor: pointer;
     background: #555555;
     opacity: 99%;
     border-radius: 300em;
+    transition: ease-in-out all 400ms;
 }
 
 .reviewpopupforms{
@@ -200,12 +201,12 @@
     border-style: solid;
 }
 
-
-
+.reviewmain{
+}
 .reviewbackground{
     width: 12em;
     height: 3em;
-    background: #FF0000;
+    background: #212121;
     border: white;
     border-style: solid;
     border-radius: 0.7em;
@@ -213,11 +214,23 @@
     display: flex;
     transition: ease-in-out all 200ms;
 }
+
+
 .reviewbackground:hover{
-    opacity: 75%;
-    background: #FF0000;
+    opacity: 99%;
+    background: darkgrey;
 
 }
+
+.reviewbekijkenbox{
+    width: 80%;
+    height: 15%;
+    background: white;
+    border-radius: 10em;
+    margin-left: 2em;
+}
+
+
 
 @media only screen and (max-width: 900px) {
 
