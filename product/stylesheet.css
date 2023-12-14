@@ -143,11 +143,13 @@
 }
 .reviewpopup{
     z-index: 1;
-    margin-top: -25em;
+    margin-top: -25%;
     position: fixed;
     background: rgb(0,0,0, 0.3);
-    width: 156em;
-    height: 100em;
+    width: 200%;
+    height: 175%;
+    max-width: 156em;
+    max-height: 100em;
     transition: all 2000ms ease;
     scale: 100%;
     position: fixed;
@@ -156,11 +158,11 @@
 
 .reviewpopupbackground{
     transition: all 2000ms ease;
-    width: 50em;
-    height: 50em;
+    width: 25%;
+    height: 36%;
     background: #212121;
-    margin-left: 36em;
-    margin-top: 18em;
+    margin-left: 20%;
+    margin-top: 12%;
     border: grey;
     border-style: solid;
     border-radius: 1em;
@@ -209,8 +211,8 @@
 }
 
 .opmerkingen{
-    width: 30em;
-    height: 9em;
+    width: 90%;
+    height: 20%;
     border-radius: 0.2em;
     border-style: solid;
 }
@@ -237,7 +239,7 @@
 }
 
 .reviewbekijkenbox{
-    width: 60%;
+    width: 50%;
     height: 25%;
     background: white;
     border-radius: 1em;

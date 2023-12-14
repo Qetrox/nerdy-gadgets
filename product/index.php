@@ -237,7 +237,7 @@ if ($starhalf == TRUE) { //als er een halve ster is
             <a class="reviewpopupforms">
                 <form action="" style="margin-left: 3em" method="post" >
                     <h3 style="padding-right: 2em; margin-top: 0"><?php echo htmlspecialchars($title) ?></h3>
-                    <p style="scale: 70%; margin-top: -1em; margin-left: -8.5em">  productID:<?php echo $_GET["productId"] ?></p>
+                    <p style="scale: 70%; margin-top: -1em; margin-left: -6.5em">  productID:<?php echo $_GET["productId"] ?></p>
                     <p> Naam: <?= htmlspecialchars($_SESSION["first_name"]) ?> </p>
 
 
@@ -309,7 +309,7 @@ if ($starhalf == TRUE) { //als er een halve ster is
 
                             //voegt het toe aan database
                             $stmt = $conn->prepare("INSERT INTO itemreview (productid, ster, opmerking, titel, naam, email) VALUES (?, ?, ?, ?, ?, ?)"); //bereidt de query voor
-                            $stmt->bind_param("iissss", $productid, $starcount, $opmerking, $titel, $naam, $email);
+                            $stmt->bind_param("idssss", $productid, $starcount, $opmerking, $titel, $naam, $email);
                             // |> met de values uit de inputs de iisss is voor integer integer string string string
 
 
@@ -407,6 +407,15 @@ if ($starhalf == TRUE) { //als er een halve ster is
                 $ster = htmlspecialchars($row['ster']);
                 $naam =  htmlspecialchars($row['naam']);
                 $opmerking = htmlspecialchars($row['opmerking']);
+                $ster2 = $ster; //behoudt ster score voor later
+                $ster2 = ("(". $ster2. "/5".")");
+
+
+                $titel  = strtolower($titel); //maakt titel lowercase volledig
+                $titel = ucfirst($titel);  // maakt eerste letter titel hoofdletter
+                $opmerking = ucfirst($opmerking); //maakt eerste letter opmerking hoofdletter
+
+
                 if(round($ster) != $ster){
                     $starhalf = TRUE;
                     $ster = round($ster) - 1; // round de $ster variabel omdat er een ster helft is en doet dat - 1 omdat round(2.5) 3 maakt
@@ -417,18 +426,18 @@ if ($starhalf == TRUE) { //als er een halve ster is
 
                 $stertekst = "star ";
                 if ($starhalf == TRUE) { //als er een halve ster is
-                    $stertekst = ($stertekst . "star_half" . (str_repeat(" star_border", 4 - $ster))); //print
+                    $stertekst = (str_repeat($stertekst, $ster) . "star_half" . (str_repeat(" star_border", 4 - $ster))); //print
                 } else {
-                    $stertekst = ($stertekst . (str_repeat(" star_border", 5 - $ster)));
+                    $stertekst = (str_repeat($stertekst, $ster) . (str_repeat(" star_border", 5 - $ster)));
                 }
 
-                print("<div class='reviewtitel' style='margin-left: 1.6em; margin-top: 0.5em;'>");
-                print( $titel . "</div>");
-                print("<div class='material-icons' id='reviewster' style='margin-left: 2em'> ");
-                print( $stertekst . "</div>");
-                print("<div class='reviewnaam' style='margin-left: 2em'> ");
-                print( $naam . "</div>");
-                print("<div class='reviewopmerking' style='margin-left: 2em'>opmerking: ");
+                print("<div class='reviewtitel' style='margin-left: 1.6em; margin-top: 0.5em;'><h2>");
+                print( $titel . "</h2></div>");
+                print("<div class='material-icons' id='reviewster' style='color: gold; margin-left: 1em; margin-top: -0.5em'> ");
+                print( $stertekst. "</div><h3 style='margin-top: -1.3em; margin-left: 9.5em;'>". $ster2. "</h3>");
+                print("<div class='reviewnaam' style='border-bottom: 2px solid black; margin-left: 1.6em'> Door: ");
+                print( "   ". $naam . "<br><br></div>");
+                print("<div class='reviewopmerking' style='margin-left: 1.6em'><br> ");
                 print( $opmerking . "</div></div>");
             }
         } else {
