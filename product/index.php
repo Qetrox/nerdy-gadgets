@@ -235,7 +235,7 @@ if ($starhalf == TRUE) { //als er een halve ster is
                 <div class="material-symbols-outlined">close</div>
             </div>
             <a class="reviewpopupforms">
-                <form style="margin-left: 3em" method="post" >
+                <form style="margin-left: 3em" method="post" action  >
                     <h3 style="padding-right: 2em; margin-top: 0"><?php echo htmlspecialchars($title) ?></h3>
                     <p style="scale: 70%; margin-top: -1em; margin-left: -6.5em">  productID:<?php echo $_GET["productId"] ?></p>
                     <p> Naam: <?= htmlspecialchars($_SESSION["first_name"]) ?> </p>
@@ -290,50 +290,29 @@ if ($starhalf == TRUE) { //als er een halve ster is
 
                     <br><br>
 
-                    <button type="button" value="Verzend" style=" width: 5em; height: 2em; cursor: pointer;">Verzend</button>
+                    <button type="submit" value="Verzend" style=" width: 5em; height: 2em; cursor: pointer;" onclick="saveScrollPosition()">Verzend</button>
                 </form>
-                <div class="errorcode" style="margin-left: 9%;   border: 2px solid; border-color: red; border-width: 1px; width: 80%">
 
-                    <?php
-                    //kijkt of dat alles ingevuld is in de review
-
-                    if(isset($_SESSION['first_name'])) {
-                        if (isset($_POST['starcount'], $_POST['titel'], $_POST['opmerking'])) { // als in de inputs alles is ingevuld dan
-                            $starcount = $_POST['starcount']; //maakt variabel $starcount uit de input form met name 'starcount'
-                            $titel = $_POST['titel'];
-                            $opmerking = $_POST['opmerking'];
-                            $naam = $_SESSION['first_name'];
-                            $productid = $_GET['productId']; //haalt productId uit get
-                            $email = $_SESSION['email']; //haalt email uit session
-
-
-                            //voegt het toe aan database
-                            $stmt = $conn->prepare("INSERT INTO itemreview (productid, ster, opmerking, titel, naam, email) VALUES (?, ?, ?, ?, ?, ?)"); //bereidt de query voor
-                            $stmt->bind_param("idssss", $productid, $starcount, $opmerking, $titel, $naam, $email);
-                            // |> met de values uit de inputs de iisss is voor integer integer string string string
-
-
-                            try { //probeer de query uit
-                                if ($stmt->execute()) { //als de query is geexecute dan
-                                    echo 'Uw review is opgeslagen!';
-                                    exit; //stopt query
-                                }
-                            } catch (mysqli_sql_exception $e) {
-                                if ($e->getCode() === 1062) {
-                                   echo '   * U heeft al een review geschreven voor dit product.';
-
-                                } else {
-                                    echo 'error: kaput#001';
-                                    exit;
-                                }
-                            }
-                        }
+                <script>
+                    //moet de y positie saven want elke product descriptie een andere y level heeft
+                    // saved de y positie op verzend klikken
+                    function saveScrollPosition() {
+                        var y = window.scrollY || window.pageYOffset;
+                        sessionStorage.setItem('ypositiereview', y);
                     }
 
-                        $conn->close();
-                    ?>
+                    // Restore scroll position on page load
+                    window.onload = function() { //op website reload
+                        var yPos = sessionStorage.getItem('ypositiereview'); //variable ypos = ypositiereview
+                        if (yPos !== null) { // als ypos niet null is
+                            window.scrollTo(0, yPos); // scroll naar ypos
+                            sessionStorage.removeItem('ypositiereview'); // verwijderd ypos na scrollen
+                        }
+                    };
+                </script>
 
-                    </div>
+
+
             </a>
         </div>
     </div>
@@ -393,6 +372,48 @@ if ($starhalf == TRUE) { //als er een halve ster is
 
 
 <!--hieronder maakt de reviews die je onder de items kan zien-->
+        <div class="errorcode" style="margin-left: 3%; margin-top: 1p  border: 1px solid; border-color: red; width: 80%">
+
+            <?php
+            //kijkt of dat alles ingevuld is in de review
+
+            if(isset($_SESSION['first_name'])) {
+                if (isset($_POST['starcount'], $_POST['titel'], $_POST['opmerking'])) { // als in de inputs alles is ingevuld dan
+                    $starcount = $_POST['starcount']; //maakt variabel $starcount uit de input form met name 'starcount'
+                    $titel = $_POST['titel'];
+                    $opmerking = $_POST['opmerking'];
+                    $naam = $_SESSION['first_name'];
+                    $productid = $_GET['productId']; //haalt productId uit get
+                    $email = $_SESSION['email']; //haalt email uit session
+
+
+                    //voegt het toe aan database
+                    $stmt = $conn->prepare("INSERT INTO itemreview (productid, ster, opmerking, titel, naam, email) VALUES (?, ?, ?, ?, ?, ?)"); //bereidt de query voor
+                    $stmt->bind_param("idssss", $productid, $starcount, $opmerking, $titel, $naam, $email);
+                    // |> met de values uit de inputs de iisss is voor integer integer string string string
+
+
+                    try { //probeer de query uit
+                        if ($stmt->execute()) { //als de query is geexecute dan
+                            echo 'Uw review is opgeslagen!';
+                            exit; //stopt query
+                        }
+                    } catch (mysqli_sql_exception $e) {
+                        if ($e->getCode() === 1062) {
+                            echo '* U heeft al een review geschreven voor dit product.';
+
+                        } else {
+                            echo 'error: kaput#001';
+                            exit;
+                        }
+                    }
+                }
+            }
+
+            $conn->close();
+            ?>
+
+        </div>
         <div class="reviewbekijken" style="margin-top: 2em" id="reviewbekijken">
             <?php
             include('../review/connection.php');
