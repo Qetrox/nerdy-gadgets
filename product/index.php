@@ -1,10 +1,10 @@
 <?php
 session_start();
-if(!isset($_GET["productId"])) { // Als er geen productId is meegegeven, redirect naar search pagina
+if (!isset($_GET["productId"])) { // Als er geen productId is meegegeven, redirect naar search pagina
     header('location: ../search/'); // Redirect naar search pagina
 } else {
     // Opslaan van bekeken producten
-    if(isset($_COOKIE["viewedProducts"])) { // Als er een viewedProducts cookie is, zet deze dan in een array
+    if (isset($_COOKIE["viewedProducts"])) { // Als er een viewedProducts cookie is, zet deze dan in een array
         $viewedProducts = json_decode($_COOKIE["viewedProducts"]); // Zet cookie om naar array
         array_push($viewedProducts, $_GET["productId"]); // Voeg productId toe aan viewedProducts array
     } else { // Als er geen viewedProducts cookie is, maak dan een lege array
@@ -12,19 +12,19 @@ if(!isset($_GET["productId"])) { // Als er geen productId is meegegeven, redirec
         $viewedProducts[] = $_GET["productId"]; // Voeg productId toe aan viewedProducts array
     }
     // Als er meer dan 3 producten in de array zitten haal de oudste eruit
-    if(isset($viewedProducts[3])) {
+    if (isset($viewedProducts[3])) {
         array_splice($viewedProducts, 0, count($viewedProducts) - 3);
     }
     // Zet cookie met viewedProducts array met 30 dagen geldigheid
     setcookie("viewedProducts", json_encode($viewedProducts), time() + (86400 * 30), "/");
 
-    if(isset($_COOKIE["cartList"])) { // Als er een cartList cookie is, zet deze dan in een array
+    if (isset($_COOKIE["cartList"])) { // Als er een cartList cookie is, zet deze dan in een array
         $cartListItems = json_decode($_COOKIE["cartList"]); // Zet cookie om naar array
     } else { // Als er geen cartList cookie is, maak dan een lege array
         $cartListItems = array();
     }
 
-    if(isset($_GET["addProduct"]) && $_GET["addProduct"] == "true") { // Als er een productId is meegegeven, voeg deze dan toe aan de cartList cookie
+    if (isset($_GET["addProduct"]) && $_GET["addProduct"] == "true") { // Als er een productId is meegegeven, voeg deze dan toe aan de cartList cookie
         array_push($cartListItems, $_GET["productId"]); // Voeg productId toe aan cartList array
         setcookie("cartList", json_encode($cartListItems), time() + (86400 * 30), "/"); // Zet cookie met cartList array met 30 dagen geldigheid
         header('location: ./?productId=' . $_GET["productId"]); // Redirect naar product pagina
@@ -55,7 +55,7 @@ if(!isset($_GET["productId"])) { // Als er geen productId is meegegeven, redirec
     $stmt->execute(); // Voer statement uit
     $result = $stmt->get_result(); // Haal resultaten op
     if ($result->num_rows > 0) { // Als er resultaten zijn
-        while($row = $result->fetch_assoc()) { // Loop door resultaten
+        while ($row = $result->fetch_assoc()) { // Loop door resultaten
             $title = $row["productName"]; // Zet product info in variabelen
             $image = $row["productImage"];
             $image2 = $row["productImage2"];
@@ -68,13 +68,13 @@ if(!isset($_GET["productId"])) { // Als er geen productId is meegegeven, redirec
             $category = $row["productCategory"];
             $stars = $row["productStars"];
         }
-        if($discount > 0) { // Als er korting is
+        if ($discount > 0) { // Als er korting is
             $newPrice = $price * (1 - $discount / 100); // Bereken prijs met discount
-            $priceHtml = '<span class="kortingsprijs">€' . number_format((float)$price, 2, '.', '') . '</span> €' .number_format((float)$newPrice, 2, '.', ''); // Zet prijs in HTML
+            $priceHtml = '<span class="kortingsprijs">€' . number_format((float)$price, 2, '.', '') . '</span> €' . number_format((float)$newPrice, 2, '.', ''); // Zet prijs in HTML
         } else {
             $priceHtml = '€' . $price;
         }
-        switch($stars) { // Zet sterren om in HTML
+        switch ($stars) { // Zet sterren om in HTML
             case 1:
                 $starHtml = "star_rate";
                 break;
@@ -96,13 +96,13 @@ if(!isset($_GET["productId"])) { // Als er geen productId is meegegeven, redirec
 
     $imageSwitchHtml = ''; // Zet image switch HTML op leeg
 
-    if ($image2 != '' &&  $image2 != null) { // Als er een tweede image is
+    if ($image2 != '' && $image2 != null) { // Als er een tweede image is
         $imageSwitchHtml = '<div><p id="b1" class="hoverme" onclick="switchToImage(1)">1</p><p id="b2" class="hoverme" onclick="switchToImage(2)">2</p></div>';
 
-        if ($image3 != '' &&  $image3 != null) { // Als er een derde image is
+        if ($image3 != '' && $image3 != null) { // Als er een derde image is
             $imageSwitchHtml = '<div><p id="b1" class="hoverme" onclick="switchToImage(1)">1</p><p id="b2" class="hoverme" onclick="switchToImage(2)">2</p><p id="b3" class="hoverme" onclick="switchToImage(3)">3</p></div>';
 
-            if ($image4 != '' &&  $image4 != null) { // Als er een vierde image is
+            if ($image4 != '' && $image4 != null) { // Als er een vierde image is
                 $imageSwitchHtml = '<div><p id="b1" class="hoverme" onclick="switchToImage(1)">1</p><p id="b2" class="hoverme" onclick="switchToImage(2)">2</p><p class="hoverme" id="b3" onclick="switchToImage(3)">3</p><p id="b4" class="hoverme" onclick="switchToImage(4)">4</p></div>';
             }
         }
@@ -112,17 +112,16 @@ if(!isset($_GET["productId"])) { // Als er geen productId is meegegeven, redirec
 //begin code Sterren reviews, en andere dingen.
 // $reviewstmt = $conn->prepare("SELECT * FROM reviewitem = ?"); //bereid review statement
 
-$sterren = "1";
-$sterrenaantal = "(". "11". ")";
+$sterren = "3";
+$sterrenaantal = "(" . "11" . ")";
 $starhalf = FALSE;
-$stertekst = (str_repeat("star", $sterren));
-$sterrenavg = "1.0". "/5";
-if ($starhalf == TRUE){ //als er een halve ster is
-    $stertekst = ($stertekst. " star_half". (str_repeat(" star_border", 4-$sterren )));
+$stertekst = (str_repeat("star ", $sterren));
+$sterrenavg = "1.0" . "/5";
+if ($starhalf == TRUE) { //als er een halve ster is
+    $stertekst = ($stertekst . "star_half" . (str_repeat(" star_border", 4 - $sterren)));
 } else {
-    $stertekst = ($stertekst. (str_repeat(" star_border", 5-$sterren)). "3");
+    $stertekst = ($stertekst . (str_repeat(" star_border", 5 - $sterren)) . "3");
 }
-
 
 
 ?>
@@ -140,7 +139,8 @@ if ($starhalf == TRUE){ //als er een halve ster is
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
     <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
     <link href="https://fonts.google.com/icons?selected=Material%20Icons%20Outlined%3Astar%3A"/>
     <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
@@ -154,13 +154,15 @@ if ($starhalf == TRUE){ //als er een halve ster is
     <link rel="stylesheet" href="stylesheet.css">
     <link rel="stylesheet" href="../stylesheet.css">
     <link rel="stylesheet" href="../load.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" /> <!-- half star icon-->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+    <!-- half star icon-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="../index.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
 
     <script>
-
 
 
         function switchToImage(imagenumber) { // Switch naar image
@@ -169,7 +171,7 @@ if ($starhalf == TRUE){ //als er een halve ster is
             const b2 = document.getElementById('b2');
             const b3 = document.getElementById('b3');
             const b4 = document.getElementById('b4');
-            if(imagenumber > 4) return;
+            if (imagenumber > 4) return;
             switch (imagenumber) {
                 case 1:
                     try {
@@ -225,10 +227,92 @@ if ($starhalf == TRUE){ //als er een halve ster is
 <body>
 <?php include_once '../header.php'?>
 <main> <!-- Hier de content van de pagina in doen :) -->
+    <!-- dit is de popup van de review -->
+    <div class="reviewpopup" id="reviewpopup">
+        <div class="reviewpopupbackground" id="reviewpopupbackground">
+            <div class="closebtn" onclick="showreviewpopup()">
+                <div class="material-symbols-outlined">close</div>
+            </div>
+            <a class="reviewpopupforms">
+                <form action="" novalidate style="margin-left: 3em" method="post">
+                    <h3 style="padding-right: 2em; margin-top: 0"><?php echo htmlspecialchars($title) ?></h3>
+                    <p style="scale: 70%; margin-top: -1em; margin-left: -8.5em">  productID:<?php echo $_GET["productId"] ?></p>
+                    <p> Naam: <?= htmlspecialchars($_SESSION["first_name"]) ?> </p>
+
+
+                    Hoeveel sterren geeft u dit product?
+                    <br>
+                                <div class="material-icons" id="star1"><?php print($stertekst); ?></div>
+                    <br>
+
+                        <!--  //round(2.49x2) = 5/2 = 2.5
+                        if round($ster * 2)/2 != $ster;
+                        $sterhalf=true;
+                        $ster = round($ster);
+                         -->
+                        <input name="starcount" style="width: 4em" type="number" max="5" placeholder="1-5" step="0.5" min="1" required>
+                    <br><br>
+                    <input class="Titel" type="text" maxlength="50" placeholder="Titel" name="titel" required>
+                    <br><br>
+                    <textarea name="opmerking" class="opmerkingen" type="text" maxlength="500" placeholder="Plaats hier uw opmerking" required></textarea>
+
+                    <br><br><br>
+
+                    <button type="submit" value="Verzend" style=" width: 5em; height: 2em; cursor: pointer;">Verzend</button>
+                </form>
+                <div class="errorcode">
+
+                    <?php
+                    //kijkt of dat alles ingevuld is in de review
+
+                    if(isset($_SESSION['first_name'])) {
+                        if (isset($_POST['starcount'], $_POST['titel'], $_POST['opmerking'])) {
+                            $starcount = $_POST['starcount']; //maakt variabel $starcount uit de input form met name 'starcount'
+                            $titel = $_POST['titel'];
+                            $opmerking = $_POST['opmerking'];
+                            $naam = $_SESSION['first_name'];
+                            $productid = $_GET['productId'];
+                            $email = $_SESSION['email'];
+
+
+                            //voegt het toe aan database
+                            $stmt = $conn->prepare("INSERT INTO itemreview (productid, ster, opmerking, titel, naam, email) VALUES (?, ?, ?, ?, ?, ?)");
+                            $stmt->bind_param("iissss", $productid, $starcount, $opmerking, $titel, $naam, $email);
+
+
+                            try {
+                                if ($stmt->execute()) {
+                                    header("Location: sucess.html");
+                                    echo 'Uw review is opgeslagen!';
+                                    exit;
+                                }
+                            } catch (mysqli_sql_exception $e) {
+                                if ($e->getCode() === 1062) {
+                                    header("Location: duplicate.html");
+                                    exit;
+                                } else {
+                                    header("Location: error.html");
+                                    exit;
+                                }
+                            }
+                        }
+                    }
+
+                        $conn->close();
+                    ?>
+
+                    </div>
+            </a>
+        </div>
+    </div>
+    </div>
+    </div>
+
     <div class="product">
         <h1><?php echo htmlspecialchars($title) ?></h1>
 
-        <h3 class="tags">Merk: <span style="text-decoration: underline"><?php echo htmlspecialchars($brand) ?></span> - Categorie: <span style="text-decoration: underline"><?php echo htmlspecialchars($category) ?></span></h3>
+        <h3 class="tags">Merk: <span style="text-decoration: underline"><?php echo htmlspecialchars($brand) ?></span> -
+            Categorie: <span style="text-decoration: underline"><?php echo htmlspecialchars($category) ?></span></h3>
         <div class="naastDeImage">
             <div class="aaaaah">
                 <img id="product-image" src="../images/<?php echo $image; ?>" alt="resultaat">
@@ -242,14 +326,19 @@ if ($starhalf == TRUE){ //als er een halve ster is
                     <p class="voorraad">Op Voorraad: 232<br>Leverancier: 25.342</p>
                 </div>
                 <div class="mobile-extend">
-                    <button class="addToCart" onclick="IWANTTHISITEM()"><p class="winkelwagentekst"><span class="material-symbols-sharp" style="transform: translateY(20%)">shopping_cart</span> In winkelwagen</p></button>
-                   <div class="stars">
-                    <p class="star"><span class="material-icons"><?php print("$stertekst"); ?></span><div class="sternummeritem"><?php print($sterrenavg. ($sterrenaantal)); ?></div></p>
-                   </div>
+                    <button class="addToCart" onclick="IWANTTHISITEM()"><p class="winkelwagentekst"><span
+                                    class="material-symbols-sharp"
+                                    style="transform: translateY(20%)">shopping_cart</span> In winkelwagen</p></button>
+                    <div class="stars">
+                        <p class="star"><span class="material-icons"><?php print("$stertekst"); ?></span>
+                        <div class="sternummeritem"><?php print($sterrenavg . ($sterrenaantal)); ?></div>
+                        </p>
+                    </div>
                     <p class="levertijd">Bestel voor 16:00, overmorgen in huis*</p>
                 </div>
-                    <h6 class="tijddisclaimer">*Wij doen ons best om uw bestelling op tijd te leveren, maar door drukte kan dit soms wat langer duren. Onze excuses hiervoor.</h6>
-                <div class ="reviewlinker">
+                <h6 class="tijddisclaimer">*Wij doen ons best om uw bestelling op tijd te leveren, maar door drukte kan
+                    dit soms wat langer duren. Onze excuses hiervoor.</h6>
+                <div class="reviewlinker">
                     <p>hallo</p>
 
                 </div>
@@ -259,39 +348,28 @@ if ($starhalf == TRUE){ //als er een halve ster is
         <p><?php echo $description ?></p>
 
     </div>
-    <div  class="reviewmain">
+    <div class="reviewmain">
         <div class="reviewschrijven " onclick="showreviewpopup()">
-            <div class="reviewbackground" >
-                <a style="margin-left: 1em; margin-top: 0.7em" >
+            <div class="reviewbackground">
+                <a style="margin-left: 1em; margin-top: 0.7em">
                     <?php //maak isset dat ingelogd moet zijn ?>
                     Review Toevoegen</a>
-                <div class="material-symbols-outlined" style="margin-top: -0.53em; margin-left: 0.2em" ><span> <br>add_circle</span></div>
-        </div>
-             </div>
-            <div class="reviewpopup" id="reviewpopup">
-                <div class="reviewpopupbackground" id="reviewpopupbackground">
-                    <div class="closebtn" onclick="showreviewpopup()">
-                        <div class="material-symbols-outlined">close</div>
-                    </div>
-                    <div class="reviewpopupforms">
-                        <h3><?php echo htmlspecialchars($title) ?></h3>
-                       <p> Naam: <?= htmlspecialchars($_SESSION["first_name"]) ?> </p>
-                        <br><br>
-                    Hoeveel sterren geeft u dit product?<br>
-                        <p class="star"><span class="material-icons"><?php print("$stertekst"); ?></span><div class="sternummeritem"><?php print($sterrenavg); ?></div></p>
-                        <input class="Titel" type="text" maxlength="50" x placeholder="Titel">
-                        <br><br>
-                        <textarea class="opmerkingen" type="text" maxlength="500" x placeholder="Plaats hier uw opmerking"></textarea>
-                        <br><br><br>
-                        <input type="submit" id="hallo" onclick="showreviewpopup()" style=" cursor: pointer;">
-                    </div>
+                <div class="material-symbols-outlined" style="margin-top: -0.53em; margin-left: 0.2em"><span> <br>add_circle</span>
                 </div>
-             </div>
-    </div>
-    <div class="reviewbekijken">
-Geen reviews op dit product :-(
+            </div>
+        </div>
 
-    </div>
+        <div class="reviewbekijken">
+            <?php if (isset($Reviews)) {
+                print("review is heel reviewerig hieronder");
+            } else {
+                print("Geen reviews op dit product :-(");
+            }
+
+            ?>
+            <div class="reviewbekijkenbox"
+
+        </div>
 </main>
 <?php include_once '../../footer/footer.php' ?>
 </body>
@@ -301,7 +379,7 @@ Geen reviews op dit product :-(
         let name = cname + "="; // Zet naam van cookie
         let decodedCookie = decodeURIComponent(document.cookie); // Decode cookie
         let ca = decodedCookie.split(';'); // Split cookie
-        for(let i = 0; i <ca.length; i++) { // Loop door cookie
+        for (let i = 0; i < ca.length; i++) { // Loop door cookie
             let c = ca[i]; // Zet cookie in variabele
             while (c.charAt(0) == ' ') { // Als er een spatie is, verwijder deze dan
                 c = c.substring(1); // Verwijder spatie
@@ -315,8 +393,8 @@ Geen reviews op dit product :-(
 
     function setCookie(cname, cvalue, exdays) { // Zet cookie
         const d = new Date(); // Maak nieuwe datum
-        d.setTime(d.getTime() + (exdays*24*60*60*1000)); // Zet datum
-        let expires = "expires="+ d.toUTCString(); // Zet datum in UTC string
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000)); // Zet datum
+        let expires = "expires=" + d.toUTCString(); // Zet datum in UTC string
         document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/"; // Zet cookie
     }
 
@@ -340,7 +418,7 @@ Geen reviews op dit product :-(
     try {
         const b1 = document.getElementById('b1'); // Haal image switch buttons op
         b1.style.borderBottom = '1px solid' // Zet border onder eerste button (Geen flauw idee waarom)
-    } catch(e) {
+    } catch (e) {
         //ssssh
     }
 </script>

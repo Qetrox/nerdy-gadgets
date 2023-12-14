@@ -1,4 +1,4 @@
-function showreviewpopup(){
+function showreviewpopup() {
       var x = document.getElementById("reviewpopup");
       if (x.style.display === "none") {
             x.style.display = "block";
@@ -7,3 +7,7 @@ function showreviewpopup(){
       }
 }
 
+function ingelogdcheck(){
+      var x = document.getElementById("reviewpopup");
+      x.style.opacity = "0";
+}
