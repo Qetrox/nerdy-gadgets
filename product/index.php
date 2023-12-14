@@ -288,11 +288,11 @@ if ($starhalf == TRUE) { //als er een halve ster is
                               required
                     ></textarea>
 
-                    <br><br><br>
+                    <br><br>
 
-                    <button type="submit" value="Verzend" style=" width: 5em; height: 2em; cursor: pointer;" onclick="showtruereviewpopup()">Verzend</button>
+                    <button type="button" value="Verzend" style=" width: 5em; height: 2em; cursor: pointer;">Verzend</button>
                 </form>
-                <div class="errorcode" style="margin-left: 5%;">
+                <div class="errorcode" style="margin-left: 9%;   border: 2px solid; border-color: red; border-width: 1px; width: 80%">
 
                     <?php
                     //kijkt of dat alles ingevuld is in de review
@@ -320,7 +320,7 @@ if ($starhalf == TRUE) { //als er een halve ster is
                                 }
                             } catch (mysqli_sql_exception $e) {
                                 if ($e->getCode() === 1062) {
-                                   echo 'U heeft al een review geschreven voor dit product.';
+                                   echo '   * U heeft al een review geschreven voor dit product.';
 
                                 } else {
                                     echo 'error: kaput#001';
@@ -390,7 +390,9 @@ if ($starhalf == TRUE) { //als er een halve ster is
                 </div>
             </div>
         </div>
-<!--hieronder maakt de reviews die je onder de item kan zien-->
+
+
+<!--hieronder maakt de reviews die je onder de items kan zien-->
         <div class="reviewbekijken" style="margin-top: 2em" id="reviewbekijken">
             <?php
             include('../review/connection.php');
