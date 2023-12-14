@@ -380,7 +380,7 @@ if ($starhalf == TRUE) { //als er een halve ster is
             </div>
         </div>
 <!--hieronder maakt de reviews die je onder de item kan zien-->
-        <div class="reviewbekijken" id="reviewbekijken">
+        <div class="reviewbekijken" style="margin-top: 2em" id="reviewbekijken">
             <?php
             include('../review/connection.php');
         $productID = $_GET["productId"]; //kijkt wat de productid is
@@ -391,10 +391,10 @@ if ($starhalf == TRUE) { //als er een halve ster is
                                       ORDER BY reviewid DESC"); //als productid overeen komt met database dan displayed hij alles op order van nieuwste reviews.
         if ($result->num_rows >= 1) {
             while ($row = $result->fetch_assoc()) {
-                echo '<div class="reviewbekijkenbox">';
-                echo "<h3 style='margin-left: 2em'>" . $row['titel'] . " <br>";
-                echo " " . $row['naam'] . " ";
-                echo "<br> " . $row['ster'] . "</h3> ";
+                echo '<div class="reviewbekijkenbox" style="margin-left: 2em; margin-top: 2em;" > <br>';
+                echo "<h3 style='margin-left: 1.6em; margin-top: 0.5em;'>" . $row['titel'] . " <br>";
+                echo " <h5 style='margin-left: 2em'> " .$row['ster'] . "</h5> ";
+                echo "<h5 style='margin-left: 2em'> " . $row['naam'] . "</h5></h3> ";
 
                 echo "<p style='margin-left: 2em'>opmerking: " . $row['opmerking'] . "</p></h3></div>";
             }
