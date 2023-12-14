@@ -142,6 +142,7 @@
 
 }
 .reviewpopup{
+    z-index: 1;
     margin-top: -25em;
     position: fixed;
     background: rgb(0,0,0, 0.3);

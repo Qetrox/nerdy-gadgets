@@ -7,6 +7,8 @@
         $ip = $_SERVER["REMOTE_ADDR"];
     }
 
+    $ip= '178.84.181.79';
+
     $curl = curl_init();
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($curl, CURLOPT_URL, 'http://ip-api.com/php/' . $ip);
@@ -24,11 +26,17 @@
     <link rel="stylesheet" href="accept_our_cookies.css">
     <script src="accept_our_cookies.js"></script>
 </head>
-<body>
+<body id="body">
+<div class="accept_our_cookies">
+    <div class="accept_our_cookies">
+        <h1 class="accept_our_cookies" id="_accept_our_cookies">U heeft op 'cookies afwijzen' geklikt.</h1>
+        <div class="accept_our_cookies" id="accept_our_cookies"></div>
+    </div>
+</div>
 <iframe
         id="--accept-me-cookies--"
-        width="600"
-        height="250"
+        width="100%"
+        height="100%"
         frameborder="0"
         scrolling="no"
         marginheight="0"
@@ -36,12 +44,6 @@
         src="https://maps.google.com/maps?q=<?php echo $result["lat"] ?>,<?php echo $result["lon"] ?>&hl=nl&z=14&amp;output=embed"
 >
 </iframe>
-<div class="accept_our_cookies">
-    <div class="accept_our_cookies">
-        <h1 class="accept_our_cookies" id="_accept_our_cookies">U heeft op 'cookies afwijzen' geklikt.</h1>
-        <div class="accept_our_cookies" id="accept_our_cookies"></div>
-    </div>
-</div>
 </body>
 <script>
     accept_our_cookies_();
