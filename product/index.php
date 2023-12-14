@@ -260,11 +260,7 @@ if ($starhalf == TRUE) { //als er een halve ster is
                                 </p>
                     <br>
 
-                        <!--  //round(2.49x2) = 5/2 = 2.5
-                        if round($ster * 2)/2 != $ster;
-                        $sterhalf=true;
-                        $ster = round($ster);
-                         -->
+
                     <input name="starcount"
                            class="starcountchange"
                            style="width: 4em"
@@ -406,15 +402,37 @@ if ($starhalf == TRUE) { //als er een halve ster is
                                       ORDER BY reviewid DESC"); //als productid overeen komt met database dan displayed hij alles op order van nieuwste reviews.
         if ($result->num_rows >= 1) {
             while ($row = $result->fetch_assoc()) {
-                echo '<div class="reviewbekijkenbox" style="margin-left: 2em; margin-top: 2em;" > <br>';
-                echo "<h3 style='margin-left: 1.6em; margin-top: 0.5em;'>" . htmlspecialchars($row['titel']) . " <br>";
-                echo " <h5 style='margin-left: 2em'> " .htmlspecialchars($row['ster']) . "</h5> ";
-                echo "<h5 style='margin-left: 2em'> " . htmlspecialchars($row['naam']) . "</h5></h3> ";
+                echo '<div class="reviewbekijkenbox" style="margin-left: 2em; margin-top: 2em;"> <br>';
+                $titel = htmlspecialchars($row['titel']);
+                $ster = htmlspecialchars($row['ster']);
+                $naam =  htmlspecialchars($row['naam']);
+                $opmerking = htmlspecialchars($row['opmerking']);
+                if(round($ster) != $ster){
+                    $starhalf = TRUE;
+                    $ster = round($ster) - 1; // round de $ster variabel omdat er een ster helft is en doet dat - 1 omdat round(2.5) 3 maakt
+                }else {
+                    $starhalf = FALSE; // maakt het dat het niet een extra ster helft geeft
+                    $ster = $ster; // doet niks (want ster is een heel getal.)
+                }
 
-                echo "<p style='margin-left: 2em'>opmerking: " . htmlspecialchars($row['opmerking']) . "</p></h3></div>";
+                $stertekst = "star ";
+                if ($starhalf == TRUE) { //als er een halve ster is
+                    $stertekst = ($stertekst . "star_half" . (str_repeat(" star_border", 4 - $ster))); //print
+                } else {
+                    $stertekst = ($stertekst . (str_repeat(" star_border", 5 - $ster)));
+                }
+
+                print("<div class='reviewtitel' style='margin-left: 1.6em; margin-top: 0.5em;'>");
+                print( $titel . "</div>");
+                print("<div class='material-icons' id='reviewster' style='margin-left: 2em'> ");
+                print( $stertekst . "</div>");
+                print("<div class='reviewnaam' style='margin-left: 2em'> ");
+                print( $naam . "</div>");
+                print("<div class='reviewopmerking' style='margin-left: 2em'>opmerking: ");
+                print( $opmerking . "</div></div>");
             }
         } else {
-            echo '<div style="color: red; margin-left: 4em; margin-top: 2em;" class="no-reviews">Geen reviews voor dit product gevonden.<br><br></div>';
+            echo '<div style="color: red; margin-left: 4em; margin-top: 2em;" class="no-reviews">Geen reviews voor dit product gevonden, Plaats er een.<br><br></div>';
         }
 
         $conn->close();
