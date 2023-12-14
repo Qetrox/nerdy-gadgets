@@ -240,10 +240,13 @@
     width: 60%;
     height: 25%;
     background: white;
-    border-radius: 3em;
+    border-radius: 1em;
     margin-left: 2em;
     color: #212121;
 }
+
+
+
 
 .aaaaah{
     border-right: grey;
