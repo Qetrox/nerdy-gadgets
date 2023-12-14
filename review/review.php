@@ -9,6 +9,8 @@
 <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
 <script src="https://www.google.com/recaptcha/api.js"></script>
+<script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"   defer ></script>
+<script src ="./review_validate.js" defer></script>
 <!-- stylesheet van deze pagina-->
 <link rel="stylesheet" type="text/css" href="reviewstyle.css">
 
@@ -29,10 +31,17 @@
     <br>
     <h1>Voeg een review toe</h1>
 
-    <form action="review.php" method="post">
-        <input type="text" name='naam' placeholder="naam" required><br>
-        <input type="number" name="beoordeling" placeholder="Beoordeling" min="1" max="5" required><br>
-        <textarea name="opmerkingen" placeholder="Opmerking"></textarea><br>
+    <form action="review.php" method="post" id = "review" novalidate>
+        <div>
+        <input type="text" name='naam' placeholder="naam" id = "naam" ><br>
+        </div>
+
+        <div>
+        <input type="number" name="beoordeling" placeholder="Beoordeling" min="1" max="5" id = "beoordeling" ><br>
+        </div>
+        <div>
+        <textarea name="opmerkingen" placeholder="Opmerking" id = "opmerking"></textarea><br>
+        </div>
         <div class="g-recaptcha" data-sitekey="6Lf8iSkpAAAAAJdHgMIZb4RhtMcSXm4skdxLGqIW"></div>
         <input type="submit" value="Verstuur review">
     </form>
@@ -81,10 +90,7 @@
         }
 
         $stmt->close();
-    } else {
-        echo "Formulier is niet correct ingediend.";
     }
-
     $conn->close();
     ?>
 
