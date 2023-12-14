@@ -15,6 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         // Het antwoord is onjuist, toon een foutmelding
         $foutmelding = "Helaas, het antwoord is niet correct. Probeer opnieuw.";
+        echo $foutmelding;
     }
 }
 ?>
@@ -47,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <?php include_once '../header.php'; ?>
 
 <main>
-    <center><h1> Wat zijn de eerste zes digits van PI? </h1></center>
+    <center><h1> Wat zijn de eerste 6 digits van π? </h1></center>
     <br>
     <br>
     <br>
