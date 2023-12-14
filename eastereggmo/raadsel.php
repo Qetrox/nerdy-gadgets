@@ -2,7 +2,7 @@
 // Controleer of het formulier is ingediend
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verwacht antwoord
-    $verwachtAntwoord = "314159";
+    $verwachtAntwoord = "3.14159";
 
     // Ontvang het ingevoerde antwoord
     $ingevoerdAntwoord = $_POST["antwoord"];
