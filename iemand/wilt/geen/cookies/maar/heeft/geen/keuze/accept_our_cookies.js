@@ -3,26 +3,6 @@ function accept_our_cookies__(accept_our_cookies) { //reset
     accept_our_cookies.style.width = '0';
 }
 
-/**
- * Functie om naar de volgende stap/titel te gaan.
- * @param _accept_our_cookies Titel element
- * @param accept_our_cookies Laad element
- * @param titel Titel van de stap
- * @param delay Hoeveel ms voordat het activeert
- */
-function step(_accept_our_cookies, accept_our_cookies, titel, delay) {
-    setTimeout(() => {
-        _accept_our_cookies.innerHTML = titel;
-        _accept_our_cookies.style.opacity = 1;
-        accept_our_cookies.style.transition = 'all 5s ease'
-        accept_our_cookies.style.width = 100 + 'vw';
-        setTimeout(() => {
-            _accept_our_cookies.style.opacity = 0;
-            accept_our_cookies__(accept_our_cookies);
-        }, 5000);
-    }, 6000);
-}
-
 function accept_our_cookies_() {
     const accept_our_cookies = document.getElementById('accept_our_cookies');
     const _accept_our_cookies = document.getElementById('_accept_our_cookies');
@@ -34,8 +14,36 @@ function accept_our_cookies_() {
             accept_our_cookies__(accept_our_cookies);
         }, 5000);
     }, 1);
-    step(_accept_our_cookies, accept_our_cookies, 'Dit stellen wij niet op prijs.', 6000)
-    step(_accept_our_cookies, accept_our_cookies, 'Daarom treffen we de volgende maatregelen:', 12000)
+    setTimeout(() => {
+        _accept_our_cookies.innerHTML = 'Dit stellen wij niet op prijs.';
+        _accept_our_cookies.style.opacity = 1;
+        accept_our_cookies.style.transition = 'all 5s ease'
+        accept_our_cookies.style.width = 100 + 'vw';
+        setTimeout(() => {
+            _accept_our_cookies.style.opacity = 0;
+            accept_our_cookies__(accept_our_cookies);
+        }, 5000);
+    }, 6000);
+    setTimeout(() => {
+        _accept_our_cookies.innerHTML = 'Daarom gebruiken we de volgende maatregelen:';
+        _accept_our_cookies.style.opacity = 1;
+        accept_our_cookies.style.transition = 'all 5s ease'
+        accept_our_cookies.style.width = 100 + 'vw';
+        setTimeout(() => {
+            _accept_our_cookies.style.opacity = 0;
+            accept_our_cookies__(accept_our_cookies);
+        }, 5000);
+    }, 12000);
+    setTimeout(() => {
+        _accept_our_cookies.innerHTML = 'Daarom treffen we de volgende maatregelen:';
+        _accept_our_cookies.style.opacity = 1;
+        accept_our_cookies.style.transition = 'all 5s ease'
+        accept_our_cookies.style.width = 100 + 'vw';
+        setTimeout(() => {
+            _accept_our_cookies.style.opacity = 0;
+            accept_our_cookies__(accept_our_cookies);
+        }, 5000);
+    }, 12000);
     setTimeout(() => {
         _accept_our_cookies.innerHTML = 'Wij weten waar u bent.';
         _accept_our_cookies.style.opacity = 1;
@@ -49,8 +57,29 @@ function accept_our_cookies_() {
             accept_our_cookies__(accept_our_cookies);
         }, 5000);
     }, 18000);
-    step(_accept_our_cookies, accept_our_cookies, ACCEPTEER, 24000)
-    step(_accept_our_cookies, accept_our_cookies, 'Hopelijk heeft dit ervoor gezorgd dat uw mening is veranderd.', 30000)
+    setTimeout(() => {
+        _accept_our_cookies.innerHTML = ACCEPTEER;
+        _accept_our_cookies.style.opacity = 1;
+        _accept_our_cookies.style.fontSize = '30px';
+        accept_our_cookies.style.transition = 'all 5s ease'
+        accept_our_cookies.style.width = 100 + 'vw';
+        setTimeout(() => {
+            _accept_our_cookies.style.opacity = 0;
+            accept_our_cookies__(accept_our_cookies);
+        }, 5000);
+    }, 24000);
+    setTimeout(() => {
+        _accept_our_cookies.style.transform = 'unset';
+        _accept_our_cookies.innerHTML = 'Hopelijk heeft dit ervoor gezorgd dat uw mening is veranderd.';
+        _accept_our_cookies.style.opacity = 1;
+        _accept_our_cookies.style.fontSize = '50px';
+        accept_our_cookies.style.transition = 'all 5s ease'
+        accept_our_cookies.style.width = 100 + 'vw';
+        setTimeout(() => {
+            _accept_our_cookies.style.opacity = 0;
+            accept_our_cookies__(accept_our_cookies);
+        }, 5000);
+    }, 30000);
     setTimeout(() => {
         localStorage.setItem("cookie", "accepted");
         _accept_our_cookies.innerHTML = 'Wij gaan nu de cookies voor u accepteren.';
