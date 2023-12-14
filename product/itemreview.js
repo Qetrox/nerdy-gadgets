@@ -8,3 +8,10 @@ function showreviewpopup() {
       }
 }
 
+
+function starclick(){
+      var x = document.getElementById();
+      x.value = 1;
+
+
+}

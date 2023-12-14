@@ -244,7 +244,19 @@ if ($starhalf == TRUE) { //als er een halve ster is
                     Hoeveel sterren geeft u dit product?
                     <br>
                                 <p style=" position: absolute; width: auto;">Gemmideled:
-                                <div class="material-icons" id="star1" style="margin-left: 4.3em; margin-top: 0.6em; color: yellow"><?php print($stertekst); ?></div>
+                                <div class="material-icons" id="1" style="margin-left: 4.3em; margin-top: 0.6em; color: yellow" onclick="starclick()"><?php print("star"); ?></div>
+
+                    <div class="material-icons" id="2" style="margin-left: 0.1em; margin-top: 0.6em; color: yellow;"><?php print("star"); ?></div>
+                    <div class="material-icons" id="3" style=" opacity:0; margin-left: -0.7em; margin-top: 0.6em; color: yellow"><?php print("star"); ?></div>
+
+                    <div class="material-icons" id="4" style="margin-left: -0.3em; margin-top: 0.6em; color: yellow"><?php print("star"); ?></div>
+                    <div class="material-icons" id="5" style=" opacity:0; margin-left: -0.7em; margin-top: 0.6em; color: yellow"><?php print("star"); ?></div>
+
+                    <div class="material-icons" id="6" style="margin-left: -0.3em; margin-top: 0.6em; color: yellow"><?php print("star"); ?></div>
+                    <div class="material-icons" id="7" style=" opacity:0; margin-left: -0.7em; margin-top: 0.6em; color: yellow"><?php print("star"); ?></div>
+
+                    <div class="material-icons" id="8" style="margin-left: -0.3em; margin-top: 0.6em; color: yellow"><?php print("star"); ?></div>
+                    <div class="material-icons" id="9" style=" opacity:0; margin-left: -0.7em; margin-top: 0.6em; color: yellow"><?php print("star"); ?></div>
                                 </p>
                     <br>
 
@@ -254,12 +266,14 @@ if ($starhalf == TRUE) { //als er een halve ster is
                         $ster = round($ster);
                          -->
                     <input name="starcount"
+                           class="starcountchange"
                            style="width: 4em"
                            type="number"
                            max="5"
                            placeholder="1-5"
                            step="0.5"
                            min="1"
+                           value="1"
                            required>
                     <br><br>
                     <input class="Titel"
@@ -274,6 +288,7 @@ if ($starhalf == TRUE) { //als er een halve ster is
                               type="text"
                               maxlength="500"
                               placeholder="Plaats hier uw opmerking"
+                              value=
                               required
                     ></textarea>
 
@@ -392,11 +407,11 @@ if ($starhalf == TRUE) { //als er een halve ster is
         if ($result->num_rows >= 1) {
             while ($row = $result->fetch_assoc()) {
                 echo '<div class="reviewbekijkenbox" style="margin-left: 2em; margin-top: 2em;" > <br>';
-                echo "<h3 style='margin-left: 1.6em; margin-top: 0.5em;'>" . $row['titel'] . " <br>";
-                echo " <h5 style='margin-left: 2em'> " .$row['ster'] . "</h5> ";
-                echo "<h5 style='margin-left: 2em'> " . $row['naam'] . "</h5></h3> ";
+                echo "<h3 style='margin-left: 1.6em; margin-top: 0.5em;'>" . htmlspecialchars($row['titel']) . " <br>";
+                echo " <h5 style='margin-left: 2em'> " .htmlspecialchars($row['ster']) . "</h5> ";
+                echo "<h5 style='margin-left: 2em'> " . htmlspecialchars($row['naam']) . "</h5></h3> ";
 
-                echo "<p style='margin-left: 2em'>opmerking: " . $row['opmerking'] . "</p></h3></div>";
+                echo "<p style='margin-left: 2em'>opmerking: " . htmlspecialchars($row['opmerking']) . "</p></h3></div>";
             }
         } else {
             echo '<div style="color: red; margin-left: 4em; margin-top: 2em;" class="no-reviews">Geen reviews voor dit product gevonden.<br><br></div>';
