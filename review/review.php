@@ -110,9 +110,9 @@
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 echo '<div class="review">';
-                echo "<h3>Naam: " . $row['naam'] . "</h3>";
-                echo "<p>Beoordeling: <span class='star-rating'>" . str_repeat("★", $row['beoordeling']) . "</span></p>";
-                echo "<p>Opmerkingen: " . $row['opmerkingen'] . "</p>";
+                echo "<h3>Naam: " . htmlspecialchars($row['naam']) . "</h3>";
+                echo "<p>Beoordeling: <span class='star-rating'>" . htmlspecialchars(str_repeat("★", $row['beoordeling'])) . "</span></p>";
+                echo "<p>Opmerkingen: " . htmlspecialchars($row['opmerkingen']) . "</p>";
                 echo '</div>';
             }
         } else {
