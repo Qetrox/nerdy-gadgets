@@ -32,16 +32,52 @@
 
 /* Style for all buttons */
 button {
-    width: 200px; /* Aangepast op basis van de gewenste breedte */
-    height: 100px; /* Aangepast op basis van de gewenste hoogte */
+    width: 300px; /* Aangepast op basis van de gewenste breedte */
+    height: 50px; /* Aangepast op basis van de gewenste hoogte */
     border: none;
     padding: 0;
     margin: 0;
 }
 
-.floatleft{
-    float: left;
+
 }
-.floatright{
-    float:right;
+/* style.css */
+
+.form-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.form-container input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-container button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-container button:hover {
+    background-color: #45a049;
 }
