@@ -53,7 +53,7 @@ $cartCount = count($cartListItems); // Tel de items in de array
                 <?php
                   if ($_SESSION["first_name"] = "Mario"){
                       print("its a me");
-                      print("<img src='mario.gif'>". "<br>");
+                      print("<img src='https://nerdy-gadgets.nl/mario.gif'>". "<br>");
 
                   }
 
