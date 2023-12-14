@@ -235,7 +235,7 @@ if ($starhalf == TRUE) { //als er een halve ster is
                 <div class="material-symbols-outlined">close</div>
             </div>
             <a class="reviewpopupforms">
-                <form action="https:///nerdy-gadgets.nl/product/?productId=<?php print($_GET["productId"]);?>" style="margin-left: 3em" method="post" >
+                <form style="margin-left: 3em" method="post" >
                     <h3 style="padding-right: 2em; margin-top: 0"><?php echo htmlspecialchars($title) ?></h3>
                     <p style="scale: 70%; margin-top: -1em; margin-left: -6.5em">  productID:<?php echo $_GET["productId"] ?></p>
                     <p> Naam: <?= htmlspecialchars($_SESSION["first_name"]) ?> </p>
