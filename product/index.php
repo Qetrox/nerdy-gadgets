@@ -229,12 +229,13 @@ if ($starhalf == TRUE) { //als er een halve ster is
 <main> <!-- Hier de content van de pagina in doen :) -->
     <!-- dit is de popup van de review -->
     <div class="reviewpopup" id="reviewpopup">
-        <div class="reviewpopupbackground" id="reviewpopupbackground">
+        <div class="realbackground" onclick="showreviewpopup()"></div>
+        <div class="reviewpopupbackground" id="reviewpopupbackground" >
             <div class="closebtn" onclick="showreviewpopup()">
                 <div class="material-symbols-outlined">close</div>
             </div>
             <a class="reviewpopupforms">
-                <form action="" novalidate style="margin-left: 3em" method="post">
+                <form action="" style="margin-left: 3em" method="post" >
                     <h3 style="padding-right: 2em; margin-top: 0"><?php echo htmlspecialchars($title) ?></h3>
                     <p style="scale: 70%; margin-top: -1em; margin-left: -8.5em">  productID:<?php echo $_GET["productId"] ?></p>
                     <p> Naam: <?= htmlspecialchars($_SESSION["first_name"]) ?> </p>
@@ -242,7 +243,9 @@ if ($starhalf == TRUE) { //als er een halve ster is
 
                     Hoeveel sterren geeft u dit product?
                     <br>
-                                <div class="material-icons" id="star1"><?php print($stertekst); ?></div>
+                                <p style=" position: absolute; width: auto;">Gemmideled:
+                                <div class="material-icons" id="star1" style="margin-left: 4.3em; margin-top: 0.6em; color: yellow"><?php print($stertekst); ?></div>
+                                </p>
                     <br>
 
                         <!--  //round(2.49x2) = 5/2 = 2.5
@@ -250,48 +253,66 @@ if ($starhalf == TRUE) { //als er een halve ster is
                         $sterhalf=true;
                         $ster = round($ster);
                          -->
-                        <input name="starcount" style="width: 4em" type="number" max="5" placeholder="1-5" step="0.5" min="1" required>
+                    <input name="starcount"
+                           style="width: 4em"
+                           type="number"
+                           max="5"
+                           placeholder="1-5"
+                           step="0.5"
+                           min="1"
+                           required>
                     <br><br>
-                    <input class="Titel" type="text" maxlength="50" placeholder="Titel" name="titel" required>
+                    <input class="Titel"
+                           type="text"
+                           maxlength="50"
+                           placeholder="Titel"
+                           name="titel"
+                           required>
                     <br><br>
-                    <textarea name="opmerking" class="opmerkingen" type="text" maxlength="500" placeholder="Plaats hier uw opmerking" required></textarea>
+                    <textarea name="opmerking"
+                              class="opmerkingen"
+                              type="text"
+                              maxlength="500"
+                              placeholder="Plaats hier uw opmerking"
+                              required
+                    ></textarea>
 
                     <br><br><br>
 
                     <button type="submit" value="Verzend" style=" width: 5em; height: 2em; cursor: pointer;">Verzend</button>
                 </form>
-                <div class="errorcode">
+                <div class="errorcode" style="margin-left: 5%;">
 
                     <?php
                     //kijkt of dat alles ingevuld is in de review
 
                     if(isset($_SESSION['first_name'])) {
-                        if (isset($_POST['starcount'], $_POST['titel'], $_POST['opmerking'])) {
+                        if (isset($_POST['starcount'], $_POST['titel'], $_POST['opmerking'])) { // als in de inputs alles is ingevuld dan
                             $starcount = $_POST['starcount']; //maakt variabel $starcount uit de input form met name 'starcount'
                             $titel = $_POST['titel'];
                             $opmerking = $_POST['opmerking'];
                             $naam = $_SESSION['first_name'];
-                            $productid = $_GET['productId'];
-                            $email = $_SESSION['email'];
+                            $productid = $_GET['productId']; //haalt productId uit get
+                            $email = $_SESSION['email']; //haalt email uit session
 
 
                             //voegt het toe aan database
-                            $stmt = $conn->prepare("INSERT INTO itemreview (productid, ster, opmerking, titel, naam, email) VALUES (?, ?, ?, ?, ?, ?)");
+                            $stmt = $conn->prepare("INSERT INTO itemreview (productid, ster, opmerking, titel, naam, email) VALUES (?, ?, ?, ?, ?, ?)"); //bereidt de query voor
                             $stmt->bind_param("iissss", $productid, $starcount, $opmerking, $titel, $naam, $email);
+                            // |> met de values uit de inputs de iisss is voor integer integer string string string
 
 
-                            try {
-                                if ($stmt->execute()) {
-                                    header("Location: sucess.html");
+                            try { //probeer de query uit
+                                if ($stmt->execute()) { //als de query is geexecute dan
                                     echo 'Uw review is opgeslagen!';
-                                    exit;
+                                    exit; //stopt query
                                 }
                             } catch (mysqli_sql_exception $e) {
                                 if ($e->getCode() === 1062) {
-                                    header("Location: duplicate.html");
-                                    exit;
+                                   echo 'U heeft al een review geschreven voor dit product.';
+
                                 } else {
-                                    header("Location: error.html");
+                                    echo 'error: kaput#001';
                                     exit;
                                 }
                             }
@@ -330,8 +351,8 @@ if ($starhalf == TRUE) { //als er een halve ster is
                                     class="material-symbols-sharp"
                                     style="transform: translateY(20%)">shopping_cart</span> In winkelwagen</p></button>
                     <div class="stars">
-                        <p class="star"><span class="material-icons"><?php print("$stertekst"); ?></span>
-                        <div class="sternummeritem"><?php print($sterrenavg . ($sterrenaantal)); ?></div>
+                        <p class="star"><span class="material-icons" style="color: yellow"><?php print("$stertekst"); ?></span>
+                        <div class="sternummeritem" ><?php print($sterrenavg . ($sterrenaantal)); ?></div>
                         </p>
                     </div>
                     <p class="levertijd">Bestel voor 16:00, overmorgen in huis*</p>
@@ -358,18 +379,32 @@ if ($starhalf == TRUE) { //als er een halve ster is
                 </div>
             </div>
         </div>
+<!--hieronder maakt de reviews die je onder de item kan zien-->
+        <div class="reviewbekijken" id="reviewbekijken">
+            <?php
+            include('../review/connection.php');
+        $productID = $_GET["productId"]; //kijkt wat de productid is
 
-        <div class="reviewbekijken">
-            <?php if (isset($Reviews)) {
-                print("review is heel reviewerig hieronder");
-            } else {
-                print("Geen reviews op dit product :-(");
+        $result = $conn->query("SELECT *
+                                      FROM itemreview
+                                      WHERE productid = $productID
+                                      ORDER BY reviewid DESC"); //als productid overeen komt met database dan displayed hij alles op order van nieuwste reviews.
+        if ($result->num_rows >= 1) {
+            while ($row = $result->fetch_assoc()) {
+                echo '<div class="reviewbekijkenbox">';
+                echo "<h3 style='margin-left: 2em'>" . $row['titel'] . " <br>";
+                echo " " . $row['naam'] . " ";
+                echo "<br> " . $row['ster'] . "</h3> ";
+
+                echo "<p style='margin-left: 2em'>opmerking: " . $row['opmerking'] . "</p></h3></div>";
             }
+        } else {
+            echo '<div style="color: red; margin-left: 4em; margin-top: 2em;" class="no-reviews">Geen reviews voor dit product gevonden.<br><br></div>';
+        }
 
-            ?>
-            <div class="reviewbekijkenbox"
+        $conn->close();
+        ?>
 
-        </div>
 </main>
 <?php include_once '../../footer/footer.php' ?>
 </body>

@@ -1,13 +1,10 @@
 function showreviewpopup() {
       var x = document.getElementById("reviewpopup");
-      if (x.style.display === "none") {
-            x.style.display = "block";
-      } else {
+      if (x.style.display === "block") {
             x.style.display = "none";
+      } else {
+            x.style.display = "block";
+
       }
 }
 
-function ingelogdcheck(){
-      var x = document.getElementById("reviewpopup");
-      x.style.opacity = "0";
-}
