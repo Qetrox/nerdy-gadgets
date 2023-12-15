@@ -122,7 +122,7 @@ if ($starhalf == TRUE) { //als er een halve ster is
 } else {
     $stertekst = ($stertekst . (str_repeat(" star_border", 5 - $sterren)) . "3");
 }
-
+$conn->close();
 
 ?>
 <script src="/product/itemreview.js"></script> <!-- include de itemreview javascript -->
@@ -238,40 +238,27 @@ if ($starhalf == TRUE) { //als er een halve ster is
                 <form style="margin-left: 3em" method="post" action  >
                     <h3 style="padding-right: 2em; margin-top: 0"><?php echo htmlspecialchars($title) ?></h3>
                     <p style="scale: 70%; margin-top: -1em; margin-left: -6.5em">  productID:<?php echo $_GET["productId"] ?></p>
-                    <p> Naam: <?= htmlspecialchars($_SESSION["first_name"]) ?> </p>
+                    <p> Naam: <?php   if(isset($_SESSION['first_name'])){htmlspecialchars($_SESSION["first_name"]);
+                    }else echo 'Gebruiker'; ?> </p>
 
 
                     Hoeveel sterren geeft u dit product?
                     <br>
-                                <p style=" position: absolute; width: auto;">Gemmideled:
-                                <div class="material-icons" id="1" style="margin-left: 4.3em; margin-top: 0.6em; color: yellow" onclick="starclick()"><?php print("star"); ?></div>
-
-                    <div class="material-icons" id="2" style="margin-left: 0.1em; margin-top: 0.6em; color: yellow;"><?php print("star"); ?></div>
-                    <div class="material-icons" id="3" style=" opacity:0; margin-left: -0.7em; margin-top: 0.6em; color: yellow"><?php print("star"); ?></div>
-
-                    <div class="material-icons" id="4" style="margin-left: -0.3em; margin-top: 0.6em; color: yellow"><?php print("star"); ?></div>
-                    <div class="material-icons" id="5" style=" opacity:0; margin-left: -0.7em; margin-top: 0.6em; color: yellow"><?php print("star"); ?></div>
-
-                    <div class="material-icons" id="6" style="margin-left: -0.3em; margin-top: 0.6em; color: yellow"><?php print("star"); ?></div>
-                    <div class="material-icons" id="7" style=" opacity:0; margin-left: -0.7em; margin-top: 0.6em; color: yellow"><?php print("star"); ?></div>
-
-                    <div class="material-icons" id="8" style="margin-left: -0.3em; margin-top: 0.6em; color: yellow"><?php print("star"); ?></div>
-                    <div class="material-icons" id="9" style=" opacity:0; margin-left: -0.7em; margin-top: 0.6em; color: yellow"><?php print("star"); ?></div>
-                                </p>
                     <br>
 
-
+<p>Sterren:
                     <input name="starcount"
                            class="starcountchange"
                            style="width: 4em"
                            type="number"
+                           id="count"
                            max="5"
                            placeholder="1-5"
                            step="0.5"
                            min="1"
                            value="1"
-                           required>
-                    <br><br>
+                           required></p>
+                    <br>
                     <input class="Titel"
                            type="text"
                            maxlength="50"
@@ -292,7 +279,48 @@ if ($starhalf == TRUE) { //als er een halve ster is
 
                     <button type="submit" value="Verzend" style=" width: 5em; height: 2em; cursor: pointer;" onclick="saveScrollPosition()">Verzend</button>
                 </form>
+                <div class="stars">
+                    <?php
 
+                    include('../review/connection.php');
+
+                    $productID = $_GET["productId"]; //kijkt wat de productid is
+
+                    $result = $conn->query("Select COUNT(ster) AS aantalster, ROUND(AVG(ster),1) AS averagester
+                                                      FROM itemreview
+                                                      WHERE productid = $productID");
+                    if ($result->num_rows >= 1) {
+                        while ($row = $result->fetch_assoc()) {
+                            $aantalster = htmlspecialchars($row['aantalster']);
+                            $averagester = htmlspecialchars($row['averagester']);
+                            if (Round($aantalster) < (round(2*$aantalster)/2)){
+                                $starhalf = TRUE;
+                                $aantalster = round($aantalster) - 1; // round de $ster variabel omdat er decimalen zijn
+                            }else {
+                                $starhalf = FALSE; // maakt het dat het niet een extra ster helft geeft
+                                $aantalster = round($aantalster); // doet niks (want ster is een heel getal.)
+                            }
+
+                            $aantalstertekst = "star ";
+                            if ($starhalf == TRUE) { //als er een halve ster is
+                                $aantalstertekst = (str_repeat($aantalstertekst, $aantalster) . "star_half" . (str_repeat(" star_border", 4 - $aantalster)));
+                            } else {
+                                $aantalstertekst = (str_repeat($aantalstertekst, $aantalster) . (str_repeat(" star_border", 5 - $aantalster)));
+                            }
+                            if($averagester == null){
+                                print($averagester);
+                                $averagester = 0;
+
+                            }
+                        }
+                    }
+
+                    $conn->close();
+                    ?>
+
+                    <div class="sternummeritem"  style="margin-top: 1em">
+
+                    </div>
                 <script>
                     //moet de y positie saven want elke product descriptie een andere y level heeft
                     // saved de y positie op verzend klikken
@@ -311,8 +339,11 @@ if ($starhalf == TRUE) { //als er een halve ster is
                     };
                 </script>
 
-
-
+                    <?php
+                    if(!isset($_SESSION['first_name'])) {
+                    echo '<div style="color: red; margin-left: 4em; margin-top: -2em;" class="no-reviews">⚠️U moet inloggen om een review te maken.<br><br></div>';
+                    }
+                    ?>
             </a>
         </div>
     </div>
@@ -341,12 +372,57 @@ if ($starhalf == TRUE) { //als er een halve ster is
                                     class="material-symbols-sharp"
                                     style="transform: translateY(20%)">shopping_cart</span> In winkelwagen</p></button>
                     <div class="stars">
-                        <p class="star"><span class="material-icons" style="color: yellow"><?php print("$stertekst"); ?></span>
-                        <div class="sternummeritem" ><?php print($sterrenavg . ($sterrenaantal)); ?></div>
+                        <?php
+
+                        include('../review/connection.php');
+
+                        $productID = $_GET["productId"]; //kijkt wat de productid is
+
+                        $result = $conn->query("Select COUNT(ster) AS aantalster, ROUND(AVG(ster),1) AS averagester
+                                                      FROM itemreview
+                                                      WHERE productid = $productID");
+                        if ($result->num_rows >= 1) {
+                        while ($row = $result->fetch_assoc()) {
+                            $aantalster = htmlspecialchars($row['aantalster']);
+                            $averagester = htmlspecialchars($row['averagester']);
+                            if (Round($aantalster) < (round(2*$aantalster)/2)){
+                                $starhalf = TRUE;
+                                $aantalster = round($aantalster) - 1; // round de $ster variabel omdat er decimalen zijn
+                            }else {
+                                $starhalf = FALSE; // maakt het dat het niet een extra ster helft geeft
+                                $aantalster = round($aantalster); // doet niks (want ster is een heel getal.)
+                            }
+
+                            $aantalstertekst = "star ";
+                            if ($starhalf == TRUE) { //als er een halve ster is
+                                $aantalstertekst = (str_repeat($aantalstertekst, $aantalster) . "star_half" . (str_repeat(" star_border", 4 - $aantalster)));
+                            } else {
+                                $aantalstertekst = (str_repeat($aantalstertekst, $aantalster) . (str_repeat(" star_border", 5 - $aantalster)));
+                            }
+                            if($averagester == null){
+                               print($averagester);
+                               $averagester = 0;
+
+                            }
+                            }
+                        }
+
+                        $conn->close();
+                        ?>
+                        <p class="star">
+                            <span class="material-icons" style="color: gold"><?php print("$aantalstertekst"); ?>
+                            </span>
                         </p>
+                        <div class="sternummeritem"  style="margin-top: 1em">
+
                     </div>
-                    <p class="levertijd">Bestel voor 16:00, overmorgen in huis*</p>
+                    </div>
+                    <div style="scale: 1.3; margin-top: -2.45em; margin-left: 12em"><?php
+                        print("$averagester/5 ($averagester) ");
+                        ?>
+                    </div>
                 </div>
+                    <p class="levertijd">Bestel voor 16:00, overmorgen in huis*</p>
                 <h6 class="tijddisclaimer">*Wij doen ons best om uw bestelling op tijd te leveren, maar door drukte kan
                     dit soms wat langer duren. Onze excuses hiervoor.</h6>
                 <div class="reviewlinker">
@@ -376,7 +452,7 @@ if ($starhalf == TRUE) { //als er een halve ster is
 
             <?php
             //kijkt of dat alles ingevuld is in de review
-
+            include('../review/connection.php');
             if(isset($_SESSION['first_name'])) {
                 if (isset($_POST['starcount'], $_POST['titel'], $_POST['opmerking'])) { // als in de inputs alles is ingevuld dan
                     $starcount = $_POST['starcount']; //maakt variabel $starcount uit de input form met name 'starcount'
@@ -390,7 +466,7 @@ if ($starhalf == TRUE) { //als er een halve ster is
                     //voegt het toe aan database
                     $stmt = $conn->prepare("INSERT INTO itemreview (productid, ster, opmerking, titel, naam, email) VALUES (?, ?, ?, ?, ?, ?)"); //bereidt de query voor
                     $stmt->bind_param("idssss", $productid, $starcount, $opmerking, $titel, $naam, $email);
-                    // |> met de values uit de inputs de iisss is voor integer integer string string string
+                    // |> met de values uit de inputs de idssss is voor integer double(decimaal) string string string string
 
 
                     try { //probeer de query uit
@@ -401,7 +477,6 @@ if ($starhalf == TRUE) { //als er een halve ster is
                     } catch (mysqli_sql_exception $e) {
                         if ($e->getCode() === 1062) {
                             echo '* U heeft al een review geschreven voor dit product.';
-
                         } else {
                             echo 'error: kaput#001';
                             exit;
@@ -409,8 +484,11 @@ if ($starhalf == TRUE) { //als er een halve ster is
                     }
                 }
             }
-
+            if(!isset($_SESSION['first_name'])) {
+                echo '<div style="color: red; margin-left: 4em; margin-top: 2em;" class="no-reviews">⚠️U moet inloggen om een review te maken.<br><br></div>';
+            }
             $conn->close();
+
             ?>
 
         </div>
@@ -466,6 +544,7 @@ if ($starhalf == TRUE) { //als er een halve ster is
         } else {
             echo '<div style="color: red; margin-left: 4em; margin-top: 2em;" class="no-reviews">Geen reviews voor dit product gevonden, Plaats er een.<br><br></div>';
         }
+
 
         $conn->close();
         ?>

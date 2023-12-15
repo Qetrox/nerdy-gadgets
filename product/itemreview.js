@@ -8,14 +8,14 @@ function showreviewpopup() {
       }
 }
 
-function showtruereviewpopup() {
-      var x = document.getElementById("reviewpopup");
-      x.style.display = "block";
-}
-function starclick(){
-      var x = document.getElementById();
-      x.value = 1;
+function starclick(value){
+      document.getElementById("count").value= value;
 
+
+}
+
+function starchange(){
+      var value = document.getElementById("count").innerHTML;
 
 }
 

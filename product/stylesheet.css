@@ -126,8 +126,8 @@
     margin: 0;
 }
 .sternummeritem{
-    margin-top: 0.75em;
-    margin-left: -0.48em;
+    margin-bottom: 0.35em;
+    margin-left: 0.5em;
     display: inline-block;
     font-size: 120%;
 }
