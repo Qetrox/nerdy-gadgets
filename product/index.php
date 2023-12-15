@@ -549,7 +549,8 @@ $conn->close();
 
 
         $conn->close();
-        ?>
+            include_once '../../footer/footer.php'
+            ?>
 
 </main>
 <?php include_once '../../footer/footer.php' ?>
