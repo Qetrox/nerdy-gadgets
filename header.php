@@ -51,7 +51,7 @@ $cartCount = count($cartListItems); // Tel de items in de array
                     </div>
                 </a>
                 <?php
-                  if ($_SESSION["first_name"] = "Mario"){
+                  if ($_SESSION["first_name"] == "Mario"){
                       print("its a me");
                       print("<img src='mario.gif'>". "<br>");
 
