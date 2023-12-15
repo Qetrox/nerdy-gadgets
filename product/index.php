@@ -426,7 +426,7 @@ $conn->close();
                 <h6 class="tijddisclaimer">*Wij doen ons best om uw bestelling op tijd te leveren, maar door drukte kan
                     dit soms wat langer duren. Onze excuses hiervoor.</h6>
                 <div class="reviewlinker">
-                    <p>hallo</p>
+                    <p></p>
 
                 </div>
             </div>
