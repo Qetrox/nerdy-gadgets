@@ -271,9 +271,9 @@ $conn->close();
                     <textarea name="opmerking"
                               class="opmerkingen"
                               type="text"
+                              style="height: 8em"
                               maxlength="500"
                               placeholder="Plaats hier uw opmerking"
-                              value=
                               required
                     ></textarea>
 
@@ -385,26 +385,36 @@ $conn->close();
                                                       WHERE productid = $productID");
                         if ($result->num_rows >= 1) {
                         while ($row = $result->fetch_assoc()) {
-                            $aantalster = htmlspecialchars($row['aantalster']);
-                            $averagester = htmlspecialchars($row['averagester']);
-                            if (Round($aantalster) < (round(2*$aantalster)/2)){
-                                $starhalf = TRUE;
-                                $aantalster = round($aantalster) - 1; // round de $ster variabel omdat er decimalen zijn
-                            }else {
-                                $starhalf = FALSE; // maakt het dat het niet een extra ster helft geeft
-                                $aantalster = round($aantalster); // doet niks (want ster is een heel getal.)
+                            if(isset($row['averagester'])) {
+                                $aantalster = htmlspecialchars($row['aantalster']);
+                                $averagester = htmlspecialchars($row['averagester']);
                             }
+
 
                             $aantalstertekst = "star ";
-                            if ($starhalf == TRUE) { //als er een halve ster is
-                                $aantalstertekst = (str_repeat($aantalstertekst, $aantalster) . "star_half" . (str_repeat(" star_border", 4 - $aantalster)));
-                            } else {
-                                $aantalstertekst = (str_repeat($aantalstertekst, $aantalster) . (str_repeat(" star_border", 5 - $aantalster)));
-                            }
-                            if($averagester == null){
-                               print($averagester);
-                               $averagester = 0;
+                            $averagester2 = $averagester;
 
+
+                                if (floor($averagester2 * 2) % 2 == 0) {
+                                    $starhalf = FALSE;
+                                    $averagester2 = floor($averagester2);
+                                } else {
+                                    $starhalf = TRUE;
+                                    $averagester2 = floor($averagester2);
+                                }
+
+
+                                if ($starhalf == TRUE) { //als er een halve ster is
+                                    $aantalstertekst = (str_repeat($aantalstertekst, $averagester2) . "star_half" . (str_repeat(" star_border", 4 - $averagester2)));
+                                } else {
+                                    $aantalstertekst = (str_repeat($aantalstertekst, $averagester2) . (str_repeat(" star_border", 5 - $averagester2)));
+                                }
+                            if(!isset($averagester)) {
+                            if($averagester == null) {
+                                print($averagester);
+                                $averagester = 0;
+                                $aantalstertekst = "star_border star_border star_border star_border star_border";
+                            }
                             }
                             }
                         }

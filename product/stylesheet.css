@@ -153,22 +153,27 @@
     scale: 100%;
     position: fixed;
     display: none;
-    transform: translate(0%, -20%)
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+
 }
 
 .reviewpopupbackground{
     transition: all 2000ms ease;
     width: 25%;
     height: 46%;
+    height: fit-content;
     background: #212121;
-    margin-left: 20%;
-    margin-top: 6%;
     border: grey;
     border-style: solid;
     border-radius: 1em;
     border-width: 0.2em;
     border-left-width: 0.26em;
     position: relative;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
 }
 
 .reviewpopuptekstbox{
