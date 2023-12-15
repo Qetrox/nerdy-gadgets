@@ -418,7 +418,7 @@ $conn->close();
                     </div>
                     </div>
                     <div style="scale: 1.3; margin-top: -2.45em; margin-left: 12em"><?php
-                        print("$averagester/5 ($averagester) ");
+                        print("$averagester/5 ($aantalster) ");
                         ?>
                     </div>
                 </div>
