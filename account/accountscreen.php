@@ -1,6 +1,7 @@
 <?php
 
 
+
 ?>
 <!DOCTYPE html>
 <html lang="nl-nl">
@@ -30,6 +31,9 @@
 <body>
 <?php include_once '../header.php'?>
 <main> <!-- Hier de content van de pagina in doen :) -->
+    <?php if(!isset($_SESSION["first_name"])) {
+        header("Location: ./login.php");
+    } ?>
     <p> email: </p>
     <p class="user-text-header"> <?= htmlspecialchars($_SESSION["email"]) ?> </p> <!-- Email wordt hier neergezet -->
 
@@ -40,5 +44,6 @@
 <p>tussenvoegsel</p>
     <p class="user-text-header"> <?= htmlspecialchars($_SESSION["surname_prefix"]) ?> </p> <!-- Tussenvoegsel wordt hier neergezet -->
 
+    <a href="./logout.php">Log uit</a>
 
 </main>

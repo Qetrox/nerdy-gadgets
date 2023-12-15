@@ -1,4 +1,9 @@
 <?php
+session_start();
+if(isset($_SESSION["first_name"])) {
+    header("Location: ./accountscreen.php");
+}
+
 $is_invalid = false;
 
 if($_SERVER["REQUEST_METHOD"] === "POST"){ // Check of het een POST request is.
