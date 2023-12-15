@@ -239,7 +239,9 @@ $conn->close();
                     <h3 style="padding-right: 2em; margin-top: 0"><?php echo htmlspecialchars($title) ?></h3>
                     <p style="scale: 70%; margin-top: -1em; margin-left: -6.5em">  productID:<?php echo $_GET["productId"] ?></p>
                     <p> Naam: <?php   if(isset($_SESSION['first_name'])){htmlspecialchars($_SESSION["first_name"]);
-                    }else echo 'Gebruiker'; ?> </p>
+                    }else echo 'Gebruiker';
+                    echo '</p>'
+?>
 
 
                     Hoeveel sterren geeft u dit product?

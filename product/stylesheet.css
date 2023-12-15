@@ -159,10 +159,10 @@
 .reviewpopupbackground{
     transition: all 2000ms ease;
     width: 25%;
-    height: 36%;
+    height: 46%;
     background: #212121;
     margin-left: 20%;
-    margin-top: 12%;
+    margin-top: 6%;
     border: grey;
     border-style: solid;
     border-radius: 1em;
