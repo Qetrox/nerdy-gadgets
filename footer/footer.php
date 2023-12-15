@@ -21,6 +21,7 @@
             <a href="https://www.Nerdy-Gadgets.nl/account/signup.php">Registreren</a><br>
             <a href="https://www.Nerdy-Gadgets.nl/cart">Winkelwagen</a><br>
             <a href="https://nerdy-gadgets.nl/review/review.php">Site Review</a><br>
+            <?php if(isset($_SESSION["first_name"])) echo '<a href="https://nerdy-gadgets.nl/logout.php">Log uit</a>'; ?>
         </div>
         <div class="col col3">
             <h4>CONTACT</h4>

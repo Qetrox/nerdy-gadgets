@@ -1,5 +1,8 @@
 <?php
 
+if(!isset($_SESSION["first_name"])) {
+    header("Location: ./login.php");
+}
 
 ?>
 <!DOCTYPE html>
@@ -40,5 +43,6 @@
 <p>tussenvoegsel</p>
     <p class="user-text-header"> <?= htmlspecialchars($_SESSION["surname_prefix"]) ?> </p> <!-- Tussenvoegsel wordt hier neergezet -->
 
+    <a href="./logout.php">Log uit</a>
 
 </main>
