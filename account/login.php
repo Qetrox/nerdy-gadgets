@@ -1,6 +1,6 @@
 <?php
 
-if(!isset($_SESSION["first_name"])) {
+if(isset($_SESSION["first_name"])) {
     header("Location: ./accountscreen.php");
 }
 
