@@ -19,7 +19,6 @@ function spawnCookie() {
 }
 
 function accept_our_cookies_() {
-    /*
     const accept_our_cookies = document.getElementById('accept_our_cookies');
     const _accept_our_cookies = document.getElementById('_accept_our_cookies');
     const accept_me_cookies = document.getElementById('--accept-me-cookies--');
@@ -127,6 +126,4 @@ function accept_our_cookies_() {
     setTimeout(() => {
         window.location.replace('../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../');
     }, 42000);
-     */
-    window.location.replace('../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../');
 }
