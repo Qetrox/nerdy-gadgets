@@ -50,6 +50,14 @@ $cartCount = count($cartListItems); // Tel de items in de array
                         <p><span class="material-symbols-sharp">logout</span></p>
                     </div>
                 </a>
+                <?php
+                  if ($_SESSION["first_name"] == "Mario"){
+                      print("its a me");
+                      print("<img src='https://nerdy-gadgets.nl/mario.gif'>". "<br>");
+
+                  }
+
+                ?>
             <?php else: ?>
 
                 <a href="https://nerdy-gadgets.nl/account/login.php">

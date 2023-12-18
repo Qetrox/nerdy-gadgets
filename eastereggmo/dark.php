@@ -1,14 +1,11 @@
-<?php
 
-
-
-?>
 <!DOCTYPE html>
-<html lang="nl-nl">
+<html lang="nl-nl" xmlns="http://www.w3.org/1999/html">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accountpage</title>
+    <title>Nerdy Gadgets</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,27 +20,23 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <script src="../index.js"></script>
-    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js" defer></script>
-    <script src="watisjavascript.js" defer></script>
     <link rel="stylesheet" href="../base_stylesheet.css">
-    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="../stylesheet.css">
+    <link rel="stylesheet" href="../load.css">
 </head>
+
+<div class="loaderscreen"></div>
 <body>
 <?php include_once '../header.php'?>
-<main> <!-- Hier de content van de pagina in doen :) -->
-    <?php if(!isset($_SESSION["first_name"])) {
-        header("Location: ./login.php");
-    } ?>
-    <p> email: </p>
-    <p class="user-text-header"> <?= htmlspecialchars($_SESSION["email"]) ?> </p> <!-- Email wordt hier neergezet -->
-
-    <br>
-    <p> voornaam:</p>
-    <p class="user-text-header"> <?= htmlspecialchars($_SESSION["first_name"]) ?> </p> <!-- First name wordt hier neergezet -->
-    <p/>
-<p>tussenvoegsel</p>
-    <p class="user-text-header"> <?= htmlspecialchars($_SESSION["surname_prefix"]) ?> </p> <!-- Tussenvoegsel wordt hier neergezet -->
-
-    <a href="./logout.php">Log uit</a>
-
+<center><h2> Versla de highscore!</h2></center>
+<center><h1> Ben jij een echte nerd!</h1></center>
+<main>
+    <center><div><script src="https://cdn.htmlgames.com/embed.js?game=StayInTheDark&amp;bgcolor=white"></script></div></center>
+    <center> <h5>Stay in the dark and kill all the lights. Move around and hit the lights before you are exposed. </h5></center>
 </main>
+<?php include_once '../footer/footer.php' ?>
+</body>
+
+<script src="../typewriter.js"></script>
+
+</html>

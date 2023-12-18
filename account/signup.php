@@ -35,12 +35,11 @@ values (?,?,?,?,?,?,?,?,?)";
             exit;
         }
     } catch (mysqli_sql_exception $e) {
-        if ($e->getCode() === 1062) { // Check for duplicate entry error
+        if ($e->getCode() === 1062) {
             header("Location: duplicate.html");
             exit;
         } else {
-            // Handle other errors if needed
-            header("Location: error.html");
+             header("Location: error.html");
             exit;
         }
     }
@@ -63,18 +62,22 @@ values (?,?,?,?,?,?,?,?,?)";
     <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
     <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+
+
     <link rel="manifest" href="../favicon/site.webmanifest">
     <link rel="mask-icon" href="../favicon/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
      <link rel="stylesheet" href="../base_stylesheet.css">
-    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"  defer  ></script>
+    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"    defer ></script>
     <script src ="./watisjavascript.js"  defer    ></script>
     <script src="../index.js" defer ></script>
 
 
     <link rel="stylesheet" href="stylesheet.css">
+
+
+
 </head>
 
 
@@ -90,7 +93,7 @@ values (?,?,?,?,?,?,?,?,?)";
 
 
     <div class="account">
-        <form method="post" id="registratie" novalidate>
+        <form method="post" id="registratie" novalidate="novalidate">
             <div class="rounded-input2">
                 <h1>Account Aanmaken</h1>
                 <div>

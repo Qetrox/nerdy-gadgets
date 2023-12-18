@@ -2,14 +2,90 @@
     background: #21212F;
     display: flex;
     margin: -0.5em;
-
-
 }
 .CookiebeleidText{
     font-family: "Bree Serif";
     color: white;
     padding-left: 4vw;
+}
+.material-symbols-outlined:hover{
+        background: #666666;
+        opacity: 99%;
+    }
+.material-symbols-outlined{
+    scale: 150%;
+    margin-top: -1%;
+    user-select: none; /*maakt de pijl niet copy-able en dus als je er op dubbel klikt wordt het niet geselecteerd */
+    transition: all 250ms ease;
+}
 
-
-
+.noodzakelijk{
+    margin-left: 1px;
+    display: grid;
+    border-style: solid;
+    border-right: #FFFFFF;
+    border-top: #FFFFFF;
+    border-bottom: #FFFFFF;
+    border-radius: 1px;
+    padding-left: 10px;
+    opacity: 0;
+    transition: all 200ms ease;
+    margin-top: -10.4%;
+    margin-left: 3.4%;
+}
+.functioneel{
+    margin-left: 1px;
+    display: grid;
+    border-style: solid;
+    border-right: #FFFFFF;
+    border-top: #FFFFFF;
+    border-bottom: #FFFFFF;
+    border-radius: 1px;
+    padding-left: 10px;
+    opacity: 0;
+    transition: all 200ms ease;
+    margin-top: -9.4%;
+    margin-left: 3.4%;
+}
+.analytisch{
+    margin-left: 1px;
+    display: grid;
+    border-style: solid;
+    border-right: #FFFFFF;
+    border-top: #FFFFFF;
+    border-bottom: #FFFFFF;
+    border-radius: 1px;
+    padding-left: 10px;
+    opacity: 0;
+    transition: all 200ms ease;
+    margin-top: -10.4%;
+    margin-left: 3.4%;
+}
+.prestatie{
+    margin-left: 1px;
+    display: grid;
+    border-style: solid;
+    border-right: #FFFFFF;
+    border-top: #FFFFFF;
+    border-bottom: #FFFFFF;
+    border-radius: 1px;
+    padding-left: 10px;
+    opacity: 0;
+    transition: all 200ms ease;
+    margin-top: -12.4%;
+    margin-left: 3.4%;
+}
+.uwkeuzes{
+    margin-left: 1px;
+    display: grid;
+    border-style: solid;
+    border-right: #FFFFFF;
+    border-top: #FFFFFF;
+    border-bottom: #FFFFFF;
+    border-radius: 1px;
+    padding-left: 10px;
+    opacity: 0;
+    transition: all 200ms ease;
+    margin-top: -10.4%;
+    margin-left: 3.4%;
 }

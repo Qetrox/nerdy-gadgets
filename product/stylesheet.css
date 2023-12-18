@@ -125,6 +125,144 @@
     font-size: 3vw;
     margin: 0;
 }
+.sternummeritem{
+    margin-bottom: 0.35em;
+    margin-left: 0.5em;
+    display: inline-block;
+    font-size: 120%;
+}
+.star{
+    display: inline-block;
+}
+
+.errorcode{
+    color: #FF0000;
+    border: #FF0000;
+    border-top: #FF0000;
+
+}
+.reviewpopup{
+    z-index: 1;
+    position: fixed;
+    background: rgb(0,0,0, 0.3);
+    width: 200%;
+    height: 175%;
+    max-width: 156em;
+    max-height: 100em;
+    transition: all 2000ms ease;
+    scale: 100%;
+    position: fixed;
+    display: none;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+
+}
+
+.reviewpopupbackground{
+    transition: all 2000ms ease;
+    width: 25%;
+    height: 46%;
+    height: fit-content;
+    background: #212121;
+    border: grey;
+    border-style: solid;
+    border-radius: 1em;
+    border-width: 0.2em;
+    border-left-width: 0.26em;
+    position: relative;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+}
+
+.reviewpopuptekstbox{
+
+
+}
+
+.realbackground{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: auto;
+}
+
+.reviewschrijven{
+    margin-left: 4em;
+    cursor: pointer;
+}
+.closebtn{
+    margin-left: 90%;
+    margin-top:6%;
+    scale: 225%;
+    width: 3.1%;
+
+}
+
+
+.closebtn:hover{
+    cursor: pointer;
+    background: #555555;
+    opacity: 99%;
+    border-radius: 300em;
+    transition: ease-in-out all 400ms;
+}
+
+.reviewpopupforms{
+    margin-left: 5%;
+    margin-top: -3%;
+
+}
+
+.opmerkingen{
+    width: 90%;
+    height: 20%;
+    border-radius: 0.2em;
+    border-style: solid;
+}
+
+.reviewmain{
+}
+.reviewbackground{
+    width: 12em;
+    height: 3em;
+    background: #212121;
+    border: white;
+    border-style: solid;
+    border-radius: 0.7em;
+    border-width: 0.1em;
+    display: flex;
+    transition: ease-in-out all 200ms;
+}
+
+
+.reviewbackground:hover{
+    opacity: 99%;
+    background: darkgrey;
+
+}
+
+.reviewbekijkenbox{
+    width: 50%;
+    height: 35%;
+    background: white;
+    border-radius: 1em;
+    margin-left: 2em;
+    color: #212121;
+}
+
+
+
+
+.aaaaah{
+    border-right: grey;
+    border-top: white;
+    border-left: white;
+    border-bottom: white;
+    border-style: solid;
+    border-right-width: 2px;
+}
 
 @media only screen and (max-width: 900px) {
 

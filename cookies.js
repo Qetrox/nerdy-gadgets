@@ -15,17 +15,6 @@ function dissapearCookies() {
     div.style.display = 'none'; // Hide the cookie div
 }
 
-document.getElementById("ugh").addEventListener("mouseenter", run);
-function run() {
-    var btn = document.getElementById("ugh");
-    btn.style.position = "fixed";
-    btn.style.width = "100px";
-    btn.style.height = "60px";
-    btn.style.fontSize = "22px";
-    if (!btn.style.left) {
-        btn.style.left = "1000px";
-    } else {
-        btn.style.bottom = Math.random() * 70 + "vh";
-        btn.style.left = Math.random() * 80 + "vw";
-    }
+function iNoWantCookies() {
+    window.location.replace('./iemand/wilt/geen/cookies/maar/heeft/geen/keuze');
 }

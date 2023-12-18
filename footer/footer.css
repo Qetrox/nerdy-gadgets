@@ -1,0 +1,56 @@
+.footer{
+    background-color: #212121;
+    background: #212121;
+    margin-top: 1.5vw;
+
+}
+.footerbar {
+    border-top: 3px solid #212121;
+    position: static;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #21212F;
+    height: 4vw;
+    width: 100%;
+    color: white;
+    text-align: center;
+    margin-top: 5vw;
+    font-size: 0.6vw;
+
+
+}
+
+/* rij maakt het zodat de y-as van de kollomen het zelfde zijn door display flex te gebruiken*/
+.rij{
+    display: flex;
+
+}
+.col {
+    font-size: 1vw;
+    flex: 1;
+    margin-top: 2%;
+    width: auto;
+    padding: 1px;
+    margin-left: 15%;
+    text-align: left;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #212121;
+
+    & a:hover {
+        text-decoration: underline;
+    }
+}
+
+/* dit maakt het zodat alleen op mobile deze veranderingen plaats vinden */
+@media (max-width: 1000px) {
+    .footer {
+        font-size: 4.5vw;
+    }
+    .col {
+        margin-left: unset;
+        text-align: center;
+        font-size: 20px;
+    }
+}

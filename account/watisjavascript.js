@@ -1,7 +1,15 @@
 
-const validation = new JustValidate("#registratie");
+const validator = new JustValidate('#registratie', {
+        errorFieldCssClass: "validate-error-field",
+        successFieldCssClass: ['validate-sucess-field'],
+        errorLabelStyle: {
+            color: 'white',
+        },
+    }
+);
 
-validation
+
+validator
     .addField("#email", [
         {
             rule: "required",
@@ -32,18 +40,25 @@ validation
         },
     ])
 
-    .addField("#tussenvoegsel", [
-        {
-            rule: "required",
-        },
-    ])
-
 
     .addField("#postcode", [
         {
             rule: "required",
+        }, {
+            rule: 'minLength',
+            value: 6,
+            errorMessage: "postcode klopt niet"
+
         },
-    ])
+
+        {
+            rule: 'maxLength',
+            value: 6,
+            errorMessage: "postcode klopt niet"
+
+        }
+
+])
 
     .addField("#straatnaam", [
         {
@@ -78,7 +93,13 @@ validation
     ])
 
 
+
+
+
 .onSuccess((event) => {
     document.getElementById("registratie").submit();
 
 });
+
+
+
