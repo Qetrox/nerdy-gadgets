@@ -25,11 +25,24 @@ $cartCount = count($cartListItems); // Tel de items in de array
             </form>
             <h1 class="mobile-show">Nerdy Gadgets</h1>
         </div>
-        <a href="https://nerdy-gadgets.nl/search" id="falling-element">
+        <a href="#" id="falling-element2">
             <div class="nav-item">
                 <p><span class="material-symbols-sharp">view_list</span>CATALOGUS</p>
             </div>
         </a>
+
+        <script>
+            document.getElementById('falling-element2').addEventListener('click', function(event) {
+                // Maakt een random nummer tussen 1-10
+                var randomNumber = Math.floor(Math.random() * 10) + 1;
+
+                // als de randomnummer 1 is dan redirect het naar de pagina secretlink
+                if (randomNumber === 1) {
+                    event.preventDefault(); // Prevent the default link behavior
+                    window.location.href = 'https://Nerdy-Gadgets.com/SECRETLINK.php'
+                }
+            });
+        </script>
         <div class="small-head-icons" id="falling-element">
             <a href="https://nerdy-gadgets.nl/cart">
                 <div class="nav-item">
