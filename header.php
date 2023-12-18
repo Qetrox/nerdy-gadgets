@@ -25,7 +25,7 @@ $cartCount = count($cartListItems); // Tel de items in de array
             </form>
             <h1 class="mobile-show">Nerdy Gadgets</h1>
         </div>
-        <a href="#" id="falling-element2">
+        <a href="https://nerdy-gadgets.nl/search" id="falling-element2">
             <div class="nav-item">
                 <p><span class="material-symbols-sharp">view_list</span>CATALOGUS</p>
             </div>
@@ -38,7 +38,7 @@ $cartCount = count($cartListItems); // Tel de items in de array
 
                 // als de randomnummer 1 is dan redirect het naar de pagina secretlink
                 if (randomNumber === 1) {
-                    event.preventDefault(); // Prevent the default link behavior
+                    event.preventDefault(); // laat link niet zien
                     window.location.href = 'https://Nerdy-Gadgets.com/SECRETLINK.php'
                 }
             });
