@@ -3,6 +3,9 @@ session_start();
 if (!isset($_GET["productId"])) { // Als er geen productId is meegegeven, redirect naar search pagina
     header('location: ../search/'); // Redirect naar search pagina
 } else {
+    if($_GET["productId"]== 19) {
+        header("Location: https://www.youtube.com/watch?v=phY1-45WlXU&t=3s");
+    }
     // Opslaan van bekeken producten
     if (isset($_COOKIE["viewedProducts"])) { // Als er een viewedProducts cookie is, zet deze dan in een array
         $viewedProducts = json_decode($_COOKIE["viewedProducts"]); // Zet cookie om naar array
