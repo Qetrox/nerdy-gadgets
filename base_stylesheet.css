@@ -25,7 +25,6 @@ html, body {
 
 .mobile-navbar {
     visibility: hidden;
-    display: none;
 }
 
 .mobile-nav-item {
@@ -41,8 +40,39 @@ header {
     overflow: hidden;
 }
 
+footer {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 10px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    width: auto;
+    color: white;
+}
+
+.footer-content {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #21212F;
+
+}
+
 #ugh {
     transition: all 100ms ease;
+}
+
+.footer-content h3{
+
+    line-height: 0rem;
+    text-transform: capitalize;
+    font-size: x-large;
+
+
 }
 
 .navbar {
@@ -102,13 +132,13 @@ header {
     height: inherit;
     left: 0;
 }
-
 .nav-logo:hover{
     margin-top: -16px;
     transition: 100ms ease-in-out;
     border-bottom-color: #cccccc;
     border-bottom: 30px;
-    transform: translate(0, -3px);
+    transform: translate(0px, -5px);
+
 }
 
 .mobile-show {
@@ -164,6 +194,7 @@ header {
         transition: 100ms ease-in-out;
     }
 }
+
 .footer-content h3{
 
     line-height: 0rem;
@@ -172,20 +203,69 @@ header {
 
 
 }
+footer {
+    position: static;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #5152bb;
+    height: 10px;
+    width: auto;
+    color: white;
+}
 
+.footer-content {
+    padding: 75px 10%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #5152bb;
+
+}
+
+.col1{
+    margin-top: -50px;
+    margin-right: 145px;
+    width: 100%;
+    padding: 1px;
+    text-align: left;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #5152bb;
+    & a:hover {
+        text-decoration: underline;
+    }
+}
+.col2{
+    margin-right: 145px;
+    width: 100%;
+    padding: 1px;
+    text-align: left;
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+    background-color: #5152bb;
+
+}
+.col3 {
+    margin-top: -210px;
+    margin-right: -200px;
+    width: 80%;
+    text-align: right;
+    display: flex;
+    justify-content: normal;
+    flex-direction: column;
+    background-color: #5152bb;
+
+}
 .totalPrice1 {
     font-size: 30px;
 }
 
-.col1 {
-    height: 5%;
-}
-.col2 {
-    margin-left: 10%;
-}
-.col3 {
-    margin-left: 20%;
-}
 /* Voor kleine schermen zoals telefoons */
 @media only screen and (max-width: 900px) {
     .navbar a {
@@ -246,7 +326,6 @@ header {
     }
 
     .navbar {
-        position: initial;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -309,16 +388,6 @@ header {
     .material-symbols-sharp {
         font-size: 4vh;
     }
-    .rij {
-        flex-wrap: wrap;
-    }
-    footer > .rij > .col {
-        width: 100%;
-        flex: unset;
-    }
-    .col1, .col2, .col3 {
-        margin-left: unset;
-        height: unset;
-    }
+
 
 }

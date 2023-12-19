@@ -16,16 +16,6 @@ if ($conn->connect_error) { // als er een error is met de connectie
 
 $conn->set_charset("utf8"); // zet de charset naar utf8 zodat de data goed wordt weergegeven
 
-/* krijg alle categorieen */
-$stmt = $conn->prepare("SELECT productCategory FROM product GROUP BY productCategory;");
-$stmt->execute();
-$catResult = $stmt->get_result();
-
-/* krijg all merken */
-$stmt = $conn->prepare("SELECT * from brand;");
-$stmt->execute();
-$brandResult = $stmt->get_result();
-
 /* kijk wat je hebt opgezocht */
 $query = "";
 if(isset($_GET["query"]) && $_GET["query"] !== "") {
@@ -85,33 +75,7 @@ if(isset($_GET["sortOption"])) {
         </h1>
         <form class="sort" action="./" method="get">
             <input type="text" name="query" id="query" placeholder="Zoek een product" hidden value=<?php echo $query ?> >
-            <label>Merk</label>
-                <select name="brand" id="brand" onchange="submitForm()">
-                    <option value="all">Alles</option>
-                    <?php
-                        while($row = $brandResult->fetch_assoc()) {
-                            if(isset($_GET["brand"]) && $_GET["brand"] ==  $row["brandName"]) {
-                                echo '<option value="' . $row["brandName"] . '" selected>' . $row["brandName"] . '</option>';
-                            } else {
-                                echo '<option value="' . $row["brandName"] . '">' . $row["brandName"] . '</option>';
-                            }
-                        }
-                    ?>
-                </select>
-            <label>Categorie</label>
-                <select name="category" id="category" onchange="submitForm()">
-                    <option value="all">Alles</option>
-                    <?php
-                    while($row = $catResult->fetch_assoc()) {
-                        if(isset($_GET["category"]) && $_GET["category"] ==  $row["productCategory"]) {
-                            echo '<option value="' . $row["productCategory"] . '" selected>' . $row["productCategory"] . '</option>';
-                        } else {
-                            echo '<option value="' . $row["productCategory"] . '">' . $row["productCategory"] . '</option>';
-                        }
-                    }
-                    ?>
-                </select>
-            <label>Sorteer op</label>
+            <label>Sorteer op
                 <select name="sortOption" id="sortOption" onchange="submitForm()">
                     <?php
                     if($sort != null) { // als er een sorteer optie is aangegeven
@@ -159,14 +123,14 @@ if($sort != null) {
     }
 }
 
-if(isset($_GET["category"]) && $_GET["category"] !== "" && $_GET["category"] !== "all") { // als er een categorie is aangegeven
+if(isset($_GET["category"]) && $_GET["category"] !== "") { // als er een categorie is aangegeven
     $new_string = preg_replace("/[^A-Za-z0-9.!?]/",'', $_GET["category"]); // haal alle speciale tekens weg, zodat SQL injection niet mogelijk is
     $categoryStatement = " AND UPPER(productCategory) = UPPER(\"" . $new_string . "\")"; // zoek naar producten met de categorie
 } else {
     $categoryStatement = "";
 }
 
-if(isset($_GET["brand"]) && $_GET["brand"] !== "" && $_GET["brand"] !== "all") { // als er een merk is aangegeven
+if(isset($_GET["brand"]) && $_GET["brand"] !== "") { // als er een merk is aangegeven
     $new_string = preg_replace("/[^A-Za-z0-9.!?]/",'', $_GET["brand"]); // haal alle speciale tekens weg, zodat SQL injection niet mogelijk is
     $brandStatement = " AND UPPER(brandName) = UPPER(\"" . $new_string . "\")"; // zoek naar producten met het merk
 } else {
@@ -264,7 +228,7 @@ if(isset($_GET["query"]) && $_GET["query"] !== "") { // als er een zoekopdracht 
     </div>
 </main>
 <footer>
-    <?php include_once '../footer/footer.php' ?>
+    <?php include_once '../footer.php'?>
 </body>
 <script src="typewriter.js"></script>
 <script>
