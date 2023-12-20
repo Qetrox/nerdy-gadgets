@@ -39,7 +39,7 @@ $cartCount = count($cartListItems); // Tel de items in de array
                 // als de randomnummer 1 is dan redirect het naar de pagina secretlink
                 if (randomNumber === 1) {
                     event.preventDefault(); // laat link niet zien
-                    window.location.href = 'SECRETLINK/SECRETLINK.php'
+                    window.location.href = '../SECRETLINK/SECRETLINK.php'
                 }
             });
         </script>

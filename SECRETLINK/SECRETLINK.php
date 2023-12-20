@@ -35,7 +35,8 @@
 <img src="Nerdy_Gadgets_Keychain.png" style="scale: 60%; margin-top: -5%; display: block; margin-left: auto; margin-right: auto; width: 50%;">
 <p style="text-align: center">  Dankjewel voor  uw bezoek aan Nerdy Gadgets </p>
 <div class="return-home">
-<a href="https://nerdy-gadgets.nl/"><button  style="width: 25em; height: 10em; background: #21212F; text-align: center; color: white; display: block; margin-left: auto; margin-right: auto; width: 20%; font-weight: bold; ">Return home</button></a>
+<a href="https://nerdy-gadgets.nl/"><button  style="width: 25em; height: 10em; background: #21212F; text-align: center; color: white; display: block;
+margin-left: auto; margin-right: auto; width: 20%; font-weight: bold; font-size: 300%">HOME</button></a>
 </div>
 
 </div>
