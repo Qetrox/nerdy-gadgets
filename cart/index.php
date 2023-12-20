@@ -254,7 +254,7 @@ $conn->set_charset("utf8"); // Zet de charset naar UTF-8 zodat vreemde tekens go
             <?php
             //voegt bericht 'keychain toegevoegd' toe
             if($keychain==TRUE){
-                echo '<p style="color: #4CAF50">+ Uw gratis keychain is toegevoegd!</p>';
+                echo '<p style="color: darkgreen">+ Uw gratis keychain is toegevoegd!</p>';
             }
             ?>
             <h1>Totaal: <span id="totalPrice"></span></h1>
