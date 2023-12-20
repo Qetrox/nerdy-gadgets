@@ -221,6 +221,7 @@ $conn->set_charset("utf8"); // Zet de charset naar UTF-8 zodat vreemde tekens go
                     <td>Item 1</td>
                     <td>€1200</td>
                 </tr>
+                <!-- VOEGT KEYCHAIN TOE AAN EINDE VAN PRODUCTLIJST NA INVOEREN CODE -->
 
                 <tr>
                     <td class="verzendkosten">1x</td>

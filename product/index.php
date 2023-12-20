@@ -324,6 +324,7 @@ $conn->close();
 
                     </div>
                 <script>
+                    //deze script maakt het zo dat wanneer je een review schrijft je gelijk naar de onderkant van de pagina bent (waar de reviews zijn)
                     //moet de y positie saven want elke product descriptie een andere y level heeft
                     // saved de y positie op verzend klikken
                     function saveScrollPosition() {
