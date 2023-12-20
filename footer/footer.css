@@ -32,7 +32,7 @@
     margin-top: 2%;
     width: auto;
     padding: 1px;
-    margin-left: 15%;
+    margin-left: 10%;
     text-align: left;
     justify-content: center;
     flex-direction: column;
@@ -40,6 +40,7 @@
 
     & a:hover {
         text-decoration: underline;
+        color: lightskyblue;
     }
 }
 

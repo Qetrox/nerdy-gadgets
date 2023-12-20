@@ -6,12 +6,10 @@
     <div class="rij">
         <div class="col col1">
             <h4>Handige Links</h4>
+            <a href="https://www.Nerdy-Gadgets.nl/">Home</a><br>
+            <a href="https://www.Nerdy-Gadgets.nl/search/">Producten</a><br>
             <a href="https://www.Nerdy-Gadgets.nl/#about">Over ons</a><br>
             <a href="https://www.Nerdy-Gadgets.nl/legal/privacy/">Legaal</a><br>
-            <a href="https://www.Nerdy-Gadgets.nl/search/">Producten</a><br>
-            <a href="https://www.Nerdy-Gadgets.nl/">Home</a><br>
-            <a href="https://nerdy-gadgets.nl/eastereggmo/raadsel.php">NerdyQuiz</a>
-            <br><br>
 
         </div>
         <div class="col col2">
@@ -19,10 +17,16 @@
             <a href="https://www.Nerdy-Gadgets.nl/account">Account</a><br>
             <a href="https://nerdy-gadgets.nl/account/login.php">Inloggen</a><br>
             <a href="https://www.Nerdy-Gadgets.nl/account/signup.php">Registreren</a><br>
+            <?php if(isset($_SESSION["first_name"])) echo '<a href="https://nerdy-gadgets.nl/logout.php">Log uit</a><br>'; ?>
             <a href="https://www.Nerdy-Gadgets.nl/cart">Winkelwagen</a><br>
-            <a href="https://nerdy-gadgets.nl/review/review.php">Site Review</a><br>
-            <?php if(isset($_SESSION["first_name"])) echo '<a href="https://nerdy-gadgets.nl/logout.php">Log uit</a>'; ?>
         </div>
+
+        <div class="col col4">
+            <h4>Extra</h4>
+            <a href="https://nerdy-gadgets.nl/eastereggmo/raadsel.php">NerdyQuiz</a><br>
+            <a href="https://nerdy-gadgets.nl/review/review.php">Site Review</a><br>
+        </div>
+
         <div class="col col3">
             <h4>CONTACT</h4>
             <p>Hospitaaldreef 5,<br> 1315 RC Almere<br>Tel: +088 469 6600</p>
