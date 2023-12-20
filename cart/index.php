@@ -222,21 +222,28 @@ $conn->set_charset("utf8"); // Zet de charset naar UTF-8 zodat vreemde tekens go
                     <td>€1200</td>
                 </tr>
                 <!-- VOEGT KEYCHAIN TOE AAN EINDE VAN PRODUCTLIJST NA INVOEREN CODE -->
+
+
                 <?php
-                $couponcode = FALSE;
-                $couponcode = $_POST['COUPONCODE'];
+                $couponcode = 1;
 
-                if ($couponcode == 'N3RDYGADGETS') {
-                    echo '<tr>';
-                    echo '<td>1x</td>';
-                    echo '<td>KEYCHAIN</td>';
-                    echo '<td>GRATIS</td>';
-                    echo '</tr>';
-                }else{
-                    echo '<p style="color: red; margin-bottom: -10em">Uw couponcode is incorrect </p>';
-
+                if(isset($_POST['COUPONCODE'])){
+                    $couponcode = $_POST['COUPONCODE'];
+                    if ($couponcode == 'N3RDYGADGETS') {
+                        $keychain = TRUE;   //wordt gebruikt later om bericht van toegevoegd te laten zien
+                        echo '<tr>';
+                        echo '<td>1x</td>';
+                        echo '<td>KEYCHAIN</td>';
+                        echo '<td>GRATIS</td>';
+                        echo '</tr>';
+                    }else {
+                        echo '<p style="color: red; margin-bottom: -10em">Uw couponcode is incorrect </p>';
+                    }
                 }
                 ?>
+
+
+                <!-- einde keychain toevoegen-->
                 <tr>
                     <td class="verzendkosten">1x</td>
                     <td class="verzendkosten">Verzending</td>
@@ -244,15 +251,26 @@ $conn->set_charset("utf8"); // Zet de charset naar UTF-8 zodat vreemde tekens go
                 </tr>
 
             </table>
+            <?php
+            //voegt bericht 'keychain toegevoegd' toe
+            if($keychain==TRUE){
+                echo '<p style="color: #4CAF50">+ Uw gratis keychain is toegevoegd!</p>';
+            }
+            ?>
             <h1>Totaal: <span id="totalPrice"></span></h1>
 
             <!--Coupon Code toevoegen-->
+
+
             <div class="couponcode">
             <form style="margin-left: 3em" method="post" action>
-                <textarea name="couponcode" placeholder="Couponcode"></textarea>
+                <textarea name="COUPONCODE" placeholder="Couponcode" p></textarea>
                 <button type="submit" value="Verzend" style=" width: 5em; height: 2em; cursor: pointer; color: white">Verzend</button>
             </form>
             </div>
+
+
+            <!-- einde coupon code-->
             <button><span> Verder met Afrekenen!</span></button>
         </div>
     </div>
@@ -265,6 +283,7 @@ $conn->set_charset("utf8"); // Zet de charset naar UTF-8 zodat vreemde tekens go
                 echo "<br>" . "Winkelwagen";
             }
             ?>
+
         </h1>
         <?php
         if (count($cartListItems) > 0) { // Als er producten in de winkelwagen zitten
