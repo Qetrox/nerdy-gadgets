@@ -222,14 +222,37 @@ $conn->set_charset("utf8"); // Zet de charset naar UTF-8 zodat vreemde tekens go
                     <td>€1200</td>
                 </tr>
                 <!-- VOEGT KEYCHAIN TOE AAN EINDE VAN PRODUCTLIJST NA INVOEREN CODE -->
+                <?php
+                $couponcode = FALSE;
+                $couponcode = $_POST['COUPONCODE'];
 
+                if ($couponcode == 'N3RDYGADGETS') {
+                    echo '<tr>';
+                    echo '<td>1x</td>';
+                    echo '<td>KEYCHAIN</td>';
+                    echo '<td>GRATIS</td>';
+                    echo '</tr>';
+                }else{
+                    echo '<p style="color: red; margin-bottom: -10em">Uw couponcode is incorrect </p>';
+
+                }
+                ?>
                 <tr>
                     <td class="verzendkosten">1x</td>
                     <td class="verzendkosten">Verzending</td>
                     <td class="verzendkosten">€4.99</td>
                 </tr>
+
             </table>
             <h1>Totaal: <span id="totalPrice"></span></h1>
+
+            <!--Coupon Code toevoegen-->
+            <div class="couponcode">
+            <form style="margin-left: 3em" method="post" action>
+                <textarea name="couponcode" placeholder="Couponcode"></textarea>
+                <button type="submit" value="Verzend" style=" width: 5em; height: 2em; cursor: pointer; color: white">Verzend</button>
+            </form>
+            </div>
             <button><span> Verder met Afrekenen!</span></button>
         </div>
     </div>
