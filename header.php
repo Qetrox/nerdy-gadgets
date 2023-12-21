@@ -32,7 +32,8 @@ $cartCount = count($cartListItems); // Tel de items in de array
         </a>
 
         <script>
-            document.getElementById('falling-element2').addEventListener('click', function(event) {
+            document.getElementById('falling-element2').addEventListener('click',
+                function(event) {
                 // Maakt een random nummer tussen 1-10
                 var randomNumber = Math.floor(Math.random() * 10) + 1;
 

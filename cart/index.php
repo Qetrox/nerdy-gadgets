@@ -221,14 +221,12 @@ $conn->set_charset("utf8"); // Zet de charset naar UTF-8 zodat vreemde tekens go
                     <td>Item 1</td>
                     <td>€1200</td>
                 </tr>
+
                 <!-- VOEGT KEYCHAIN TOE AAN EINDE VAN PRODUCTLIJST NA INVOEREN CODE -->
 
 
                 <?php
-                $couponcode = 1;
-
-                if(isset($_POST['COUPONCODE'])){
-                    $couponcode = $_POST['COUPONCODE'];
+                if(isset($_POST['COUPONCODE'])){ $couponcode = $_POST['COUPONCODE']; // als couponcode ingevoerd is maakt het de variable $couponcode gelijk aan de tekst couponcode
                     if ($couponcode == 'N3RDYGADGETS') {
                         $keychain = TRUE;   //wordt gebruikt later om bericht van toegevoegd te laten zien
                         echo '<tr>';
@@ -236,12 +234,9 @@ $conn->set_charset("utf8"); // Zet de charset naar UTF-8 zodat vreemde tekens go
                         echo '<td>KEYCHAIN</td>';
                         echo '<td>GRATIS</td>';
                         echo '</tr>';
-                    }
-                }else {
-                    $keychain = FALSE;
+                    } else{ $keychain = FALSE;} //als de couponcode niet N3RDYGADGETS is dan is $keychain false
                 }
                 ?>
-
 
                 <!-- einde keychain toevoegen-->
                 <tr>
@@ -260,8 +255,8 @@ $conn->set_charset("utf8"); // Zet de charset naar UTF-8 zodat vreemde tekens go
             if(isset($keychain)){
                 if($keychain==TRUE) {
                     echo '<div class="couponcode">';
-                    echo '<p style="color: darkgreen">+ Uw gratis keychain is toegevoegd!</p></div>';
-                }else {
+                    echo '<p style="color: Green">+ Uw gratis keychain is toegevoegd!</p></div>';
+                }if($keychain== FALSE) {
                     echo '<div class="couponcode">';
                     echo '<p style="color: red; margin-bottom: -10em">Uw couponcode is incorrect </p></div>';
                 }
