@@ -264,7 +264,7 @@ $conn->set_charset("utf8"); // Zet de charset naar UTF-8 zodat vreemde tekens go
             ?>
 
             <div class="couponcode">
-            <form style="margin-left: 3em" method="post" action>
+            <form style="margin-top: 3em" method="post" action>
                 <textarea  style=" resize: none;" name="COUPONCODE" placeholder="Couponcode" p></textarea>
                 <button type="submit" value="Verzend" style=" width: 6em; height: 2em; cursor: pointer; color: white">Toepassen</button>
             </form>

@@ -241,6 +241,9 @@ button:hover span {
     animation: scaleUp 0.3s ease-in-out;
 }
 
+.couponcode{
+}
+
 @keyframes scaleUp {
     0% {
         transform: scale(1);
