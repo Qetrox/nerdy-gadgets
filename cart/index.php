@@ -257,8 +257,9 @@ $conn->set_charset("utf8"); // Zet de charset naar UTF-8 zodat vreemde tekens go
                     echo '<div class="couponcode">';
                     echo '<p style="color: Green">+ Uw gratis keychain is toegevoegd!</p></div>';
                 }if($keychain== FALSE) {
+                    //voegt bericht 'couponcode incorrect toe'
                     echo '<div class="couponcode">';
-                    echo '<p style="color: red; margin-bottom: -10em">Uw couponcode is incorrect </p></div>';
+                    echo '<p style="color: red;">Uw couponcode is incorrect </p></div>';
                 }
             }
             ?>
