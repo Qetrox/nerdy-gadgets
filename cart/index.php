@@ -236,9 +236,9 @@ $conn->set_charset("utf8"); // Zet de charset naar UTF-8 zodat vreemde tekens go
                         echo '<td>KEYCHAIN</td>';
                         echo '<td>GRATIS</td>';
                         echo '</tr>';
-                    }else {
-                        echo '<p style="color: red; margin-bottom: -10em">Uw couponcode is incorrect </p>';
                     }
+                }else {
+                    $keychain = FALSE;
                 }
                 ?>
 
@@ -251,21 +251,27 @@ $conn->set_charset("utf8"); // Zet de charset naar UTF-8 zodat vreemde tekens go
                 </tr>
 
             </table>
-            <?php
-            //voegt bericht 'keychain toegevoegd' toe
-            if($keychain==TRUE){
-                echo '<p style="color: darkgreen">+ Uw gratis keychain is toegevoegd!</p>';
-            }
-            ?>
+
             <h1>Totaal: <span id="totalPrice"></span></h1>
 
             <!--Coupon Code toevoegen-->
-
+            <?php
+            //voegt bericht 'keychain toegevoegd' toe
+            if(isset($keychain)){
+                if($keychain==TRUE) {
+                    echo '<div class="couponcode">';
+                    echo '<p style="color: darkgreen">+ Uw gratis keychain is toegevoegd!</p></div>';
+                }else {
+                    echo '<div class="couponcode">';
+                    echo '<p style="color: red; margin-bottom: -10em">Uw couponcode is incorrect </p></div>';
+                }
+            }
+            ?>
 
             <div class="couponcode">
             <form style="margin-left: 3em" method="post" action>
-                <textarea name="COUPONCODE" placeholder="Couponcode" p></textarea>
-                <button type="submit" value="Verzend" style=" width: 5em; height: 2em; cursor: pointer; color: white">Verzend</button>
+                <textarea  style=" resize: none;" name="COUPONCODE" placeholder="Couponcode" p></textarea>
+                <button type="submit" value="Verzend" style=" width: 6em; height: 2em; cursor: pointer; color: white">Toepassen</button>
             </form>
             </div>
 

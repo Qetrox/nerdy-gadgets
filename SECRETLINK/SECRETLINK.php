@@ -25,7 +25,8 @@
     <link rel="stylesheet" href="../load.css">
 </head>
 
-<?php include_once './header.php' ?>
+<?php include_once '../header.php' ?>
+
 <div class="Main">
 <h1 style="text-align: center">GEFELICITEERD U HEEFT EEN KEYCHAIN GEWONNEN!</h1>
 <br><br>
