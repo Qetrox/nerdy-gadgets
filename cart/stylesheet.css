@@ -20,7 +20,7 @@ main {
     border-radius: 20px;
     background-color: #898989;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-20%);
     padding: 10px;
     display: flex;
     justify-content: center;
