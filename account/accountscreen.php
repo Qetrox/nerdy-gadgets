@@ -36,14 +36,14 @@
     } ?>
     <p> email: </p>
     <p class="user-text-header"> <?= htmlspecialchars($_SESSION["email"]) ?> </p> <!-- Email wordt hier neergezet -->
-
-    <br>
     <p> voornaam:</p>
     <p class="user-text-header"> <?= htmlspecialchars($_SESSION["first_name"]) ?> </p> <!-- First name wordt hier neergezet -->
     <p/>
-<p>tussenvoegsel</p>
+<p>tussenvoegsel:</p>
     <p class="user-text-header"> <?= htmlspecialchars($_SESSION["surname_prefix"]) ?> </p> <!-- Tussenvoegsel wordt hier neergezet -->
+    <p>achternaam:</p>
 
+    <p class="user-text-header"> <?= htmlspecialchars($_SESSION["surname"]) ?> </p> <!-- Tussenvoegsel wordt hier neergezet -->
     <a href="./logout.php">Log uit</a>
 
 </main>
