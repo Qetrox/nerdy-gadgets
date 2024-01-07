@@ -36,7 +36,7 @@
     <!-- Dit is de bar onder de footer -->
     <div class="footerbar">
         <h3 style="margin-top: -2%;"><br><br><br>
-            @Copyright nerdy-gadgets.nl (Groep 1) 2023 - All Right Reserved.<br><br><span
+            @Copyright nerdy-gadgets.nl (Groep 1) 2023-2024 - All Right Reserved.<br><br><span
                     style="text-decoration: underline">DISCLAIMER: Dit is geen echte webshop, dit is een school project.</span>
         </h3>
     </div>
