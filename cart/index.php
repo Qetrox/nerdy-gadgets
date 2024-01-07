@@ -181,46 +181,6 @@ $conn->set_charset("utf8"); // Zet de charset naar UTF-8 zodat vreemde tekens go
         <div class="bon">
             <table>
                 <thead>
-                <tr>
-                    <th>Aantal</th>
-                    <th>Product</th>
-                    <th>Prijs</th>
-                </thead>
-                <tr>
-                    <td>6x</td>
-                    <td>Item 1</td>
-                    <td>€1200</td>
-                </tr>
-                <tr>
-                    <td>6x</td>
-                    <td>Item 1</td>
-                    <td>€1200</td>
-                </tr>
-                <tr>
-                    <td>6x</td>
-                    <td>Item 1</td>
-                    <td>€1200</td>
-                </tr>
-                <tr>
-                    <td>6x</td>
-                    <td>Item 1</td>
-                    <td>€1200</td>
-                </tr>
-                <tr>
-                    <td>6x</td>
-                    <td>Item 1</td>
-                    <td>€1200</td>
-                </tr>
-                <tr>
-                    <td>6x</td>
-                    <td>Item 1</td>
-                    <td>€1200</td>
-                </tr>
-                <tr>
-                    <td>6x</td>
-                    <td>Item 1</td>
-                    <td>€1200</td>
-                </tr>
 
                 <!-- VOEGT KEYCHAIN TOE AAN EINDE VAN PRODUCTLIJST NA INVOEREN CODE -->
 
