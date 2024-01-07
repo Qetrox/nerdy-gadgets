@@ -1,7 +1,7 @@
 
 const validator = new JustValidate('#registratie', {
         errorFieldCssClass: "validate-error-field",
-        successFieldCssClass: ['validate-sucess-field'],
+        successFieldCssClass: 'validate-sucess-field',
         errorLabelStyle: {
             color: 'white',
         },
@@ -28,7 +28,8 @@ validator
                         return json.available;
                     });
             },
-            errorMessage: "email already taken"
+            errorMessage: "email already taken",
+
         }
 
     ])

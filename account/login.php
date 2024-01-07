@@ -81,7 +81,9 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){ // Check of het een POST request is.
 
     <?php
     if($is_invalid == true){
-        print("gegevens incorrect"); // Print een error als de gebruikersnaam of wachtwoord niet klopt.
+        print('<div class = "incorrect" id="incorrect">
+          <p>gegevens incorrect</p> 
+          </div>'); // Print een error als de gebruikersnaam of wachtwoord niet klopt.
 
     }
 

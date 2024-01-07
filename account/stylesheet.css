@@ -31,7 +31,15 @@ button {
    text-align: center;
     box-shadow: 0 0 15px 4px rgb(0,0,0,0.06);
   }
+.incorrect{
+    padding-top: 8%;
+    padding-right: 0%;
+    padding-bottom: 0%;
+    padding-left: 46.3%;
+    position: absolute;
 
+
+}
 button:hover {
     opacity: 0.8;
 
