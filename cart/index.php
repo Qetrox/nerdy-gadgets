@@ -199,12 +199,6 @@ $conn->set_charset("utf8"); // Zet de charset naar UTF-8 zodat vreemde tekens go
                 ?>
 
                 <!-- einde keychain toevoegen-->
-                <tr>
-                    <td class="verzendkosten">1x</td>
-                    <td class="verzendkosten">Verzending</td>
-                    <td class="verzendkosten">€4.99</td>
-                </tr>
-
             </table>
 
             <h1>Totaal: <span id="totalPrice"></span></h1>
@@ -233,7 +227,7 @@ $conn->set_charset("utf8"); // Zet de charset naar UTF-8 zodat vreemde tekens go
 
 
             <!-- einde coupon code-->
-            <button><span> Verder met Afrekenen!</span></button>
+            <button onclick="javascript:window.location.href='./betaald'"><span> Verder met Afrekenen!</span></button>
         </div>
     </div>
     <div class="resultaten" id="cart-height">
