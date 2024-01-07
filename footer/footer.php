@@ -6,25 +6,25 @@
     <div class="rij">
         <div class="col col1">
             <h4>Handige Links</h4>
-            <a href="https://www.Nerdy-Gadgets.nl/">Home</a><br>
-            <a href="https://www.Nerdy-Gadgets.nl/search/">Producten</a><br>
-            <a href="https://www.Nerdy-Gadgets.nl/#about">Over ons</a><br>
-            <a href="https://www.Nerdy-Gadgets.nl/legal/privacy/">Legaal</a><br>
+            <a href="../../../../../../../">Home</a><br>
+            <a href="../../../../../../../search/">Producten</a><br>
+            <a href="../../../../../../../index.php/#about">Over ons</a><br>
+            <a href="../../../../../../../legal/privacy/">Legaal</a><br>
 
         </div>
         <div class="col col2">
             <h4>Account</h4>
-            <a href="https://nerdy-gadgets.nl/account/accountscreen.php">Account</a><br>
-            <a href="https://nerdy-gadgets.nl/account/login.php">Inloggen</a><br>
-            <a href="https://www.Nerdy-Gadgets.nl/account/signup.php">Registreren</a><br>
-            <?php if(isset($_SESSION["first_name"])) echo '<a href="https://nerdy-gadgets.nl/logout.php">Log uit</a><br>'; ?>
-            <a href="https://www.Nerdy-Gadgets.nl/cart">Winkelwagen</a><br>
+            <a href="../../../../../../../account/accountscreen.php">Account</a><br>
+            <a href="../../../../../../../account/login.php">Inloggen</a><br>
+            <a href="../../../../../../../account/signup.php">Registreren</a><br>
+            <?php if(isset($_SESSION["first_name"])) echo '<a href="../../../../../../..///nerdy-gadgets.nl/logout.php">Log uit</a><br>'; ?>
+            <a href="../../../../../../..//cart">Winkelwagen</a><br>
         </div>
 
         <div class="col col4">
             <h4>Extra</h4>
-            <a href="https://nerdy-gadgets.nl/eastereggmo/raadsel.php">NerdyQuiz</a><br>
-            <a href="https://nerdy-gadgets.nl/review/review.php">Site Review</a><br>
+            <a href="../../../../../../../eastereggmo/raadsel.php">NerdyQuiz</a><br>
+            <a href="../../../../../../../review/review.php">Site Review</a><br>
         </div>
 
         <div class="col col3">
@@ -42,21 +42,21 @@
     </div>
     <div class="mobile-navbar">
         <div class="mobile-nav-item">
-            <a href="https://nerdy-gadgets.nl/">
+            <a href="../../../../../../../">
                     <span class="material-symbols-sharp">
                         home
                     </span>
             </a>
         </div>
         <div class="mobile-nav-item">
-            <a href="https://nerdy-gadgets.nl/cart/">
+            <a href="../../../../../../../cart/">
                     <span class="material-symbols-sharp">
                         shopping_cart
                     </span>
             </a>
         </div>
         <div class="mobile-nav-item">
-            <a href="https://nerdy-gadgets.nl/account/">
+            <a href="../../../../../../../account/">
                     <span class="material-symbols-sharp">
                         account_circle
                     </span>
