@@ -8,7 +8,7 @@
             <h4>Handige Links</h4>
             <a href="../../../../../../../">Home</a><br>
             <a href="../../../../../../../search/">Producten</a><br>
-            <a href="../../../../../../../index.php/#about">Over ons</a><br>
+            <a href="../../../../../../../index.php#about">Over ons</a><br>
             <a href="../../../../../../../legal/privacy/">Legaal</a><br>
 
         </div>
