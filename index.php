@@ -82,12 +82,12 @@
                         while ($row = $result->fetch_assoc()) { // voor elk resultaat
                             if ($row["productDiscountPercentage"] === 0) { // als er geen korting is print het product in de lijst/HTML
                                 echo '<a href="./product/?productId=' . $row["productId"] . '">';
-                                echo '<div class="bs"><h1>' . $row["productName"] . '<br><span class="euro-text">€' . number_format((float)$row["productPrice"], 2, '.', '') . '</span> </h1><img src="https://nerdy-gadgets.nl/images/' . $row["productImage"] . '" alt="foto"><p>' . substr($row["productDescription"], 0, 400) . '...</p></div>';
+                                echo '<div class="bs"><h1>' . $row["productName"] . '<br><span class="euro-text">€' . number_format((float)$row["productPrice"], 2, '.', '') . '</span> </h1><img src="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../images/' . $row["productImage"] . '" alt="foto"><p>' . substr($row["productDescription"], 0, 400) . '...</p></div>';
                                 echo '</a>';
                             } else { // Als er wel korting is print het product in de lijst/HTML
                                 $newPrice = $row["productPrice"] * (1 - $row["productDiscountPercentage"] / 100); //bereken prijs met discount
                                 echo '<a href="./product/?productId=' . $row["productId"] . '">';
-                                echo '<div class="bs"><h1>' . $row["productName"] . '<br><span class="euro-text"><span class="kortingsprijs">€' . number_format((float)$row["productPrice"], 2, '.', '') . '</span> €' . number_format((float)$newPrice, 2, '.', '') . ' </span></h1><img src="https://nerdy-gadgets.nl/images/' . $row["productImage"] . '" alt="foto"><p>' . substr($row["productDescription"], 0, 400) . '...</p></div>';
+                                echo '<div class="bs"><h1>' . $row["productName"] . '<br><span class="euro-text"><span class="kortingsprijs">€' . number_format((float)$row["productPrice"], 2, '.', '') . '</span> €' . number_format((float)$newPrice, 2, '.', '') . ' </span></h1><img src="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../images/' . $row["productImage"] . '" alt="foto"><p>' . substr($row["productDescription"], 0, 400) . '...</p></div>';
                                 echo '</a>';
                             }
                         }
@@ -102,13 +102,13 @@
 
                 <div class="bs">
                     <h1>GRATIS 16GB RAM<span class="euro-text">€0</span> </h1>
-                    <img src="https://nerdy-gadgets.nl/images/free_ram.png" alt="foto">
+                    <img src="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../images/free_ram.png" alt="foto">
                     <p>Krijg nu 16 Gigabyte aan gratis random access memory (RAM)! Deze is vervolgens via onze website te downloaden. Gelimiteerd tot 4 stuks per klant.</p>
                 </div>
 
                 <div class="bs">
                     <h1>Moderator Pack <span class="euro-text">€68.99</span> </h1>
-                    <img src="https://nerdy-gadgets.nl/images/discord_moderator_pack.png" alt="foto">
+                    <img src="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../images/discord_moderator_pack.png" alt="foto">
                     <p>Van plan om een Discord moderator te worden? Koop dan NU onze Discord Moderator Starter Pack. Dit geweldige pakketje bevat een Ban-Hammer, Anime Muismat, Koptelefoon & Deodorant en zorgt ervoor dat je enorm veel Discord Kittens krijgt.</p>
                 </div>
                 <?php
