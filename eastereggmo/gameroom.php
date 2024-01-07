@@ -30,14 +30,14 @@
 <?php include_once '../header.php'?>
 <main>
    <div>
-       <a href="https://nerdy-gadgets.nl/eastereggmo/bubble.php">
+       <a href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../eastereggmo/bubble.php">
         <button>
             <img src="https://play-lh.googleusercontent.com/3Zifc-6g-1GFfxy2VXT6i3mH8ZzLXN2ZbAOw8JIpXBqZujBACjzJkhSw7Cm8jY0VIA" alt="Bubbleblaster">
         </button>
     </a>
    </div>
    <div>
-       <a href="https://nerdy-gadgets.nl/eastereggmo/tetris.php">
+       <a href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../eastereggmo/tetris.php">
         <button>
             <img src="https://play-lh.googleusercontent.com/7Zn2QBzByBf4XyQPhuRVsOkSaKSYsty1ka-6_bh6Ub-2kQri6xqqRdK52qxEM69N6cw " alt="Tetris">
         </button>
@@ -45,7 +45,7 @@
    </div>
 
     <div>
-        <a href="https://nerdy-gadgets.nl/eastereggmo/dark.php">
+        <a href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../eastereggmo/dark.php">
             <button>
                 <img src="https://escaperoomers.de/wp-content/uploads/StayInTheDark1.jpg" alt="stay in the dark">
             </button>
@@ -53,7 +53,7 @@
     </div>
 
     <div>
-        <a href="https://nerdy-gadgets.nl/eastereggmo/cookie.php">
+        <a href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../eastereggmo/cookie.php">
             <button>
                 <img src="https://i.pinimg.com/originals/9e/b6/82/9eb6820ebddc50cac7ff2f68bed4e20c.jpg" alt="pacman">
             </button>

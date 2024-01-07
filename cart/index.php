@@ -282,7 +282,7 @@ $conn->set_charset("utf8"); // Zet de charset naar UTF-8 zodat vreemde tekens go
                         echo '<h2 style="display: none" class="price" id="price2' . $row["productId"] . '">€' . $row["productPrice"] . '</h2>';
                         echo '<div class="up-and-down"><p class="ud1" onclick="changeItemCount(' . $row["productId"] . ', 1)">+</p><p class="ud2" id="productCount' . $row["productId"] . '">' . $counts[$row["productId"]] . '</><p class="ud3" onclick="changeItemCount(' . $row["productId"] . ', -1)">-</p></div>';
                         echo '</div>';
-                        echo '<div class="ah"><img src="https://nerdy-gadgets.nl/images/' . $row["productImage"] . '" alt="resultaat"></div>';
+                        echo '<div class="ah"><img src="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../images/' . $row["productImage"] . '" alt="resultaat"></div>';
                         echo '</div>';
                         echo '</div>';
                         echo '</div>';
@@ -298,7 +298,7 @@ $conn->set_charset("utf8"); // Zet de charset naar UTF-8 zodat vreemde tekens go
                         echo '<h2 class="price"><span class="kortingsprijs">€' . number_format((float)$row["productPrice"], 2, '.', '') . '</span> €' . number_format((float)$newPrice, 2, '.', '') . ' </h2>';
                         echo '<div class="up-and-down"><p class="ud1" onclick="changeItemCount(' . $row["productId"] . ', 1)">+</p><p class="ud2" id="productCount' . $row["productId"] . '">' . $counts[$row["productId"]] . '</><p class="ud3" onclick="changeItemCount(' . $row["productId"] . ', -1)">-</p></div>';
                         echo '</div>';
-                        echo '<div class="ah"><img src="https://nerdy-gadgets.nl/images/' . $row["productImage"] . '" alt="resultaat"></div>';
+                        echo '<div class="ah"><img src="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../images/' . $row["productImage"] . '" alt="resultaat"></div>';
                         echo '</div>';
                         echo '</div>';
                         echo '</div>';
